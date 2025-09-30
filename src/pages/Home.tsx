@@ -8,10 +8,10 @@ import seoImage from '@/assets/seo.jpg';
 
 const Home = () => {
   const stats = [
-    { number: '500+', label: 'Clients Served' },
-    { number: '98%', label: 'Client Satisfaction' },
-    { number: '250%', label: 'Avg ROI Increase' },
-    { number: '50M+', label: 'Impressions Generated' },
+    { number: '250+', label: 'Clients Served', icon: Users },
+    { number: '98%', label: 'Client Satisfaction', icon: Sparkles },
+    { number: '3.5x', label: 'Avg ROI Increase', icon: TrendingUp },
+    { number: '10M+', label: 'Impressions Generated', icon: Zap },
   ];
 
   const services = [
@@ -48,13 +48,14 @@ const Home = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/60" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
         
         <div className="container mx-auto px-4 z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-heading font-black text-primary-foreground mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-heading font-black text-white drop-shadow-lg mb-6 animate-fade-in">
             Turning Presence into Power
           </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto animate-fade-in">
+          <p className="text-xl md:text-2xl text-white/90 drop-shadow-md mb-8 max-w-3xl mx-auto animate-fade-in">
             Elevate your brand with AI-powered digital marketing solutions that drive real results
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
@@ -64,7 +65,7 @@ const Home = () => {
               </Button>
             </Link>
             <Link to="/services">
-              <Button size="lg" variant="outline" className="text-lg px-8 bg-primary-foreground/10 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20">
+              <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm">
                 Explore Services
               </Button>
             </Link>
@@ -72,8 +73,8 @@ const Home = () => {
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-primary-foreground/50 rounded-full animate-pulse" />
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-3 bg-white/50 rounded-full animate-pulse" />
           </div>
         </div>
       </section>
@@ -83,11 +84,12 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center group">
+                <stat.icon className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-base" />
                 <div className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-2">
                   {stat.number}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-muted-foreground font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
