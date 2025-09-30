@@ -80,16 +80,24 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-gradient-to-b from-background to-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <stat.icon className="h-8 w-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-base" />
-                <div className="text-4xl md:text-5xl font-heading font-bold text-gradient mb-2">
+              <div 
+                key={index} 
+                className="relative group bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="absolute top-6 right-6 opacity-20 group-hover:opacity-30 transition-opacity">
+                  <stat.icon className="h-16 w-16 text-primary" />
+                </div>
+                <stat.icon className="h-10 w-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                <div className="text-5xl md:text-6xl font-heading font-black text-foreground mb-3">
                   {stat.number}
                 </div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
+                <div className="text-base font-semibold text-muted-foreground uppercase tracking-wide">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>

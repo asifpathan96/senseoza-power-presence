@@ -25,7 +25,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-heading font-bold text-white drop-shadow-lg">Senseoza</span>
+            <span className="text-2xl font-heading font-bold" style={{ color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>Senseoza</span>
           </Link>
 
           {/* Desktop Navigation */}
