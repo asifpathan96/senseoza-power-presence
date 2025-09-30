@@ -10,8 +10,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-heading font-bold text-gradient mb-4">Senseoza</h3>
-            <p className="text-muted-foreground mb-4">Turning Presence into Power</p>
+            <h3 className="text-xl font-heading font-bold text-foreground mb-4">Senseoza</h3>
+            <p className="text-foreground/80 font-medium mb-4">Turning Presence into Power</p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-base">
                 <Facebook className="h-5 w-5" />

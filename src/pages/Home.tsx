@@ -166,7 +166,7 @@ const Home = () => {
               Join hundreds of successful brands who have amplified their online impact with Senseoza
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-primary-foreground text-primary text-lg px-8 hover:scale-105 transition-base">
+              <Button size="lg" className="bg-white text-primary text-lg px-8 hover:bg-white/90 hover:scale-105 transition-base shadow-lg">
                 Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

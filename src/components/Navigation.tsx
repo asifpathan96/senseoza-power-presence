@@ -20,12 +20,12 @@ export const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect shadow-md">
+    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-heading font-bold" style={{ color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}>Senseoza</span>
+            <span className="text-2xl font-heading font-bold text-black">Senseoza</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,7 +37,7 @@ export const Navigation = () => {
                 className={`px-4 py-2 rounded-lg transition-base ${
                   isActive(link.path)
                     ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-foreground hover:bg-secondary'
+                    : 'text-black hover:bg-secondary'
                 }`}
               >
                 {link.name}
@@ -50,7 +50,7 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-black"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -69,7 +69,7 @@ export const Navigation = () => {
                 className={`block px-4 py-3 rounded-lg transition-base ${
                   isActive(link.path)
                     ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-foreground hover:bg-secondary'
+                    : 'text-black hover:bg-secondary'
                 }`}
               >
                 {link.name}
