@@ -98,12 +98,15 @@ const About = () => {
           <h2 className="text-4xl font-heading font-bold mb-16 text-center">Our Achievements</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
-              <div key={index} className="text-center">
-                <achievement.icon className="h-16 w-16 text-primary mx-auto mb-4" />
-                <div className="text-5xl font-heading font-bold text-gradient mb-2">
-                  {achievement.stat}
+              <div key={index} className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="absolute inset-0 bg-white/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10">
+                  <achievement.icon className="h-16 w-16 text-white mx-auto mb-6 group-hover:scale-110 transition-transform drop-shadow-lg" />
+                  <div className="text-6xl font-heading font-black text-white mb-3 drop-shadow-lg">
+                    {achievement.stat}
+                  </div>
+                  <div className="text-white/90 text-lg font-semibold">{achievement.label}</div>
                 </div>
-                <div className="text-muted-foreground text-lg">{achievement.label}</div>
               </div>
             ))}
           </div>
@@ -120,7 +123,7 @@ const About = () => {
               leveraging innovative technology and strategic expertise to deliver exceptional results.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-primary-foreground text-primary hover:scale-105 transition-base">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-base shadow-lg">
                 Work With Us
               </Button>
             </Link>

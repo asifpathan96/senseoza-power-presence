@@ -119,12 +119,15 @@ const CaseStudies = () => {
                     <h3 className="font-heading font-bold mb-4">Results</h3>
                     <div className="grid grid-cols-3 gap-4">
                       {study.results.map((result, idx) => (
-                        <div key={idx} className="text-center p-4 bg-secondary rounded-lg">
-                          <result.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                          <div className="text-2xl font-heading font-bold text-gradient">
-                            {result.metric}
+                        <div key={idx} className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-xl p-4 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                          <div className="absolute inset-0 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="relative z-10">
+                            <result.icon className="h-6 w-6 text-white mx-auto mb-2 drop-shadow-md" />
+                            <div className="text-2xl md:text-3xl font-heading font-black text-white mb-1 drop-shadow-md">
+                              {result.metric}
+                            </div>
+                            <div className="text-xs font-semibold text-white/90">{result.label}</div>
                           </div>
-                          <div className="text-sm text-muted-foreground">{result.label}</div>
                         </div>
                       ))}
                     </div>

@@ -249,7 +249,7 @@ const Contact = () => {
                   Schedule a free 30-minute consultation to discuss your marketing goals and 
                   how we can help you achieve them.
                 </p>
-                <Button className="bg-primary-foreground text-primary hover:scale-105 transition-base">
+                <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-base shadow-lg">
                   Book a Consultation
                 </Button>
               </div>

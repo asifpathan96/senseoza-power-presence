@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  
   const blogPosts = [
     {
       title: '10 AI-Powered Marketing Strategies That Will Dominate 2025',
@@ -68,6 +71,10 @@ const Blog = () => {
 
   const categories = ['All', 'AI Marketing', 'SEO', 'Social Media', 'Content Marketing', 'PPC', 'Email Marketing'];
 
+  const filteredPosts = activeCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory);
+
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -91,8 +98,9 @@ const Blog = () => {
             {categories.map((category) => (
               <Button
                 key={category}
-                variant={category === 'All' ? 'default' : 'outline'}
-                className={category === 'All' ? 'gradient-primary' : ''}
+                variant={activeCategory === category ? 'default' : 'outline'}
+                className={activeCategory === category ? 'gradient-primary' : ''}
+                onClick={() => setActiveCategory(category)}
               >
                 {category}
               </Button>
@@ -102,56 +110,58 @@ const Blog = () => {
       </section>
 
       {/* Featured Post */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-8 bg-card rounded-3xl overflow-hidden border border-border shadow-lg hover:shadow-xl transition-base">
-              <div className="relative h-80 lg:h-auto">
-                <img
-                  src={blogPosts[0].image}
-                  alt={blogPosts[0].title}
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-4 left-4 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
-                  Featured
-                </span>
-              </div>
-              <div className="p-8 flex flex-col justify-center">
-                <span className="text-primary font-semibold mb-2">{blogPosts[0].category}</span>
-                <h2 className="text-3xl font-heading font-bold mb-4">
-                  {blogPosts[0].title}
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  {blogPosts[0].excerpt}
-                </p>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                  <div className="flex items-center gap-2">
-                    <User className="h-4 w-4" />
-                    <span>{blogPosts[0].author}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
-                    <span>{blogPosts[0].date}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4" />
-                    <span>{blogPosts[0].readTime}</span>
-                  </div>
+      {filteredPosts.length > 0 && (
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-8 bg-card rounded-3xl overflow-hidden border border-border shadow-lg hover:shadow-xl transition-base">
+                <div className="relative h-80 lg:h-auto">
+                  <img
+                    src={filteredPosts[0].image}
+                    alt={filteredPosts[0].title}
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute top-4 left-4 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
+                    Featured
+                  </span>
                 </div>
-                <Button className="gradient-primary w-fit">
-                  Read More <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <div className="p-8 flex flex-col justify-center">
+                  <span className="text-primary font-semibold mb-2">{filteredPosts[0].category}</span>
+                  <h2 className="text-3xl font-heading font-bold mb-4">
+                    {filteredPosts[0].title}
+                  </h2>
+                  <p className="text-muted-foreground mb-6">
+                    {filteredPosts[0].excerpt}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                    <div className="flex items-center gap-2">
+                      <User className="h-4 w-4" />
+                      <span>{filteredPosts[0].author}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4" />
+                      <span>{filteredPosts[0].date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      <span>{filteredPosts[0].readTime}</span>
+                    </div>
+                  </div>
+                  <Button className="gradient-primary w-fit">
+                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Blog Grid */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.slice(1).map((post, index) => (
+            {filteredPosts.slice(1).map((post, index) => (
               <article
                 key={index}
                 className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-base group"
