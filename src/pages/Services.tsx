@@ -4,82 +4,78 @@ import {
   Brain, Users, Search, MousePointerClick, Share2, FileText, 
   Mail, Globe, Target, BarChart 
 } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { serviceSchema } from '@/utils/schema';
 
 const Services = () => {
   const services = [
     {
       icon: Brain,
-      title: 'AI-Powered Marketing Solutions',
-      description: 'Harness the power of artificial intelligence for predictive analytics, customer segmentation, automated personalization, and data-driven campaign optimization that delivers measurable results.',
-      features: ['Predictive Analytics', 'Customer Segmentation', 'Campaign Automation', 'AI Chatbots'],
-    },
-    {
-      icon: Users,
-      title: 'Influencer Marketing',
-      description: 'Connect your brand with authentic voices that resonate with your target audience. Our data-driven approach identifies the perfect influencers to amplify your message and drive engagement.',
-      features: ['Influencer Discovery', 'Campaign Management', 'Performance Tracking', 'Contract Negotiation'],
+      title: 'AI-Powered Marketing',
+      description: 'Predictive campaigns powered by artificial intelligence to maximize reach, optimize budgets, and deliver personalized experiences at scale.',
+      features: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation', 'Personalization'],
     },
     {
       icon: Search,
-      title: 'Search Engine Optimization (SEO)',
-      description: 'Dominate search rankings with comprehensive SEO strategies including technical optimization, keyword research, on-page SEO, link building, and content optimization for sustainable organic growth.',
-      features: ['Technical SEO', 'Keyword Strategy', 'Link Building', 'Local SEO'],
-    },
-    {
-      icon: MousePointerClick,
-      title: 'Pay-Per-Click Advertising (PPC)',
-      description: 'Drive instant visibility and qualified traffic with expertly managed PPC campaigns across Google Ads, Bing Ads, and social platforms with continuous optimization for maximum ROI.',
-      features: ['Google Ads', 'Bing Ads', 'Display Advertising', 'Remarketing'],
+      title: 'SEO Excellence',
+      description: 'Technical SEO, content optimization, backlinks, and local SEO to dominate rankings and drive sustainable organic growth.',
+      features: ['Technical SEO', 'Keyword Research', 'Link Building', 'Local SEO'],
     },
     {
       icon: Share2,
-      title: 'Social Media Marketing (SMM)',
-      description: 'Build engaged communities and drive conversions across all major platforms with strategic content, community management, paid social advertising, and comprehensive analytics.',
-      features: ['Content Strategy', 'Community Management', 'Paid Social', 'Analytics & Reporting'],
+      title: 'Social Media & Influencer Marketing',
+      description: 'Data-driven social strategies plus influencer partnerships to build engaged communities and amplify your brand message.',
+      features: ['Social Strategy', 'Influencer Campaigns', 'Community Management', 'Paid Social'],
     },
     {
       icon: FileText,
       title: 'Content Marketing',
-      description: 'Create compelling narratives that convert with SEO-optimized blog posts, engaging articles, video scripts, infographics, and storytelling that resonates with your audience.',
-      features: ['Blog Writing', 'Video Scripts', 'Infographics', 'Storytelling'],
+      description: 'Blogs, videos, infographics, and storytelling that convert visitors into customers and build lasting brand authority.',
+      features: ['Blog Writing', 'Video Content', 'Infographics', 'SEO Content'],
     },
     {
-      icon: Mail,
-      title: 'Email Marketing & Automation',
-      description: 'Deliver personalized email campaigns that nurture leads and drive conversions with advanced automation, A/B testing, segmentation, and comprehensive performance analytics.',
-      features: ['Campaign Design', 'Marketing Automation', 'A/B Testing', 'List Segmentation'],
+      icon: MousePointerClick,
+      title: 'PPC & Paid Ads',
+      description: 'ROI-focused ad campaigns across Google, Meta, and more with continuous optimization for maximum returns.',
+      features: ['Google Ads', 'Meta Ads', 'Display Ads', 'Retargeting'],
     },
     {
       icon: Globe,
       title: 'Web Design & Development',
-      description: 'Create stunning, mobile-first websites optimized for conversions with responsive design, UX optimization, e-commerce solutions, and ongoing performance enhancement.',
-      features: ['Responsive Design', 'UX Optimization', 'E-commerce', 'Performance Tuning'],
+      description: 'Modern, conversion-ready websites with responsive UX that turn visitors into customers.',
+      features: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization'],
     },
     {
-      icon: Target,
-      title: 'Brand Strategy & Consulting',
-      description: 'Define and strengthen your brand identity with strategic positioning, voice development, competitive analysis, and comprehensive growth roadmaps tailored to your goals.',
-      features: ['Brand Positioning', 'Voice Development', 'Competitive Analysis', 'Growth Planning'],
+      icon: Mail,
+      title: 'Email & Marketing Automation',
+      description: 'Smart workflows to nurture leads and boost retention with personalized email campaigns and automation.',
+      features: ['Email Campaigns', 'Marketing Automation', 'Lead Nurturing', 'A/B Testing'],
     },
     {
       icon: BarChart,
       title: 'Analytics & Reporting',
-      description: 'Make informed decisions with real-time dashboards, comprehensive performance insights, ROI tracking, and data-driven optimization strategies for continuous improvement.',
-      features: ['Real-time Dashboards', 'Performance Insights', 'ROI Tracking', 'Custom Reports'],
+      description: 'Track KPIs with dashboards and performance insights to make data-driven decisions and optimize continuously.',
+      features: ['Real-time Dashboards', 'ROI Tracking', 'Performance Reports', 'Data Insights'],
     },
   ];
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead
+        title="Digital Marketing Services | Senseoza – SEO, AI, Social Media & More"
+        description="Explore Senseoza's full suite of digital marketing services: AI campaigns, SEO, content, social media, paid ads, and web design."
+        canonicalUrl="https://senseoza.com/services"
+        schema={serviceSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Our Services
+              Digital Marketing Services
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Comprehensive digital marketing solutions designed to turn your online presence into measurable power
+              Explore Senseoza's full suite of digital marketing services: AI campaigns, SEO, content, social media, paid ads, and web design.
             </p>
           </div>
         </div>
@@ -94,7 +90,9 @@ const Services = () => {
                 key={index}
                 className="bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-base group"
               >
-                <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-base" />
+                <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-4">
+                  <service.icon className="h-12 w-12 text-primary icon-3d" />
+                </div>
                 <h2 className="text-2xl font-heading font-bold mb-4">{service.title}</h2>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <div className="flex flex-wrap gap-2">

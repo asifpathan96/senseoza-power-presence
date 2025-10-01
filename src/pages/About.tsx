@@ -1,28 +1,35 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Target, Heart, Lightbulb, Users, Award, TrendingUp } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { organizationSchema } from '@/utils/schema';
 
 const About = () => {
   const values = [
     {
+      icon: Lightbulb,
+      title: 'Innovation',
+      description: 'Leveraging cutting-edge AI technology and creative thinking to stay ahead.',
+    },
+    {
       icon: Target,
-      title: 'Results-Driven',
-      description: 'Every strategy is built around measurable outcomes and ROI.',
+      title: 'Transparency',
+      description: 'Clear communication and honest reporting on every campaign metric.',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Growth',
+      description: 'Focused on sustainable, scalable growth strategies that deliver long-term results.',
     },
     {
       icon: Heart,
-      title: 'Client-Centric',
-      description: 'Your success is our success. We prioritize long-term partnerships.',
+      title: 'Creativity',
+      description: 'Bold ideas and compelling storytelling that resonates with your audience.',
     },
     {
-      icon: Lightbulb,
-      title: 'Innovation First',
-      description: 'Leveraging cutting-edge technology and creative thinking.',
-    },
-    {
-      icon: Users,
-      title: 'Collaborative',
-      description: 'Working hand-in-hand with your team for seamless execution.',
+      icon: Award,
+      title: 'Results',
+      description: 'Every strategy is built around measurable outcomes and proven ROI.',
     },
   ];
 
@@ -34,6 +41,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead
+        title="About Senseoza | AI-Driven Digital Marketing Experts"
+        description="Learn how Senseoza helps businesses transform their digital presence into measurable power with AI, SEO, and marketing expertise."
+        canonicalUrl="https://senseoza.com/about"
+        schema={organizationSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 gradient-hero relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
@@ -42,7 +55,7 @@ const About = () => {
               About Senseoza
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              We're not just marketers – we're growth architects who turn digital presence into measurable power
+              We believe digital presence is the new business power.
             </p>
           </div>
         </div>
@@ -55,18 +68,13 @@ const About = () => {
             <h2 className="text-4xl font-heading font-bold mb-8 text-center">Our Story</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>
-                Founded with a vision to bridge the gap between traditional marketing and AI-powered digital strategies, 
-                Senseoza has grown from a passionate startup to a leading force in the digital marketing landscape.
+                At Senseoza, we believe digital presence is the new business power. Our team blends AI innovation, creativity, and data-driven strategy to help brands grow faster. With 250+ clients served and a 98% satisfaction rate, we've built a reputation for delivering measurable results.
               </p>
               <p>
-                Our journey began when our founders recognized that businesses needed more than just online visibility – 
-                they needed strategic partners who could turn their digital presence into tangible business power. Today, 
-                we serve clients across industries, delivering data-driven campaigns that drive real ROI.
+                Our journey began when our founders recognized that businesses needed more than just online visibility – they needed strategic partners who could transform presence into lasting influence. Today, we serve clients across industries, delivering campaigns that drive real ROI.
               </p>
               <p>
-                With a team of seasoned experts in AI, SEO, content strategy, and creative design, we combine technical 
-                excellence with creative innovation to craft marketing solutions that don't just reach audiences – 
-                they move them to action.
+                With a team of seasoned experts in AI, SEO, content strategy, and creative design, we combine technical excellence with creative innovation to craft marketing solutions that don't just reach audiences – they move them to action.
               </p>
             </div>
           </div>
@@ -77,7 +85,7 @@ const About = () => {
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold mb-16 text-center">Our Core Values</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
@@ -117,10 +125,12 @@ const About = () => {
       <section className="py-20 gradient-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-heading font-bold mb-6">Our Mission</h2>
+            <h2 className="text-4xl font-heading font-bold mb-6">Our Mission & Vision</h2>
+            <p className="text-xl mb-4">
+              <strong>Mission:</strong> Transform presence into lasting influence and power.
+            </p>
             <p className="text-xl mb-8">
-              To empower businesses worldwide by turning their digital presence into a powerful engine for growth, 
-              leveraging innovative technology and strategic expertise to deliver exceptional results.
+              <strong>Vision:</strong> To be the global leader in AI-driven digital marketing innovation.
             </p>
             <Link to="/contact">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-base shadow-lg">

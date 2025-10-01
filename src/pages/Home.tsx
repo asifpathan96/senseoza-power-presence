@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { useCountUp } from '@/hooks/use-count-up';
+import ParticleBackground from '@/components/ParticleBackground';
+import SEOHead from '@/components/SEOHead';
+import { organizationSchema } from '@/utils/schema';
 import heroBg from '@/assets/hero-bg.jpg';
 import aiMarketing from '@/assets/ai-marketing.jpg';
 import socialMedia from '@/assets/social-media.jpg';
@@ -8,11 +12,34 @@ import seoImage from '@/assets/seo.jpg';
 
 const Home = () => {
   const stats = [
-    { number: '250+', label: 'Clients Served', icon: Users },
-    { number: '98%', label: 'Client Satisfaction', icon: Sparkles },
-    { number: '3.5x', label: 'Avg ROI Increase', icon: TrendingUp },
-    { number: '10M+', label: 'Impressions Generated', icon: Zap },
+    { number: 250, suffix: '+', label: 'Clients Served', icon: Users },
+    { number: 98, suffix: '%', label: 'Client Satisfaction', icon: Sparkles },
+    { number: 3.5, suffix: 'x', label: 'Avg ROI Increase', icon: TrendingUp },
+    { number: 10, suffix: 'M+', label: 'Impressions Generated', icon: Zap },
   ];
+
+  const StatsCard = ({ stat }: { stat: typeof stats[0] }) => {
+    const { count, ref } = useCountUp(stat.number, 2500);
+    
+    return (
+      <div 
+        ref={ref}
+        className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12" />
+        <div className="relative z-10">
+          <stat.icon className="h-12 w-12 text-white mb-6 group-hover:scale-110 transition-transform drop-shadow-lg" />
+          <div className="text-6xl md:text-7xl font-heading font-black text-white mb-4 drop-shadow-lg">
+            {count}{stat.suffix}
+          </div>
+          <div className="text-sm font-bold text-white/90 uppercase tracking-wider">
+            {stat.label}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   const services = [
     {
@@ -37,6 +64,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Senseoza | AI-Powered Digital Marketing Agency – Turning Presence into Power"
+        description="Boost your brand with AI-driven marketing, SEO, influencer services, and content strategies. Partner with Senseoza for measurable results."
+        canonicalUrl="https://senseoza.com/"
+        schema={organizationSchema}
+      />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div 
@@ -49,6 +82,7 @@ const Home = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/60" />
           <div className="absolute inset-0 bg-black/30" />
+          <ParticleBackground />
         </div>
         
         <div className="container mx-auto px-4 z-10 text-center">
@@ -56,12 +90,12 @@ const Home = () => {
             Turning Presence into Power
           </h1>
           <p className="text-xl md:text-2xl text-white/90 drop-shadow-md mb-8 max-w-3xl mx-auto animate-fade-in">
-            Elevate your brand with AI-powered digital marketing solutions that drive real results
+            Elevate your brand with AI-powered digital marketing solutions that deliver visibility, influence, and measurable ROI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Link to="/contact">
               <Button size="lg" className="gradient-accent text-lg px-8 shadow-glow">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                Start Growing <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/services">
@@ -84,22 +118,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12" />
-                <div className="relative z-10">
-                  <stat.icon className="h-12 w-12 text-white mb-6 group-hover:scale-110 transition-transform drop-shadow-lg" />
-                  <div className="text-6xl md:text-7xl font-heading font-black text-white mb-4 drop-shadow-lg">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm font-bold text-white/90 uppercase tracking-wider">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
+              <StatsCard key={index} stat={stat} />
             ))}
           </div>
         </div>
@@ -131,7 +150,9 @@ const Home = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <service.icon className="h-10 w-10 text-primary mb-4" />
+                  <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-4">
+                    <service.icon className="h-10 w-10 text-primary icon-3d" />
+                  </div>
                   <h3 className="text-2xl font-heading font-bold mb-3">{service.title}</h3>
                   <p className="text-muted-foreground mb-4">{service.description}</p>
                   <Link to="/services" className="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-base">
@@ -164,7 +185,7 @@ const Home = () => {
               Ready to Transform Your Digital Presence?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Join hundreds of successful brands who have amplified their online impact with Senseoza
+              Join 250+ brands scaling with Senseoza's proven digital marketing strategies.
             </p>
             <Link to="/contact">
               <Button size="lg" className="bg-white text-primary text-lg px-8 hover:bg-white/90 hover:scale-105 transition-base shadow-lg">

@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Users, DollarSign, Eye, Search } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -60,6 +61,11 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead
+        title="Case Studies | Senseoza – Proven Digital Marketing Results"
+        description="See how Senseoza has helped businesses increase traffic, rankings, and ROI with AI-driven marketing strategies."
+        canonicalUrl="https://senseoza.com/case-studies"
+      />
       {/* Hero Section */}
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4">
@@ -68,7 +74,7 @@ const CaseStudies = () => {
               Case Studies
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Real results from real clients – discover how we've transformed digital presence into measurable power
+              We don't just design strategies — we deliver results. Explore how Senseoza has helped brands grow their digital presence, boost ROI, and achieve lasting success.
             </p>
           </div>
         </div>

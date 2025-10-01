@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
+import { blogSchema } from '@/utils/schema';
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -77,15 +79,21 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <SEOHead
+        title="Digital Marketing Blog | Senseoza – SEO, AI & Growth Insights"
+        description="Read Senseoza's blog for expert tips on AI marketing, SEO, paid ads, social media, and content strategy."
+        canonicalUrl="https://senseoza.com/blog"
+        schema={blogSchema}
+      />
       {/* Hero Section */}
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Marketing Insights & Strategies
+              Digital Marketing Blog
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Expert advice, industry trends, and actionable strategies to elevate your digital marketing game
+              Stay ahead of digital trends with insights on SEO, AI, content, and social media. Learn from our experts and grow smarter with Senseoza.
             </p>
           </div>
         </div>
