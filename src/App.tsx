@@ -14,6 +14,16 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
+// Service Pages
+import AIMarketing from "./pages/services/AIMarketing";
+import SEOServices from "./pages/services/SEOServices";
+import SocialMedia from "./pages/services/SocialMedia";
+import ContentMarketing from "./pages/services/ContentMarketing";
+import PPCAds from "./pages/services/PPCAds";
+import WebDesign from "./pages/services/WebDesign";
+import EmailAutomation from "./pages/services/EmailAutomation";
+import Analytics from "./pages/services/Analytics";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +36,14 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/ai-marketing" element={<AIMarketing />} />
+        <Route path="/services/seo" element={<SEOServices />} />
+        <Route path="/services/social-media" element={<SocialMedia />} />
+        <Route path="/services/content-marketing" element={<ContentMarketing />} />
+        <Route path="/services/ppc-ads" element={<PPCAds />} />
+        <Route path="/services/web-design" element={<WebDesign />} />
+        <Route path="/services/email-automation" element={<EmailAutomation />} />
+        <Route path="/services/analytics" element={<Analytics />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/blog" element={<Blog />} />

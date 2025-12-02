@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 import heroBg from '@/assets/hero-bg.jpg';
-import aiMarketing from '@/assets/ai-marketing.jpg';
-import socialMedia from '@/assets/social-media.jpg';
-import seoImage from '@/assets/seo.jpg';
+import aboutImage from '@/assets/about-3d.png';
+import serviceAI from '@/assets/service-ai-marketing.png';
+import serviceSEO from '@/assets/service-seo.png';
+import serviceSocial from '@/assets/service-social-media.png';
+import serviceContent from '@/assets/service-content.png';
+import servicePPC from '@/assets/service-ppc.png';
+import serviceWeb from '@/assets/service-web-design.png';
 
 const Home = () => {
   const stats = [
@@ -43,22 +47,52 @@ const Home = () => {
 
   const services = [
     {
-      icon: Sparkles,
+      icon: Brain,
       title: 'AI-Powered Marketing',
-      description: 'Leverage cutting-edge AI technology for data-driven campaigns and predictive analytics.',
-      image: aiMarketing,
+      description: 'Predictive campaigns powered by artificial intelligence to maximize reach and optimize budgets.',
+      image: serviceAI,
+      link: '/services/ai-marketing',
+      tags: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation'],
     },
     {
-      icon: TrendingUp,
+      icon: Search,
       title: 'SEO Excellence',
-      description: 'Dominate search rankings with our proven SEO strategies and technical optimization.',
-      image: seoImage,
+      description: 'Technical SEO, content optimization, and link building to dominate search rankings.',
+      image: serviceSEO,
+      link: '/services/seo',
+      tags: ['Technical SEO', 'Keyword Research', 'Link Building'],
     },
     {
-      icon: Users,
-      title: 'Social Media Mastery',
-      description: 'Build engaged communities and drive conversions across all major platforms.',
-      image: socialMedia,
+      icon: Share2,
+      title: 'Social Media Marketing',
+      description: 'Data-driven social strategies plus influencer partnerships to build engaged communities.',
+      image: serviceSocial,
+      link: '/services/social-media',
+      tags: ['Social Strategy', 'Influencer Campaigns', 'Community Management'],
+    },
+    {
+      icon: FileText,
+      title: 'Content Marketing',
+      description: 'Blogs, videos, infographics, and storytelling that convert visitors into customers.',
+      image: serviceContent,
+      link: '/services/content-marketing',
+      tags: ['Blog Writing', 'Video Content', 'SEO Content'],
+    },
+    {
+      icon: MousePointerClick,
+      title: 'PPC & Paid Ads',
+      description: 'ROI-focused ad campaigns across Google, Meta, and more with continuous optimization.',
+      image: servicePPC,
+      link: '/services/ppc-ads',
+      tags: ['Google Ads', 'Meta Ads', 'Retargeting'],
+    },
+    {
+      icon: Globe,
+      title: 'Web Design & Development',
+      description: 'Modern, conversion-ready websites with responsive UX that turn visitors into customers.',
+      image: serviceWeb,
+      link: '/services/web-design',
+      tags: ['Responsive Design', 'UX/UI Design', 'E-commerce'],
     },
   ];
 
@@ -124,6 +158,43 @@ const Home = () => {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+                About Senseoza
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                At Senseoza, we believe digital presence is the new business power. Our team blends AI innovation, creativity, and data-driven strategy to help brands grow faster.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8">
+                With 250+ clients served and a 98% satisfaction rate, we've built a reputation for delivering measurable results that transform businesses.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Innovation</span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Transparency</span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Growth</span>
+                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Results</span>
+              </div>
+              <Link to="/about">
+                <Button size="lg" className="gradient-primary">
+                  Learn More About Us <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+            <div className="relative">
+              <img 
+                src={aboutImage} 
+                alt="About Senseoza - Digital Marketing Team" 
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Services */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -136,35 +207,44 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-16">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:shadow-lg transition-base cursor-pointer"
+                className="grid lg:grid-cols-2 gap-12 items-center"
               >
-                <div className="aspect-video overflow-hidden">
+                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
+                    <service.icon className="h-10 w-10 text-primary icon-3d" />
+                  </div>
+                  <h3 className="text-3xl font-heading font-bold mb-4">{service.title}</h3>
+                  <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.tags.map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
+                    <Button className="gradient-primary">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-base"
+                    className="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
                   />
-                </div>
-                <div className="p-6">
-                  <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-4">
-                    <service.icon className="h-10 w-10 text-primary icon-3d" />
-                  </div>
-                  <h3 className="text-2xl font-heading font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Link to="/services" className="text-primary font-semibold flex items-center group-hover:translate-x-2 transition-base">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services">
+            <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
               <Button size="lg" className="gradient-primary">
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

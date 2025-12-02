@@ -1,11 +1,16 @@
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { 
-  Brain, Users, Search, MousePointerClick, Share2, FileText, 
-  Mail, Globe, Target, BarChart 
-} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Brain, Search, Share2, FileText, MousePointerClick, Globe, Mail, BarChart } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
+import serviceAI from '@/assets/service-ai-marketing.png';
+import serviceSEO from '@/assets/service-seo.png';
+import serviceSocial from '@/assets/service-social-media.png';
+import serviceContent from '@/assets/service-content.png';
+import servicePPC from '@/assets/service-ppc.png';
+import serviceWeb from '@/assets/service-web-design.png';
+import serviceEmail from '@/assets/service-email.png';
+import serviceAnalytics from '@/assets/service-analytics.png';
 
 const Services = () => {
   const services = [
@@ -13,49 +18,65 @@ const Services = () => {
       icon: Brain,
       title: 'AI-Powered Marketing',
       description: 'Predictive campaigns powered by artificial intelligence to maximize reach, optimize budgets, and deliver personalized experiences at scale.',
-      features: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation', 'Personalization'],
+      tags: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation', 'Personalization'],
+      image: serviceAI,
+      link: '/services/ai-marketing',
     },
     {
       icon: Search,
       title: 'SEO Excellence',
       description: 'Technical SEO, content optimization, backlinks, and local SEO to dominate rankings and drive sustainable organic growth.',
-      features: ['Technical SEO', 'Keyword Research', 'Link Building', 'Local SEO'],
+      tags: ['Technical SEO', 'Keyword Research', 'Link Building', 'Local SEO'],
+      image: serviceSEO,
+      link: '/services/seo',
     },
     {
       icon: Share2,
       title: 'Social Media & Influencer Marketing',
       description: 'Data-driven social strategies plus influencer partnerships to build engaged communities and amplify your brand message.',
-      features: ['Social Strategy', 'Influencer Campaigns', 'Community Management', 'Paid Social'],
+      tags: ['Social Strategy', 'Influencer Campaigns', 'Community Management', 'Paid Social'],
+      image: serviceSocial,
+      link: '/services/social-media',
     },
     {
       icon: FileText,
       title: 'Content Marketing',
       description: 'Blogs, videos, infographics, and storytelling that convert visitors into customers and build lasting brand authority.',
-      features: ['Blog Writing', 'Video Content', 'Infographics', 'SEO Content'],
+      tags: ['Blog Writing', 'Video Content', 'Infographics', 'SEO Content'],
+      image: serviceContent,
+      link: '/services/content-marketing',
     },
     {
       icon: MousePointerClick,
       title: 'PPC & Paid Ads',
       description: 'ROI-focused ad campaigns across Google, Meta, and more with continuous optimization for maximum returns.',
-      features: ['Google Ads', 'Meta Ads', 'Display Ads', 'Retargeting'],
+      tags: ['Google Ads', 'Meta Ads', 'Display Ads', 'Retargeting'],
+      image: servicePPC,
+      link: '/services/ppc-ads',
     },
     {
       icon: Globe,
       title: 'Web Design & Development',
       description: 'Modern, conversion-ready websites with responsive UX that turn visitors into customers.',
-      features: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization'],
+      tags: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization'],
+      image: serviceWeb,
+      link: '/services/web-design',
     },
     {
       icon: Mail,
       title: 'Email & Marketing Automation',
       description: 'Smart workflows to nurture leads and boost retention with personalized email campaigns and automation.',
-      features: ['Email Campaigns', 'Marketing Automation', 'Lead Nurturing', 'A/B Testing'],
+      tags: ['Email Campaigns', 'Marketing Automation', 'Lead Nurturing', 'A/B Testing'],
+      image: serviceEmail,
+      link: '/services/email-automation',
     },
     {
       icon: BarChart,
       title: 'Analytics & Reporting',
       description: 'Track KPIs with dashboards and performance insights to make data-driven decisions and optimize continuously.',
-      features: ['Real-time Dashboards', 'ROI Tracking', 'Performance Reports', 'Data Insights'],
+      tags: ['Real-time Dashboards', 'ROI Tracking', 'Performance Reports', 'Data Insights'],
+      image: serviceAnalytics,
+      link: '/services/analytics',
     },
   ];
 
@@ -81,29 +102,43 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services List */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-20">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-base group"
+                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? '' : ''}`}
               >
-                <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-4">
-                  <service.icon className="h-12 w-12 text-primary icon-3d" />
+                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
+                    <service.icon className="h-12 w-12 text-primary icon-3d" />
+                  </div>
+                  <h2 className="text-4xl font-heading font-bold mb-4">{service.title}</h2>
+                  <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {service.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
+                    <Button className="gradient-primary">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
-                <h2 className="text-2xl font-heading font-bold mb-4">{service.title}</h2>
-                <p className="text-muted-foreground mb-6">{service.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.features.map((feature, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
-                    >
-                      {feature}
-                    </span>
-                  ))}
+                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
+                  />
                 </div>
               </div>
             ))}
