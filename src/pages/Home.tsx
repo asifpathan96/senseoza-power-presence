@@ -13,6 +13,9 @@ import serviceSocial from '@/assets/service-social-media.png';
 import serviceContent from '@/assets/service-content.png';
 import servicePPC from '@/assets/service-ppc.png';
 import serviceWeb from '@/assets/service-web-design.png';
+import seoImage from '@/assets/seo.jpg';
+import aiMarketingImage from '@/assets/ai-marketing.jpg';
+import socialMediaImage from '@/assets/social-media.jpg';
 
 const Home = () => {
   const stats = [
@@ -49,50 +52,71 @@ const Home = () => {
     {
       icon: Brain,
       title: 'AI-Powered Marketing',
-      description: 'Predictive campaigns powered by artificial intelligence to maximize reach and optimize budgets.',
+      description: 'Predictive campaigns powered by artificial intelligence to maximize reach.',
       image: serviceAI,
       link: '/services/ai-marketing',
-      tags: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation'],
     },
     {
       icon: Search,
       title: 'SEO Excellence',
-      description: 'Technical SEO, content optimization, and link building to dominate search rankings.',
+      description: 'Technical SEO and link building to dominate search rankings.',
       image: serviceSEO,
       link: '/services/seo',
-      tags: ['Technical SEO', 'Keyword Research', 'Link Building'],
     },
     {
       icon: Share2,
       title: 'Social Media Marketing',
-      description: 'Data-driven social strategies plus influencer partnerships to build engaged communities.',
+      description: 'Data-driven social strategies to build engaged communities.',
       image: serviceSocial,
       link: '/services/social-media',
-      tags: ['Social Strategy', 'Influencer Campaigns', 'Community Management'],
     },
     {
       icon: FileText,
       title: 'Content Marketing',
-      description: 'Blogs, videos, infographics, and storytelling that convert visitors into customers.',
+      description: 'Blogs, videos, and storytelling that convert visitors.',
       image: serviceContent,
       link: '/services/content-marketing',
-      tags: ['Blog Writing', 'Video Content', 'SEO Content'],
     },
     {
       icon: MousePointerClick,
       title: 'PPC & Paid Ads',
-      description: 'ROI-focused ad campaigns across Google, Meta, and more with continuous optimization.',
+      description: 'ROI-focused ad campaigns across Google and Meta.',
       image: servicePPC,
       link: '/services/ppc-ads',
-      tags: ['Google Ads', 'Meta Ads', 'Retargeting'],
     },
     {
       icon: Globe,
-      title: 'Web Design & Development',
-      description: 'Modern, conversion-ready websites with responsive UX that turn visitors into customers.',
+      title: 'Web Design',
+      description: 'Modern, conversion-ready websites with responsive UX.',
       image: serviceWeb,
       link: '/services/web-design',
-      tags: ['Responsive Design', 'UX/UI Design', 'E-commerce'],
+    },
+  ];
+
+  const blogPosts = [
+    {
+      title: 'How AI is Revolutionizing Digital Marketing in 2024',
+      excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
+      category: 'AI Marketing',
+      date: 'Dec 10, 2024',
+      readTime: '5 min read',
+      image: aiMarketingImage,
+    },
+    {
+      title: 'SEO Trends You Can\'t Ignore This Year',
+      excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.',
+      category: 'SEO',
+      date: 'Dec 8, 2024',
+      readTime: '4 min read',
+      image: seoImage,
+    },
+    {
+      title: 'Building Brand Authority on Social Media',
+      excerpt: 'Learn how to create authentic connections and grow your brand presence online.',
+      category: 'Social Media',
+      date: 'Dec 5, 2024',
+      readTime: '6 min read',
+      image: socialMediaImage,
     },
   ];
 
@@ -198,7 +222,7 @@ const Home = () => {
       {/* Featured Services */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
               Our Core Services
             </h2>
@@ -207,46 +231,91 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="grid lg:grid-cols-2 gap-12 items-center"
+              <Link 
+                key={index} 
+                to={service.link} 
+                onClick={() => window.scrollTo(0, 0)}
+                className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-border/50"
               >
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
-                    <service.icon className="h-10 w-10 text-primary icon-3d" />
-                  </div>
-                  <h3 className="text-3xl font-heading font-bold mb-4">{service.title}</h3>
-                  <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {service.tags.map((tag, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
-                    <Button className="gradient-primary">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </div>
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
+                <div className="h-48 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-              </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg">
+                      <service.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-heading font-bold group-hover:text-primary transition-colors">{service.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{service.description}</p>
+                  <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
               <Button size="lg" className="gradient-primary">
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Latest Insights
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Stay ahead with expert tips on SEO, AI marketing, and digital growth strategies
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+              <article 
+                key={index}
+                className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-border/50"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">{post.category}</span>
+                  <h3 className="text-lg font-heading font-bold mt-2 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{post.excerpt}</p>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <span>{post.date}</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link to="/blog" onClick={() => window.scrollTo(0, 0)}>
+              <Button size="lg" className="gradient-primary">
+                Read More Articles <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
