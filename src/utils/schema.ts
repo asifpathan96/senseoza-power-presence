@@ -7,19 +7,19 @@ export const organizationSchema = {
   "logo": "https://lovable.dev/opengraph-image-p98pqg.png",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-555-123-4567",
+    "telephone": "+91-9168411743",
     "contactType": "Customer Service",
-    "email": "contact@senseoza.com",
-    "areaServed": "US",
+    "email": "senseoza@gmail.com",
+    "areaServed": "IN",
     "availableLanguage": "English"
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Digital Ave",
-    "addressLocality": "Tech City",
-    "addressRegion": "TC",
-    "postalCode": "12345",
-    "addressCountry": "US"
+    "streetAddress": "Shalom Bungalow, Sandvik Colony, Sector No. 27, Pradhikaran, Nigdi",
+    "addressLocality": "Pune, Pimpri-Chinchwad",
+    "addressRegion": "Maharashtra",
+    "postalCode": "411044",
+    "addressCountry": "IN"
   },
   "sameAs": [
     "https://facebook.com/senseoza",

@@ -4,6 +4,10 @@ import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'luc
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-secondary/50 border-t border-border mt-20">
       <div className="container mx-auto px-4 py-12">
@@ -32,10 +36,11 @@ export const Footer = () => {
           <div>
             <h4 className="font-heading font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-base">About Us</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-base">Services</Link></li>
-              <li><Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-base">Case Studies</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-primary transition-base">Blog</Link></li>
+              <li><Link to="/about" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">About Us</Link></li>
+              <li><Link to="/services" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Services</Link></li>
+              <li><Link to="/case-studies" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Case Studies</Link></li>
+              <li><Link to="/blog" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Blog</Link></li>
+              <li><Link to="/contact" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Contact</Link></li>
             </ul>
           </div>
 
@@ -43,10 +48,10 @@ export const Footer = () => {
           <div>
             <h4 className="font-heading font-bold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-base">AI Marketing</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-base">SEO</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-base">Social Media</Link></li>
-              <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-base">Web Design</Link></li>
+              <li><Link to="/services/ai-marketing" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">AI Marketing</Link></li>
+              <li><Link to="/services/seo" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">SEO</Link></li>
+              <li><Link to="/services/social-media" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Social Media</Link></li>
+              <li><Link to="/services/web-design" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Web Design</Link></li>
             </ul>
           </div>
 
@@ -56,15 +61,15 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <span>contact@senseoza.com</span>
+                <a href="mailto:senseoza@gmail.com" className="hover:text-primary transition-colors">senseoza@gmail.com</a>
               </li>
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+                <a href="tel:+919168411743" className="hover:text-primary transition-colors">+91 9168411743</a>
               </li>
               <li className="flex items-start space-x-2 text-muted-foreground">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <span>123 Digital Ave, Tech City, TC 12345</span>
+                <span>Shalom Bungalow, Sandvik Colony, Sector No. 27, Pradhikaran, Nigdi, Pune, Maharashtra 411044</span>
               </li>
             </ul>
           </div>

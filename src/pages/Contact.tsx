@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 
@@ -31,10 +31,31 @@ const Contact = () => {
       return;
     }
 
-    // Show success message
+    // Format message for WhatsApp
+    const whatsappMessage = `
+*New Contact Form Submission*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Company:* ${formData.company || 'Not provided'}
+*Phone:* ${formData.phone || 'Not provided'}
+*Service:* ${formData.service || 'Not specified'}
+
+*Message:*
+${formData.message}
+    `.trim();
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = '919168411743';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+
     toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you within 24 hours.",
+      title: 'Redirecting to WhatsApp',
+      description: 'Your message is ready to send via WhatsApp!',
     });
 
     // Reset form
@@ -158,7 +179,7 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 9168411743"
                     />
                   </div>
                 </div>
@@ -198,8 +219,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-white text-primary hover:bg-white/90">
-                  Book a Consultation
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground hover:opacity-90 shadow-lg font-semibold"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Book a Consultation via WhatsApp
                 </Button>
               </form>
             </div>
@@ -221,7 +247,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Email Us</h3>
-                    <p className="text-muted-foreground">contact@senseoza.com</p>
+                    <a href="mailto:senseoza@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                      senseoza@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -231,8 +259,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Call Us</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                    <p className="text-sm text-muted-foreground">Mon-Fri, 9am-6pm EST</p>
+                    <a href="tel:+919168411743" className="text-muted-foreground hover:text-primary transition-colors">
+                      +91 9168411743
+                    </a>
                   </div>
                 </div>
 
@@ -242,8 +271,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Visit Us</h3>
-                    <p className="text-muted-foreground">123 Digital Ave</p>
-                    <p className="text-muted-foreground">Tech City, TC 12345</p>
+                    <p className="text-muted-foreground">
+                      Shalom Bungalow, Sandvik Colony,<br />
+                      Sector No. 27, Pradhikaran, Nigdi,<br />
+                      Pune, Pimpri-Chinchwad,<br />
+                      Maharashtra 411044
+                    </p>
                   </div>
                 </div>
               </div>
@@ -256,7 +289,14 @@ const Contact = () => {
                   Schedule a free 30-minute consultation to discuss your marketing goals and 
                   how we can help you achieve them.
                 </p>
-                <Button className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-base shadow-lg">
+                <Button 
+                  onClick={() => {
+                    const whatsappUrl = `https://wa.me/919168411743?text=${encodeURIComponent('Hi, I would like to book a consultation.')}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
+                  className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all shadow-lg font-semibold"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
                   Book a Consultation
                 </Button>
               </div>
