@@ -9,24 +9,24 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary/50 border-t border-border mt-20">
+    <footer className="bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 border-t border-border mt-20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-heading font-bold text-foreground mb-4">Senseoza</h3>
-            <p className="text-foreground/80 font-medium mb-4">Turning Presence into Power</p>
+            <h3 className="text-xl font-heading font-bold text-background mb-4">Senseoza</h3>
+            <p className="text-background/80 font-medium mb-4">Turning Presence into Power</p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-base">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-base">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-base">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-base">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -34,40 +34,40 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold mb-4">Quick Links</h4>
+            <h4 className="font-heading font-bold mb-4 text-background">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/about" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">About Us</Link></li>
-              <li><Link to="/services" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Services</Link></li>
-              <li><Link to="/case-studies" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Case Studies</Link></li>
-              <li><Link to="/blog" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Blog</Link></li>
-              <li><Link to="/contact" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Contact</Link></li>
+              <li><Link to="/about" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">About Us</Link></li>
+              <li><Link to="/services" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Services</Link></li>
+              <li><Link to="/case-studies" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Case Studies</Link></li>
+              <li><Link to="/blog" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Blog</Link></li>
+              <li><Link to="/contact" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Contact</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-heading font-bold mb-4">Services</h4>
+            <h4 className="font-heading font-bold mb-4 text-background">Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/services/ai-marketing" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">AI Marketing</Link></li>
-              <li><Link to="/services/seo" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">SEO</Link></li>
-              <li><Link to="/services/social-media" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Social Media</Link></li>
-              <li><Link to="/services/web-design" onClick={scrollToTop} className="text-muted-foreground hover:text-primary transition-base">Web Design</Link></li>
+              <li><Link to="/services/ai-marketing" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">AI Marketing</Link></li>
+              <li><Link to="/services/seo" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">SEO</Link></li>
+              <li><Link to="/services/social-media" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Social Media</Link></li>
+              <li><Link to="/services/web-design" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Web Design</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading font-bold mb-4">Contact</h4>
+            <h4 className="font-heading font-bold mb-4 text-background">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-start space-x-2 text-muted-foreground">
+              <li className="flex items-start space-x-2 text-background/60">
                 <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <a href="mailto:senseoza@gmail.com" className="hover:text-primary transition-colors">senseoza@gmail.com</a>
               </li>
-              <li className="flex items-start space-x-2 text-muted-foreground">
+              <li className="flex items-start space-x-2 text-background/60">
                 <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <a href="tel:+919168411743" className="hover:text-primary transition-colors">+91 9168411743</a>
               </li>
-              <li className="flex items-start space-x-2 text-muted-foreground">
+              <li className="flex items-start space-x-2 text-background/60">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <span>Shalom Bungalow, Sandvik Colony, Sector No. 27, Pradhikaran, Nigdi, Pune, Maharashtra 411044</span>
               </li>
@@ -75,7 +75,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+        <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/60">
           <p>&copy; {currentYear} Senseoza. All rights reserved. Turning Presence into Power.</p>
         </div>
       </div>
