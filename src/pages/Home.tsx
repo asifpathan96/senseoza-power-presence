@@ -342,13 +342,16 @@ const Home = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container mx-auto px-4">
+      <section className="py-16 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary-foreground">
               Trusted Partners
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
+            <p className="text-primary-foreground/80 max-w-xl mx-auto">
               We collaborate with industry leaders to deliver the best results
             </p>
           </div>
@@ -356,7 +359,7 @@ const Home = () => {
             {partners.map((partner, index) => (
               <div 
                 key={index}
-                className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                className="bg-white/90 backdrop-blur-sm rounded-xl px-6 py-4 shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300"
               >
                 <img 
                   src={partner.logo} 
@@ -370,8 +373,10 @@ const Home = () => {
       </section>
 
       {/* Testimonials Slider Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-card via-secondary/50 to-card relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
               What Our Clients Say
@@ -382,11 +387,11 @@ const Home = () => {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 border border-border/50">
-              <Quote className="h-12 w-12 text-primary/30 mb-6" />
+            <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-primary/20 shadow-xl">
+              <Quote className="h-12 w-12 text-primary mb-6" />
               
               <div className="min-h-[200px] flex flex-col justify-between">
-                <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-8 italic">
+                <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 italic">
                   "{testimonials[currentTestimonial].text}"
                 </p>
                 
@@ -394,7 +399,7 @@ const Home = () => {
                   <img 
                     src={testimonials[currentTestimonial].image} 
                     alt={testimonials[currentTestimonial].name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-primary"
+                    className="w-16 h-16 rounded-full object-cover border-3 border-primary shadow-lg"
                   />
                   <div>
                     <h4 className="font-heading font-bold text-lg">{testimonials[currentTestimonial].name}</h4>
@@ -414,13 +419,13 @@ const Home = () => {
             {/* Navigation Buttons */}
             <button 
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-background border border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 gradient-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
             <button 
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 bg-background border border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 gradient-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -433,8 +438,8 @@ const Home = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentTestimonial 
-                      ? 'bg-primary w-8' 
-                      : 'bg-border hover:bg-primary/50'
+                      ? 'gradient-primary w-8' 
+                      : 'bg-muted-foreground/30 hover:bg-primary/50'
                   }`}
                 />
               ))}
