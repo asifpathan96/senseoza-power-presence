@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
@@ -169,25 +168,9 @@ const Home = () => {
     { name: 'Meta Business Partner', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png' },
     { name: 'HubSpot', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg' },
     { name: 'Shopify', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
-    { name: 'Semrush', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Semrush_logo.svg' },
+    { name: 'Semrush', logo: 'https://cdn.worldvectorlogo.com/logos/semrush.svg' },
   ];
 
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
 
   return (
     <div className="min-h-screen">
@@ -372,81 +355,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Slider Section */}
-      <section className="py-20 bg-gradient-to-br from-card via-secondary/50 to-card relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Success stories from businesses we've helped grow
-            </p>
-          </div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="bg-card/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-primary/20 shadow-xl">
-              <Quote className="h-12 w-12 text-primary mb-6" />
-              
-              <div className="min-h-[200px] flex flex-col justify-between">
-                <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 italic">
-                  "{testimonials[currentTestimonial].text}"
-                </p>
-                
-                <div className="flex items-center gap-4">
-                  <img 
-                    src={testimonials[currentTestimonial].image} 
-                    alt={testimonials[currentTestimonial].name}
-                    className="w-16 h-16 rounded-full object-cover border-3 border-primary shadow-lg"
-                  />
-                  <div>
-                    <h4 className="font-heading font-bold text-lg">{testimonials[currentTestimonial].name}</h4>
-                    <p className="text-muted-foreground text-sm">
-                      {testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}
-                    </p>
-                    <div className="flex gap-1 mt-1">
-                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Buttons */}
-            <button 
-              onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 gradient-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button 
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 gradient-primary text-primary-foreground rounded-full p-3 shadow-lg hover:scale-110 transition-transform"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentTestimonial 
-                      ? 'gradient-primary w-8' 
-                      : 'bg-muted-foreground/30 hover:bg-primary/50'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Blog Section */}
       <section className="py-20 bg-secondary/30">

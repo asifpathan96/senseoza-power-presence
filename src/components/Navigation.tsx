@@ -34,6 +34,7 @@ export const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className={`px-4 py-2 rounded-lg transition-base ${
                   isActive(link.path)
                     ? 'bg-primary/10 text-primary font-semibold'
@@ -43,7 +44,7 @@ export const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact">
+            <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Button className="ml-4 gradient-primary">Get Started</Button>
             </Link>
           </div>
@@ -65,7 +66,10 @@ export const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className={`block px-4 py-3 rounded-lg transition-base ${
                   isActive(link.path)
                     ? 'bg-primary/10 text-primary font-semibold'
@@ -75,7 +79,10 @@ export const Navigation = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact" onClick={() => setIsOpen(false)}>
+            <Link to="/contact" onClick={() => {
+              setIsOpen(false);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}>
               <Button className="w-full gradient-primary">Get Started</Button>
             </Link>
           </div>
