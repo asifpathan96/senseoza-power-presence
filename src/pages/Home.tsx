@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
@@ -119,6 +120,74 @@ const Home = () => {
       image: socialMediaImage,
     },
   ];
+
+  const testimonials = [
+    {
+      name: 'Priya Sharma',
+      role: 'CEO',
+      company: 'TechStart India',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+      rating: 5,
+      text: 'Senseoza transformed our online presence completely. Our leads increased by 300% in just 3 months!',
+    },
+    {
+      name: 'Rahul Verma',
+      role: 'Marketing Director',
+      company: 'GrowthBox',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+      rating: 5,
+      text: 'The AI-powered campaigns they created delivered exceptional ROI. Highly recommend their services.',
+    },
+    {
+      name: 'Anita Desai',
+      role: 'Founder',
+      company: 'StyleHub',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 5,
+      text: 'Professional team with innovative strategies. Our social media engagement grew 5x under their guidance.',
+    },
+    {
+      name: 'Vikram Patel',
+      role: 'COO',
+      company: 'FinanceFirst',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+      rating: 5,
+      text: 'Their SEO expertise helped us rank #1 for our key terms. Traffic has never been better!',
+    },
+    {
+      name: 'Sneha Kulkarni',
+      role: 'Brand Manager',
+      company: 'EcoLife Products',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 5,
+      text: 'Senseoza understands modern digital marketing like no other agency. Truly exceptional results.',
+    },
+  ];
+
+  const partners = [
+    { name: 'Google Partner', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
+    { name: 'Meta Business Partner', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png' },
+    { name: 'HubSpot', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg' },
+    { name: 'Shopify', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
+    { name: 'Semrush', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Semrush_logo.svg' },
+  ];
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   return (
     <div className="min-h-screen">
@@ -268,6 +337,108 @@ const Home = () => {
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              Trusted Partners
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              We collaborate with industry leaders to deliver the best results
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {partners.map((partner, index) => (
+              <div 
+                key={index}
+                className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              >
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="h-8 md:h-10 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Slider Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Success stories from businesses we've helped grow
+            </p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 border border-border/50">
+              <Quote className="h-12 w-12 text-primary/30 mb-6" />
+              
+              <div className="min-h-[200px] flex flex-col justify-between">
+                <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-8 italic">
+                  "{testimonials[currentTestimonial].text}"
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  <img 
+                    src={testimonials[currentTestimonial].image} 
+                    alt={testimonials[currentTestimonial].name}
+                    className="w-16 h-16 rounded-full object-cover border-2 border-primary"
+                  />
+                  <div>
+                    <h4 className="font-heading font-bold text-lg">{testimonials[currentTestimonial].name}</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}
+                    </p>
+                    <div className="flex gap-1 mt-1">
+                      {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button 
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-background border border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button 
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 bg-background border border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentTestimonial 
+                      ? 'bg-primary w-8' 
+                      : 'bg-border hover:bg-primary/50'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
