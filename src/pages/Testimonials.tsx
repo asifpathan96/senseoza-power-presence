@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, ArrowRight } from 'lucide-react';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -179,18 +179,27 @@ const Testimonials = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        </div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-40 -mb-40" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-heading font-bold mb-6">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-primary-foreground text-sm font-semibold mb-6">
+              Join Our Growing Family
+            </span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-foreground">
               Join Our Success Stories
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
               Be the next brand to experience transformative digital marketing results
             </p>
-            <Link to="/contact">
-              <Button size="lg" className="gradient-primary">
-                Get Started Today
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90 shadow-lg px-8">
+                Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>

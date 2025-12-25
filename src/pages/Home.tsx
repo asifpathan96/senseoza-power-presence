@@ -101,6 +101,7 @@ const Home = () => {
       date: 'Dec 10, 2024',
       readTime: '5 min read',
       image: aiMarketingImage,
+      slug: 'ai-revolutionizing-digital-marketing-2024',
     },
     {
       title: 'SEO Trends You Can\'t Ignore This Year',
@@ -109,6 +110,7 @@ const Home = () => {
       date: 'Dec 8, 2024',
       readTime: '4 min read',
       image: seoImage,
+      slug: 'seo-trends-2024',
     },
     {
       title: 'Building Brand Authority on Social Media',
@@ -117,6 +119,7 @@ const Home = () => {
       date: 'Dec 5, 2024',
       readTime: '6 min read',
       image: socialMediaImage,
+      slug: 'building-brand-authority-social-media',
     },
   ];
 
@@ -370,8 +373,10 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <article 
+              <Link 
                 key={index}
+                to={`/blog/${post.slug}`}
+                onClick={() => window.scrollTo(0, 0)}
                 className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-border/50"
               >
                 <div className="h-48 overflow-hidden">
@@ -392,7 +397,7 @@ const Home = () => {
                     <span>{post.readTime}</span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
