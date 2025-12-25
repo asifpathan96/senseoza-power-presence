@@ -172,7 +172,7 @@ const Services = () => {
                 </Button>
               </Link>
               <Link to="/case-studies" onClick={() => window.scrollTo(0, 0)}>
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-white/10 px-8">
+                <Button size="lg" variant="outline" className="border-primary-foreground bg-white/10 text-primary-foreground hover:bg-white/20 px-8">
                   View Case Studies
                 </Button>
               </Link>
