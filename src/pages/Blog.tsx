@@ -155,9 +155,11 @@ const Blog = () => {
                       <span>{filteredPosts[0].readTime}</span>
                     </div>
                   </div>
-                  <Button className="gradient-primary w-fit">
-                    Read More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <Link to={`/blog/${filteredPosts[0].slug}`} onClick={() => window.scrollTo(0, 0)}>
+                    <Button className="gradient-primary w-fit">
+                      Read More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -170,8 +172,10 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.slice(1).map((post, index) => (
-              <article
+              <Link
                 key={index}
+                to={`/blog/${post.slug}`}
+                onClick={() => window.scrollTo(0, 0)}
                 className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-base group"
               >
                 <div className="relative h-48 overflow-hidden">
@@ -205,7 +209,7 @@ const Blog = () => {
                     Read Article <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
