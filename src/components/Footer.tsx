@@ -16,6 +16,9 @@ export const Footer = () => {
           <div>
             <h3 className="text-xl font-heading font-bold text-background mb-4">Senseoza</h3>
             <p className="text-background/80 font-medium mb-4">Turning Presence into Power</p>
+            <p className="text-background/60 text-sm mb-4">
+              We are an AI-powered digital marketing agency helping businesses grow through innovative strategies, data-driven insights, and creative excellence. With 40+ clients served and 97% satisfaction rate, we transform digital presence into measurable results.
+            </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
                 <Facebook className="h-5 w-5" />
@@ -49,9 +52,13 @@ export const Footer = () => {
             <h4 className="font-heading font-bold mb-4 text-background">Services</h4>
             <ul className="space-y-2">
               <li><Link to="/services/ai-marketing" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">AI Marketing</Link></li>
-              <li><Link to="/services/seo" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">SEO</Link></li>
+              <li><Link to="/services/seo" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">SEO Services</Link></li>
               <li><Link to="/services/social-media" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Social Media</Link></li>
+              <li><Link to="/services/content-marketing" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Content Marketing</Link></li>
+              <li><Link to="/services/ppc-ads" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">PPC & Paid Ads</Link></li>
               <li><Link to="/services/web-design" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Web Design</Link></li>
+              <li><Link to="/services/email-automation" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Email Automation</Link></li>
+              <li><Link to="/services/analytics" onClick={scrollToTop} className="text-background/60 hover:text-primary transition-base">Analytics</Link></li>
             </ul>
           </div>
 
