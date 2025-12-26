@@ -40,7 +40,6 @@ const About = () => {
   ];
 
   const achievements = [
-    { icon: TrendingUp, stat: '300%', label: 'Average Growth' },
     { icon: Users, stat: '500+', label: 'Happy Clients' },
   ];
 
@@ -107,7 +106,7 @@ const About = () => {
       {/* Stats Section */}
       <section className="py-16 -mt-12 relative z-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="max-w-md mx-auto">
             {achievements.map((achievement, index) => (
               <div 
                 key={index} 
@@ -246,7 +245,7 @@ const About = () => {
                 </Button>
               </Link>
               <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-primary-foreground bg-white/10 text-primary-foreground hover:bg-white/20">
                   Explore Our Services
                 </Button>
               </Link>

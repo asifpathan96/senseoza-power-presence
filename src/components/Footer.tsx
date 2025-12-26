@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -61,15 +61,11 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-background/60">
                 <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:senseoza@gmail.com" className="hover:text-primary transition-colors">senseoza@gmail.com</a>
+                <a href="mailto:hello@senseoza.com" className="hover:text-primary transition-colors">hello@senseoza.com</a>
               </li>
               <li className="flex items-start space-x-2 text-background/60">
                 <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" />
                 <a href="tel:+919168411743" className="hover:text-primary transition-colors">+91 9168411743</a>
-              </li>
-              <li className="flex items-start space-x-2 text-background/60">
-                <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <span>Shalom Bungalow, Sandvik Colony, Sector No. 27, Pradhikaran, Nigdi, Pune, Maharashtra 411044</span>
               </li>
             </ul>
           </div>
