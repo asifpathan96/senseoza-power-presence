@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MessageCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 
@@ -247,8 +247,8 @@ ${formData.message}
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Email Us</h3>
-                    <a href="mailto:senseoza@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      senseoza@gmail.com
+                    <a href="mailto:hello@senseoza.com" className="text-muted-foreground hover:text-primary transition-colors">
+                      hello@senseoza.com
                     </a>
                   </div>
                 </div>
@@ -262,21 +262,6 @@ ${formData.message}
                     <a href="tel:+919168411743" className="text-muted-foreground hover:text-primary transition-colors">
                       +91 9168411743
                     </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 bg-secondary/50 rounded-xl">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-bold mb-1">Visit Us</h3>
-                    <p className="text-muted-foreground">
-                      Shalom Bungalow, Sandvik Colony,<br />
-                      Sector No. 27, Pradhikaran, Nigdi,<br />
-                      Pune, Pimpri-Chinchwad,<br />
-                      Maharashtra 411044
-                    </p>
                   </div>
                 </div>
               </div>

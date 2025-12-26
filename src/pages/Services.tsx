@@ -109,9 +109,18 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? '' : ''}`}
+                className={`grid lg:grid-cols-2 gap-12 items-center`}
               >
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                {/* Image - always first on mobile/tablet, alternates on desktop */}
+                <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
+                  />
+                </div>
+                {/* Content - always second on mobile/tablet, alternates on desktop */}
+                <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
                   <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
                     <service.icon className="h-12 w-12 text-primary icon-3d" />
                   </div>
@@ -132,13 +141,6 @@ const Services = () => {
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
-                </div>
-                <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-auto rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
-                  />
                 </div>
               </div>
             ))}

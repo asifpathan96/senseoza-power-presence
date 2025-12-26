@@ -171,7 +171,7 @@ const Home = () => {
     { name: 'Meta Business Partner', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png' },
     { name: 'HubSpot', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg' },
     { name: 'Shopify', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg' },
-    { name: 'Semrush', logo: 'https://cdn.worldvectorlogo.com/logos/semrush.svg' },
+    { name: 'Semrush', logo: 'https://www.semrush.com/static/images/header/semrush-logo.svg' },
   ];
 
 

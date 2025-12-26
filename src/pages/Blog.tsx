@@ -4,11 +4,49 @@ import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { blogSchema } from '@/utils/schema';
+import aiMarketingImage from '@/assets/ai-marketing.jpg';
+import seoImage from '@/assets/seo.jpg';
+import socialMediaImage from '@/assets/social-media.jpg';
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   
-  const blogPosts = [
+  // Latest 3 blogs (same as homepage)
+  const latestPosts = [
+    {
+      title: 'How AI is Revolutionizing Digital Marketing in 2024',
+      excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
+      author: 'Senseoza Team',
+      category: 'AI Marketing',
+      date: 'Dec 10, 2024',
+      readTime: '5 min read',
+      image: aiMarketingImage,
+      slug: 'ai-revolutionizing-digital-marketing-2024',
+    },
+    {
+      title: 'SEO Trends You Can\'t Ignore This Year',
+      excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.',
+      author: 'Senseoza Team',
+      category: 'SEO',
+      date: 'Dec 8, 2024',
+      readTime: '4 min read',
+      image: seoImage,
+      slug: 'seo-trends-2024',
+    },
+    {
+      title: 'Building Brand Authority on Social Media',
+      excerpt: 'Learn how to create authentic connections and grow your brand presence online.',
+      author: 'Senseoza Team',
+      category: 'Social Media',
+      date: 'Dec 5, 2024',
+      readTime: '6 min read',
+      image: socialMediaImage,
+      slug: 'building-brand-authority-social-media',
+    },
+  ];
+
+  // Additional blog posts
+  const additionalPosts = [
     {
       title: '10 AI-Powered Marketing Strategies That Will Dominate 2025',
       excerpt: 'Discover how artificial intelligence is revolutionizing digital marketing and learn the top strategies to implement in your business for maximum ROI.',
@@ -71,11 +109,14 @@ const Blog = () => {
     },
   ];
 
+  // Combine all posts for filtering
+  const allPosts = [...latestPosts, ...additionalPosts];
+
   const categories = ['All', 'AI Marketing', 'SEO', 'Social Media', 'Content Marketing', 'PPC', 'Email Marketing'];
 
   const filteredPosts = activeCategory === 'All' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === activeCategory);
+    ? allPosts 
+    : allPosts.filter(post => post.category === activeCategory);
 
   return (
     <div className="min-h-screen pt-20">
