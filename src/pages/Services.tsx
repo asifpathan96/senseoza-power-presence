@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Brain, Search, Share2, FileText, MousePointerClick, Globe } from 'lucide-react';
+import { ArrowRight, Brain, Search, Share2, FileText, MousePointerClick, Globe, Mail, BarChart } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
 import serviceAI from '@/assets/service-ai-marketing.png';
@@ -9,64 +9,82 @@ import serviceSocial from '@/assets/service-social-media.png';
 import serviceContent from '@/assets/service-content.png';
 import servicePPC from '@/assets/service-ppc.png';
 import serviceWeb from '@/assets/service-web-design.png';
+import serviceEmail from '@/assets/service-email.png';
+import serviceAnalytics from '@/assets/service-analytics.png';
 
 const Services = () => {
   const services = [
     {
+      icon: Brain,
+      title: 'AI-Powered Marketing',
+      description: 'Predictive campaigns powered by artificial intelligence to maximize reach, optimize budgets, and deliver personalized experiences at scale.',
+      tags: ['Predictive Analytics', 'AI Automation', 'Smart Segmentation', 'Personalization'],
+      image: serviceAI,
+      link: '/services/ai-marketing',
+    },
+    {
       icon: Search,
-      title: 'Search Engine Optimization (SEO)',
-      description: 'Dominate search rankings with our proven SEO strategies. We combine technical optimization, content excellence, and authoritative link-building to get your business found by customers actively searching for your solutions.',
+      title: 'SEO Excellence',
+      description: 'Technical SEO, content optimization, backlinks, and local SEO to dominate rankings and drive sustainable organic growth.',
       tags: ['Technical SEO', 'Keyword Research', 'Link Building', 'Local SEO'],
       image: serviceSEO,
       link: '/services/seo',
     },
     {
-      icon: MousePointerClick,
-      title: 'Pay-Per-Click Advertising (PPC)',
-      description: 'Generate immediate, qualified traffic with expertly managed paid advertising campaigns. We optimize every dollar spent across Google Ads, Bing, and social platforms to maximize your return on ad spend.',
-      tags: ['Google Ads', 'Meta Ads', 'Display Ads', 'Retargeting'],
-      image: servicePPC,
-      link: '/services/ppc-ads',
-    },
-    {
       icon: Share2,
-      title: 'Social Media Marketing',
-      description: 'Build a loyal community and drive engagement with strategic social media management. We create compelling content, foster authentic connections, and turn followers into customers.',
-      tags: ['Social Strategy', 'Community Management', 'Paid Social', 'Content Creation'],
+      title: 'Social Media & Influencer Marketing',
+      description: 'Data-driven social strategies plus influencer partnerships to build engaged communities and amplify your brand message.',
+      tags: ['Social Strategy', 'Influencer Campaigns', 'Community Management', 'Paid Social'],
       image: serviceSocial,
       link: '/services/social-media',
     },
     {
       icon: FileText,
       title: 'Content Marketing',
-      description: 'Attract, educate, and convert your ideal customers with high-quality content that establishes your authority and drives organic traffic through blogs, videos, and more.',
-      tags: ['Blog Writing', 'Video Content', 'Ebooks', 'Case Studies'],
+      description: 'Blogs, videos, infographics, and storytelling that convert visitors into customers and build lasting brand authority.',
+      tags: ['Blog Writing', 'Video Content', 'Infographics', 'SEO Content'],
       image: serviceContent,
       link: '/services/content-marketing',
     },
     {
-      icon: Brain,
-      title: 'AI-Powered Marketing Automation',
-      description: 'Scale your marketing efforts without scaling your team. Our AI-driven automation tools streamline repetitive tasks, personalize customer experiences, and nurture leads automatically.',
-      tags: ['Email Automation', 'Lead Scoring', 'CRM Integration', 'Chatbots'],
-      image: serviceAI,
-      link: '/services/ai-marketing',
+      icon: MousePointerClick,
+      title: 'PPC & Paid Ads',
+      description: 'ROI-focused ad campaigns across Google, Meta, and more with continuous optimization for maximum returns.',
+      tags: ['Google Ads', 'Meta Ads', 'Display Ads', 'Retargeting'],
+      image: servicePPC,
+      link: '/services/ppc-ads',
     },
     {
       icon: Globe,
-      title: 'Website Design & Development',
-      description: 'Your website is your digital storefront. We design and develop high-converting websites that are optimized for performance, user experience, and search engines.',
-      tags: ['Custom Design', 'E-commerce', 'WordPress', 'Performance'],
+      title: 'Web Design & Development',
+      description: 'Modern, conversion-ready websites with responsive UX that turn visitors into customers.',
+      tags: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance Optimization'],
       image: serviceWeb,
       link: '/services/web-design',
+    },
+    {
+      icon: Mail,
+      title: 'Email & Marketing Automation',
+      description: 'Smart workflows to nurture leads and boost retention with personalized email campaigns and automation.',
+      tags: ['Email Campaigns', 'Marketing Automation', 'Lead Nurturing', 'A/B Testing'],
+      image: serviceEmail,
+      link: '/services/email-automation',
+    },
+    {
+      icon: BarChart,
+      title: 'Analytics & Reporting',
+      description: 'Track KPIs with dashboards and performance insights to make data-driven decisions and optimize continuously.',
+      tags: ['Real-time Dashboards', 'ROI Tracking', 'Performance Reports', 'Data Insights'],
+      image: serviceAnalytics,
+      link: '/services/analytics',
     },
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="Comprehensive Digital Marketing Services That Drive Real Business Results | Senseoza"
-        description="At Senseoza, we offer a full suite of digital marketing services designed to work together seamlessly. SEO, PPC, social media, content marketing, automation, and web design."
+        title="Digital Marketing Services | Senseoza – SEO, AI, Social Media & More"
+        description="Explore Senseoza's full suite of digital marketing services: AI campaigns, SEO, content, social media, paid ads, and web design."
         canonicalUrl="https://senseoza.com/services"
         schema={serviceSchema}
       />
@@ -74,11 +92,11 @@ const Services = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Comprehensive Digital Marketing Services That Drive Real Business Results
+            <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6">
+              Digital Marketing Services
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
-              At Senseoza, we offer a full suite of digital marketing services designed to work together seamlessly. Whether you need to increase organic visibility, drive immediate traffic through paid ads, or build lasting customer relationships through content, our integrated approach ensures every channel amplifies the others.
+            <p className="text-xl text-primary-foreground/90">
+              Explore Senseoza's full suite of digital marketing services: AI campaigns, SEO, content, social media, paid ads, and web design.
             </p>
           </div>
         </div>
@@ -106,7 +124,7 @@ const Services = () => {
                   <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
                     <service.icon className="h-12 w-12 text-primary icon-3d" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">{service.title}</h2>
+                  <h2 className="text-4xl font-heading font-bold mb-4">{service.title}</h2>
                   <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {service.tags.map((tag, idx) => (
