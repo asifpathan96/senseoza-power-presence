@@ -18,22 +18,22 @@ import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
 const Home = () => {
   const stats = [{
-    number: 250,
+    number: 40,
     suffix: '+',
     label: 'Clients Served',
     icon: Users
   }, {
-    number: 98,
+    number: 97,
     suffix: '%',
     label: 'Client Satisfaction',
     icon: Sparkles
   }, {
-    number: 3.5,
+    number: 3,
     suffix: 'x',
     label: 'Avg ROI Increase',
     icon: TrendingUp
   }, {
-    number: 10,
+    number: 4,
     suffix: 'M+',
     label: 'Impressions Generated',
     icon: Zap
@@ -172,8 +172,8 @@ const Home = () => {
     name: 'Shopify',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg'
   }, {
-    name: 'Semrush',
-    logo: 'https://www.semrush.com/static/images/header/semrush-logo.svg'
+    name: 'WordPress',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg'
   }];
   return <div className="min-h-screen">
       <SEOHead title="Senseoza | AI-Powered Digital Marketing Agency – Turning Presence into Power" description="Boost your brand with AI-driven marketing, SEO, influencer services, and content strategies. Partner with Senseoza for measurable results." canonicalUrl="https://senseoza.com/" schema={organizationSchema} />
