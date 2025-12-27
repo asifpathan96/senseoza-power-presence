@@ -17,7 +17,7 @@ export const Footer = () => {
             <h3 className="text-xl font-heading font-bold text-background mb-4">Senseoza</h3>
             <p className="text-background/80 font-medium mb-4">Turning Presence into Power</p>
             <p className="text-background/60 text-sm mb-4">
-              We are an AI-powered digital marketing agency helping businesses grow through innovative strategies, data-driven insights, and creative excellence. With 40+ clients served and 97% satisfaction rate, we transform digital presence into measurable results.
+              We are an AI-powered digital marketing agency helping businesses grow through innovative strategies, data-driven insights, and creative excellence.
             </p>
             <div className="flex space-x-4">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-base">
