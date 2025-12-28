@@ -6,19 +6,19 @@ import serviceImage from '@/assets/service-email.png';
 
 const EmailAutomation = () => {
   const features = [
-    'Email Campaign Design',
-    'Marketing Automation Setup',
-    'Lead Nurturing Workflows',
-    'A/B Testing & Optimization',
-    'List Segmentation',
-    'Performance Analytics',
+    'Email Marketing Automation',
+    'CRM Integration & Management',
+    'Lead Scoring & Nurturing',
+    'Chatbots & Conversational AI',
+    'Workflow Automation',
+    'Predictive Analytics & AI Insights',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="Email & Marketing Automation | Senseoza"
-        description="Smart workflows to nurture leads and boost retention with personalized email campaigns and automation."
+        title="AI Marketing Automation Services | Scale Your Marketing Efficiently | Senseoza"
+        description="Leverage AI-powered marketing automation to scale your efforts, personalize customer experiences, and increase efficiency. Expert automation setup, integration, and optimization."
         canonicalUrl="https://senseoza.com/services/email-automation"
       />
       
@@ -31,24 +31,24 @@ const EmailAutomation = () => {
                 <Mail className="h-12 w-12 text-primary icon-3d" />
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-                Email & Marketing Automation
+                AI-Powered Marketing Automation That Scales Your Business
               </h1>
               <p className="text-xl text-muted-foreground mb-6">
-                Smart workflows to nurture leads and boost retention with personalized email campaigns and automation.
+                What if your marketing could run 24/7, nurturing leads, personalizing customer experiences, and driving conversions—even while you sleep? That's the power of marketing automation.
               </p>
               <p className="font-semibold text-foreground mb-8">
-                Email Campaigns | Marketing Automation | Lead Nurturing
+                Email Automation | CRM Integration | Lead Nurturing | AI Insights
               </p>
               <Link to="/contact">
                 <Button size="lg" className="gradient-primary">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Schedule Your Automation Consultation <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
             <div className="relative">
               <img 
                 src={serviceImage} 
-                alt="Email & Marketing Automation illustration" 
+                alt="Marketing Automation illustration" 
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </div>
@@ -60,7 +60,7 @@ const EmailAutomation = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold text-center mb-12">
-            What's Included
+            Our Marketing Automation Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -80,11 +80,11 @@ const EmailAutomation = () => {
             Ready to Automate Your Marketing?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let's build email workflows that nurture leads and drive conversions on autopilot.
+            Stop wasting time on repetitive tasks. Let AI and automation handle the busywork while you focus on strategy and growth.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              Schedule Your Automation Consultation <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, Target, BarChart, Shield, CheckCircle, Lightbulb, Award, Building } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
@@ -16,28 +16,30 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
+
 const Home = () => {
   const stats = [{
-    number: 40,
-    suffix: '+',
-    label: 'Clients Served',
-    icon: Users
-  }, {
-    number: 97,
+    number: 300,
     suffix: '%',
-    label: 'Client Satisfaction',
-    icon: Sparkles
-  }, {
-    number: 3,
-    suffix: 'x',
-    label: 'Avg ROI Increase',
+    label: 'Avg Traffic Increase',
     icon: TrendingUp
   }, {
-    number: 4,
+    number: 5.2,
+    suffix: 'X',
+    label: 'Average ROAS',
+    icon: Sparkles
+  }, {
+    number: 87,
+    suffix: '%',
+    label: 'Client Retention',
+    icon: Users
+  }, {
+    number: 50,
     suffix: 'M+',
-    label: 'Impressions Generated',
+    label: 'Revenue Generated',
     icon: Zap
   }];
+
   const StatsCard = ({
     stat
   }: {
@@ -61,43 +63,109 @@ const Home = () => {
         </div>
       </div>;
   };
-  const services = [{
+
+  const differentiators = [{
     icon: Brain,
-    title: 'AI-Powered Marketing',
-    description: 'Predictive campaigns powered by artificial intelligence to maximize reach.',
-    image: serviceAI,
-    link: '/services/ai-marketing'
+    title: 'AI-Driven Intelligence',
+    description: 'We leverage advanced artificial intelligence and machine learning algorithms to analyze market trends, predict customer behavior, and optimize campaigns in real-time. This means faster results, lower costs, and higher ROI for your business.'
   }, {
+    icon: BarChart,
+    title: 'Data-Obsessed Strategy',
+    description: 'Every decision we make is backed by data. We track, measure, and analyze over 100+ performance metrics to ensure your marketing investment delivers quantifiable returns. No guesswork, no vanity metrics—just results that impact your bottom line.'
+  }, {
+    icon: Target,
+    title: 'Full-Funnel Expertise',
+    description: 'From awareness to advocacy, we manage every stage of your customer journey. Our integrated approach ensures consistent messaging, optimized touchpoints, and maximum conversion rates across all channels.'
+  }, {
+    icon: Shield,
+    title: 'Transparent Reporting',
+    description: "You'll always know where your money goes and what results you're getting. Our detailed monthly reports break down performance metrics, ROI calculations, and strategic recommendations in plain English."
+  }];
+
+  const services = [{
     icon: Search,
-    title: 'SEO Excellence',
-    description: 'Technical SEO and link building to dominate search rankings.',
+    title: 'Search Engine Optimization (SEO)',
+    description: 'Dominate search rankings with our proven SEO strategies. We combine technical optimization, content excellence, and authoritative link-building to get your business found by customers actively searching for your solutions.',
     image: serviceSEO,
     link: '/services/seo'
   }, {
+    icon: MousePointerClick,
+    title: 'Pay-Per-Click Advertising (PPC)',
+    description: 'Generate immediate, qualified traffic with expertly managed paid advertising campaigns. We optimize every dollar spent across Google Ads, Bing, and social platforms to maximize your return on ad spend (ROAS).',
+    image: servicePPC,
+    link: '/services/ppc-ads'
+  }, {
     icon: Share2,
     title: 'Social Media Marketing',
-    description: 'Data-driven social strategies to build engaged communities.',
+    description: 'Build a loyal community and drive engagement with strategic social media management. We create compelling content, foster authentic connections, and turn followers into customers.',
     image: serviceSocial,
     link: '/services/social-media'
   }, {
     icon: FileText,
     title: 'Content Marketing',
-    description: 'Blogs, videos, and storytelling that convert visitors.',
+    description: 'Attract, educate, and convert your ideal customers with high-quality content that establishes your authority and drives organic traffic through blogs, videos, infographics, and more.',
     image: serviceContent,
     link: '/services/content-marketing'
   }, {
-    icon: MousePointerClick,
-    title: 'PPC & Paid Ads',
-    description: 'ROI-focused ad campaigns across Google and Meta.',
-    image: servicePPC,
-    link: '/services/ppc-ads'
+    icon: Brain,
+    title: 'AI-Powered Marketing Automation',
+    description: 'Scale your marketing efforts without scaling your team. Our AI-driven automation tools streamline repetitive tasks, personalize customer experiences, and nurture leads automatically.',
+    image: serviceAI,
+    link: '/services/ai-marketing'
   }, {
     icon: Globe,
-    title: 'Web Design',
-    description: 'Modern, conversion-ready websites with responsive UX.',
+    title: 'Website Design & Development',
+    description: 'Your website is your digital storefront. We design and develop high-converting websites that not only look stunning but are optimized for performance, user experience, and search engines.',
     image: serviceWeb,
     link: '/services/web-design'
   }];
+
+  const process = [{
+    step: '01',
+    title: 'Discovery & Audit',
+    description: 'We start by understanding your business, goals, target audience, and current marketing performance. Our comprehensive audit identifies opportunities and gaps in your current strategy.'
+  }, {
+    step: '02',
+    title: 'Strategy Development',
+    description: "Based on our findings, we create a customized marketing roadmap with clear objectives, KPIs, and timelines. You'll know exactly what we'll do and what results to expect."
+  }, {
+    step: '03',
+    title: 'Implementation & Optimization',
+    description: 'Our expert team executes the strategy across all channels, continuously testing and optimizing for maximum performance. We move fast and adapt quickly to market changes.'
+  }, {
+    step: '04',
+    title: 'Reporting & Scaling',
+    description: 'You receive detailed performance reports showing exactly how your campaigns are performing. As we identify winning strategies, we scale them to maximize your growth.'
+  }];
+
+  const industries = ['E-commerce & Retail', 'SaaS & Technology', 'Healthcare & Wellness', 'Professional Services', 'Real Estate', 'Manufacturing & B2B', 'Hospitality & Tourism', 'Education'];
+
+  const whyChooseUs = [{
+    icon: Award,
+    title: 'Proven Track Record',
+    description: 'Over 500+ successful campaigns delivered'
+  }, {
+    icon: Users,
+    title: 'Expert Team',
+    description: 'Certified specialists in SEO, PPC, social media, and content marketing'
+  }, {
+    icon: Brain,
+    title: 'AI-Powered Insights',
+    description: 'Leveraging technology for smarter decision-making'
+  }, {
+    icon: Lightbulb,
+    title: 'Custom Solutions',
+    description: 'No cookie-cutter packages—every strategy is tailored to you'
+  }, {
+    icon: Shield,
+    title: 'Transparent Pricing',
+    description: 'Clear, predictable pricing with no hidden fees'
+  }, {
+    icon: Sparkles,
+    title: 'Dedicated Support',
+    description: "Your success is our priority—we're always here to help"
+  }];
+
   const blogPosts = [{
     title: 'How AI is Revolutionizing Digital Marketing in 2024',
     excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
@@ -123,42 +191,7 @@ const Home = () => {
     image: socialMediaImage,
     slug: 'building-brand-authority-social-media'
   }];
-  const testimonials = [{
-    name: 'Priya Sharma',
-    role: 'CEO',
-    company: 'TechStart India',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
-    rating: 5,
-    text: 'Senseoza transformed our online presence completely. Our leads increased by 300% in just 3 months!'
-  }, {
-    name: 'Rahul Verma',
-    role: 'Marketing Director',
-    company: 'GrowthBox',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
-    rating: 5,
-    text: 'The AI-powered campaigns they created delivered exceptional ROI. Highly recommend their services.'
-  }, {
-    name: 'Anita Desai',
-    role: 'Founder',
-    company: 'StyleHub',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
-    rating: 5,
-    text: 'Professional team with innovative strategies. Our social media engagement grew 5x under their guidance.'
-  }, {
-    name: 'Vikram Patel',
-    role: 'COO',
-    company: 'FinanceFirst',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
-    rating: 5,
-    text: 'Their SEO expertise helped us rank #1 for our key terms. Traffic has never been better!'
-  }, {
-    name: 'Sneha Kulkarni',
-    role: 'Brand Manager',
-    company: 'EcoLife Products',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
-    rating: 5,
-    text: 'Senseoza understands modern digital marketing like no other agency. Truly exceptional results.'
-  }];
+
   const partners = [{
     name: 'Google Partner',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg'
@@ -175,8 +208,15 @@ const Home = () => {
     name: 'WordPress',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg'
   }];
+
   return <div className="min-h-screen">
-      <SEOHead title="Senseoza | AI-Powered Digital Marketing Agency – Turning Presence into Power" description="Boost your brand with AI-driven marketing, SEO, influencer services, and content strategies. Partner with Senseoza for measurable results." canonicalUrl="https://senseoza.com/" schema={organizationSchema} />
+      <SEOHead 
+        title="AI-Powered Digital Marketing Agency | Senseoza - Turning Presence Into Power" 
+        description="Senseoza delivers data-driven digital marketing that drives real results. Expert SEO, PPC, social media & AI strategies to grow your business online." 
+        canonicalUrl="https://senseoza.com/" 
+        schema={organizationSchema} 
+      />
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0" style={{
@@ -191,20 +231,20 @@ const Home = () => {
         
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-5xl md:text-7xl font-heading font-black text-white drop-shadow-lg mb-6 animate-fade-in">
-            Turning Presence into Power
+            Transform Your Digital Presence Into Measurable Business Growth
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 drop-shadow-md mb-8 max-w-3xl mx-auto animate-fade-in">
-            Elevate your brand with AI-powered digital marketing solutions that deliver visibility, influence, and measurable ROI.
+          <p className="text-xl md:text-2xl text-white/90 drop-shadow-md mb-8 max-w-4xl mx-auto animate-fade-in">
+            Senseoza is an AI-powered digital marketing agency that combines cutting-edge technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Link to="/contact">
               <Button size="lg" className="gradient-accent text-lg px-8 shadow-glow">
-                Start Growing <ArrowRight className="ml-2 h-5 w-5" />
+                Get Your Free Marketing Audit <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/services">
               <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm">
-                Explore Services
+                View Our Services
               </Button>
             </Link>
           </div>
@@ -217,56 +257,35 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* What Makes Us Different */}
       <section className="py-20 bg-gradient-to-b from-background to-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => <StatsCard key={index} stat={stat} />)}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              What Makes Senseoza Different
+            </h2>
           </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-                About Senseoza
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                At Senseoza, we believe digital presence is the new business power. Our team blends AI innovation, creativity, and data-driven strategy to help brands grow faster.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8">With 40+ clients served and a 97% satisfaction rate, we've built a reputation for delivering measurable results that transform businesses.</p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Innovation</span>
-                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Transparency</span>
-                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Growth</span>
-                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">Results</span>
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {differentiators.map((item, index) => (
+              <div key={index} className="bg-card p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6">
+                  <item.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-heading font-bold mb-4">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
               </div>
-              <Link to="/about">
-                <Button size="lg" className="gradient-primary">
-                  Learn More About Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-            <div className="relative">
-              <img src={aboutImage} alt="About Senseoza - Digital Marketing Team" className="w-full h-auto rounded-2xl shadow-2xl" />
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Services */}
+      {/* Services Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
               Our Core Services
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive digital marketing solutions powered by innovation and expertise
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -281,7 +300,7 @@ const Home = () => {
                     </div>
                     <h3 className="text-xl font-heading font-bold group-hover:text-primary transition-colors">{service.title}</h3>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{service.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{service.description}</p>
                   <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
                     Learn More <ArrowRight className="h-4 w-4" />
                   </span>
@@ -295,6 +314,88 @@ const Home = () => {
                 View All Services <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Results Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Results That Speak Volumes
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => <StatsCard key={index} stat={stat} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Our Process: From Strategy to Success
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {process.map((step, index) => (
+              <div key={index} className="relative">
+                <div className="text-7xl font-heading font-black text-primary/10 absolute -top-4 -left-2">{step.step}</div>
+                <div className="relative pt-8 pl-4">
+                  <h3 className="text-xl font-heading font-bold mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Industries We Serve
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              We've delivered exceptional results for businesses across diverse industries
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            {industries.map((industry, index) => (
+              <span key={index} className="px-6 py-3 bg-card border border-border rounded-full font-medium hover:border-primary/50 hover:bg-primary/5 transition-all cursor-default flex items-center gap-2">
+                <Building className="h-4 w-4 text-primary" />
+                {industry}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Why Businesses Choose Senseoza
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {whyChooseUs.map((item, index) => (
+              <div key={index} className="flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/30 transition-all">
+                <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -378,14 +479,14 @@ const Home = () => {
           <div className="max-w-4xl mx-auto text-center">
             <Zap className="h-16 w-16 text-primary-foreground mx-auto mb-6 animate-float" />
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary-foreground mb-6">
-              Ready to Transform Your Digital Presence?
+              Ready to Grow Your Business?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Join 250+ brands scaling with Senseoza's proven digital marketing strategies.
+              Don't let your competitors dominate the digital space. Partner with Senseoza and turn your digital presence into a powerful growth engine.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-primary text-lg px-8 hover:bg-white/90 hover:scale-105 transition-base shadow-lg">
-                Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90 shadow-lg px-8">
+                Schedule Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -393,4 +494,5 @@ const Home = () => {
       </section>
     </div>;
 };
+
 export default Home;
