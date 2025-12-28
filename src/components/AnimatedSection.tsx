@@ -117,7 +117,7 @@ export const StaggerItem = ({ children, className = '' }: StaggerItemProps) => {
 };
 
 interface FloatingElementProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
