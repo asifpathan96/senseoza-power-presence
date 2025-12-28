@@ -4,9 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MessageCircle, ArrowRight, Send, Sparkles } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight, Send, Sparkles, CheckCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
+import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -114,14 +116,14 @@ ${formData.message}
   ];
 
   const nextSteps = [
-    "We'll respond within 2 business hours to schedule your free consultation.",
-    "During the consultation, we'll discuss your goals, challenges, and current marketing efforts.",
-    "We'll provide initial recommendations and a custom proposal tailored to your needs.",
-    "If it's a good fit, we'll develop a comprehensive strategy and get started!",
+    "We will respond within 2 business hours to schedule your free consultation.",
+    "During the consultation, we will discuss your goals, challenges, and current marketing efforts.",
+    "We will provide initial recommendations and a custom proposal tailored to your needs.",
+    "If it is a good fit, we will develop a comprehensive strategy and get started!",
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen bg-background">
       <SEOHead
         title="Contact Senseoza | Start Your Digital Marketing Journey Today"
         description="Ready to grow your business? Contact Senseoza for a free consultation. Call us, email, or schedule a strategy session to discuss your digital marketing goals."
@@ -130,41 +132,63 @@ ${formData.message}
       />
       
       {/* Hero Section */}
-      <section className="py-12 md:py-20 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        </div>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+        <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6">
-              Get In Touch
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-              Let's Start Growing Your Business Together
-            </h1>
-            <p className="text-base md:text-xl text-white/90 max-w-3xl mx-auto">
-              Ready to transform your digital presence? Whether you're looking for a specific service or need help developing a comprehensive marketing strategy, we're here to help.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
+            >
+              <Sparkles className="h-4 w-4 text-accent" />
+              <span className="text-sm font-medium text-white/90">Get In Touch</span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6"
+            >
+              Let's Start Growing Your{' '}
+              <span className="text-accent">Business Together</span>
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
+            >
+              Ready to transform your digital presence? Whether you need a specific service or a comprehensive marketing strategy, we are here to help.
+            </motion.p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-background to-secondary/30">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-5 gap-8 md:gap-12 max-w-7xl mx-auto">
             
             {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border shadow-xl">
-                <div className="flex items-center gap-3 mb-6">
+            <AnimatedSection direction="right" className="lg:col-span-3">
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-xl">
+                <div className="flex items-center gap-3 mb-8">
                   <div className="p-3 bg-gradient-to-br from-primary to-accent rounded-xl">
                     <Send className="h-6 w-6 text-white" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-heading font-bold">Send Us a Message</h2>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold mb-2">
                       Full Name <span className="text-destructive">*</span>
@@ -175,7 +199,7 @@ ${formData.message}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="h-12"
+                      className="h-12 bg-background border-border/50 focus:border-primary"
                       required
                     />
                   </div>
@@ -192,7 +216,7 @@ ${formData.message}
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@company.com"
-                        className="h-12"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
                         required
                       />
                     </div>
@@ -208,7 +232,7 @@ ${formData.message}
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91 9168411743"
-                        className="h-12"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
                         required
                       />
                     </div>
@@ -225,7 +249,7 @@ ${formData.message}
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="h-12"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
                       />
                     </div>
 
@@ -239,7 +263,7 @@ ${formData.message}
                         value={formData.website}
                         onChange={handleChange}
                         placeholder="https://yourwebsite.com"
-                        className="h-12"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
                       />
                     </div>
                   </div>
@@ -255,7 +279,7 @@ ${formData.message}
                           className={`flex items-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
                             formData.services.includes(service) 
                               ? 'border-primary bg-primary/5' 
-                              : 'border-border hover:border-primary/50'
+                              : 'border-border/50 hover:border-primary/50 bg-background'
                           }`}
                         >
                           <Checkbox
@@ -277,7 +301,7 @@ ${formData.message}
                       name="budget"
                       value={formData.budget}
                       onChange={handleSelectChange}
-                      className="w-full h-12 px-4 rounded-lg border border-input bg-background text-sm"
+                      className="w-full h-12 px-4 rounded-xl border border-border/50 bg-background text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                     >
                       <option value="">Select your budget</option>
                       {budgetOptions.map((option) => (
@@ -297,8 +321,9 @@ ${formData.message}
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your business, your marketing goals, and any challenges you're facing..."
+                      placeholder="Tell us about your business, your marketing goals, and any challenges you are facing..."
                       rows={5}
+                      className="bg-background border-border/50 focus:border-primary"
                       required
                     />
                   </div>
@@ -306,19 +331,19 @@ ${formData.message}
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full h-14 gradient-primary text-base font-semibold shadow-lg"
+                    className="w-full h-14 gradient-primary text-base font-semibold shadow-primary hover:shadow-lg transition-all"
                   >
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Send Message
                   </Button>
                 </form>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-6">
+            <AnimatedSection direction="left" className="lg:col-span-2 space-y-6">
               {/* Quick Contact */}
-              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border shadow-lg">
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg">
                 <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">Quick Contact</h2>
                 <div className="space-y-4">
                   <a 
@@ -350,14 +375,19 @@ ${formData.message}
               </div>
 
               {/* Schedule Call CTA */}
-              <div className="gradient-primary p-6 md:p-8 rounded-3xl text-white overflow-hidden relative">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative overflow-hidden rounded-3xl p-6 md:p-8 text-white"
+              >
+                <div className="absolute inset-0 gradient-primary" />
+                <div className="absolute inset-0 dot-pattern opacity-10" />
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
                 <div className="relative z-10">
-                  <Sparkles className="h-10 w-10 mb-4" />
+                  <Sparkles className="h-10 w-10 mb-4 text-accent" />
                   <h3 className="text-xl md:text-2xl font-heading font-bold mb-3">
                     Prefer a Call?
                   </h3>
-                  <p className="text-white/90 mb-6 text-sm md:text-base">
+                  <p className="text-white/80 mb-6 text-sm md:text-base">
                     Book a free 30-minute consultation at a time that works for you.
                   </p>
                   <Button 
@@ -371,10 +401,10 @@ ${formData.message}
                     Schedule a Call
                   </Button>
                 </div>
-              </div>
+              </motion.div>
 
               {/* What Happens Next */}
-              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border shadow-lg">
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg">
                 <h3 className="text-lg md:text-xl font-heading font-bold mb-6">What to Expect</h3>
                 <div className="space-y-4">
                   {nextSteps.map((step, index) => (
@@ -387,7 +417,7 @@ ${formData.message}
                   ))}
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
