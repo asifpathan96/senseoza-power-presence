@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -20,38 +30,82 @@ export const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50' 
+          : 'bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-heading font-bold text-black">Senseoza</span>
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="relative">
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
+              <span className={`text-2xl font-heading font-bold relative ${
+                scrolled ? 'text-foreground' : 'text-white'
+              }`}>
+                Senseoza
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link
+            {navLinks.map((link, index) => (
+              <motion.div
                 key={link.path}
-                to={link.path}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className={`px-4 py-2 rounded-lg transition-base ${
-                  isActive(link.path)
-                    ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-black hover:bg-secondary'
-                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 + 0.2 }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  to={link.path}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    isActive(link.path)
+                      ? scrolled 
+                        ? 'text-primary bg-primary/10' 
+                        : 'text-white bg-white/20'
+                      : scrolled 
+                        ? 'text-foreground hover:text-primary hover:bg-primary/5' 
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {link.name}
+                  {isActive(link.path) && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                    />
+                  )}
+                </Link>
+              </motion.div>
             ))}
-            <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <Button className="ml-4 gradient-primary">Get Started</Button>
-            </Link>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Button className="ml-4 gradient-primary shadow-primary hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  Get Started
+                </Button>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-black"
+            className={`lg:hidden p-2 rounded-xl transition-colors ${
+              scrolled 
+                ? 'text-foreground hover:bg-secondary' 
+                : 'text-white hover:bg-white/10'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -60,34 +114,60 @@ export const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden py-4 space-y-2 animate-slide-in">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => {
-                  setIsOpen(false);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className={`block px-4 py-3 rounded-lg transition-base ${
-                  isActive(link.path)
-                    ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-black hover:bg-secondary'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Link to="/contact" onClick={() => {
-              setIsOpen(false);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}>
-              <Button className="w-full gradient-primary">Get Started</Button>
-            </Link>
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="lg:hidden overflow-hidden"
+            >
+              <div className="py-4 space-y-2 bg-background/95 backdrop-blur-xl rounded-2xl mb-4 px-2 border border-border/50">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      to={link.path}
+                      onClick={() => {
+                        setIsOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
+                        isActive(link.path)
+                          ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
+                          : 'text-foreground hover:bg-secondary'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="pt-2"
+                >
+                  <Link 
+                    to="/contact" 
+                    onClick={() => {
+                      setIsOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                  >
+                    <Button className="w-full gradient-primary shadow-primary">Get Started</Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
