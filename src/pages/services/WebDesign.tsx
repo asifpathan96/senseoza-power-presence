@@ -6,19 +6,19 @@ import serviceImage from '@/assets/service-web-design.png';
 
 const WebDesign = () => {
   const features = [
-    'Responsive Web Design',
-    'UI/UX Design & Prototyping',
+    'Custom Website Design',
+    'Responsive & Mobile-First Design',
     'E-commerce Development',
-    'Performance Optimization',
-    'CMS Integration',
-    'Maintenance & Support',
+    'WordPress Development',
+    'Landing Page Design',
+    'Website Maintenance & Support',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="Web Design & Development Services | Senseoza"
-        description="Modern, conversion-ready websites with responsive UX that turn visitors into customers."
+        title="Custom Web Design & Development | Fast, Conversion-Focused Websites | Senseoza"
+        description="Professional web design and development that converts visitors into customers. Mobile-responsive, SEO-optimized, and built for performance. Get a website that drives results."
         canonicalUrl="https://senseoza.com/services/web-design"
       />
       
@@ -31,17 +31,17 @@ const WebDesign = () => {
                 <Globe className="h-12 w-12 text-primary icon-3d" />
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-                Web Design & Development
+                Web Design & Development That Turns Visitors Into Customers
               </h1>
               <p className="text-xl text-muted-foreground mb-6">
-                Modern, conversion-ready websites with responsive UX that turn visitors into customers.
+                Your website is your digital storefront, your 24/7 salesperson, and often the first impression potential customers have of your business. We design and develop websites with one goal in mind—results.
               </p>
               <p className="font-semibold text-foreground mb-8">
-                Responsive Design | UX/UI Design | E-commerce | Performance
+                Custom Design | E-commerce | WordPress | Landing Pages
               </p>
               <Link to="/contact">
                 <Button size="lg" className="gradient-primary">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Get Your Free Website Audit <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -60,7 +60,7 @@ const WebDesign = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold text-center mb-12">
-            What's Included
+            Our Web Design & Development Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -77,14 +77,14 @@ const WebDesign = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Ready for a Website That Converts?
+            Ready to Launch a Website That Converts?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let's build a website that looks stunning and drives real business results.
+            Stop losing customers to outdated, slow, or confusing websites. Partner with Senseoza and build a digital presence that drives real business growth.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              Get Your Free Website Audit <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>

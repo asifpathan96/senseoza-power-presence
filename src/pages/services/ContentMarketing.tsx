@@ -6,19 +6,19 @@ import serviceImage from '@/assets/service-content.png';
 
 const ContentMarketing = () => {
   const features = [
-    'Blog Writing & Management',
+    'Strategic Content Planning',
+    'Blog Writing & SEO Optimization',
     'Video Content Production',
-    'Infographic Design',
-    'SEO Content Optimization',
-    'Brand Storytelling',
-    'Content Distribution Strategy',
+    'Ebooks & Whitepapers',
+    'Infographics & Visual Content',
+    'Email Marketing Content',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="Content Marketing Services | Senseoza"
-        description="Create compelling blogs, videos, infographics, and storytelling that convert visitors into customers and build lasting brand authority."
+        title="Content Marketing Services | Drive Organic Traffic & Leads | Senseoza"
+        description="Expert content marketing that attracts, educates, and converts. Strategic blog writing, video production, infographics, and content that establishes your authority and drives growth."
         canonicalUrl="https://senseoza.com/services/content-marketing"
       />
       
@@ -31,17 +31,17 @@ const ContentMarketing = () => {
                 <FileText className="h-12 w-12 text-primary icon-3d" />
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-                Content Marketing
+                Content Marketing That Attracts Customers and Drives Sustainable Growth
               </h1>
               <p className="text-xl text-muted-foreground mb-6">
-                Blogs, videos, infographics, and storytelling that convert visitors into customers and build lasting brand authority.
+                Content is the fuel that powers modern marketing. We don't just create content—we engineer content ecosystems designed to attract your ideal customers, establish your authority, and drive measurable business results.
               </p>
               <p className="font-semibold text-foreground mb-8">
-                Blog Writing | Video Content | Infographics | SEO Content
+                Blog Writing | Video Content | Ebooks | Infographics
               </p>
               <Link to="/contact">
                 <Button size="lg" className="gradient-primary">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Start Your Content Strategy Today <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -60,7 +60,7 @@ const ContentMarketing = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold text-center mb-12">
-            What's Included
+            Our Content Marketing Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -77,14 +77,14 @@ const ContentMarketing = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Ready to Tell Your Brand Story?
+            Ready to Build a Content Engine That Drives Growth?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let's create content that resonates with your audience and drives conversions.
+            Stop struggling with inconsistent content. Partner with Senseoza and build a content marketing machine that attracts qualified leads and drives sustainable business growth.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              Start Your Content Strategy Today <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>

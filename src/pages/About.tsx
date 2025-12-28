@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Target, Heart, Lightbulb, Award, TrendingUp, Rocket, Shield, ArrowRight, CheckCircle } from 'lucide-react';
+import { Target, Heart, Lightbulb, Award, TrendingUp, Rocket, Shield, ArrowRight, CheckCircle, Users, Brain, Handshake } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 import aboutImage from '@/assets/about-3d.png';
@@ -8,51 +8,52 @@ import aboutImage from '@/assets/about-3d.png';
 const About = () => {
   const values = [
     {
-      icon: Lightbulb,
-      title: 'Innovation',
-      description: 'Leveraging cutting-edge AI technology and creative thinking to stay ahead.',
+      icon: Award,
+      title: 'Results Over Recognition',
+      description: "We measure success by your growth, not our awards. While we're proud of our achievements, what matters most is the revenue we generate for our clients.",
       color: 'from-yellow-500 to-orange-500',
     },
     {
-      icon: Target,
-      title: 'Transparency',
-      description: 'Clear communication and honest reporting on every campaign metric.',
+      icon: Shield,
+      title: 'Transparency Always',
+      description: 'No black boxes. No hidden fees. No jargon. We believe you deserve to understand exactly how your marketing investment is performing.',
       color: 'from-blue-500 to-cyan-500',
     },
     {
-      icon: TrendingUp,
-      title: 'Growth',
-      description: 'Focused on sustainable, scalable growth strategies that deliver long-term results.',
+      icon: Brain,
+      title: 'Innovation Through AI',
+      description: 'We embrace technology to stay ahead of the curve. By leveraging AI and automation, we deliver faster results and deeper insights than traditional agencies.',
       color: 'from-green-500 to-emerald-500',
     },
     {
-      icon: Heart,
-      title: 'Creativity',
-      description: 'Bold ideas and compelling storytelling that resonates with your audience.',
-      color: 'from-pink-500 to-rose-500',
-    },
-    {
-      icon: Award,
-      title: 'Results',
-      description: 'Every strategy is built around measurable outcomes and proven ROI.',
+      icon: Handshake,
+      title: 'Partnership, Not Transactions',
+      description: "We're not here for quick wins. We build long-term partnerships with clients who value sustainable growth and strategic thinking.",
       color: 'from-purple-500 to-violet-500',
     },
   ];
 
-  const whyChooseUs = [
-    'AI-powered strategies that deliver measurable ROI',
-    'Dedicated team of marketing experts',
-    'Transparent reporting with real-time dashboards',
-    'Custom solutions tailored to your business goals',
-    '24/7 support and proactive communication',
-    'Proven track record across 20+ industries',
+  const teamExpertise = [
+    'SEO Specialists (Google Analytics certified)',
+    'PPC Strategists (Google Ads & Meta Blueprint certified)',
+    'Content Creators (award-winning writers and designers)',
+    'Data Scientists (analytical minds transforming data into insights)',
+    'AI Engineers (building and optimizing our proprietary marketing tools)',
+  ];
+
+  const commitments = [
+    'A dedicated account manager who knows your business inside out',
+    'Monthly strategy sessions to review performance and plan ahead',
+    '24/7 access to your campaign dashboards and reports',
+    'Proactive recommendations based on market trends and opportunities',
+    'A team that celebrates your wins as much as you do',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="About Senseoza | AI-Driven Digital Marketing Experts"
-        description="Learn how Senseoza helps businesses transform their digital presence into measurable power with AI, SEO, and marketing expertise."
+        title="About Senseoza | AI-Powered Digital Marketing Experts Driving Real Results"
+        description="Meet the team behind Senseoza. Learn how our AI-powered approach and decade of expertise help businesses achieve measurable growth through innovative digital marketing."
         canonicalUrl="https://senseoza.com/about"
         schema={organizationSchema}
       />
@@ -69,7 +70,7 @@ const About = () => {
                 About Senseoza
               </span>
               <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6 leading-tight">
-                Transforming Digital <span className="text-accent">Presence</span> Into Power
+                Transforming Businesses Through <span className="text-accent">Intelligent Digital Marketing</span>
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8">
                 We're a team of passionate digital marketers, AI enthusiasts, and creative minds dedicated to helping brands achieve unprecedented growth.
@@ -77,7 +78,7 @@ const About = () => {
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
                   <Button size="lg" className="bg-background text-foreground hover:bg-background/90">
-                    Start Your Journey <ArrowRight className="ml-2 h-5 w-5" />
+                    Start Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link to="/case-studies" onClick={() => window.scrollTo(0, 0)}>
@@ -99,7 +100,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Story - Full Width Redesigned */}
+      {/* Our Story */}
       <section className="py-24 bg-gradient-to-b from-secondary/50 to-background relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -110,68 +111,42 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 mb-6">
               Born From a Vision to Revolutionize Marketing
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              At Senseoza, we believe digital presence is the new business power.
-            </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Lightbulb className="h-7 w-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-heading font-bold mb-4">The Beginning</h3>
-              <p className="text-muted-foreground">
-                Our journey began when our founders recognized that businesses needed more than just online visibility – they needed strategic partners who could transform presence into lasting influence.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center">
-                <TrendingUp className="h-7 w-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-heading font-bold mb-4">Our Growth</h3>
-              <p className="text-muted-foreground">
-                Today, with 40+ clients served and a 97% satisfaction rate, we've built a reputation for delivering measurable results that transform businesses across industries.
-              </p>
-            </div>
-            
-            <div className="bg-card rounded-2xl p-8 border border-border shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Target className="h-7 w-7 text-primary-foreground" />
-              </div>
-              <h3 className="text-xl font-heading font-bold mb-4">Our Approach</h3>
-              <p className="text-muted-foreground">
-                We combine AI innovation, creativity, and data-driven strategy to craft marketing solutions that don't just reach audiences – they move them to action.
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground mb-16">
+            <p>
+              Founded on the belief that every business deserves marketing that delivers measurable results, Senseoza was born from a simple question: What if marketing agencies actually cared about ROI as much as their clients do?
+            </p>
+            <p>
+              Traditional marketing agencies often focus on vanity metrics—likes, impressions, and follower counts—that look good in reports but don't move the needle for your business. We saw businesses spending thousands on marketing with little to show for it, and we knew there had to be a better way.
+            </p>
+            <p>
+              That's why we created Senseoza: a digital marketing agency that combines artificial intelligence, data science, and strategic creativity to deliver campaigns that don't just generate traffic—they generate revenue.
+            </p>
           </div>
+        </div>
+      </section>
 
-          <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-8 md:p-12 border border-primary/20">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-heading font-bold mb-6">Why Choose Senseoza?</h3>
-                <ul className="space-y-4">
-                  {whyChooseUs.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="relative hidden md:block">
-                <img 
-                  src={aboutImage} 
-                  alt="Senseoza Team"
-                  className="w-full h-auto rounded-2xl shadow-xl"
-                />
+      {/* Mission */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 gradient-primary">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16" />
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 mb-6 rounded-2xl bg-white/20 flex items-center justify-center mx-auto">
+                  <Rocket className="h-8 w-8 text-primary-foreground" />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-foreground mb-4">Our Mission</h2>
+                <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
+                  To empower businesses with intelligent, data-driven marketing strategies that deliver measurable growth and sustainable competitive advantage.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
 
       {/* Our Values */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
@@ -182,7 +157,7 @@ const About = () => {
               The Principles That Guide Us
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {values.map((value, index) => (
               <div
                 key={index}
@@ -192,42 +167,79 @@ const About = () => {
                   <value.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-xl font-heading font-bold mb-3">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+                <p className="text-muted-foreground">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Our Team */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="relative overflow-hidden rounded-3xl p-8 gradient-primary">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16" />
-              <div className="relative z-10">
-                <div className="w-16 h-16 mb-6 rounded-2xl bg-white/20 flex items-center justify-center">
-                  <Rocket className="h-8 w-8 text-primary-foreground" />
-                </div>
-                <h3 className="text-2xl font-heading font-bold text-primary-foreground mb-4">Our Mission</h3>
-                <p className="text-primary-foreground/90 text-lg">
-                  Transform digital presence into lasting influence and measurable power for every business we partner with.
-                </p>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Team</span>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 mb-6">
+                Certified Experts Across Every Discipline
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Our team consists of certified specialists across every digital marketing discipline. Together, we bring decades of combined experience and a shared passion for driving client success.
+              </p>
+              <ul className="space-y-4">
+                {teamExpertise.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="relative overflow-hidden rounded-3xl p-8 bg-card border border-border">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -mr-20 -mt-20" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-full -ml-16 -mb-16" />
-              <div className="relative z-10">
-                <div className="w-16 h-16 mb-6 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-heading font-bold mb-4">Our Vision</h3>
-                <p className="text-muted-foreground text-lg">
-                  To be the global leader in AI-driven digital marketing innovation, empowering businesses of all sizes to thrive in the digital age.
-                </p>
-              </div>
+            <div className="relative">
+              <img 
+                src={aboutImage} 
+                alt="Senseoza Team"
+                className="w-full h-auto rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why We Exist */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Why Senseoza Exists</span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 mb-6">
+              Democratizing Advanced Marketing
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              We believe small and medium-sized businesses deserve access to enterprise-level marketing expertise. That's why we've made it our mission to democratize advanced marketing strategies through AI and automation. Whether you're a startup looking to make your mark or an established business ready to scale, Senseoza provides the tools, expertise, and dedication you need to compete—and win—in today's digital marketplace.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Commitment */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">Our Commitment to You</span>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 mb-6">
+                What You Get When You Partner With Us
+              </h2>
+            </div>
+            <div className="bg-card rounded-2xl p-8 border border-border">
+              <ul className="space-y-4">
+                {commitments.map((item, index) => (
+                  <li key={index} className="flex items-start gap-4 p-4 bg-secondary/50 rounded-xl">
+                    <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -242,15 +254,15 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-foreground">
-              Ready to Transform Your Brand?
+              Let's Build Something Great Together
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Join 500+ businesses that have already accelerated their growth with our AI-powered marketing strategies.
+              Ready to experience digital marketing that actually drives business growth?
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
                 <Button size="lg" className="bg-background text-foreground hover:bg-background/90 shadow-lg">
-                  Schedule a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                  Start Your Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/services" onClick={() => window.scrollTo(0, 0)}>

@@ -7,18 +7,18 @@ import serviceImage from '@/assets/service-social-media.png';
 const SocialMedia = () => {
   const features = [
     'Social Media Strategy Development',
+    'Content Creation & Scheduling',
+    'Community Management',
+    'Social Media Advertising',
+    'Analytics & Reporting',
     'Influencer Partnership Management',
-    'Community Building & Management',
-    'Paid Social Advertising',
-    'Content Calendar Planning',
-    'Performance Analytics & Reporting',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="Social Media & Influencer Marketing | Senseoza"
-        description="Build engaged communities and amplify your brand with data-driven social strategies and influencer partnerships."
+        title="Social Media Marketing Services | Build Your Brand & Drive Engagement | Senseoza"
+        description="Professional social media marketing that builds communities and drives sales. Expert management of Facebook, Instagram, LinkedIn, TikTok & Twitter. Grow your following today."
         canonicalUrl="https://senseoza.com/services/social-media"
       />
       
@@ -31,17 +31,17 @@ const SocialMedia = () => {
                 <Share2 className="h-12 w-12 text-primary icon-3d" />
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-                Social Media & Influencer Marketing
+                Social Media Marketing That Turns Followers Into Customers
               </h1>
               <p className="text-xl text-muted-foreground mb-6">
-                Data-driven social strategies plus influencer partnerships to build engaged communities and amplify your brand message.
+                Social media isn't just about likes and followers—it's about building relationships, establishing authority, and driving real business results. With over 4.9 billion people using social media worldwide, your customers are already there.
               </p>
               <p className="font-semibold text-foreground mb-8">
-                Social Strategy | Influencer Campaigns | Community Management
+                Instagram | Facebook | LinkedIn | TikTok | Twitter
               </p>
               <Link to="/contact">
                 <Button size="lg" className="gradient-primary">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Get Your Free Social Strategy <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -60,7 +60,7 @@ const SocialMedia = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold text-center mb-12">
-            What's Included
+            Our Social Media Marketing Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -77,14 +77,14 @@ const SocialMedia = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Ready to Grow Your Social Presence?
+            Ready to Build Your Social Media Presence?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let's create a social media strategy that builds real engagement and drives results.
+            Stop posting randomly and start building a strategic social media presence that drives real business results.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              Get Your Free Social Strategy <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>

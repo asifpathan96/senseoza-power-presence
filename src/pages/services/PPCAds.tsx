@@ -7,18 +7,18 @@ import serviceImage from '@/assets/service-ppc.png';
 const PPCAds = () => {
   const features = [
     'Google Ads Management',
-    'Meta (Facebook/Instagram) Ads',
-    'Display Advertising',
-    'Retargeting Campaigns',
+    'Social Media Advertising',
+    'Remarketing & Retargeting',
     'Landing Page Optimization',
+    'A/B Testing & Optimization',
     'ROI Tracking & Reporting',
   ];
 
   return (
     <div className="min-h-screen pt-20">
       <SEOHead
-        title="PPC & Paid Ads Services | Senseoza"
-        description="ROI-focused ad campaigns across Google, Meta, and more with continuous optimization for maximum returns."
+        title="PPC Management Services | Google Ads & Social Media Advertising | Senseoza"
+        description="Expert PPC management that maximizes ROI. Professional Google Ads, Facebook, Instagram, and LinkedIn campaigns that drive immediate results."
         canonicalUrl="https://senseoza.com/services/ppc-ads"
       />
       
@@ -31,17 +31,17 @@ const PPCAds = () => {
                 <MousePointerClick className="h-12 w-12 text-primary icon-3d" />
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-                PPC & Paid Ads
+                Pay-Per-Click Management That Delivers Immediate, Measurable Results
               </h1>
               <p className="text-xl text-muted-foreground mb-6">
-                ROI-focused ad campaigns across Google, Meta, and more with continuous optimization for maximum returns.
+                Need customers today, not six months from now? Pay-per-click advertising delivers immediate visibility, traffic, and conversions. Our PPC management services ensure every advertising dollar works harder for your business.
               </p>
               <p className="font-semibold text-foreground mb-8">
-                Google Ads | Meta Ads | Display Ads | Retargeting
+                Google Ads | Meta Ads | LinkedIn Ads | Retargeting
               </p>
               <Link to="/contact">
                 <Button size="lg" className="gradient-primary">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                  Get Your Free PPC Audit <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -60,7 +60,7 @@ const PPCAds = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-heading font-bold text-center mb-12">
-            What's Included
+            Our PPC Management Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {features.map((feature, index) => (
@@ -77,14 +77,14 @@ const PPCAds = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-heading font-bold text-primary-foreground mb-6">
-            Ready to Maximize Your Ad ROI?
+            Ready to Drive Immediate Results?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let our PPC experts create campaigns that deliver real results.
+            Stop wasting money on underperforming ads. Partner with Senseoza and watch your ad spend turn into predictable, profitable growth.
           </p>
           <Link to="/contact">
             <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
+              Get Your Free PPC Audit <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>
