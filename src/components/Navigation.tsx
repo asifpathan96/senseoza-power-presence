@@ -9,6 +9,10 @@ export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Pages that have dark gradient hero backgrounds
+  const darkHeroPages = ['/', '/about', '/services', '/contact'];
+  const hasDarkHero = darkHeroPages.includes(location.pathname);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -37,7 +41,9 @@ export const Navigation = () => {
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled 
           ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50' 
-          : 'bg-transparent'
+          : hasDarkHero 
+            ? 'bg-transparent' 
+            : 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -47,7 +53,7 @@ export const Navigation = () => {
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
               <span className={`text-2xl font-heading font-bold relative ${
-                scrolled ? 'text-foreground' : 'text-white'
+                scrolled || !hasDarkHero ? 'text-foreground' : 'text-white'
               }`}>
                 Senseoza
               </span>
@@ -68,10 +74,10 @@ export const Navigation = () => {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                     isActive(link.path)
-                      ? scrolled 
+                      ? scrolled || !hasDarkHero
                         ? 'text-primary bg-primary/10' 
                         : 'text-white bg-white/20'
-                      : scrolled 
+                      : scrolled || !hasDarkHero
                         ? 'text-foreground hover:text-primary hover:bg-primary/5' 
                         : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
@@ -102,7 +108,7 @@ export const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className={`lg:hidden p-2 rounded-xl transition-colors ${
-              scrolled 
+              scrolled || !hasDarkHero
                 ? 'text-foreground hover:bg-secondary' 
                 : 'text-white hover:bg-white/10'
             }`}
