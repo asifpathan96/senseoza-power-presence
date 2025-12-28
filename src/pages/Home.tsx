@@ -20,10 +20,10 @@ import socialMediaImage from '@/assets/social-media.jpg';
 
 const Home = () => {
   const stats = [
-    { number: 300, suffix: '%', label: 'Avg Traffic Increase', icon: TrendingUp },
-    { number: 5.2, suffix: 'X', label: 'Average ROAS', icon: Sparkles },
-    { number: 87, suffix: '%', label: 'Client Retention', icon: Users },
-    { number: 50, suffix: 'M+', label: 'Revenue Generated', icon: Zap }
+    { number: 50, suffix: '+', label: 'Successful Campaigns', icon: TrendingUp },
+    { number: 97, suffix: '%', label: 'Client Satisfaction', icon: Sparkles },
+    { number: 5, suffix: '+', label: 'Years Experience', icon: Users },
+    { number: 10, suffix: 'M+', label: 'Revenue Generated', icon: Zap }
   ];
 
   const StatsCard = ({ stat, index }: { stat: typeof stats[0]; index: number }) => {
@@ -85,7 +85,7 @@ const Home = () => {
   const industries = ['E-commerce & Retail', 'SaaS & Technology', 'Healthcare & Wellness', 'Professional Services', 'Real Estate', 'Manufacturing & B2B', 'Hospitality & Tourism', 'Education'];
 
   const whyChooseUs = [
-    { icon: Award, title: 'Proven Track Record', description: 'Over 500+ successful campaigns delivered' },
+    { icon: Award, title: 'Proven Track Record', description: 'Over 50+ successful campaigns delivered' },
     { icon: Users, title: 'Expert Team', description: 'Certified specialists in SEO, PPC, social media, and content marketing' },
     { icon: Brain, title: 'AI-Powered Insights', description: 'Leveraging technology for smarter decision-making' },
     { icon: Lightbulb, title: 'Custom Solutions', description: 'No cookie-cutter packages—every strategy is tailored to you' },
