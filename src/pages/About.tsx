@@ -32,10 +32,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: '500+', label: 'Successful Campaigns' },
+    { value: '50+', label: 'Successful Campaigns' },
     { value: '97%', label: 'Client Satisfaction' },
-    { value: '10+', label: 'Years Experience' },
-    { value: '50M+', label: 'Revenue Generated' },
+    { value: '5+', label: 'Years Experience' },
+    { value: '10M+', label: 'Revenue Generated' },
   ];
 
   return (
