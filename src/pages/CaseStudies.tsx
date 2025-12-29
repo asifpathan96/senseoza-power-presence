@@ -60,14 +60,14 @@ const CaseStudies = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       <SEOHead
         title="Case Studies | Senseoza – Proven Digital Marketing Results"
         description="See how Senseoza has helped businesses increase traffic, rankings, and ROI with AI-driven marketing strategies."
         canonicalUrl="https://senseoza.com/case-studies"
       />
       {/* Hero Section */}
-      <section className="py-20 gradient-hero">
+      <section className="pt-32 md:pt-36 pb-20 gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6">

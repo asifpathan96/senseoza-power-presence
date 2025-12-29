@@ -125,7 +125,7 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       <SEOHead
         title={`${post.title} | Senseoza Blog`}
         description={post.excerpt}
