@@ -189,8 +189,9 @@ const EmailAutomation = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 gradient-hero opacity-50" />
+      <section className="py-20 gradient-hero relative overflow-hidden">
+        <FloatingElement className="absolute top-10 left-20 w-48 h-48 rounded-full bg-accent/20 blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-10 right-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl" delay={2} />
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-6">
