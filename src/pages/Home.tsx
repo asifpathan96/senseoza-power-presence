@@ -17,28 +17,57 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
-
 const Home = () => {
-  const stats = [
-    { number: 50, suffix: '+', label: 'Successful Campaigns', icon: TrendingUp },
-    { number: 97, suffix: '%', label: 'Client Satisfaction', icon: Sparkles },
-    { number: 5, suffix: '+', label: 'Years Experience', icon: Users },
-    { number: 10, suffix: 'M+', label: 'Revenue Generated', icon: Zap }
-  ];
-
-  const StatsCard = ({ stat, index }: { stat: typeof stats[0]; index: number }) => {
-    const { count, ref } = useCountUp(stat.number, 2500);
+  const stats = [{
+    number: 50,
+    suffix: '+',
+    label: 'Successful Campaigns',
+    icon: TrendingUp
+  }, {
+    number: 97,
+    suffix: '%',
+    label: 'Client Satisfaction',
+    icon: Sparkles
+  }, {
+    number: 5,
+    suffix: '+',
+    label: 'Years Experience',
+    icon: Users
+  }, {
+    number: 10,
+    suffix: 'M+',
+    label: 'Revenue Generated',
+    icon: Zap
+  }];
+  const StatsCard = ({
+    stat,
+    index
+  }: {
+    stat: typeof stats[0];
+    index: number;
+  }) => {
+    const {
+      count,
+      ref
+    } = useCountUp(stat.number, 2500);
     const IconComponent = stat.icon;
-    return (
-      <motion.div 
-        ref={ref} 
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        whileHover={{ y: -8, transition: { duration: 0.3 } }}
-        className="relative group"
-      >
+    return <motion.div ref={ref} initial={{
+      opacity: 0,
+      y: 40
+    }} whileInView={{
+      opacity: 1,
+      y: 0
+    }} viewport={{
+      once: true
+    }} transition={{
+      duration: 0.6,
+      delay: index * 0.1
+    }} whileHover={{
+      y: -8,
+      transition: {
+        duration: 0.3
+      }
+    }} className="relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
         <div className="relative bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-6 md:p-8 overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
@@ -55,58 +84,136 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </motion.div>
-    );
+      </motion.div>;
   };
-
-  const differentiators = [
-    { icon: Brain, title: 'AI-Driven Intelligence', description: 'We leverage advanced artificial intelligence and machine learning algorithms to analyze market trends, predict customer behavior, and optimize campaigns in real-time.' },
-    { icon: BarChart, title: 'Data-Obsessed Strategy', description: 'Every decision we make is backed by data. We track, measure, and analyze over 100+ performance metrics to ensure your marketing investment delivers quantifiable returns.' },
-    { icon: Target, title: 'Full-Funnel Expertise', description: 'From awareness to advocacy, we manage every stage of your customer journey with consistent messaging and maximum conversion rates across all channels.' },
-    { icon: Shield, title: 'Transparent Reporting', description: "You'll always know where your money goes. Our detailed monthly reports break down performance metrics and ROI calculations in plain English." }
-  ];
-
-  const services = [
-    { icon: Search, title: 'Search Engine Optimization', description: 'Dominate search rankings with proven SEO strategies combining technical optimization, content excellence, and authoritative link-building.', image: serviceSEO, link: '/services/seo' },
-    { icon: MousePointerClick, title: 'Pay-Per-Click Advertising', description: 'Generate immediate, qualified traffic with expertly managed paid advertising campaigns optimized for maximum ROAS.', image: servicePPC, link: '/services/ppc-ads' },
-    { icon: Share2, title: 'Social Media Marketing', description: 'Build a loyal community and drive engagement with strategic social media management that turns followers into customers.', image: serviceSocial, link: '/services/social-media' },
-    { icon: FileText, title: 'Content Marketing', description: 'Attract and convert ideal customers with high-quality content that establishes your authority and drives organic traffic.', image: serviceContent, link: '/services/content-marketing' },
-    { icon: Brain, title: 'AI Marketing Automation', description: 'Scale your marketing efforts without scaling your team using AI-driven automation tools that personalize experiences.', image: serviceAI, link: '/services/ai-marketing' },
-    { icon: Globe, title: 'Website Design & Development', description: 'High-converting websites optimized for performance, user experience, and search engines.', image: serviceWeb, link: '/services/web-design' }
-  ];
-
-  const process = [
-    { step: '01', title: 'Discovery & Audit', description: 'We start by understanding your business, goals, target audience, and current marketing performance.', icon: Search },
-    { step: '02', title: 'Strategy Development', description: 'We create a customized marketing roadmap with clear objectives, KPIs, and timelines.', icon: Target },
-    { step: '03', title: 'Implementation', description: 'Our expert team executes the strategy across all channels, continuously testing and optimizing.', icon: Zap },
-    { step: '04', title: 'Reporting & Scaling', description: 'You receive detailed performance reports. We scale winning strategies to maximize growth.', icon: TrendingUp }
-  ];
-
+  const differentiators = [{
+    icon: Brain,
+    title: 'AI-Driven Intelligence',
+    description: 'We leverage advanced artificial intelligence and machine learning algorithms to analyze market trends, predict customer behavior, and optimize campaigns in real-time.'
+  }, {
+    icon: BarChart,
+    title: 'Data-Obsessed Strategy',
+    description: 'Every decision we make is backed by data. We track, measure, and analyze over 100+ performance metrics to ensure your marketing investment delivers quantifiable returns.'
+  }, {
+    icon: Target,
+    title: 'Full-Funnel Expertise',
+    description: 'From awareness to advocacy, we manage every stage of your customer journey with consistent messaging and maximum conversion rates across all channels.'
+  }, {
+    icon: Shield,
+    title: 'Transparent Reporting',
+    description: "You'll always know where your money goes. Our detailed monthly reports break down performance metrics and ROI calculations in plain English."
+  }];
+  const services = [{
+    icon: Search,
+    title: 'Search Engine Optimization',
+    description: 'Dominate search rankings with proven SEO strategies combining technical optimization, content excellence, and authoritative link-building.',
+    image: serviceSEO,
+    link: '/services/seo'
+  }, {
+    icon: MousePointerClick,
+    title: 'Pay-Per-Click Advertising',
+    description: 'Generate immediate, qualified traffic with expertly managed paid advertising campaigns optimized for maximum ROAS.',
+    image: servicePPC,
+    link: '/services/ppc-ads'
+  }, {
+    icon: Share2,
+    title: 'Social Media Marketing',
+    description: 'Build a loyal community and drive engagement with strategic social media management that turns followers into customers.',
+    image: serviceSocial,
+    link: '/services/social-media'
+  }, {
+    icon: FileText,
+    title: 'Content Marketing',
+    description: 'Attract and convert ideal customers with high-quality content that establishes your authority and drives organic traffic.',
+    image: serviceContent,
+    link: '/services/content-marketing'
+  }, {
+    icon: Brain,
+    title: 'AI Marketing Automation',
+    description: 'Scale your marketing efforts without scaling your team using AI-driven automation tools that personalize experiences.',
+    image: serviceAI,
+    link: '/services/ai-marketing'
+  }, {
+    icon: Globe,
+    title: 'Website Design & Development',
+    description: 'High-converting websites optimized for performance, user experience, and search engines.',
+    image: serviceWeb,
+    link: '/services/web-design'
+  }];
+  const process = [{
+    step: '01',
+    title: 'Discovery & Audit',
+    description: 'We start by understanding your business, goals, target audience, and current marketing performance.',
+    icon: Search
+  }, {
+    step: '02',
+    title: 'Strategy Development',
+    description: 'We create a customized marketing roadmap with clear objectives, KPIs, and timelines.',
+    icon: Target
+  }, {
+    step: '03',
+    title: 'Implementation',
+    description: 'Our expert team executes the strategy across all channels, continuously testing and optimizing.',
+    icon: Zap
+  }, {
+    step: '04',
+    title: 'Reporting & Scaling',
+    description: 'You receive detailed performance reports. We scale winning strategies to maximize growth.',
+    icon: TrendingUp
+  }];
   const industries = ['E-commerce & Retail', 'SaaS & Technology', 'Healthcare & Wellness', 'Professional Services', 'Real Estate', 'Manufacturing & B2B', 'Hospitality & Tourism', 'Education'];
-
-  const whyChooseUs = [
-    { icon: Award, title: 'Proven Track Record', description: 'Over 50+ successful campaigns delivered' },
-    { icon: Users, title: 'Expert Team', description: 'Certified specialists in SEO, PPC, social media, and content marketing' },
-    { icon: Brain, title: 'AI-Powered Insights', description: 'Leveraging technology for smarter decision-making' },
-    { icon: Lightbulb, title: 'Custom Solutions', description: 'No cookie-cutter packages—every strategy is tailored to you' },
-    { icon: Shield, title: 'Transparent Pricing', description: 'Clear, predictable pricing with no hidden fees' },
-    { icon: Sparkles, title: 'Dedicated Support', description: "Your success is our priority—we're always here to help" }
-  ];
-
-  const blogPosts = [
-    { title: 'How AI is Revolutionizing Digital Marketing in 2024', excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.', category: 'AI Marketing', date: 'Dec 10, 2024', readTime: '5 min read', image: aiMarketingImage, slug: 'ai-revolutionizing-digital-marketing-2024' },
-    { title: "SEO Trends You Can't Ignore This Year", excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.', category: 'SEO', date: 'Dec 8, 2024', readTime: '4 min read', image: seoImage, slug: 'seo-trends-2024' },
-    { title: 'Building Brand Authority on Social Media', excerpt: 'Learn how to create authentic connections and grow your brand presence online.', category: 'Social Media', date: 'Dec 5, 2024', readTime: '6 min read', image: socialMediaImage, slug: 'building-brand-authority-social-media' }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
-      <SEOHead 
-        title="AI-Powered Digital Marketing Agency | Senseoza - Turning Presence Into Power" 
-        description="Senseoza delivers data-driven digital marketing that drives real results. Expert SEO, PPC, social media & AI strategies to grow your business online." 
-        canonicalUrl="https://senseoza.com/" 
-        schema={organizationSchema} 
-      />
+  const whyChooseUs = [{
+    icon: Award,
+    title: 'Proven Track Record',
+    description: 'Over 50+ successful campaigns delivered'
+  }, {
+    icon: Users,
+    title: 'Expert Team',
+    description: 'Certified specialists in SEO, PPC, social media, and content marketing'
+  }, {
+    icon: Brain,
+    title: 'AI-Powered Insights',
+    description: 'Leveraging technology for smarter decision-making'
+  }, {
+    icon: Lightbulb,
+    title: 'Custom Solutions',
+    description: 'No cookie-cutter packages—every strategy is tailored to you'
+  }, {
+    icon: Shield,
+    title: 'Transparent Pricing',
+    description: 'Clear, predictable pricing with no hidden fees'
+  }, {
+    icon: Sparkles,
+    title: 'Dedicated Support',
+    description: "Your success is our priority—we're always here to help"
+  }];
+  const blogPosts = [{
+    title: 'How AI is Revolutionizing Digital Marketing in 2024',
+    excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
+    category: 'AI Marketing',
+    date: 'Dec 10, 2024',
+    readTime: '5 min read',
+    image: aiMarketingImage,
+    slug: 'ai-revolutionizing-digital-marketing-2024'
+  }, {
+    title: "SEO Trends You Can't Ignore This Year",
+    excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.',
+    category: 'SEO',
+    date: 'Dec 8, 2024',
+    readTime: '4 min read',
+    image: seoImage,
+    slug: 'seo-trends-2024'
+  }, {
+    title: 'Building Brand Authority on Social Media',
+    excerpt: 'Learn how to create authentic connections and grow your brand presence online.',
+    category: 'Social Media',
+    date: 'Dec 5, 2024',
+    readTime: '6 min read',
+    image: socialMediaImage,
+    slug: 'building-brand-authority-social-media'
+  }];
+  return <div className="min-h-screen bg-background">
+      <SEOHead title="AI-Powered Digital Marketing Agency | Senseoza - Turning Presence Into Power" description="Senseoza delivers data-driven digital marketing that drives real results. Expert SEO, PPC, social media & AI strategies to grow your business online." canonicalUrl="https://senseoza.com/" schema={organizationSchema} />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -121,41 +228,56 @@ const Home = () => {
         
         <div className="container mx-auto px-4 z-10 py-32">
           <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6
+          }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
               <Sparkles className="h-4 w-4 text-accent" />
               <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
             </motion.div>
             
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight"
-            >
+            <motion.h1 initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.1
+          }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
               Transform Your Digital Presence Into{' '}
               <span className="text-accent">Measurable Growth</span>
             </motion.h1>
             
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed"
-            >
+            <motion.p initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
               Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
             </motion.p>
             
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 30
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6,
+            delay: 0.3
+          }} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
                   Get Your Free Marketing Audit
@@ -171,22 +293,25 @@ const Home = () => {
           </div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
-          >
-            <motion.div 
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-white rounded-full" 
-            />
+        <motion.div initial={{
+        opacity: 0
+      }} animate={{
+        opacity: 1
+      }} transition={{
+        delay: 1
+      }} className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <motion.div animate={{
+          y: [0, 10, 0]
+        }} transition={{
+          duration: 1.5,
+          repeat: Infinity
+        }} className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <motion.div animate={{
+            opacity: [0.5, 1, 0.5]
+          }} transition={{
+            duration: 1.5,
+            repeat: Infinity
+          }} className="w-1 h-2 bg-white rounded-full" />
           </motion.div>
         </motion.div>
       </section>
@@ -201,7 +326,7 @@ const Home = () => {
               Why Choose Us
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              What Makes Senseoza <span className="text-gradient">Different</span>
+              What Makes Senseoza <span className="text-gradient text-primary-foreground">Different</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               We combine AI innovation with proven marketing expertise to deliver exceptional results
@@ -210,13 +335,14 @@ const Home = () => {
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {differentiators.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <StaggerItem key={index}>
-                  <motion.div 
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                    className="group relative h-full"
-                  >
+            const IconComponent = item.icon;
+            return <StaggerItem key={index}>
+                  <motion.div whileHover={{
+                y: -8,
+                transition: {
+                  duration: 0.3
+                }
+              }} className="group relative h-full">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative bg-card border border-border/50 rounded-2xl p-8 h-full hover:border-primary/30 hover:shadow-xl transition-all duration-300">
                       <div className="flex items-start gap-5">
@@ -237,9 +363,8 @@ const Home = () => {
                       </div>
                     </div>
                   </motion.div>
-                </StaggerItem>
-              );
-            })}
+                </StaggerItem>;
+          })}
           </StaggerContainer>
         </div>
       </section>
@@ -252,7 +377,7 @@ const Home = () => {
               What We Do
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Core <span className="text-gradient">Services</span>
+              Our Core <span className="text-gradient text-primary-foreground">Services</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Comprehensive digital marketing solutions designed to accelerate your growth
@@ -261,20 +386,14 @@ const Home = () => {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <StaggerItem key={index}>
+            const IconComponent = service.icon;
+            return <StaggerItem key={index}>
                   <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
-                    <motion.div
-                      whileHover={{ y: -8 }}
-                      className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 h-full"
-                    >
+                    <motion.div whileHover={{
+                  y: -8
+                }} className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 h-full">
                       <div className="relative h-48 overflow-hidden">
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                        />
+                        <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
                         <div className="absolute bottom-4 left-4">
                           <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:bg-primary transition-colors duration-300">
@@ -296,9 +415,8 @@ const Home = () => {
                       </div>
                     </motion.div>
                   </Link>
-                </StaggerItem>
-              );
-            })}
+                </StaggerItem>;
+          })}
           </StaggerContainer>
 
           <AnimatedSection delay={0.4} className="text-center mt-12">
@@ -333,9 +451,7 @@ const Home = () => {
           </AnimatedSection>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <StatsCard key={index} stat={stat} index={index} />
-            ))}
+            {stats.map((stat, index) => <StatsCard key={index} stat={stat} index={index} />)}
           </div>
         </div>
       </section>
@@ -349,7 +465,7 @@ const Home = () => {
               How We Work
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Process: From Strategy to <span className="text-gradient">Success</span>
+              Our Process: From Strategy to <span className="text-gradient bg-transparent text-primary-foreground">Success</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               A proven methodology that delivers consistent, measurable results
@@ -359,13 +475,14 @@ const Home = () => {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {process.map((step, index) => {
-                const IconComponent = step.icon;
-                return (
-                  <AnimatedSection key={index} delay={index * 0.1}>
-                    <motion.div
-                      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                      className="group relative"
-                    >
+              const IconComponent = step.icon;
+              return <AnimatedSection key={index} delay={index * 0.1}>
+                    <motion.div whileHover={{
+                  y: -8,
+                  transition: {
+                    duration: 0.3
+                  }
+                }} className="group relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="relative bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
                         <div className="flex items-start gap-5">
@@ -388,9 +505,8 @@ const Home = () => {
                         </div>
                       </div>
                     </motion.div>
-                  </AnimatedSection>
-                );
-              })}
+                  </AnimatedSection>;
+            })}
             </div>
           </div>
         </div>
@@ -415,17 +531,15 @@ const Home = () => {
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {industries.map((industry, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300 text-center"
-                >
+            {industries.map((industry, index) => <StaggerItem key={index}>
+                <motion.div whileHover={{
+              scale: 1.05,
+              y: -4
+            }} className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 transition-all duration-300 text-center">
                   <Building className="h-8 w-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
                   <span className="text-white font-medium text-sm">{industry}</span>
                 </motion.div>
-              </StaggerItem>
-            ))}
+              </StaggerItem>)}
           </StaggerContainer>
         </div>
       </section>
@@ -439,19 +553,17 @@ const Home = () => {
               The Senseoza Advantage
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Why Businesses Choose <span className="text-gradient">Senseoza</span>
+              Why Businesses Choose <span className="text-gradient text-primary-foreground">Senseoza</span>
             </h2>
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {whyChooseUs.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <StaggerItem key={index}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300"
-                  >
+            const IconComponent = item.icon;
+            return <StaggerItem key={index}>
+                  <motion.div whileHover={{
+                y: -8
+              }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
                         <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
@@ -462,9 +574,8 @@ const Home = () => {
                       </div>
                     </div>
                   </motion.div>
-                </StaggerItem>
-              );
-            })}
+                </StaggerItem>;
+          })}
           </StaggerContainer>
         </div>
       </section>
@@ -477,7 +588,7 @@ const Home = () => {
               Latest News
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Latest <span className="text-gradient">Insights</span>
+              Latest <span className="text-gradient text-primary-foreground">Insights</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Stay ahead with expert tips on SEO, AI marketing, and digital growth strategies
@@ -485,19 +596,13 @@ const Home = () => {
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post, index) => (
-              <StaggerItem key={index}>
+            {blogPosts.map((post, index) => <StaggerItem key={index}>
                 <Link to={`/blog/${post.slug}`} onClick={() => window.scrollTo(0, 0)}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full"
-                  >
+                  <motion.div whileHover={{
+                y: -8
+              }} className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
                     <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                      />
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute top-4 left-4">
                         <span className="px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full">
                           {post.category}
@@ -518,8 +623,7 @@ const Home = () => {
                     </div>
                   </motion.div>
                 </Link>
-              </StaggerItem>
-            ))}
+              </StaggerItem>)}
           </StaggerContainer>
 
           <AnimatedSection delay={0.4} className="text-center mt-12">
@@ -562,8 +666,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
