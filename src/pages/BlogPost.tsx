@@ -1,7 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin, Sparkles } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import { AnimatedSection, FloatingElement } from '@/components/AnimatedSection';
+import { motion } from 'framer-motion';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import seoImage from '@/assets/seo.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
@@ -110,8 +112,8 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen pt-20 flex items-center justify-center">
-        <div className="text-center">
+      <div className="min-h-screen pt-20 flex items-center justify-center bg-background">
+        <AnimatedSection className="text-center">
           <h1 className="text-4xl font-heading font-bold mb-4">Post Not Found</h1>
           <p className="text-muted-foreground mb-8">The blog post you're looking for doesn't exist.</p>
           <Link to="/blog">
@@ -119,13 +121,13 @@ const BlogPost = () => {
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
             </Button>
           </Link>
-        </div>
+        </AnimatedSection>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <SEOHead
         title={`${post.title} | Senseoza Blog`}
         description={post.excerpt}
@@ -133,95 +135,153 @@ const BlogPost = () => {
       />
       
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <img
+      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
+        <motion.img
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
           src={post.image}
           alt={post.title}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="container mx-auto">
-            <div className="max-w-4xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
+        
+        <FloatingElement className="absolute top-1/4 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
+        
+        <div className="relative z-10 container mx-auto px-4 pb-12 pt-32">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <Link 
                 to="/blog" 
-                className="inline-flex items-center text-primary-foreground/80 hover:text-primary-foreground mb-4 transition-colors"
+                className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors group"
                 onClick={() => window.scrollTo(0, 0)}
               >
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+                <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Blog
               </Link>
-              <span className="inline-block px-4 py-1 bg-primary text-primary-foreground rounded-full text-sm font-semibold mb-4">
-                {post.category}
-              </span>
-              <h1 className="text-3xl md:text-5xl font-heading font-bold text-primary-foreground mb-6">
-                {post.title}
-              </h1>
-              <div className="flex flex-wrap items-center gap-6 text-primary-foreground/80">
-                <div className="flex items-center gap-2">
-                  <User className="h-4 w-4" />
-                  <span>{post.author}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>{post.date}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  <span>{post.readTime}</span>
-                </div>
+            </motion.div>
+            
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-block px-4 py-2 bg-primary text-white rounded-full text-sm font-semibold mb-6"
+            >
+              {post.category}
+            </motion.span>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6"
+            >
+              {post.title}
+            </motion.h1>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-6 text-white/80"
+            >
+              <div className="flex items-center gap-2">
+                <User className="h-4 w-4" />
+                <span>{post.author}</span>
               </div>
-            </div>
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                <span>{post.date}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span>{post.readTime}</span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Content */}
-      <article className="py-16">
-        <div className="container mx-auto px-4">
+      <article className="py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient opacity-30" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              {post.content.map((paragraph, index) => (
-                <p key={index} className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            <AnimatedSection>
+              <div className="prose prose-lg max-w-none">
+                {post.content.map((paragraph, index) => (
+                  <motion.p 
+                    key={index} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="text-lg text-muted-foreground mb-6 leading-relaxed"
+                  >
+                    {paragraph}
+                  </motion.p>
+                ))}
+              </div>
+            </AnimatedSection>
 
             {/* Share */}
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  <Share2 className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-semibold">Share this article</span>
-                </div>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground">
-                    <Facebook className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground">
-                    <Twitter className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground">
-                    <Linkedin className="h-4 w-4" />
-                  </Button>
+            <AnimatedSection delay={0.3}>
+              <div className="mt-12 pt-8 border-t border-border">
+                <div className="flex items-center justify-between flex-wrap gap-4">
+                  <div className="flex items-center gap-2">
+                    <Share2 className="h-5 w-5 text-muted-foreground" />
+                    <span className="font-semibold">Share this article</span>
+                  </div>
+                  <div className="flex gap-3">
+                    <motion.div whileHover={{ scale: 1.1 }}>
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                        <Facebook className="h-4 w-4" />
+                      </Button>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }}>
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                        <Twitter className="h-4 w-4" />
+                      </Button>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.1 }}>
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                        <Linkedin className="h-4 w-4" />
+                      </Button>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* CTA */}
-            <div className="mt-12 p-8 rounded-2xl gradient-hero text-center">
-              <h3 className="text-2xl font-heading font-bold text-primary-foreground mb-4">
-                Want to implement these strategies?
-              </h3>
-              <p className="text-primary-foreground/90 mb-6">
-                Let our experts help you achieve your digital marketing goals.
-              </p>
-              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-                <Button className="bg-background text-foreground hover:bg-background/90">
-                  Get Started Today
-                </Button>
-              </Link>
-            </div>
+            <AnimatedSection delay={0.4}>
+              <motion.div 
+                whileHover={{ y: -4 }}
+                className="mt-12 p-8 md:p-10 rounded-3xl gradient-hero text-center relative overflow-hidden"
+              >
+                <FloatingElement className="absolute top-0 right-0 w-48 h-48 bg-accent/30 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
+                    <Sparkles className="h-4 w-4" />
+                    Ready to Grow?
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
+                    Want to implement these strategies?
+                  </h3>
+                  <p className="text-white/80 mb-6 max-w-lg mx-auto">
+                    Let our experts help you achieve your digital marketing goals.
+                  </p>
+                  <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                    <Button className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                      Get Started Today
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatedSection>
           </div>
         </div>
       </article>
