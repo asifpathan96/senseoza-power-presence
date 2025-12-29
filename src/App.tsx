@@ -26,6 +26,7 @@ import PPCAds from "./pages/services/PPCAds";
 import WebDesign from "./pages/services/WebDesign";
 import EmailAutomation from "./pages/services/EmailAutomation";
 import Analytics from "./pages/services/Analytics";
+import InfluencerMarketing from "./pages/services/InfluencerMarketing";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
         <Route path="/services/web-design" element={<WebDesign />} />
         <Route path="/services/email-automation" element={<EmailAutomation />} />
         <Route path="/services/analytics" element={<Analytics />} />
+        <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/blog" element={<Blog />} />

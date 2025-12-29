@@ -1,12 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const serviceLinks = [
+  { name: 'SEO Services', path: '/services/seo' },
+  { name: 'PPC Advertising', path: '/services/ppc-ads' },
+  { name: 'Social Media Marketing', path: '/services/social-media' },
+  { name: 'Content Marketing', path: '/services/content-marketing' },
+  { name: 'AI-Powered Marketing', path: '/services/ai-marketing' },
+  { name: 'Web Design & Development', path: '/services/web-design' },
+  { name: 'Email Automation', path: '/services/email-automation' },
+  { name: 'Analytics & Reporting', path: '/services/analytics' },
+  { name: 'Influencer Marketing', path: '/services/influencer-marketing' },
+];
+
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   // Pages that have dark gradient hero backgrounds
@@ -21,10 +36,20 @@ export const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
+    { name: 'Services', path: '/services', hasDropdown: true },
     { name: 'Case Studies', path: '/case-studies' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Blog', path: '/blog' },
@@ -32,6 +57,7 @@ export const Navigation = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const isServiceActive = location.pathname.startsWith('/services');
 
   return (
     <motion.nav
@@ -68,28 +94,91 @@ export const Navigation = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 + 0.2 }}
+                className="relative"
+                ref={link.hasDropdown ? servicesRef : undefined}
               >
-                <Link
-                  to={link.path}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                    isActive(link.path)
-                      ? scrolled || !hasDarkHero
-                        ? 'text-primary bg-primary/10' 
-                        : 'text-white bg-white/20'
-                      : scrolled || !hasDarkHero
-                        ? 'text-foreground hover:text-primary hover:bg-primary/5' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.name}
-                  {isActive(link.path) && (
-                    <motion.div
-                      layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
-                    />
-                  )}
-                </Link>
+                {link.hasDropdown ? (
+                  <>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
+                        isServiceActive
+                          ? scrolled || !hasDarkHero
+                            ? 'text-primary bg-primary/10' 
+                            : 'text-white bg-white/20'
+                          : scrolled || !hasDarkHero
+                            ? 'text-foreground hover:text-primary hover:bg-primary/5' 
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-xl rounded-xl shadow-xl border border-border/50 overflow-hidden"
+                        >
+                          <div className="py-2">
+                            <Link
+                              to="/services"
+                              onClick={() => {
+                                setServicesOpen(false);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors border-b border-border/30"
+                            >
+                              All Services
+                            </Link>
+                            {serviceLinks.map((service) => (
+                              <Link
+                                key={service.path}
+                                to={service.path}
+                                onClick={() => {
+                                  setServicesOpen(false);
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                className={`block px-4 py-2.5 text-sm transition-colors ${
+                                  isActive(service.path)
+                                    ? 'bg-primary/10 text-primary font-medium'
+                                    : 'text-muted-foreground hover:bg-primary/5 hover:text-foreground'
+                                }`}
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <Link
+                    to={link.path}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                      isActive(link.path)
+                        ? scrolled || !hasDarkHero
+                          ? 'text-primary bg-primary/10' 
+                          : 'text-white bg-white/20'
+                        : scrolled || !hasDarkHero
+                          ? 'text-foreground hover:text-primary hover:bg-primary/5' 
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {link.name}
+                    {isActive(link.path) && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                      />
+                    )}
+                  </Link>
+                )}
               </motion.div>
             ))}
             <motion.div
@@ -137,20 +226,78 @@ export const Navigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <Link
-                      to={link.path}
-                      onClick={() => {
-                        setIsOpen(false);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                      className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
-                        isActive(link.path)
-                          ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
-                          : 'text-foreground hover:bg-secondary'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                    {link.hasDropdown ? (
+                      <>
+                        <button
+                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
+                            isServiceActive
+                              ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
+                              : 'text-foreground hover:bg-secondary'
+                          }`}
+                        >
+                          {link.name}
+                          <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {mobileServicesOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 py-2 space-y-1">
+                                <Link
+                                  to="/services"
+                                  onClick={() => {
+                                    setIsOpen(false);
+                                    setMobileServicesOpen(false);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                  }}
+                                  className="block px-4 py-2 text-sm rounded-lg text-foreground hover:bg-secondary font-medium"
+                                >
+                                  All Services
+                                </Link>
+                                {serviceLinks.map((service) => (
+                                  <Link
+                                    key={service.path}
+                                    to={service.path}
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                      setMobileServicesOpen(false);
+                                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                    className={`block px-4 py-2 text-sm rounded-lg ${
+                                      isActive(service.path)
+                                        ? 'text-primary font-medium bg-primary/5'
+                                        : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+                                    }`}
+                                  >
+                                    {service.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        to={link.path}
+                        onClick={() => {
+                          setIsOpen(false);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
+                          isActive(link.path)
+                            ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
+                            : 'text-foreground hover:bg-secondary'
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
                 <motion.div
