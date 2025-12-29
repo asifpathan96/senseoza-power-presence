@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, DollarSign, Eye, Search, ArrowRight } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, Eye, Search, ArrowRight, Sparkles } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -60,116 +62,181 @@ const CaseStudies = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <SEOHead
         title="Case Studies | Senseoza – Proven Digital Marketing Results"
         description="See how Senseoza has helped businesses increase traffic, rankings, and ROI with AI-driven marketing strategies."
         canonicalUrl="https://senseoza.com/case-studies"
       />
+      
       {/* Hero Section */}
-      <section className="pt-32 md:pt-36 pb-20 gradient-hero">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 gradient-hero" />
+        <div className="absolute inset-0 dot-pattern opacity-20" />
+        
+        <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
+        
+        <div className="container mx-auto px-4 z-10 py-32">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-heading font-bold text-primary-foreground mb-6">
-              Case Studies
-            </h1>
-            <p className="text-xl text-primary-foreground/90">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
+            >
+              <Sparkles className="h-4 w-4 text-accent" />
+              <span className="text-sm font-medium text-white/90">Proven Results</span>
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight"
+            >
+              Case <span className="text-accent">Studies</span>
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            >
               We don't just design strategies — we deliver results. Explore how Senseoza has helped brands grow their digital presence, boost ROI, and achieve lasting success.
-            </p>
+            </motion.p>
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+          >
+            <motion.div
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-2 bg-white rounded-full"
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="space-y-16">
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="space-y-20">
             {caseStudies.map((study, index) => (
-              <div
-                key={index}
-                className={`flex flex-col ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } gap-8 items-center`}
-              >
-                {/* Image */}
-                <div className="lg:w-1/2">
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src={study.image}
-                      alt={study.title}
-                      className="w-full h-80 object-cover hover:scale-105 transition-base"
-                    />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="lg:w-1/2 space-y-6">
-                  <div>
-                    <span className="text-primary font-semibold">{study.industry}</span>
-                    <h2 className="text-3xl font-heading font-bold mt-2 mb-4">
-                      {study.title}
-                    </h2>
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className={`flex flex-col ${
+                    index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                  } gap-8 lg:gap-12 items-center`}
+                >
+                  {/* Image */}
+                  <div className="lg:w-1/2">
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      className="relative rounded-2xl overflow-hidden shadow-xl group"
+                    >
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </motion.div>
                   </div>
 
-                  <div>
-                    <h3 className="font-heading font-bold mb-2">Challenge</h3>
-                    <p className="text-muted-foreground">{study.challenge}</p>
-                  </div>
+                  {/* Content */}
+                  <div className="lg:w-1/2 space-y-6">
+                    <div>
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+                        {study.industry}
+                      </span>
+                      <h2 className="text-2xl md:text-3xl font-heading font-bold mt-2 mb-4">
+                        {study.title}
+                      </h2>
+                    </div>
 
-                  <div>
-                    <h3 className="font-heading font-bold mb-2">Solution</h3>
-                    <p className="text-muted-foreground">{study.solution}</p>
-                  </div>
+                    <div className="bg-card border border-border/50 rounded-xl p-5">
+                      <h3 className="font-heading font-bold mb-2 text-primary">Challenge</h3>
+                      <p className="text-muted-foreground">{study.challenge}</p>
+                    </div>
 
-                  <div>
-                    <h3 className="font-heading font-bold mb-4">Results</h3>
-                    <div className="grid grid-cols-3 gap-4">
-                      {study.results.map((result, idx) => (
-                        <div key={idx} className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-xl p-4 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                          <div className="absolute inset-0 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                          <div className="relative z-10">
-                            <result.icon className="h-6 w-6 text-white mx-auto mb-2 drop-shadow-md" />
-                            <div className="text-2xl md:text-3xl font-heading font-black text-white mb-1 drop-shadow-md">
-                              {result.metric}
+                    <div className="bg-card border border-border/50 rounded-xl p-5">
+                      <h3 className="font-heading font-bold mb-2 text-primary">Solution</h3>
+                      <p className="text-muted-foreground">{study.solution}</p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-heading font-bold mb-4">Results</h3>
+                      <div className="grid grid-cols-3 gap-4">
+                        {study.results.map((result, idx) => (
+                          <motion.div 
+                            key={idx} 
+                            whileHover={{ y: -4, scale: 1.02 }}
+                            className="relative group bg-gradient-to-br from-primary via-primary/90 to-accent rounded-xl p-4 text-center hover:shadow-xl transition-all duration-300"
+                          >
+                            <div className="absolute inset-0 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="relative z-10">
+                              <result.icon className="h-6 w-6 text-white mx-auto mb-2 drop-shadow-md" />
+                              <div className="text-xl md:text-2xl font-heading font-black text-white mb-1 drop-shadow-md">
+                                {result.metric}
+                              </div>
+                              <div className="text-xs font-semibold text-white/90">{result.label}</div>
                             </div>
-                            <div className="text-xs font-semibold text-white/90">{result.label}</div>
-                          </div>
-                        </div>
-                      ))}
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -mr-48 -mt-48" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-40 -mb-40" />
+        <div className="absolute inset-0 dot-pattern opacity-10" />
+        <FloatingElement className="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -mr-48 -mt-48" />
+        <FloatingElement className="absolute bottom-0 left-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl -ml-40 -mb-40" delay={2} />
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-primary-foreground text-sm font-semibold mb-6">
+          <AnimatedSection className="max-w-4xl mx-auto text-center">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-6"
+            >
+              <Sparkles className="h-4 w-4" />
               Your Success Story Awaits
-            </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-primary-foreground">
-              Ready to Write Your Success Story?
+            </motion.span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 text-white">
+              Ready to Write Your <span className="text-accent">Success Story?</span>
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
               Let's create a case study together – your brand's transformation starts here
             </p>
             <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-              <Button size="lg" className="bg-background text-foreground hover:bg-background/90 shadow-lg px-8">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300 px-8">
                 Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
