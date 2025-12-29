@@ -1,65 +1,101 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Users, CheckCircle, TrendingUp, Target, Heart, Sparkles, Star, BarChart3, Megaphone } from 'lucide-react';
+import { ArrowRight, Users, CheckCircle, TrendingUp, Target, Heart, Sparkles, Star, BarChart3, Megaphone, Clock, Building2, Search, Shield } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
 const InfluencerMarketing = () => {
-  const benefits = [
-    'Access to authentic audience connections',
-    'Higher engagement rates than traditional ads',
-    'Build trust through social proof',
-    'Reach niche demographics effectively',
-    'Generate user-generated content',
-    'Measurable ROI with tracking',
+  const whyInfluencerMarketing = [
+    { title: 'Trust Transfer', description: 'Influencers have invested years building loyal communities who trust their judgment. When they endorse your brand, that trust transfers to you.' },
+    { title: 'Authentic Reach', description: 'Unlike ads that users actively avoid, influencer content appears naturally in feeds from accounts followers chose to engage with.' },
+    { title: 'Precision Targeting', description: 'Each influencer attracts specific demographics with particular interests. We identify creators whose audiences match your ideal customer profiles.' },
+    { title: 'Content Generation', description: 'Influencer partnerships generate authentic content you can repurpose across your own channels—often outperforming brand-created content.' },
+    { title: 'Algorithm Advantage', description: 'Social platforms prioritize content from individual creators over brand accounts. Influencer content receives higher organic visibility.' },
   ];
 
   const services = [
     {
+      icon: Search,
+      title: 'Influencer Discovery & Vetting',
+      description: 'Identify ideal creators through audience demographics, engagement analysis, content quality assessment, and brand safety verification.',
+    },
+    {
       icon: Target,
-      title: 'Influencer Discovery',
-      description: 'We identify and vet influencers that align with your brand values, target audience, and campaign goals.',
+      title: 'Strategy Development',
+      description: 'Campaign objectives, influencer tier selection, content formats, messaging guidelines, timeline planning, and budget allocation.',
     },
     {
       icon: Users,
-      title: 'Campaign Management',
-      description: 'End-to-end campaign management from outreach and negotiation to content approval and publishing.',
+      title: 'Outreach & Negotiation',
+      description: 'Professional outreach, rate negotiation, contract development, usage rights management, and relationship building.',
     },
     {
       icon: Heart,
-      title: 'Relationship Building',
-      description: 'Foster long-term partnerships with influencers for ongoing brand advocacy and authentic promotion.',
+      title: 'Content Collaboration',
+      description: 'Creative briefs balancing brand messaging with authentic creator voice, content reviews, revisions, and approval processes.',
+    },
+    {
+      icon: Megaphone,
+      title: 'Campaign Amplification',
+      description: 'Boost top-performing content with paid promotion to extend reach beyond organic audiences.',
     },
     {
       icon: BarChart3,
       title: 'Performance Analytics',
-      description: 'Comprehensive tracking and reporting on reach, engagement, conversions, and ROI metrics.',
+      description: 'Comprehensive tracking of reach, engagement, traffic, conversions, sales attribution, and ROI calculation.',
     },
     {
-      icon: Megaphone,
-      title: 'Content Strategy',
-      description: 'Develop creative briefs and content guidelines that maintain brand consistency while allowing creator authenticity.',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Amplification',
-      description: 'Boost top-performing influencer content with paid media to extend reach and maximize impact.',
+      icon: Shield,
+      title: 'Compliance Management',
+      description: 'Ensure FTC disclosure compliance, platform guideline adherence, and brand safety throughout campaigns.',
     },
   ];
 
-  const influencerTypes = [
-    { type: 'Nano Influencers', followers: '1K-10K', benefit: 'Highest engagement rates, niche communities' },
-    { type: 'Micro Influencers', followers: '10K-100K', benefit: 'Strong authenticity, cost-effective reach' },
-    { type: 'Macro Influencers', followers: '100K-1M', benefit: 'Broad reach, professional content' },
-    { type: 'Mega Influencers', followers: '1M+', benefit: 'Maximum exposure, celebrity status' },
+  const influencerTiers = [
+    { type: 'Nano Influencers', followers: '1K-10K', description: 'Highest engagement rates, hyper-niche communities, authentic relationships, cost-effective for testing.' },
+    { type: 'Micro Influencers', followers: '10K-100K', description: 'Strong authenticity, developed content skills, reasonable rates, excellent engagement balance.' },
+    { type: 'Mid-Tier Influencers', followers: '100K-500K', description: 'Professional content, significant reach, established partnerships, growing influence.' },
+    { type: 'Macro Influencers', followers: '500K-1M', description: 'Broad reach, polished content, proven track records, brand association value.' },
+    { type: 'Mega/Celebrity Influencers', followers: '1M+', description: 'Maximum exposure, mainstream recognition, campaign centerpiece potential.' },
+  ];
+
+  const processSteps = [
+    { step: '01', title: 'Strategy & Goals', description: 'Define campaign objectives, target audience, key messages, success metrics, and budget parameters.' },
+    { step: '02', title: 'Influencer Research', description: 'Identify and evaluate potential creators based on audience alignment, engagement authenticity, content quality, and brand fit.' },
+    { step: '03', title: 'Outreach & Negotiation', description: 'Professional communication, rate discussions, contract development, and relationship establishment.' },
+    { step: '04', title: 'Content Development', description: 'Creative brief development, content guidelines, review and approval processes, and revision management.' },
+    { step: '05', title: 'Campaign Execution', description: 'Coordinate posting schedules, monitor live content, manage real-time adjustments, and ensure compliance.' },
+    { step: '06', title: 'Analysis & Reporting', description: 'Comprehensive performance analysis, ROI calculation, learnings documentation, and optimization recommendations.' },
+  ];
+
+  const campaignTypes = [
+    'Product Launches',
+    'Brand Awareness',
+    'Content Generation',
+    'Event Promotion',
+    'Sales & Conversions',
+    'App Downloads',
+    'Website Traffic',
+    'User-Generated Content',
+  ];
+
+  const platforms = [
+    'Instagram',
+    'TikTok',
+    'YouTube',
+    'LinkedIn',
+    'Twitter/X',
+    'Pinterest',
+    'Twitch',
+    'Podcasts',
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Influencer Marketing Services | Brand Partnerships & Campaigns | Senseoza"
-        description="Connect with the right influencers to amplify your brand. Strategic influencer partnerships, campaign management, and measurable results."
+        description="Connect with the right influencers to amplify your brand. Strategic influencer partnerships, campaign management, and measurable results that drive authentic engagement."
         canonicalUrl="https://senseoza.com/services/influencer-marketing"
       />
 
@@ -88,8 +124,7 @@ const InfluencerMarketing = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6"
             >
-              Amplify Your Brand with{' '}
-              <span className="text-accent">Influencer Partnerships</span>
+              Influencer Marketing That Builds Authentic Connections and Drives Sales
             </motion.h1>
             
             <motion.p
@@ -98,7 +133,7 @@ const InfluencerMarketing = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10"
             >
-              Connect with authentic creators who resonate with your audience. We build strategic influencer campaigns that drive engagement, trust, and conversions.
+              92% of consumers trust recommendations from individuals over brands, and influencer marketing delivers average returns of $5.78 for every dollar invested. We build strategic influencer partnerships that align with your brand values and deliver measurable business results.
             </motion.p>
             
             <motion.div
@@ -116,64 +151,62 @@ const InfluencerMarketing = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Why Influencer Marketing Section */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection direction="left">
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-                <Sparkles className="h-4 w-4" /> Why Influencer Marketing
-              </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-                The Power of <span className="text-gradient">Authentic Voices</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                In an era of ad fatigue, consumers trust recommendations from people they follow. Influencer marketing bridges the gap between brands and audiences through genuine, relatable content.
-              </p>
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3"
-                  >
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{benefit}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </AnimatedSection>
-            
-            <AnimatedSection direction="right">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-                <div className="relative bg-card rounded-2xl p-8 border border-border shadow-xl">
-                  <h3 className="text-xl font-heading font-bold mb-6">Influencer Tiers We Work With</h3>
-                  <div className="space-y-4">
-                    {influencerTypes.map((tier, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="p-4 bg-secondary/50 rounded-xl"
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="font-semibold text-foreground">{tier.type}</span>
-                          <span className="text-sm text-primary font-medium">{tier.followers}</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{tier.benefit}</p>
-                      </motion.div>
-                    ))}
+          <AnimatedSection className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
+              <Sparkles className="h-4 w-4" /> The Power of Influence
+            </span>
+            <h2 className="text-4xl font-heading font-bold">
+              The Power of Authentic Influence
+            </h2>
+          </AnimatedSection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {whyInfluencerMarketing.map((item, index) => (
+              <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
+                <motion.div 
+                  className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
+                  whileHover={{ scale: 1.02, y: -5 }}
+                >
+                  <h3 className="text-lg font-heading font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.description}</p>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Influencer Tiers Section */}
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimatedSection className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
+              <Users className="h-4 w-4" /> Influencer Tiers
+            </span>
+            <h2 className="text-4xl font-heading font-bold">
+              Influencer Tiers We Work With
+            </h2>
+          </AnimatedSection>
+          <div className="space-y-4 max-w-4xl mx-auto">
+            {influencerTiers.map((tier, index) => (
+              <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  className="p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="flex-shrink-0">
+                      <span className="font-heading font-bold text-lg">{tier.type}</span>
+                      <span className="ml-3 text-sm text-primary font-medium">{tier.followers}</span>
+                    </div>
+                    <p className="text-muted-foreground text-sm md:ml-auto md:max-w-md">{tier.description}</p>
                   </div>
-                </div>
-              </div>
-            </AnimatedSection>
+                </motion.div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -186,7 +219,7 @@ const InfluencerMarketing = () => {
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-6">
               <Star className="h-4 w-4" /> Our Services
             </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+            <h2 className="text-4xl font-heading font-bold text-white mb-4">
               End-to-End Influencer Campaign Management
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
@@ -194,7 +227,7 @@ const InfluencerMarketing = () => {
             </p>
           </AnimatedSection>
           
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -222,22 +255,15 @@ const InfluencerMarketing = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-              Our Process
+              <Clock className="h-4 w-4" /> Our Process
             </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              How We Build <span className="text-gradient">Successful Campaigns</span>
+            <h2 className="text-4xl font-heading font-bold">
+              How We Build Successful Campaigns
             </h2>
           </AnimatedSection>
           
           <div className="max-w-4xl mx-auto">
-            {[
-              { step: '01', title: 'Strategy & Goals', description: 'Define campaign objectives, target audience, and key performance indicators.' },
-              { step: '02', title: 'Influencer Research', description: 'Identify and vet creators based on audience alignment, engagement, and authenticity.' },
-              { step: '03', title: 'Outreach & Negotiation', description: 'Handle all communications, contracts, and compensation discussions.' },
-              { step: '04', title: 'Content Creation', description: 'Collaborate with influencers on creative briefs while maintaining their authentic voice.' },
-              { step: '05', title: 'Launch & Monitor', description: 'Execute the campaign and track performance in real-time.' },
-              { step: '06', title: 'Report & Optimize', description: 'Deliver comprehensive analytics and insights for future campaigns.' },
-            ].map((item, index) => (
+            {processSteps.map((item, index) => (
               <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
                 <motion.div
                   whileHover={{ x: 10 }}
@@ -257,6 +283,61 @@ const InfluencerMarketing = () => {
         </div>
       </section>
 
+      {/* Campaign Types & Platforms */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <AnimatedSection direction="left">
+              <h3 className="text-2xl font-heading font-bold mb-6">Campaign Types We Execute</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {campaignTypes.map((type, index) => (
+                  <motion.div 
+                    key={index}
+                    className="flex items-center gap-2 p-3 bg-card rounded-lg border border-border"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium">{type}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right">
+              <h3 className="text-2xl font-heading font-bold mb-6">Platforms We Cover</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {platforms.map((platform, index) => (
+                  <motion.div 
+                    key={index}
+                    className="flex items-center gap-2 p-3 bg-card rounded-lg border border-border"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                    <span className="text-sm font-medium">{platform}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Solutions Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection className="text-center">
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                Tailored to Your Brand
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Every brand has unique positioning, values, and audience characteristics that require customized influencer strategies. A luxury fashion brand needs entirely different creators than a SaaS company or a local restaurant chain. We develop custom programs based on your specific brand personality, target demographics, campaign objectives, competitive landscape, and budget parameters.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
@@ -270,7 +351,7 @@ const InfluencerMarketing = () => {
               Ready to Partner with Influencers?
             </h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-              Let's create campaigns that resonate with your audience and drive real business results.
+              Let's create campaigns that resonate with your audience and drive real business results through authentic influencer partnerships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
