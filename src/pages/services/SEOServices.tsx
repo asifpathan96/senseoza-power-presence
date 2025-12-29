@@ -50,7 +50,7 @@ const SEOServices = () => {
               <p className="font-semibold text-primary-foreground mb-8">
                 Technical SEO | Keyword Research | Link Building | Local SEO
               </p>
-              <Link to="/contact">
+              <Link to="/contact" className="inline-block mb-12">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300">
                   Get Your Free SEO Audit <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

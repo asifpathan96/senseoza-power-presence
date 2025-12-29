@@ -50,7 +50,7 @@ const PPCAds = () => {
               <p className="font-semibold text-primary-foreground mb-8">
                 Google Ads | Meta Ads | LinkedIn Ads | Retargeting
               </p>
-              <Link to="/contact">
+              <Link to="/contact" className="inline-block mb-12">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300">
                   Get Your Free PPC Audit <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
