@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Brain, Search, Share2, FileText, MousePointerClick, Globe, Sparkles } from 'lucide-react';
+import { ArrowRight, Brain, Search, Share2, FileText, MousePointerClick, Globe, Sparkles, Users } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
@@ -61,6 +61,14 @@ const Services = () => {
       tags: ['Responsive Design', 'UX/UI Design', 'E-commerce', 'Performance'],
       image: serviceWeb,
       link: '/services/web-design',
+    },
+    {
+      icon: Users,
+      title: 'Influencer Marketing',
+      description: 'Partner with authentic creators who resonate with your target audience. We manage end-to-end influencer campaigns from discovery to reporting, driving engagement and conversions.',
+      tags: ['Creator Partnerships', 'Campaign Management', 'Brand Ambassadors', 'UGC'],
+      image: serviceSocial,
+      link: '/services/influencer-marketing',
     },
   ];
 
