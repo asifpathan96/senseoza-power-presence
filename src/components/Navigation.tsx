@@ -10,8 +10,8 @@ export const Navigation = () => {
   const location = useLocation();
 
   // Pages that have dark gradient hero backgrounds
-  const darkHeroPages = ['/', '/about', '/services', '/contact'];
-  const hasDarkHero = darkHeroPages.includes(location.pathname);
+  const darkHeroPages = ['/', '/about', '/services', '/contact', '/case-studies', '/testimonials', '/blog'];
+  const hasDarkHero = darkHeroPages.includes(location.pathname) || location.pathname.startsWith('/blog/');
 
   useEffect(() => {
     const handleScroll = () => {

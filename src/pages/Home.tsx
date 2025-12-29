@@ -326,7 +326,7 @@ const Home = () => {
               Why Choose Us
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              What Makes Senseoza <span className="text-gradient text-primary-foreground">Different</span>
+              What Makes Senseoza <span className="text-accent">Different</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               We combine AI innovation with proven marketing expertise to deliver exceptional results
@@ -377,7 +377,7 @@ const Home = () => {
               What We Do
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Core <span className="text-gradient text-primary-foreground">Services</span>
+              Our Core <span className="text-accent">Services</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Comprehensive digital marketing solutions designed to accelerate your growth
@@ -465,7 +465,7 @@ const Home = () => {
               How We Work
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Process: From Strategy to <span className="text-gradient bg-transparent text-primary-foreground">Success</span>
+              Our Process: From Strategy to <span className="text-accent">Success</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               A proven methodology that delivers consistent, measurable results
@@ -553,7 +553,7 @@ const Home = () => {
               The Senseoza Advantage
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Why Businesses Choose <span className="text-gradient text-primary-foreground">Senseoza</span>
+              Why Businesses Choose <span className="text-accent">Senseoza</span>
             </h2>
           </AnimatedSection>
 
@@ -588,7 +588,7 @@ const Home = () => {
               Latest News
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Latest <span className="text-gradient text-primary-foreground">Insights</span>
+              Latest <span className="text-accent">Insights</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Stay ahead with expert tips on SEO, AI marketing, and digital growth strategies

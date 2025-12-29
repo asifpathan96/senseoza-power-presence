@@ -121,7 +121,7 @@ const About = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-card rounded-2xl p-6 border border-border/50 text-center shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div className="text-3xl md:text-4xl font-heading font-bold text-gradient mb-1">{stat.value}</div>
+                  <div className="text-3xl md:text-4xl font-heading font-bold text-accent mb-1">{stat.value}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}
@@ -140,7 +140,7 @@ const About = () => {
                 Our Story
               </span>
               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-                Born From a Vision to <span className="text-gradient">Revolutionize Marketing</span>
+                Born From a Vision to <span className="text-accent">Revolutionize Marketing</span>
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -203,7 +203,7 @@ const About = () => {
               Our Values
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
-              The Principles That <span className="text-gradient">Guide Us</span>
+              The Principles That <span className="text-accent">Guide Us</span>
             </h2>
           </AnimatedSection>
 
@@ -241,7 +241,7 @@ const About = () => {
               Our Team
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4">
-              Certified Experts Across <span className="text-gradient">Every Discipline</span>
+              Certified Experts Across <span className="text-accent">Every Discipline</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our team consists of certified specialists across every digital marketing discipline. Together, we bring decades of combined experience and a shared passion for driving client success.
@@ -295,7 +295,7 @@ const About = () => {
               Our Commitment to You
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
-              What You Get When You <span className="text-gradient">Partner With Us</span>
+              What You Get When You <span className="text-accent">Partner With Us</span>
             </h2>
           </AnimatedSection>
 
@@ -326,7 +326,7 @@ const About = () => {
           <AnimatedSection className="max-w-4xl mx-auto">
             <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 shadow-xl text-center">
               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                Let's Build Something <span className="text-gradient">Great Together</span>
+                Let's Build Something <span className="text-accent">Great Together</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Ready to experience digital marketing that actually drives business growth?
