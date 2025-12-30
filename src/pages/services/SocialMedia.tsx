@@ -69,9 +69,9 @@ const SocialMedia = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Social Media Marketing Services | Build Your Brand & Drive Engagement | Senseoza"
-        description="Professional social media marketing that builds communities and drives sales. Strategic management of Facebook, Instagram, LinkedIn, TikTok & Twitter to grow your business."
-        canonicalUrl="https://senseoza.com/services/social-media"
+        title="Social Media Marketing Agency Pune | Instagram, Facebook, LinkedIn | Senseoza"
+        description="Grow your brand with Senseoza's social media marketing services in Pune. Expert management of Instagram, Facebook, LinkedIn & Twitter. Creative content + AI analytics."
+        canonicalUrl="https://senseoza.in/services/social-media"
       />
       
       {/* Hero Section */}
