@@ -103,16 +103,8 @@ ${formData.message}
     'Content Marketing',
     'Marketing Automation',
     'Web Design',
+    'Influencer Marketing',
     'Full-Service Marketing',
-  ];
-
-  const budgetOptions = [
-    'Under $2,000',
-    '$2,000-$5,000',
-    '$5,000-$10,000',
-    '$10,000-$25,000',
-    '$25,000+',
-    'Not sure yet',
   ];
 
   const nextSteps = [
@@ -292,25 +284,6 @@ ${formData.message}
                     </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-semibold mb-2">
-                      Monthly Marketing Budget
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleSelectChange}
-                      className="w-full h-12 px-4 rounded-xl border border-border/50 bg-background text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    >
-                      <option value="">Select your budget</option>
-                      {budgetOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold mb-2">
