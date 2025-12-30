@@ -41,9 +41,9 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="About Senseoza | AI-Powered Digital Marketing Experts Driving Real Results"
-        description="Meet the team behind Senseoza. Learn how our AI-powered approach and decade of expertise help businesses achieve measurable growth through innovative digital marketing."
-        canonicalUrl="https://senseoza.com/about"
+        title="About Senseoza | Leading AI-Powered Marketing Agency in Pune"
+        description="Learn how Senseoza is revolutionizing digital marketing in Pune with AI-powered strategies. Our expert team delivers measurable results for businesses. Contact us: 9168411743."
+        canonicalUrl="https://senseoza.in/about"
         schema={organizationSchema}
       />
 

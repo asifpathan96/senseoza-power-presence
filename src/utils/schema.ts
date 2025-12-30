@@ -1,26 +1,20 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "DigitalMarketingAgency",
   "name": "Senseoza",
-  "description": "AI-Powered Digital Marketing Agency",
-  "url": "https://senseoza.com",
-  "logo": "https://lovable.dev/opengraph-image-p98pqg.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-9168411743",
-    "contactType": "Customer Service",
-    "email": "senseoza@gmail.com",
-    "areaServed": "IN",
-    "availableLanguage": "English"
-  },
+  "description": "AI-Powered Digital Marketing Agency turning presence into power",
+  "url": "https://senseoza.in",
+  "logo": "https://senseoza.in/images/logo.png",
+  "telephone": "+919168411743",
+  "email": "hello@senseoza.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Shalom Bungalow, Sandvik Colony, Sector No. 27, Pradhikaran, Nigdi",
-    "addressLocality": "Pune, Pimpri-Chinchwad",
+    "addressLocality": "Pune",
     "addressRegion": "Maharashtra",
-    "postalCode": "411044",
     "addressCountry": "IN"
   },
+  "areaServed": "Pune",
+  "priceRange": "$$",
   "sameAs": [
     "https://facebook.com/senseoza",
     "https://twitter.com/senseoza",
@@ -34,32 +28,34 @@ export const serviceSchema = {
   "@type": "Service",
   "serviceType": "Digital Marketing",
   "provider": {
-    "@type": "Organization",
-    "name": "Senseoza"
+    "@type": "DigitalMarketingAgency",
+    "name": "Senseoza",
+    "url": "https://senseoza.in"
   },
+  "areaServed": "Pune",
   "offers": [
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "AI-Powered Marketing",
-        "description": "Predictive campaigns powered by artificial intelligence"
+        "name": "SEO Services",
+        "description": "Expert SEO services including technical SEO, local SEO, and link building"
       }
     },
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "SEO Excellence",
-        "description": "Technical SEO, content optimization, and link building"
+        "name": "PPC Advertising",
+        "description": "Google Ads management and paid advertising campaigns"
       }
     },
     {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
-        "name": "Social Media & Influencer Marketing",
-        "description": "Data-driven social strategies and influencer partnerships"
+        "name": "Social Media Marketing",
+        "description": "Expert management of Instagram, Facebook, LinkedIn & Twitter"
       }
     },
     {
@@ -67,7 +63,23 @@ export const serviceSchema = {
       "itemOffered": {
         "@type": "Service",
         "name": "Content Marketing",
-        "description": "Blogs, videos, and storytelling that converts"
+        "description": "Blog writing, video content, and copywriting services"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Web Design & Development",
+        "description": "Mobile-responsive, SEO-optimized, fast-loading websites"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI-Powered Marketing",
+        "description": "AI-driven marketing automation and analytics"
       }
     }
   ]
@@ -78,9 +90,29 @@ export const blogSchema = {
   "@type": "Blog",
   "name": "Senseoza Digital Marketing Blog",
   "description": "Expert insights on SEO, AI marketing, social media, and content strategy",
-  "url": "https://senseoza.com/blog",
+  "url": "https://senseoza.in/blog",
   "publisher": {
-    "@type": "Organization",
-    "name": "Senseoza"
+    "@type": "DigitalMarketingAgency",
+    "name": "Senseoza",
+    "url": "https://senseoza.in"
+  }
+};
+
+export const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Senseoza",
+  "description": "Get in touch with Pune's leading AI-powered digital marketing agency",
+  "mainEntity": {
+    "@type": "DigitalMarketingAgency",
+    "name": "Senseoza",
+    "telephone": "+919168411743",
+    "email": "hello@senseoza.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    }
   }
 };

@@ -64,9 +64,9 @@ const CaseStudies = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Case Studies | Senseoza – Proven Digital Marketing Results"
-        description="See how Senseoza has helped businesses increase traffic, rankings, and ROI with AI-driven marketing strategies."
-        canonicalUrl="https://senseoza.com/case-studies"
+        title="Our Work | Digital Marketing Success Stories | Senseoza Pune"
+        description="See how Senseoza has helped Pune businesses achieve 200%+ growth through AI-powered digital marketing. Real results, real clients, real success stories."
+        canonicalUrl="https://senseoza.in/case-studies"
       />
       
       {/* Hero Section */}

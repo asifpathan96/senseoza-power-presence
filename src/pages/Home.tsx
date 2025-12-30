@@ -213,7 +213,12 @@ const Home = () => {
     slug: 'building-brand-authority-social-media'
   }];
   return <div className="min-h-screen bg-background">
-      <SEOHead title="AI-Powered Digital Marketing Agency | Senseoza - Turning Presence Into Power" description="Senseoza delivers data-driven digital marketing that drives real results. Expert SEO, PPC, social media & AI strategies to grow your business online." canonicalUrl="https://senseoza.com/" schema={organizationSchema} />
+      <SEOHead 
+        title="Senseoza | AI-Powered Digital Marketing Agency in Pune" 
+        description="Transform your digital presence with Senseoza, Pune's leading AI-powered digital marketing agency. Expert SEO, social media, PPC & web design services. Call 9168411743 for a free consultation." 
+        canonicalUrl="https://senseoza.in/" 
+        schema={organizationSchema} 
+      />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

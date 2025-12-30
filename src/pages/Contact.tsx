@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, MessageCircle, ArrowRight, Send, Sparkles, CheckCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
-import { organizationSchema } from '@/utils/schema';
+import { contactSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
@@ -117,10 +117,10 @@ ${formData.message}
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Contact Senseoza | Start Your Digital Marketing Journey Today"
-        description="Ready to grow your business? Contact Senseoza for a free consultation. Call us, email, or schedule a strategy session to discuss your digital marketing goals."
-        canonicalUrl="https://senseoza.com/contact"
-        schema={organizationSchema}
+        title="Contact Senseoza | Digital Marketing Agency in Pune | Get Free Quote"
+        description="Ready to transform your digital presence? Contact Senseoza today! Call 9168411743 or email hello@senseoza.com for a free consultation. Pune's trusted marketing partner."
+        canonicalUrl="https://senseoza.in/contact"
+        schema={contactSchema}
       />
       
       {/* Hero Section */}

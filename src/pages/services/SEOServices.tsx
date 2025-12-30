@@ -80,9 +80,9 @@ const SEOServices = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Expert SEO Services | Rank Higher on Google | Senseoza Digital Marketing"
-        description="Professional SEO services that deliver real results. Dominate search rankings with proven strategies including technical optimization, content excellence, and authority building."
-        canonicalUrl="https://senseoza.com/services/seo"
+        title="SEO Services in Pune | Rank #1 on Google | Senseoza Digital"
+        description="Dominate Google search results with Senseoza's expert SEO services in Pune. AI-driven strategies, local SEO, technical SEO & link building. Call 9168411743 for a free SEO audit."
+        canonicalUrl="https://senseoza.in/services/seo"
       />
       
       {/* Hero Section */}

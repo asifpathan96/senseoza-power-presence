@@ -123,9 +123,9 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Digital Marketing Blog | Senseoza – SEO, AI & Growth Insights"
-        description="Read Senseoza's blog for expert tips on AI marketing, SEO, paid ads, social media, and content strategy."
-        canonicalUrl="https://senseoza.com/blog"
+        title="Digital Marketing Blog | SEO, AI, Social Media Tips | Senseoza"
+        description="Stay updated with the latest digital marketing trends, SEO tips, AI in marketing & social media strategies. Expert insights from Senseoza's marketing team in Pune."
+        canonicalUrl="https://senseoza.in/blog"
         schema={blogSchema}
       />
       
