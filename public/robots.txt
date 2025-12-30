@@ -1,8 +1,13 @@
+# Senseoza Digital Marketing Agency
+# https://senseoza.in
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +15,27 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
 Allow: /
+Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://senseoza.in/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Allow important resources
+Allow: /images/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+
+# Host
+Host: https://senseoza.in
