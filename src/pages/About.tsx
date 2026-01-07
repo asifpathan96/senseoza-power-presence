@@ -34,7 +34,7 @@ const About = () => {
   const stats = [
     { value: '500+', label: 'Successful Campaigns' },
     { value: '97%', label: 'Client Satisfaction' },
-    { value: '10+', label: 'Years Experience' },
+    { value: '5+', label: 'Years Experience' },
     { value: '5M+', label: 'Revenue Generated' },
   ];
 
