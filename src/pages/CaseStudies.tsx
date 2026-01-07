@@ -66,7 +66,7 @@ const CaseStudies = () => {
       <SEOHead
         title="Our Work | Digital Marketing Success Stories | Senseoza Pune"
         description="See how Senseoza has helped Pune businesses achieve 200%+ growth through AI-powered digital marketing. Real results, real clients, real success stories."
-        canonicalUrl="https://senseoza.in/case-studies"
+        canonicalUrl="https://senseoza.com/case-studies"
       />
       
       {/* Hero Section */}

@@ -119,7 +119,7 @@ ${formData.message}
       <SEOHead
         title="Contact Senseoza | Digital Marketing Agency in Pune | Get Free Quote"
         description="Ready to transform your digital presence? Contact Senseoza today! Call 9168411743 or email hello@senseoza.com for a free consultation. Pune's trusted marketing partner."
-        canonicalUrl="https://senseoza.in/contact"
+        canonicalUrl="https://senseoza.com/contact"
         schema={contactSchema}
       />
       

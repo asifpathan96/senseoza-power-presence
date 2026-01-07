@@ -3,8 +3,8 @@ export const organizationSchema = {
   "@type": "DigitalMarketingAgency",
   "name": "Senseoza",
   "description": "AI-Powered Digital Marketing Agency turning presence into power",
-  "url": "https://senseoza.in",
-  "logo": "https://senseoza.in/images/logo.png",
+  "url": "https://senseoza.com",
+  "logo": "https://senseoza.com/images/logo.png",
   "telephone": "+919168411743",
   "email": "hello@senseoza.com",
   "address": {
@@ -30,7 +30,7 @@ export const serviceSchema = {
   "provider": {
     "@type": "DigitalMarketingAgency",
     "name": "Senseoza",
-    "url": "https://senseoza.in"
+    "url": "https://senseoza.com"
   },
   "areaServed": "Pune",
   "offers": [
@@ -90,11 +90,11 @@ export const blogSchema = {
   "@type": "Blog",
   "name": "Senseoza Digital Marketing Blog",
   "description": "Expert insights on SEO, AI marketing, social media, and content strategy",
-  "url": "https://senseoza.in/blog",
+  "url": "https://senseoza.com/blog",
   "publisher": {
     "@type": "DigitalMarketingAgency",
     "name": "Senseoza",
-    "url": "https://senseoza.in"
+    "url": "https://senseoza.com"
   }
 };
 

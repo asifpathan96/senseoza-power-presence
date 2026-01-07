@@ -82,7 +82,7 @@ const SEOServices = () => {
       <SEOHead
         title="SEO Services in Pune | Rank #1 on Google | Senseoza Digital"
         description="Dominate Google search results with Senseoza's expert SEO services in Pune. AI-driven strategies, local SEO, technical SEO & link building. Call 9168411743 for a free SEO audit."
-        canonicalUrl="https://senseoza.in/services/seo"
+        canonicalUrl="https://senseoza.com/services/seo"
       />
       
       {/* Hero Section */}

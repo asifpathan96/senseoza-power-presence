@@ -43,7 +43,7 @@ const About = () => {
       <SEOHead
         title="About Senseoza | Leading AI-Powered Marketing Agency in Pune"
         description="Learn how Senseoza is revolutionizing digital marketing in Pune with AI-powered strategies. Our expert team delivers measurable results for businesses. Contact us: 9168411743."
-        canonicalUrl="https://senseoza.in/about"
+        canonicalUrl="https://senseoza.com/about"
         schema={organizationSchema}
       />
 

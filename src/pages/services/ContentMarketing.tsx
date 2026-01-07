@@ -109,7 +109,7 @@ const ContentMarketing = () => {
       <SEOHead
         title="Content Marketing Services Pune | Blog Writing, Video Content | Senseoza"
         description="Engage your audience with compelling content. Senseoza offers content marketing, blog writing, video production & copywriting services in Pune. AI-powered content strategy."
-        canonicalUrl="https://senseoza.in/services/content-marketing"
+        canonicalUrl="https://senseoza.com/services/content-marketing"
       />
       
       {/* Hero Section */}
