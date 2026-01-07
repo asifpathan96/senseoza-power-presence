@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
-import ExitIntentPopup from "./components/ExitIntentPopup";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -58,7 +58,7 @@ const App = () => (
       </Routes>
       <Footer />
       <WhatsAppButton />
-      <ExitIntentPopup />
+      
     </TooltipProvider>
   </QueryClientProvider>
 );
