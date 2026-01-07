@@ -19,7 +19,7 @@ import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
 const Home = () => {
   const stats = [{
-    number: 50,
+    number: 500,
     suffix: '+',
     label: 'Successful Campaigns',
     icon: TrendingUp
