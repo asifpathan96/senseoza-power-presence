@@ -96,7 +96,7 @@ const PPCAds = () => {
       <SEOHead
         title="PPC & Google Ads Management Pune | Maximize ROI | Senseoza"
         description="Get high-converting PPC campaigns with Senseoza's Google Ads management in Pune. AI-optimized bidding, targeted advertising & maximum ROI. Free consultation available."
-        canonicalUrl="https://senseoza.in/services/ppc-ads"
+        canonicalUrl="https://senseoza.com/services/ppc-ads"
       />
       
       {/* Hero Section */}

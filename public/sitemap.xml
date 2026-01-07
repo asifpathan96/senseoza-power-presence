@@ -6,7 +6,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://senseoza.in/</loc>
+    <loc>https://senseoza.com/</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
   
   <!-- About Page -->
   <url>
-    <loc>https://senseoza.in/about</loc>
+    <loc>https://senseoza.com/about</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
   
   <!-- Services Overview -->
   <url>
-    <loc>https://senseoza.in/services</loc>
+    <loc>https://senseoza.com/services</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
   
   <!-- AI Marketing Service -->
   <url>
-    <loc>https://senseoza.in/services/ai-marketing</loc>
+    <loc>https://senseoza.com/services/ai-marketing</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
   
   <!-- SEO Services -->
   <url>
-    <loc>https://senseoza.in/services/seo</loc>
+    <loc>https://senseoza.com/services/seo</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -46,7 +46,7 @@
   
   <!-- Social Media Marketing -->
   <url>
-    <loc>https://senseoza.in/services/social-media</loc>
+    <loc>https://senseoza.com/services/social-media</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
   
   <!-- Content Marketing -->
   <url>
-    <loc>https://senseoza.in/services/content-marketing</loc>
+    <loc>https://senseoza.com/services/content-marketing</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -62,7 +62,7 @@
   
   <!-- PPC Advertising -->
   <url>
-    <loc>https://senseoza.in/services/ppc-ads</loc>
+    <loc>https://senseoza.com/services/ppc-ads</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -70,7 +70,7 @@
   
   <!-- Web Design -->
   <url>
-    <loc>https://senseoza.in/services/web-design</loc>
+    <loc>https://senseoza.com/services/web-design</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -78,7 +78,7 @@
   
   <!-- Email Automation -->
   <url>
-    <loc>https://senseoza.in/services/email-automation</loc>
+    <loc>https://senseoza.com/services/email-automation</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -86,7 +86,7 @@
   
   <!-- Analytics & Reporting -->
   <url>
-    <loc>https://senseoza.in/services/analytics</loc>
+    <loc>https://senseoza.com/services/analytics</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -94,7 +94,7 @@
   
   <!-- Influencer Marketing -->
   <url>
-    <loc>https://senseoza.in/services/influencer-marketing</loc>
+    <loc>https://senseoza.com/services/influencer-marketing</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -102,7 +102,7 @@
   
   <!-- Case Studies -->
   <url>
-    <loc>https://senseoza.in/case-studies</loc>
+    <loc>https://senseoza.com/case-studies</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -110,7 +110,7 @@
   
   <!-- Testimonials -->
   <url>
-    <loc>https://senseoza.in/testimonials</loc>
+    <loc>https://senseoza.com/testimonials</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -118,7 +118,7 @@
   
   <!-- Blog -->
   <url>
-    <loc>https://senseoza.in/blog</loc>
+    <loc>https://senseoza.com/blog</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -126,7 +126,7 @@
   
   <!-- Contact -->
   <url>
-    <loc>https://senseoza.in/contact</loc>
+    <loc>https://senseoza.com/contact</loc>
     <lastmod>2024-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

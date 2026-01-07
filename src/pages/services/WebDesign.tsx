@@ -99,7 +99,7 @@ const WebDesign = () => {
       <SEOHead
         title="Web Design & Development Pune | Custom Websites | Senseoza"
         description="Professional web design & development services in Pune. Mobile-responsive, SEO-optimized, fast-loading websites that convert visitors into customers. Portfolio available."
-        canonicalUrl="https://senseoza.in/services/web-design"
+        canonicalUrl="https://senseoza.com/services/web-design"
       />
       
       {/* Hero Section */}

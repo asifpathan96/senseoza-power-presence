@@ -77,7 +77,7 @@ const Services = () => {
       <SEOHead
         title="Digital Marketing Services in Pune | SEO, PPC, Social Media | Senseoza"
         description="Complete digital marketing solutions in Pune: SEO, PPC, social media management, content marketing, web design & AI-powered analytics. Get a free quote today!"
-        canonicalUrl="https://senseoza.in/services"
+        canonicalUrl="https://senseoza.com/services"
         schema={serviceSchema}
       />
       
