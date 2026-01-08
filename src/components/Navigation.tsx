@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
-import senseozaLogo from '@/assets/senseoza-logo.jpeg';
+
 const serviceLinks = [
   { name: 'SEO Services', path: '/services/seo' },
   { name: 'PPC Advertising', path: '/services/ppc-ads' },
@@ -75,14 +75,14 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
-              <img 
-                src={senseozaLogo} 
-                alt="Senseoza" 
-                className="h-10 w-auto relative"
-              />
+              <span className={`text-2xl font-heading font-bold relative ${
+                scrolled || !hasDarkHero ? 'text-foreground' : 'text-white'
+              }`}>
+                Senseoza
+              </span>
             </div>
           </Link>
 
