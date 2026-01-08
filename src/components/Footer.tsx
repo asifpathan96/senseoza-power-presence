@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, ArrowUpRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '@/assets/logo.jpeg';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -77,7 +76,7 @@ export const Footer = () => {
             {/* Brand */}
             <div className="lg:col-span-1">
               <Link to="/" onClick={scrollToTop} className="inline-block mb-6">
-                <img src={logo} alt="Senseoza" className="h-10 w-auto" />
+                <span className="text-2xl font-heading font-bold text-white">Senseoza</span>
               </Link>
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
                 We are an AI-powered digital marketing agency helping businesses grow through innovative strategies, data-driven insights, and creative excellence.
