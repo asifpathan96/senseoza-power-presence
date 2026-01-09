@@ -1,11 +1,11 @@
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, ReactNode } from 'react';
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'none' | 'scale' | 'rotate';
+  direction?: 'up' | 'down' | 'left' | 'right' | 'none';
 }
 
 export const AnimatedSection = ({ 
@@ -23,8 +23,6 @@ export const AnimatedSection = ({
       case 'down': return { opacity: 0, y: -60 };
       case 'left': return { opacity: 0, x: 60 };
       case 'right': return { opacity: 0, x: -60 };
-      case 'scale': return { opacity: 0, scale: 0.8 };
-      case 'rotate': return { opacity: 0, rotateX: 45, y: 60 };
       case 'none': return { opacity: 0 };
       default: return { opacity: 0, y: 60 };
     }
@@ -36,8 +34,6 @@ export const AnimatedSection = ({
       case 'down': return { opacity: 1, y: 0 };
       case 'left':
       case 'right': return { opacity: 1, x: 0 };
-      case 'scale': return { opacity: 1, scale: 1 };
-      case 'rotate': return { opacity: 1, rotateX: 0, y: 0 };
       case 'none': return { opacity: 1 };
       default: return { opacity: 1, y: 0 };
     }
@@ -53,7 +49,6 @@ export const AnimatedSection = ({
         delay,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
-      style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
       className={className}
     >
       {children}
@@ -98,57 +93,22 @@ export const StaggerContainer = ({
 interface StaggerItemProps {
   children: ReactNode;
   className?: string;
-  enable3D?: boolean;
 }
 
-export const StaggerItem = ({ children, className = '', enable3D = false }: StaggerItemProps) => {
+export const StaggerItem = ({ children, className = '' }: StaggerItemProps) => {
   return (
     <motion.div
       variants={{
-        hidden: { 
-          opacity: 0, 
-          y: 40,
-          rotateX: enable3D ? 15 : 0,
-          scale: enable3D ? 0.95 : 1
-        },
+        hidden: { opacity: 0, y: 40 },
         visible: { 
           opacity: 1, 
           y: 0,
-          rotateX: 0,
-          scale: 1,
           transition: {
             duration: 0.6,
             ease: [0.21, 0.47, 0.32, 0.98]
           }
         }
       }}
-      style={{ transformStyle: 'preserve-3d' }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-interface ParallaxSectionProps {
-  children: ReactNode;
-  className?: string;
-  speed?: number;
-}
-
-export const ParallaxSection = ({ children, className = '', speed = 0.5 }: ParallaxSectionProps) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [100 * speed, -100 * speed]);
-  
-  return (
-    <motion.div
-      ref={ref}
-      style={{ y }}
       className={className}
     >
       {children}

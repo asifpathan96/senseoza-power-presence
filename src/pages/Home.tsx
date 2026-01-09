@@ -5,9 +5,8 @@ import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
-import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement, ParallaxSection } from '@/components/AnimatedSection';
-import { Card3D, GlowingBorder, TechCard, FloatingOrb, HolographicText, GridBackground, ParticleField, MagneticButton } from '@/components/TechEffects';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-bg.jpg';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
@@ -18,7 +17,6 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
-import { useRef } from 'react';
 const Home = () => {
   const stats = [{
     number: 500,
@@ -53,38 +51,40 @@ const Home = () => {
       ref
     } = useCountUp(stat.number, 2500);
     const IconComponent = stat.icon;
-    return (
-      <Card3D intensity={12} className="relative group">
-        <motion.div 
-          ref={ref} 
-          initial={{ opacity: 0, y: 40, rotateX: 15 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          style={{ transformStyle: 'preserve-3d' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
-          <div className="relative bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-6 md:p-8 overflow-hidden border border-white/10 animate-cyber-pulse">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 animate-morph" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12 animate-morph" style={{ animationDelay: '2s' }} />
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent animate-scan" />
+    return <motion.div ref={ref} initial={{
+      opacity: 0,
+      y: 40
+    }} whileInView={{
+      opacity: 1,
+      y: 0
+    }} viewport={{
+      once: true
+    }} transition={{
+      duration: 0.6,
+      delay: index * 0.1
+    }} whileHover={{
+      y: -8,
+      transition: {
+        duration: 0.3
+      }
+    }} className="relative group">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
+        <div className="relative bg-gradient-to-br from-primary via-primary/90 to-accent rounded-2xl p-6 md:p-8 overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12" />
+          <div className="relative z-10">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/20 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+              <IconComponent className="h-6 md:h-7 w-6 md:w-7 text-white" />
             </div>
-            <div className="relative z-10">
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/20 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform backdrop-blur-sm pulse-ring">
-                <IconComponent className="h-6 md:h-7 w-6 md:w-7 text-white" />
-              </div>
-              <div className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-2">
-                <HolographicText>{count}{stat.suffix}</HolographicText>
-              </div>
-              <div className="text-sm font-medium text-white/80 uppercase tracking-wider">
-                {stat.label}
-              </div>
+            <div className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-2">
+              {count}{stat.suffix}
+            </div>
+            <div className="text-sm font-medium text-white/80 uppercase tracking-wider">
+              {stat.label}
             </div>
           </div>
-        </motion.div>
-      </Card3D>
-    );
+        </div>
+      </motion.div>;
   };
   const differentiators = [{
     icon: Brain,
@@ -221,17 +221,15 @@ const Home = () => {
       />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden perspective-container">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 gradient-hero" />
-          <div className="absolute inset-0 cyber-grid opacity-20" />
           <div className="absolute inset-0 dot-pattern opacity-30" />
           <ParticleBackground />
-          <ParticleField count={15} />
         </div>
 
-        <FloatingOrb size={300} color="accent" className="top-1/4 left-10" delay={0} />
-        <FloatingOrb size={400} color="primary" className="bottom-1/4 right-10" delay={2} />
+        <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 z-10 py-32">
           <div className="max-w-5xl mx-auto text-center">
