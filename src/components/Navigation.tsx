@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -24,6 +24,10 @@ export const Navigation = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
+  // Pages that have dark gradient hero backgrounds
+  const darkHeroPages = ['/', '/about', '/services', '/contact', '/case-studies', '/testimonials', '/blog'];
+  const hasDarkHero = darkHeroPages.includes(location.pathname) || location.pathname.startsWith('/blog/') || location.pathname.startsWith('/services/');
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -43,11 +47,13 @@ export const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: 'HOME', path: '/' },
-    { name: 'SERVICES', path: '/services', hasDropdown: true },
-    { name: 'ABOUT US', path: '/about' },
-    { name: 'BLOG', path: '/blog' },
-    { name: 'CONTACT', path: '/contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services', hasDropdown: true },
+    { name: 'Case Studies', path: '/case-studies' },
+    { name: 'Testimonials', path: '/testimonials' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -58,8 +64,12 @@ export const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white border-b border-border/50 ${
-        scrolled ? 'shadow-md' : ''
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50' 
+          : hasDarkHero 
+            ? 'bg-transparent' 
+            : 'bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -67,11 +77,14 @@ export const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="w-11 h-11 bg-primary rounded-xl flex items-center justify-center shadow-primary group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="relative w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-neon group-hover:scale-105 transition-transform duration-300">
                 <span className="text-lg font-bold text-white">S</span>
               </div>
             </div>
-            <span className="text-xl font-heading font-bold text-foreground tracking-tight">
+            <span className={`text-xl font-heading font-bold tracking-tight ${
+              scrolled || !hasDarkHero ? 'text-foreground' : 'text-white'
+            }`}>
               SENSEOZA
             </span>
           </Link>
@@ -91,10 +104,14 @@ export const Navigation = () => {
                   <>
                     <button
                       onClick={() => setServicesOpen(!servicesOpen)}
-                      className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 flex items-center gap-1 ${
+                      className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
                         isServiceActive
-                          ? 'text-primary' 
-                          : 'text-foreground hover:text-primary'
+                          ? scrolled || !hasDarkHero
+                            ? 'text-primary bg-primary/10' 
+                            : 'text-white bg-white/20'
+                          : scrolled || !hasDarkHero
+                            ? 'text-foreground hover:text-primary hover:bg-primary/5' 
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
                       }`}
                     >
                       {link.name}
@@ -107,7 +124,7 @@ export const Navigation = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-border overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-xl rounded-xl shadow-xl border border-border/50 overflow-hidden"
                         >
                           <div className="py-2">
                             <Link
@@ -116,7 +133,7 @@ export const Navigation = () => {
                                 setServicesOpen(false);
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                               }}
-                              className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-primary/5 hover:text-primary transition-colors border-b border-border/50"
+                              className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors border-b border-border/30"
                             >
                               All Services
                             </Link>
@@ -130,7 +147,7 @@ export const Navigation = () => {
                                 }}
                                 className={`block px-4 py-2.5 text-sm transition-colors ${
                                   isActive(service.path)
-                                    ? 'bg-primary/5 text-primary font-medium'
+                                    ? 'bg-primary/10 text-primary font-medium'
                                     : 'text-muted-foreground hover:bg-primary/5 hover:text-foreground'
                                 }`}
                               >
@@ -146,13 +163,23 @@ export const Navigation = () => {
                   <Link
                     to={link.path}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                    className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                       isActive(link.path)
-                        ? 'text-primary' 
-                        : 'text-foreground hover:text-primary'
+                        ? scrolled || !hasDarkHero
+                          ? 'text-primary bg-primary/10' 
+                          : 'text-white bg-white/20'
+                        : scrolled || !hasDarkHero
+                          ? 'text-foreground hover:text-primary hover:bg-primary/5' 
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {link.name}
+                    {isActive(link.path) && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                      />
+                    )}
                   </Link>
                 )}
               </motion.div>
@@ -163,9 +190,8 @@ export const Navigation = () => {
               transition={{ delay: 0.5 }}
             >
               <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <Button className="ml-4 bg-primary hover:bg-primary/90 text-white font-semibold px-6 shadow-primary hover:shadow-lg transition-all duration-300">
-                  LET'S TALK
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="ml-4 gradient-primary shadow-primary hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  Get Started
                 </Button>
               </Link>
             </motion.div>
@@ -173,7 +199,11 @@ export const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg text-foreground hover:bg-secondary transition-colors"
+            className={`lg:hidden p-2 rounded-xl transition-colors ${
+              scrolled || !hasDarkHero
+                ? 'text-foreground hover:bg-secondary' 
+                : 'text-white hover:bg-white/10'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -191,7 +221,7 @@ export const Navigation = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-2 bg-white rounded-2xl mb-4 px-2 border border-border">
+              <div className="py-4 space-y-2 bg-background/95 backdrop-blur-xl rounded-2xl mb-4 px-2 border border-border/50">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -203,9 +233,9 @@ export const Navigation = () => {
                       <>
                         <button
                           onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                          className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-300 ${
+                          className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
                             isServiceActive
-                              ? 'text-primary font-semibold'
+                              ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
                               : 'text-foreground hover:bg-secondary'
                           }`}
                         >
@@ -262,9 +292,9 @@ export const Navigation = () => {
                           setIsOpen(false);
                           window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
-                        className={`block px-4 py-3 rounded-lg transition-all duration-300 ${
+                        className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
                           isActive(link.path)
-                            ? 'text-primary font-semibold'
+                            ? 'bg-gradient-to-r from-primary/10 to-accent/10 text-primary font-semibold'
                             : 'text-foreground hover:bg-secondary'
                         }`}
                       >
@@ -286,10 +316,7 @@ export const Navigation = () => {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                   >
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold">
-                      LET'S TALK
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <Button className="w-full gradient-primary shadow-primary">Get Started</Button>
                   </Link>
                 </motion.div>
               </div>
