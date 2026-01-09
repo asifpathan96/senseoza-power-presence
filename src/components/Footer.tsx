@@ -75,8 +75,14 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <Link to="/" onClick={scrollToTop} className="inline-block mb-6">
-                <span className="text-2xl font-heading font-bold text-white">Senseoza</span>
+              <Link to="/" onClick={scrollToTop} className="inline-flex items-center gap-3 mb-6 group">
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-300" />
+                  <div className="relative w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-neon">
+                    <span className="text-lg font-bold text-white">S</span>
+                  </div>
+                </div>
+                <span className="text-xl font-heading font-bold text-white tracking-tight">SENSEOZA</span>
               </Link>
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
                 We are an AI-powered digital marketing agency helping businesses grow through innovative strategies, data-driven insights, and creative excellence.

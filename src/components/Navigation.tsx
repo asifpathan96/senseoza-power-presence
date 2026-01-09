@@ -75,15 +75,18 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
-              <span className={`text-2xl font-heading font-bold relative ${
-                scrolled || !hasDarkHero ? 'text-foreground' : 'text-white'
-              }`}>
-                Senseoza
-              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="relative w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-neon group-hover:scale-105 transition-transform duration-300">
+                <span className="text-lg font-bold text-white">S</span>
+              </div>
             </div>
+            <span className={`text-xl font-heading font-bold tracking-tight ${
+              scrolled || !hasDarkHero ? 'text-foreground' : 'text-white'
+            }`}>
+              SENSEOZA
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
