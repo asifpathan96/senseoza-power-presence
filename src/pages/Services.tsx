@@ -5,6 +5,10 @@ import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import { TiltCard } from '@/components/Card3D';
+import { Floating3DElement } from '@/components/Parallax3D';
+import TechScene3D from '@/components/TechScene3D';
+import { Suspense } from 'react';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
 import serviceSocial from '@/assets/service-social-media.png';
@@ -85,8 +89,16 @@ const Services = () => {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
-        <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+        
+        {/* 3D Scene Background */}
+        <Suspense fallback={null}>
+          <TechScene3D variant="section" className="opacity-40" />
+        </Suspense>
+        
+        {/* Floating 3D Elements */}
+        <Floating3DElement type="ring" size={100} color="accent" className="top-32 right-[15%]" delay={0} />
+        <Floating3DElement type="sphere" size={70} color="primary" className="bottom-20 left-[10%]" delay={1.5} />
+        <Floating3DElement type="cube" size={50} color="accent" className="top-40 left-[20%]" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -138,19 +150,20 @@ const Services = () => {
                   className="max-w-6xl mx-auto"
                 >
                   <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 items-center`}>
-                    <motion.div 
-                      whileHover={{ scale: 1.02 }}
+                    <TiltCard 
                       className={`order-1 ${!isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                      maxTilt={10}
+                      scale={1.02}
                     >
                       <div className="relative group">
                         <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <img
                           src={service.image}
                           alt={service.title}
-                          className="relative w-full h-auto rounded-2xl shadow-xl"
+                          className="relative w-full h-auto rounded-2xl shadow-xl card-3d-inner"
                         />
                       </div>
-                    </motion.div>
+                    </TiltCard>
                     
                     <div className={`order-2 ${!isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div className="relative">
@@ -193,6 +206,11 @@ const Services = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-10" />
+        
+        {/* Floating 3D Elements */}
+        <Floating3DElement type="pyramid" size={60} color="accent" className="top-20 left-[15%]" delay={0} />
+        <Floating3DElement type="ring" size={80} color="primary" className="bottom-32 right-[20%]" delay={1} />
+        
         <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/30 rounded-full blur-3xl" />
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/30 rounded-full blur-3xl" delay={2} />
         
