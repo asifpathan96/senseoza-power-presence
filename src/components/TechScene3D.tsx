@@ -1,52 +1,7 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, MeshWobbleMaterial, Sphere, Box, Torus, Octahedron, Icosahedron } from '@react-three/drei';
+import { Float, MeshDistortMaterial, MeshWobbleMaterial, Sphere, Torus, Icosahedron, Line } from '@react-three/drei';
 import { useRef, useMemo, Suspense } from 'react';
 import * as THREE from 'three';
-
-// Circuit grid lines
-const CircuitGrid = () => {
-  const ref = useRef<THREE.Group>(null);
-  
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
-      ref.current.rotation.z = state.clock.elapsedTime * 0.05;
-    }
-  });
-
-  const lines = useMemo(() => {
-    const positions: [number, number, number][][] = [];
-    for (let i = 0; i < 20; i++) {
-      const startX = (Math.random() - 0.5) * 10;
-      const startZ = (Math.random() - 0.5) * 10;
-      const endX = startX + (Math.random() - 0.5) * 4;
-      const endZ = startZ + (Math.random() - 0.5) * 4;
-      positions.push([
-        [startX, -2, startZ],
-        [endX, -2, endZ]
-      ]);
-    }
-    return positions;
-  }, []);
-
-  return (
-    <group ref={ref}>
-      {lines.map((line, i) => (
-        <line key={i}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={2}
-              array={new Float32Array([...line[0], ...line[1]])}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial color="#00d4ff" opacity={0.3} transparent />
-        </line>
-      ))}
-    </group>
-  );
-};
 
 // Floating data nodes
 const DataNode = ({ position, delay = 0 }: { position: [number, number, number]; delay?: number }) => {
@@ -154,18 +109,18 @@ const OrbitingElement = ({ radius, speed, offset, shape }: {
   );
 };
 
-// Particle field
+// Particle field using points
 const ParticleField = () => {
   const ref = useRef<THREE.Points>(null);
   
-  const particles = useMemo(() => {
-    const positions = new Float32Array(500 * 3);
-    for (let i = 0; i < 500 * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 20;
-      positions[i + 1] = (Math.random() - 0.5) * 20;
-      positions[i + 2] = (Math.random() - 0.5) * 20;
+  const [positions] = useMemo(() => {
+    const pos = new Float32Array(300 * 3);
+    for (let i = 0; i < 300 * 3; i += 3) {
+      pos[i] = (Math.random() - 0.5) * 20;
+      pos[i + 1] = (Math.random() - 0.5) * 20;
+      pos[i + 2] = (Math.random() - 0.5) * 20;
     }
-    return positions;
+    return [pos];
   }, []);
 
   useFrame((state) => {
@@ -180,13 +135,13 @@ const ParticleField = () => {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={500}
-          array={particles}
+          count={300}
+          array={positions}
           itemSize={3}
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.03}
+        size={0.05}
         color="#00d4ff"
         transparent
         opacity={0.6}
@@ -196,19 +151,18 @@ const ParticleField = () => {
   );
 };
 
-// Connection lines between nodes
+// Connection lines using drei Line component
 const ConnectionLines = () => {
-  const ref = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null);
   
   useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.05;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.05;
     }
   });
 
-  const connections = useMemo(() => {
-    const lines: [number, number, number][][] = [];
-    const nodePositions = [
+  const lines = useMemo(() => {
+    const nodePositions: [number, number, number][] = [
       [2, 1, 0],
       [-2, 1.5, 1],
       [1, -1, 2],
@@ -216,33 +170,73 @@ const ConnectionLines = () => {
       [0, 2, 1],
     ];
     
+    const connections: { start: [number, number, number]; end: [number, number, number] }[] = [];
     for (let i = 0; i < nodePositions.length; i++) {
       for (let j = i + 1; j < nodePositions.length; j++) {
-        lines.push([
-          nodePositions[i] as [number, number, number],
-          nodePositions[j] as [number, number, number]
-        ]);
+        connections.push({
+          start: nodePositions[i],
+          end: nodePositions[j]
+        });
       }
     }
-    return lines;
+    return connections;
   }, []);
 
   return (
-    <group ref={ref}>
-      {connections.map((line, i) => (
-        <line key={i}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={2}
-              array={new Float32Array([...line[0], ...line[1]])}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial color="#3366ff" opacity={0.2} transparent />
-        </line>
+    <group ref={groupRef}>
+      {lines.map((line, i) => (
+        <Line
+          key={i}
+          points={[line.start, line.end]}
+          color="#3366ff"
+          lineWidth={1}
+          transparent
+          opacity={0.3}
+        />
       ))}
     </group>
+  );
+};
+
+// Floating rings
+const FloatingRings = () => {
+  const ring1Ref = useRef<THREE.Mesh>(null);
+  const ring2Ref = useRef<THREE.Mesh>(null);
+  
+  useFrame((state) => {
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.x = state.clock.elapsedTime * 0.3;
+      ring1Ref.current.rotation.y = state.clock.elapsedTime * 0.2;
+    }
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.x = -state.clock.elapsedTime * 0.2;
+      ring2Ref.current.rotation.z = state.clock.elapsedTime * 0.3;
+    }
+  });
+
+  return (
+    <>
+      <mesh ref={ring1Ref} position={[0, 0, 0]}>
+        <torusGeometry args={[2.5, 0.02, 16, 100]} />
+        <meshStandardMaterial
+          color="#00d4ff"
+          emissive="#00d4ff"
+          emissiveIntensity={0.5}
+          metalness={0.9}
+          roughness={0.1}
+        />
+      </mesh>
+      <mesh ref={ring2Ref} position={[0, 0, 0]}>
+        <torusGeometry args={[3, 0.02, 16, 100]} />
+        <meshStandardMaterial
+          color="#3366ff"
+          emissive="#3366ff"
+          emissiveIntensity={0.3}
+          metalness={0.9}
+          roughness={0.1}
+        />
+      </mesh>
+    </>
   );
 };
 
@@ -274,6 +268,7 @@ const TechScene3D = ({ className = '', variant = 'hero' }: TechScene3DProps) => 
           {variant === 'hero' && (
             <>
               <TechSphere />
+              <FloatingRings />
               <OrbitingElement radius={3} speed={0.5} offset={0} shape="box" />
               <OrbitingElement radius={3.5} speed={0.3} offset={Math.PI} shape="torus" />
               <OrbitingElement radius={4} speed={0.4} offset={Math.PI / 2} shape="sphere" />
