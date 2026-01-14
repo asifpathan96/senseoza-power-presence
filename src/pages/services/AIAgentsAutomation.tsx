@@ -366,8 +366,11 @@ const AIAgentsAutomation = () => {
         </div>
       </section>
 
+      {/* Spacer after hero */}
+      <div className="h-16 md:h-24" />
+
       {/* What Are AI Agents Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-heading font-bold mb-6 text-center">
@@ -409,7 +412,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Why Your Business Needs AI Agents */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -481,7 +484,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* How AI Agents Work */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -512,7 +515,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Implementation Process */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -548,7 +551,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Real-World Applications */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -579,7 +582,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -608,7 +611,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Integration Capabilities */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -650,7 +653,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Security & Compliance */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -683,7 +686,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -711,7 +714,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Why Choose Senseoza */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -741,7 +744,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* Getting Started */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
@@ -774,7 +777,7 @@ const AIAgentsAutomation = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">

@@ -76,7 +76,7 @@ const Services = () => {
       title: 'AI Agents & Workflow Automation',
       description: 'Deploy intelligent AI agents that automate repetitive tasks, make smart decisions, and work 24/7 without breaks. Custom automation solutions that save time, reduce costs, and scale your operations.',
       tags: ['AI Agents', 'Workflow Automation', 'Process Automation', '24/7 Operations'],
-      image: serviceAI,
+      image: serviceWeb,
       link: '/services/ai-agents-automation',
     },
   ];
