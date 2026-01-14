@@ -351,23 +351,13 @@ const AIAgentsAutomation = () => {
               <p className="text-lg md:text-xl text-primary-foreground/80 mb-6 max-w-4xl mx-auto">
                 Imagine having a tireless digital workforce that handles repetitive tasks, makes intelligent decisions, and operates around the clock without breaks or errors. AI agents are autonomous software systems capable of perceiving, reasoning, and acting independently to automate business processes—making decisions without human intervention while continuously learning and adapting.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-primary-foreground">
                 24/7 Operations | 70% Task Reduction | ROI in Months
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300">
-                    Schedule Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
-
-      {/* Spacer after hero */}
-      <div className="h-16 md:h-24" />
 
       {/* What Are AI Agents Section */}
       <section className="py-20 bg-muted/50">

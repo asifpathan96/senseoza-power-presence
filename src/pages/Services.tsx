@@ -11,6 +11,7 @@ import serviceSocial from '@/assets/service-social-media.png';
 import serviceContent from '@/assets/service-content.png';
 import servicePPC from '@/assets/service-ppc.png';
 import serviceWeb from '@/assets/service-web-design.png';
+import serviceAnalytics from '@/assets/service-analytics.png';
 import { Bot } from 'lucide-react';
 
 const Services = () => {
@@ -76,7 +77,7 @@ const Services = () => {
       title: 'AI Agents & Workflow Automation',
       description: 'Deploy intelligent AI agents that automate repetitive tasks, make smart decisions, and work 24/7 without breaks. Custom automation solutions that save time, reduce costs, and scale your operations.',
       tags: ['AI Agents', 'Workflow Automation', 'Process Automation', '24/7 Operations'],
-      image: serviceWeb,
+      image: serviceAnalytics,
       link: '/services/ai-agents-automation',
     },
   ];
