@@ -7,9 +7,6 @@ import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
-import { TiltCard } from '@/components/Card3D';
-import { MouseParallax, Floating3DElement } from '@/components/Parallax3D';
-import TechScene3D from '@/components/TechScene3D';
 import heroBg from '@/assets/hero-bg.jpg';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
@@ -20,7 +17,6 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
-import { Suspense } from 'react';
 const Home = () => {
   const stats = [{
     number: 500,
@@ -230,17 +226,10 @@ const Home = () => {
           <div className="absolute inset-0 gradient-hero" />
           <div className="absolute inset-0 dot-pattern opacity-30" />
           <ParticleBackground />
-          {/* 3D Tech Scene */}
-          <Suspense fallback={null}>
-            <TechScene3D variant="hero" className="opacity-60" />
-          </Suspense>
         </div>
 
-        {/* Floating 3D Elements */}
-        <Floating3DElement type="ring" size={80} color="accent" className="top-20 left-[10%]" delay={0} />
-        <Floating3DElement type="sphere" size={60} color="primary" className="top-40 right-[15%]" delay={1} />
-        <Floating3DElement type="cube" size={50} color="accent" className="bottom-32 left-[20%]" delay={2} />
-        <Floating3DElement type="pyramid" size={40} color="primary" className="bottom-40 right-[25%]" delay={1.5} />
+        <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 z-10 py-32">
           <div className="max-w-5xl mx-auto text-center">
@@ -353,33 +342,32 @@ const Home = () => {
             {differentiators.map((item, index) => {
             const IconComponent = item.icon;
             return <StaggerItem key={index}>
-                  <TiltCard className="h-full" maxTilt={15} scale={1.02}>
-                    <motion.div whileHover={{
-                      transition: {
-                        duration: 0.3
-                      }
-                    }} className="group relative h-full">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative bg-card border border-border/50 rounded-2xl p-8 h-full hover:border-primary/30 hover:shadow-xl transition-all duration-300 card-3d-inner">
-                        <div className="flex items-start gap-5">
-                          <div className="relative card-3d-layer" style={{ transform: 'translateZ(40px)' }}>
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-xl blur-lg opacity-40" />
-                            <div className="relative w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                              <IconComponent className="h-7 w-7 text-white" />
-                            </div>
-                          </div>
-                          <div className="flex-1 card-3d-layer" style={{ transform: 'translateZ(20px)' }}>
-                            <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {item.description}
-                            </p>
+                  <motion.div whileHover={{
+                y: -8,
+                transition: {
+                  duration: 0.3
+                }
+              }} className="group relative h-full">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative bg-card border border-border/50 rounded-2xl p-8 h-full hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                      <div className="flex items-start gap-5">
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-xl blur-lg opacity-40" />
+                          <div className="relative w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                            <IconComponent className="h-7 w-7 text-white" />
                           </div>
                         </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-muted-foreground leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
-                    </motion.div>
-                  </TiltCard>
+                    </div>
+                  </motion.div>
                 </StaggerItem>;
           })}
           </StaggerContainer>
@@ -406,31 +394,31 @@ const Home = () => {
             const IconComponent = service.icon;
             return <StaggerItem key={index}>
                   <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
-                    <TiltCard className="h-full" maxTilt={12} scale={1.03}>
-                      <div className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 h-full card-3d-inner">
-                        <div className="relative h-48 overflow-hidden">
-                          <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-                          <div className="absolute bottom-4 left-4 card-3d-layer" style={{ transform: 'translateZ(50px)' }}>
-                            <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:bg-primary transition-colors duration-300">
-                              <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
-                            </div>
+                    <motion.div whileHover={{
+                  y: -8
+                }} className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-500 h-full">
+                      <div className="relative h-48 overflow-hidden">
+                        <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                        <div className="absolute bottom-4 left-4">
+                          <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg group-hover:bg-primary transition-colors duration-300">
+                            <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
                           </div>
                         </div>
-                        <div className="p-6 card-3d-layer" style={{ transform: 'translateZ(30px)' }}>
-                          <h3 className="text-lg font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                            {service.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                            {service.description}
-                          </p>
-                          <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                            Learn More
-                            <ArrowRight className="h-4 w-4" />
-                          </span>
-                        </div>
                       </div>
-                    </TiltCard>
+                      <div className="p-6">
+                        <h3 className="text-lg font-heading font-bold mb-3 group-hover:text-primary transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                          {service.description}
+                        </p>
+                        <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+                          Learn More
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </div>
+                    </motion.div>
                   </Link>
                 </StaggerItem>;
           })}
@@ -578,19 +566,19 @@ const Home = () => {
             {whyChooseUs.map((item, index) => {
             const IconComponent = item.icon;
             return <StaggerItem key={index}>
-                  <TiltCard className="h-full" maxTilt={10} scale={1.02}>
-                    <div className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full card-3d-inner">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300 card-3d-layer" style={{ transform: 'translateZ(30px)' }}>
-                          <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
-                        </div>
-                        <div className="card-3d-layer" style={{ transform: 'translateZ(15px)' }}>
-                          <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground text-sm">{item.description}</p>
-                        </div>
+                  <motion.div whileHover={{
+                y: -8
+              }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                        <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
+                      </div>
+                      <div>
+                        <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
                       </div>
                     </div>
-                  </TiltCard>
+                  </motion.div>
                 </StaggerItem>;
           })}
           </StaggerContainer>
@@ -615,30 +603,30 @@ const Home = () => {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post, index) => <StaggerItem key={index}>
                 <Link to={`/blog/${post.slug}`} onClick={() => window.scrollTo(0, 0)}>
-                  <TiltCard className="h-full" maxTilt={10} scale={1.02}>
-                    <div className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full card-3d-inner">
-                      <div className="relative h-48 overflow-hidden">
-                        <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        <div className="absolute top-4 left-4 card-3d-layer" style={{ transform: 'translateZ(40px)' }}>
-                          <span className="px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full">
-                            {post.category}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-6 card-3d-layer" style={{ transform: 'translateZ(20px)' }}>
-                        <h3 className="text-lg font-heading font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between text-xs text-muted-foreground">
-                          <span>{post.date}</span>
-                          <span>{post.readTime}</span>
-                        </div>
+                  <motion.div whileHover={{
+                y: -8
+              }} className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full">
+                          {post.category}
+                        </span>
                       </div>
                     </div>
-                  </TiltCard>
+                    <div className="p-6">
+                      <h3 className="text-lg font-heading font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>{post.date}</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                    </div>
+                  </motion.div>
                 </Link>
               </StaggerItem>)}
           </StaggerContainer>

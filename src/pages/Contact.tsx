@@ -4,15 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MessageCircle, Send, Sparkles } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight, Send, Sparkles, CheckCircle } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { contactSchema } from '@/utils/schema';
-import { AnimatedSection, FloatingElement } from '@/components/AnimatedSection';
+import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
-import { TiltCard } from '@/components/Card3D';
-import { Floating3DElement } from '@/components/Parallax3D';
-import TechScene3D from '@/components/TechScene3D';
-import { Suspense } from 'react';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -84,6 +80,13 @@ ${formData.message}
     });
   };
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      budget: e.target.value,
+    });
+  };
+
   const handleServiceToggle = (service: string) => {
     setFormData(prev => ({
       ...prev,
@@ -124,17 +127,6 @@ ${formData.message}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        
-        {/* 3D Scene Background */}
-        <Suspense fallback={null}>
-          <TechScene3D variant="background" className="opacity-30" />
-        </Suspense>
-        
-        {/* Floating 3D Elements */}
-        <Floating3DElement type="ring" size={80} color="accent" className="top-24 right-[12%]" delay={0} />
-        <Floating3DElement type="sphere" size={50} color="primary" className="bottom-28 left-[15%]" delay={1.5} />
-        <Floating3DElement type="cube" size={40} color="accent" className="top-48 left-[8%]" delay={2} />
-        
         <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
         <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
@@ -180,231 +172,224 @@ ${formData.message}
             
             {/* Contact Form */}
             <AnimatedSection direction="right" className="lg:col-span-3">
-              <TiltCard maxTilt={3} scale={1.005}>
-                <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-xl card-3d-inner">
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="p-3 bg-gradient-to-br from-primary to-accent rounded-xl card-3d-layer" style={{ transform: 'translateZ(20px)' }}>
-                      <Send className="h-6 w-6 text-white" />
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-heading font-bold">Send Us a Message</h2>
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-xl">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 bg-gradient-to-br from-primary to-accent rounded-xl">
+                    <Send className="h-6 w-6 text-white" />
                   </div>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold">Send Us a Message</h2>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold mb-2">
+                      Full Name <span className="text-destructive">*</span>
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Doe"
+                      className="h-12 bg-background border-border/50 focus:border-primary"
+                      required
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold mb-2">
-                        Full Name <span className="text-destructive">*</span>
+                      <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                        Email Address <span className="text-destructive">*</span>
                       </label>
                       <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
                         onChange={handleChange}
-                        placeholder="John Doe"
+                        placeholder="john@company.com"
                         className="h-12 bg-background border-border/50 focus:border-primary"
                         required
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                          Email Address <span className="text-destructive">*</span>
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@company.com"
-                          className="h-12 bg-background border-border/50 focus:border-primary"
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-semibold mb-2">
-                          Phone <span className="text-destructive">*</span>
-                        </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+91 9168411743"
-                          className="h-12 bg-background border-border/50 focus:border-primary"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="company" className="block text-sm font-semibold mb-2">
-                          Company Name
-                        </label>
-                        <Input
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Your Company"
-                          className="h-12 bg-background border-border/50 focus:border-primary"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="website" className="block text-sm font-semibold mb-2">
-                          Website URL
-                        </label>
-                        <Input
-                          id="website"
-                          name="website"
-                          value={formData.website}
-                          onChange={handleChange}
-                          placeholder="https://yourwebsite.com"
-                          className="h-12 bg-background border-border/50 focus:border-primary"
-                        />
-                      </div>
-                    </div>
-
                     <div>
-                      <label className="block text-sm font-semibold mb-3">
-                        Services Interested In
+                      <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                        Phone <span className="text-destructive">*</span>
                       </label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {services.map((service) => (
-                          <label 
-                            key={service} 
-                            className={`flex items-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
-                              formData.services.includes(service) 
-                                ? 'border-primary bg-primary/5' 
-                                : 'border-border/50 hover:border-primary/50 bg-background'
-                            }`}
-                          >
-                            <Checkbox
-                              checked={formData.services.includes(service)}
-                              onCheckedChange={() => handleServiceToggle(service)}
-                            />
-                            <span className="text-xs sm:text-sm">{service}</span>
-                          </label>
-                        ))}
-                      </div>
-                    </div>
-
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                        Tell us about your business and goals <span className="text-destructive">*</span>
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Tell us about your business, your marketing goals, and any challenges you are facing..."
-                        rows={5}
-                        className="bg-background border-border/50 focus:border-primary"
+                        placeholder="+91 9168411743"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
                         required
                       />
                     </div>
+                  </div>
 
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full h-14 gradient-primary text-base font-semibold shadow-primary hover:shadow-lg transition-all"
-                    >
-                      <MessageCircle className="mr-2 h-5 w-5" />
-                      Send Message
-                    </Button>
-                  </form>
-                </div>
-              </TiltCard>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-semibold mb-2">
+                        Company Name
+                      </label>
+                      <Input
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        placeholder="Your Company"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="website" className="block text-sm font-semibold mb-2">
+                        Website URL
+                      </label>
+                      <Input
+                        id="website"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        placeholder="https://yourwebsite.com"
+                        className="h-12 bg-background border-border/50 focus:border-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold mb-3">
+                      Services Interested In
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {services.map((service) => (
+                        <label 
+                          key={service} 
+                          className={`flex items-center gap-2 p-3 rounded-xl border cursor-pointer transition-all ${
+                            formData.services.includes(service) 
+                              ? 'border-primary bg-primary/5' 
+                              : 'border-border/50 hover:border-primary/50 bg-background'
+                          }`}
+                        >
+                          <Checkbox
+                            checked={formData.services.includes(service)}
+                            onCheckedChange={() => handleServiceToggle(service)}
+                          />
+                          <span className="text-xs sm:text-sm">{service}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                      Tell us about your business and goals <span className="text-destructive">*</span>
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about your business, your marketing goals, and any challenges you are facing..."
+                      rows={5}
+                      className="bg-background border-border/50 focus:border-primary"
+                      required
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full h-14 gradient-primary text-base font-semibold shadow-primary hover:shadow-lg transition-all"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Send Message
+                  </Button>
+                </form>
+              </div>
             </AnimatedSection>
 
             {/* Contact Info */}
             <AnimatedSection direction="left" className="lg:col-span-2 space-y-6">
               {/* Quick Contact */}
-              <TiltCard maxTilt={8} scale={1.01}>
-                <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg card-3d-inner">
-                  <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">Quick Contact</h2>
-                  <div className="space-y-4">
-                    <a 
-                      href="mailto:hello@senseoza.com" 
-                      className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors group"
-                    >
-                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <Mail className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Email Us</p>
-                        <p className="font-semibold">hello@senseoza.com</p>
-                      </div>
-                    </a>
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg">
+                <h2 className="text-xl md:text-2xl font-heading font-bold mb-6">Quick Contact</h2>
+                <div className="space-y-4">
+                  <a 
+                    href="mailto:hello@senseoza.com" 
+                    className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors group"
+                  >
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Email Us</p>
+                      <p className="font-semibold">hello@senseoza.com</p>
+                    </div>
+                  </a>
 
-                    <a 
-                      href="tel:+919168411743" 
-                      className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors group"
-                    >
-                      <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <Phone className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">Call Us</p>
-                        <p className="font-semibold">+91 9168411743</p>
-                      </div>
-                    </a>
-                  </div>
+                  <a 
+                    href="tel:+919168411743" 
+                    className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors group"
+                  >
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Call Us</p>
+                      <p className="font-semibold">+91 9168411743</p>
+                    </div>
+                  </a>
                 </div>
-              </TiltCard>
+              </div>
 
               {/* Schedule Call CTA */}
-              <TiltCard maxTilt={10} scale={1.02}>
-                <motion.div
-                  className="relative overflow-hidden rounded-3xl p-6 md:p-8 text-white card-3d-inner"
-                >
-                  <div className="absolute inset-0 gradient-primary" />
-                  <div className="absolute inset-0 dot-pattern opacity-10" />
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
-                  <div className="relative z-10">
-                    <Sparkles className="h-10 w-10 mb-4 text-accent card-3d-layer" style={{ transform: 'translateZ(30px)' }} />
-                    <h3 className="text-xl md:text-2xl font-heading font-bold mb-3 card-3d-layer" style={{ transform: 'translateZ(20px)' }}>
-                      Prefer a Call?
-                    </h3>
-                    <p className="text-white/80 mb-6 text-sm md:text-base card-3d-layer" style={{ transform: 'translateZ(10px)' }}>
-                      Book a free 30-minute consultation at a time that works for you.
-                    </p>
-                    <Button 
-                      onClick={() => {
-                        const whatsappUrl = `https://wa.me/919168411743?text=${encodeURIComponent('Hi, I would like to schedule a free consultation.')}`;
-                        window.open(whatsappUrl, '_blank');
-                      }}
-                      className="bg-white text-primary hover:bg-white/90 font-semibold w-full sm:w-auto"
-                    >
-                      <MessageCircle className="mr-2 h-5 w-5" />
-                      Schedule a Call
-                    </Button>
-                  </div>
-                </motion.div>
-              </TiltCard>
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative overflow-hidden rounded-3xl p-6 md:p-8 text-white"
+              >
+                <div className="absolute inset-0 gradient-primary" />
+                <div className="absolute inset-0 dot-pattern opacity-10" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
+                <div className="relative z-10">
+                  <Sparkles className="h-10 w-10 mb-4 text-accent" />
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3">
+                    Prefer a Call?
+                  </h3>
+                  <p className="text-white/80 mb-6 text-sm md:text-base">
+                    Book a free 30-minute consultation at a time that works for you.
+                  </p>
+                  <Button 
+                    onClick={() => {
+                      const whatsappUrl = `https://wa.me/919168411743?text=${encodeURIComponent('Hi, I would like to schedule a free consultation.')}`;
+                      window.open(whatsappUrl, '_blank');
+                    }}
+                    className="bg-white text-primary hover:bg-white/90 font-semibold w-full sm:w-auto"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Schedule a Call
+                  </Button>
+                </div>
+              </motion.div>
 
               {/* What Happens Next */}
-              <TiltCard maxTilt={6} scale={1.01}>
-                <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg card-3d-inner">
-                  <h3 className="text-lg md:text-xl font-heading font-bold mb-6">What to Expect</h3>
-                  <div className="space-y-4">
-                    {nextSteps.map((step, index) => (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 card-3d-layer" style={{ transform: 'translateZ(15px)' }}>
-                          <span className="text-xs font-bold text-white">{index + 1}</span>
-                        </div>
-                        <p className="text-sm text-muted-foreground pt-1">{step}</p>
+              <div className="bg-card p-6 md:p-8 rounded-3xl border border-border/50 shadow-lg">
+                <h3 className="text-lg md:text-xl font-heading font-bold mb-6">What to Expect</h3>
+                <div className="space-y-4">
+                  {nextSteps.map((step, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs font-bold text-white">{index + 1}</span>
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-sm text-muted-foreground pt-1">{step}</p>
+                    </div>
+                  ))}
                 </div>
-              </TiltCard>
+              </div>
             </AnimatedSection>
           </div>
         </div>
