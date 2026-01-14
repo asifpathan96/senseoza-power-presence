@@ -389,4 +389,205 @@
       radial-gradient(at 0% 100%, hsl(220 90% 50% / 0.1) 0, transparent 50%),
       hsl(var(--background));
   }
+
+  /* 3D Card Effects */
+  .card-3d-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  }
+
+  .card-3d-layer {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  /* 3D Perspective container */
+  .perspective-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  /* 3D rotation on hover */
+  .rotate-3d-hover {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+  }
+
+  .rotate-3d-hover:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+  }
+
+  /* Floating 3D animation */
+  .float-3d {
+    animation: float-3d 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes float-3d {
+    0%, 100% {
+      transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+    }
+    50% {
+      transform: translateY(-25px) rotateX(0deg) rotateY(10deg);
+    }
+    75% {
+      transform: translateY(-15px) rotateX(-5deg) rotateY(5deg);
+    }
+  }
+
+  /* Glowing border 3D */
+  .glow-border-3d {
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  .glow-border-3d::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, 
+      hsl(220 90% 50%), 
+      hsl(185 85% 50%), 
+      hsl(220 90% 50%), 
+      hsl(185 85% 50%)
+    );
+    background-size: 400% 400%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: glow-rotate 3s linear infinite;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translateZ(-10px);
+  }
+
+  .glow-border-3d:hover::before {
+    opacity: 0.7;
+  }
+
+  @keyframes glow-rotate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Tech grid pattern */
+  .tech-grid {
+    background-image: 
+      linear-gradient(hsl(185 85% 50% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(185 85% 50% / 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: grid-scroll 20s linear infinite;
+  }
+
+  @keyframes grid-scroll {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 40px 40px;
+    }
+  }
+
+  /* Cyber scan line */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      transparent 0%,
+      hsl(185 85% 50% / 0.1) 50%,
+      transparent 100%
+    );
+    height: 100px;
+    animation: scan 3s ease-in-out infinite;
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* Holographic effect */
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      hsl(220 90% 50% / 0.3) 0%,
+      hsl(185 85% 50% / 0.3) 25%,
+      hsl(280 80% 60% / 0.3) 50%,
+      hsl(185 85% 50% / 0.3) 75%,
+      hsl(220 90% 50% / 0.3) 100%
+    );
+    background-size: 400% 400%;
+    animation: holographic-shift 5s ease infinite;
+  }
+
+  @keyframes holographic-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Data stream effect */
+  .data-stream {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(185 85% 50% / 0.05) 2px,
+      hsl(185 85% 50% / 0.05) 4px
+    );
+    animation: data-flow 1s linear infinite;
+  }
+
+  @keyframes data-flow {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 4px;
+    }
+  }
+
+  /* Neon text effect */
+  .neon-text {
+    text-shadow: 
+      0 0 5px hsl(185 85% 50%),
+      0 0 10px hsl(185 85% 50%),
+      0 0 20px hsl(185 85% 50%),
+      0 0 40px hsl(220 90% 50%);
+  }
+
+  /* Circuit board pattern */
+  .circuit-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, hsl(185 85% 50% / 0.15) 2px, transparent 0),
+      linear-gradient(hsl(185 85% 50% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(185 85% 50% / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
 }
