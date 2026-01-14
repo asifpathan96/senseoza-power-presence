@@ -5,6 +5,10 @@ import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import { TiltCard } from '@/components/Card3D';
+import { Floating3DElement } from '@/components/Parallax3D';
+import TechScene3D from '@/components/TechScene3D';
+import { Suspense } from 'react';
 import aboutImage from '@/assets/about-3d.png';
 
 const About = () => {
@@ -51,8 +55,16 @@ const About = () => {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
-        <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+        
+        {/* 3D Scene Background */}
+        <Suspense fallback={null}>
+          <TechScene3D variant="background" className="opacity-30" />
+        </Suspense>
+        
+        {/* Floating 3D Elements */}
+        <Floating3DElement type="ring" size={90} color="accent" className="top-28 right-[12%]" delay={0} />
+        <Floating3DElement type="sphere" size={60} color="primary" className="bottom-24 left-[8%]" delay={1} />
+        <Floating3DElement type="pyramid" size={45} color="accent" className="top-48 left-[25%]" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -113,17 +125,18 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card rounded-2xl p-6 border border-border/50 text-center shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <div className="text-3xl md:text-4xl font-heading font-bold text-accent mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </motion.div>
+                <TiltCard key={index} maxTilt={8} scale={1.02}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-card rounded-2xl p-6 border border-border/50 text-center shadow-lg hover:shadow-xl transition-shadow card-3d-inner"
+                  >
+                    <div className="text-3xl md:text-4xl font-heading font-bold text-accent mb-1">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  </motion.div>
+                </TiltCard>
               ))}
             </div>
           </div>
@@ -155,12 +168,14 @@ const About = () => {
               </div>
             </AnimatedSection>
             <AnimatedSection direction="left" className="order-1 lg:order-2 relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
-              <img 
-                src={aboutImage} 
-                alt="About Senseoza"
-                className="relative w-full h-auto rounded-2xl shadow-2xl"
-              />
+              <TiltCard maxTilt={12} scale={1.02}>
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl" />
+                <img 
+                  src={aboutImage} 
+                  alt="About Senseoza"
+                  className="relative w-full h-auto rounded-2xl shadow-2xl card-3d-inner"
+                />
+              </TiltCard>
             </AnimatedSection>
           </div>
         </div>
@@ -172,24 +187,25 @@ const About = () => {
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto">
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-3xl p-8 md:p-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-white/10 backdrop-blur-lg"
-            >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/20 rounded-full -mr-20 -mt-20 blur-2xl" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full -ml-16 -mb-16 blur-2xl" />
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                  <Rocket className="h-10 w-10 text-white" />
+            <TiltCard maxTilt={6} scale={1.01}>
+              <motion.div
+                className="relative overflow-hidden rounded-3xl p-8 md:p-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-white/10 backdrop-blur-lg card-3d-inner"
+              >
+                <div className="absolute top-0 right-0 w-40 h-40 bg-accent/20 rounded-full -mr-20 -mt-20 blur-2xl" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full -ml-16 -mb-16 blur-2xl" />
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 card-3d-layer" style={{ transform: 'translateZ(30px)' }}>
+                    <Rocket className="h-10 w-10 text-white" />
+                  </div>
+                  <div className="text-center md:text-left card-3d-layer" style={{ transform: 'translateZ(15px)' }}>
+                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">Our Mission</h2>
+                    <p className="text-lg text-white/80">
+                      To empower businesses with intelligent, data-driven marketing strategies that deliver measurable growth and sustainable competitive advantage.
+                    </p>
+                  </div>
                 </div>
-                <div className="text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">Our Mission</h2>
-                  <p className="text-lg text-white/80">
-                    To empower businesses with intelligent, data-driven marketing strategies that deliver measurable growth and sustainable competitive advantage.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </TiltCard>
           </AnimatedSection>
         </div>
       </section>
@@ -212,20 +228,19 @@ const About = () => {
               const IconComponent = value.icon;
               return (
                 <StaggerItem key={index}>
-                  <motion.div
-                    whileHover={{ y: -8 }}
-                    className="group bg-card p-8 rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full"
-                  >
-                    <div className="flex items-start gap-5">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <IconComponent className="h-7 w-7 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-heading font-bold mb-2 group-hover:text-primary transition-colors">{value.title}</h3>
-                        <p className="text-muted-foreground">{value.description}</p>
+                  <TiltCard className="h-full" maxTilt={12} scale={1.02}>
+                    <div className="group bg-card p-8 rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full card-3d-inner">
+                      <div className="flex items-start gap-5">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform card-3d-layer" style={{ transform: 'translateZ(30px)' }}>
+                          <IconComponent className="h-7 w-7 text-white" />
+                        </div>
+                        <div className="card-3d-layer" style={{ transform: 'translateZ(15px)' }}>
+                          <h3 className="text-xl font-heading font-bold mb-2 group-hover:text-primary transition-colors">{value.title}</h3>
+                          <p className="text-muted-foreground">{value.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </TiltCard>
                 </StaggerItem>
               );
             })}
@@ -251,16 +266,15 @@ const About = () => {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {teamExpertise.map((item, index) => (
               <StaggerItem key={index}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="bg-card p-6 rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                    <h3 className="font-heading font-bold text-lg">{item.title}</h3>
+                <TiltCard className="h-full" maxTilt={10} scale={1.02}>
+                  <div className="bg-card p-6 rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 card-3d-inner">
+                    <div className="flex items-center gap-3 mb-3">
+                      <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                      <h3 className="font-heading font-bold text-lg">{item.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground pl-8">{item.desc}</p>
                   </div>
-                  <p className="text-sm text-muted-foreground pl-8">{item.desc}</p>
-                </motion.div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -271,6 +285,11 @@ const About = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-10" />
+        
+        {/* Floating 3D Elements */}
+        <Floating3DElement type="sphere" size={80} color="accent" className="top-20 right-[10%]" delay={0} />
+        <Floating3DElement type="ring" size={100} color="primary" className="bottom-20 left-[15%]" delay={1.5} />
+        
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-4">
@@ -304,15 +323,14 @@ const About = () => {
               const IconComponent = item.icon;
               return (
                 <StaggerItem key={index}>
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-4 p-5 bg-card rounded-xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex-shrink-0">
-                      <IconComponent className="h-6 w-6 text-primary" />
+                  <TiltCard className="h-full" maxTilt={8} scale={1.01}>
+                    <div className="flex items-start gap-4 p-5 bg-card rounded-xl border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 card-3d-inner">
+                      <div className="p-3 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex-shrink-0 card-3d-layer" style={{ transform: 'translateZ(20px)' }}>
+                        <IconComponent className="h-6 w-6 text-primary" />
+                      </div>
+                      <span className="text-foreground font-medium card-3d-layer" style={{ transform: 'translateZ(10px)' }}>{item.text}</span>
                     </div>
-                    <span className="text-foreground font-medium">{item.text}</span>
-                  </motion.div>
+                  </TiltCard>
                 </StaggerItem>
               );
             })}
@@ -324,27 +342,29 @@ const About = () => {
       <section className="py-20 md:py-32 bg-secondary/30">
         <div className="container mx-auto px-4">
           <AnimatedSection className="max-w-4xl mx-auto">
-            <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 shadow-xl text-center">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                Let's Build Something <span className="text-accent">Great Together</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Ready to experience digital marketing that actually drives business growth?
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-                  <Button size="lg" className="w-full sm:w-auto gradient-primary shadow-primary">
-                    Start Your Free Consultation
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                    Explore Our Services
-                  </Button>
-                </Link>
+            <TiltCard maxTilt={5} scale={1.01}>
+              <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 shadow-xl text-center card-3d-inner">
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                  Let's Build Something <span className="text-accent">Great Together</span>
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Ready to transform your digital presence? Let's start a conversation about your goals and how we can help you achieve them.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                    <Button size="lg" className="w-full sm:w-auto px-8 py-6 gradient-primary shadow-primary hover:shadow-lg">
+                      Schedule a Free Consultation
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 border-border">
+                      Explore Our Services
+                    </Button>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </TiltCard>
           </AnimatedSection>
         </div>
       </section>

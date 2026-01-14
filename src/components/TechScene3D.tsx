@@ -1,9 +1,8 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, MeshWobbleMaterial, Sphere, Torus, Icosahedron, Line } from '@react-three/drei';
-import { useRef, useMemo, Suspense } from 'react';
+import { Float, MeshDistortMaterial, MeshWobbleMaterial, Torus, Icosahedron, Line } from '@react-three/drei';
+import { useRef, useMemo, Suspense, useState, useEffect } from 'react';
 import * as THREE from 'three';
-
-// Floating data nodes
+import Scene3DLoader from './Scene3DLoader';
 const DataNode = ({ position, delay = 0 }: { position: [number, number, number]; delay?: number }) => {
   const ref = useRef<THREE.Mesh>(null);
   
@@ -246,8 +245,21 @@ interface TechScene3DProps {
 }
 
 const TechScene3D = ({ className = '', variant = 'hero' }: TechScene3DProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for 3D scene initialization
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className={`${className}`} style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-transparent z-10">
+          <Scene3DLoader />
+        </div>
+      )}
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         gl={{ antialias: true, alpha: true }}
