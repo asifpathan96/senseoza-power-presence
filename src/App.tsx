@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -35,6 +36,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ScrollToTop />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
