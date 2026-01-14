@@ -81,6 +81,14 @@ export const serviceSchema = {
         "name": "AI-Powered Marketing",
         "description": "AI-driven marketing automation and analytics"
       }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI Agents & Workflow Automation",
+        "description": "Custom AI agent development and workflow automation services"
+      }
     }
   ]
 };

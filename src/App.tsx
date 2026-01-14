@@ -28,6 +28,7 @@ import WebDesign from "./pages/services/WebDesign";
 import EmailAutomation from "./pages/services/EmailAutomation";
 import Analytics from "./pages/services/Analytics";
 import InfluencerMarketing from "./pages/services/InfluencerMarketing";
+import AIAgentsAutomation from "./pages/services/AIAgentsAutomation";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
         <Route path="/services/email-automation" element={<EmailAutomation />} />
         <Route path="/services/analytics" element={<Analytics />} />
         <Route path="/services/influencer-marketing" element={<InfluencerMarketing />} />
+        <Route path="/services/ai-agents-automation" element={<AIAgentsAutomation />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/blog" element={<Blog />} />
