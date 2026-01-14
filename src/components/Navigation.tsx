@@ -14,6 +14,7 @@ const serviceLinks = [
   { name: 'Email Automation', path: '/services/email-automation' },
   { name: 'Analytics & Reporting', path: '/services/analytics' },
   { name: 'Influencer Marketing', path: '/services/influencer-marketing' },
+  { name: 'AI Agents & Automation', path: '/services/ai-agents-automation' },
 ];
 
 export const Navigation = () => {
