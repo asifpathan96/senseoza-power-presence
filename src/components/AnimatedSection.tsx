@@ -1,5 +1,14 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { useRef, ReactNode, useState, useEffect } from 'react';
+
+// Check if we're in a browser environment and if JS is enabled
+const useIsClient = () => {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  return isClient;
+};
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -16,8 +25,11 @@ export const AnimatedSection = ({
 }: AnimatedSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isClient = useIsClient();
 
+  // SEO-friendly: Content is always visible, animations only play on client
   const getInitial = () => {
+    if (!isClient) return { opacity: 1, x: 0, y: 0 }; // Visible for SEO/SSR
     switch (direction) {
       case 'up': return { opacity: 0, y: 60 };
       case 'down': return { opacity: 0, y: -60 };
@@ -43,7 +55,7 @@ export const AnimatedSection = ({
     <motion.div
       ref={ref}
       initial={getInitial()}
-      animate={isInView ? getAnimate() : getInitial()}
+      animate={isClient ? (isInView ? getAnimate() : getInitial()) : { opacity: 1, x: 0, y: 0 }}
       transition={{
         duration: 0.8,
         delay,
@@ -69,12 +81,13 @@ export const StaggerContainer = ({
 }: StaggerContainerProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isClient = useIsClient();
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      initial={isClient ? "hidden" : "visible"}
+      animate={isClient ? (isInView ? 'visible' : 'hidden') : "visible"}
       variants={{
         hidden: {},
         visible: {
@@ -96,10 +109,12 @@ interface StaggerItemProps {
 }
 
 export const StaggerItem = ({ children, className = '' }: StaggerItemProps) => {
+  const isClient = useIsClient();
+  
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 40 },
+        hidden: isClient ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 },
         visible: { 
           opacity: 1, 
           y: 0,
