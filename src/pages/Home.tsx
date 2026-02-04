@@ -345,17 +345,17 @@ const Home = () => {
                 />
               </motion.div>
 
-              {/* Main 3D Character - Center - Large like reference */}
+              {/* Main 3D Character - Center */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute inset-0 flex items-end justify-center"
+                className="absolute inset-0 flex items-center justify-center"
               >
                 <img 
                   src={hero3DCharacter} 
                   alt="Digital Marketing Professional" 
-                  className="w-[320px] sm:w-[400px] lg:w-[500px] xl:w-[550px] h-auto drop-shadow-2xl"
+                  className="w-64 sm:w-80 lg:w-96 h-auto drop-shadow-2xl floating-3d-slow"
                 />
               </motion.div>
 
