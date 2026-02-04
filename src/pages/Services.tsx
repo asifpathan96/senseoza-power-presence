@@ -13,6 +13,10 @@ import servicePPC from '@/assets/service-ppc.png';
 import serviceWeb from '@/assets/service-web-design.png';
 import serviceAnalytics from '@/assets/service-analytics.png';
 import { Bot } from 'lucide-react';
+// 3D Assets
+import services3DRocket from '@/assets/services-3d-rocket.png';
+import services3DGears from '@/assets/services-3d-gears.png';
+import services3DChart from '@/assets/services-3d-chart.png';
 
 const Services = () => {
   const services = [
@@ -97,6 +101,51 @@ const Services = () => {
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
         <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+        
+        {/* 3D Floating Rocket - Top Left */}
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="absolute top-20 left-5 md:left-20 w-24 md:w-32 lg:w-40 floating-3d z-10 hidden md:block"
+        >
+          <img 
+            src={services3DRocket} 
+            alt="" 
+            className="w-full h-auto drop-shadow-2xl"
+            aria-hidden="true"
+          />
+        </motion.div>
+
+        {/* 3D Floating Gears - Top Right */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="absolute top-24 right-5 md:right-20 w-20 md:w-28 lg:w-36 floating-3d-slow z-10 hidden md:block"
+        >
+          <img 
+            src={services3DGears} 
+            alt="" 
+            className="w-full h-auto drop-shadow-2xl"
+            aria-hidden="true"
+          />
+        </motion.div>
+
+        {/* 3D Floating Chart - Bottom Left */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="absolute bottom-10 left-10 md:left-32 w-20 md:w-28 lg:w-32 floating-3d-delayed z-10 hidden lg:block"
+        >
+          <img 
+            src={services3DChart} 
+            alt="" 
+            className="w-full h-auto drop-shadow-2xl"
+            aria-hidden="true"
+          />
+        </motion.div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
