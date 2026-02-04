@@ -1,223 +1,271 @@
 
 
-# Fix Prerender.io Returning Same Metadata for All Pages
+# Fix Cloudflare Worker for Prerender.io Integration
 
 ## Problem Summary
 
-Your Prerender.io setup is serving the **homepage cached HTML** for all pages (including `/about`). This means every page shows:
-- Title: "Senseoza | AI-Powered Digital Marketing Agency in Pune" (homepage)
-- Canonical: "https://senseoza.com/" (homepage)
-- Description: Homepage description
-
-When the About page should show its unique metadata defined in the React component.
+The Cloudflare Worker is correctly structured but has two key issues:
+1. It doesn't detect `?_escaped_fragment_=` parameter (used for testing)
+2. The route pattern may not be matching traffic correctly
 
 ---
 
-## Root Cause
+## Solution Overview
 
-The issue is a combination of two factors:
+### Part 1: Update Worker Code (Cloudflare Dashboard)
 
-### Factor 1: index.html Contains Hardcoded Homepage Meta Tags
+Add `_escaped_fragment_` detection so you can test in a normal browser:
 
-Your `index.html` has static homepage meta tags that Prerender.io captures before React Helmet can override them:
+```javascript
+// User agents that should get pre-rendered content
+const BOT_AGENTS = [
+  // Search Engines
+  "googlebot",
+  "adsbot-google",
+  "apis-google",
+  "mediapartners-google",
+  "bingbot",
+  "yandexbot",
+  "baiduspider",
+  "duckduckbot",
+  "slurp",
+  // Social Media
+  "facebookexternalhit",
+  "facebookcatalog",
+  "twitterbot",
+  "linkedinbot",
+  "whatsapp",
+  "pinterest",
+  "slackbot",
+  // AI Bots
+  "gptbot",
+  "claudebot",
+  "anthropic-ai",
+  "chatgpt",
+  // SEO Tools
+  "ahrefsbot",
+  "semrushbot",
+  "mj12bot",
+  "dotbot",
+];
 
-```html
-<title>Senseoza | AI-Powered Digital Marketing Agency in Pune</title>
-<meta name="description" content="Boost your brand with AI-driven..." />
-<link rel="canonical" href="https://senseoza.com/" />
-```
+// File extensions to ignore
+const IGNORE_EXTENSIONS = [
+  ".js", ".css", ".xml", ".less", ".png", ".jpg", ".jpeg",
+  ".gif", ".pdf", ".doc", ".txt", ".ico", ".rss", ".zip",
+  ".mp3", ".rar", ".exe", ".wmv", ".avi", ".ppt", ".mpg",
+  ".mpeg", ".tif", ".wav", ".mov", ".psd", ".ai", ".xls",
+  ".mp4", ".m4a", ".swf", ".dat", ".dmg", ".iso", ".flv",
+  ".m4v", ".torrent", ".woff", ".ttf", ".svg", ".webmanifest",
+  ".webp", ".woff2", ".eot"
+];
 
-### Factor 2: Prerender.io Timing/Caching Issue
-
-Prerender.io may be:
-- Caching too quickly before React Helmet updates the head
-- Using incorrect cache keys (serving homepage cache for all routes)
-- Cloudflare Worker not properly passing unique URLs to Prerender.io
-
----
-
-## Solution: Two-Part Fix
-
-### Part 1: Remove Static Meta Tags from index.html
-
-Remove the hardcoded SEO meta tags from `index.html` so React Helmet has full control. Keep only essential tags that must be static.
-
-**Changes to index.html:**
-
-Remove these lines:
-- Line 14: Static `<title>` tag
-- Lines 15-17: Static `<meta name="description">`
-- Lines 19-21: Static `<meta name="keywords">`
-- Line 24: Static `<link rel="canonical">`
-- Lines 26-28: Static `<meta property="og:*">` tags
-- Lines 30-32: Static Twitter meta tags
-- Lines 55-64: Duplicate OG and Twitter meta tags
-
-Keep only:
-- Google Analytics script
-- `<meta charset>` and `<meta name="viewport">`
-- `<meta name="author">`
-- Font preconnect and stylesheet links
-- Noscript fallback
-- Favicon
-
----
-
-### Part 2: Verify Prerender.io Configuration
-
-After fixing index.html, verify these Prerender.io settings:
-
-#### 1. Recache All Pages
-
-In Prerender.io dashboard:
-1. Go to Cached Pages
-2. Select all pages
-3. Click "Recache" to force a fresh crawl
-
-#### 2. Check Render Delay Settings
-
-In Prerender.io settings:
-- Increase "Wait until network idle" timeout to 5000ms+ (if available)
-- Or add this meta tag to each page for explicit render completion signal:
-
-The SEOHead component could include:
-```tsx
-<meta name="prerender-status-code" content="200" />
-```
-
-#### 3. Verify Cloudflare Worker Routes
-
-Ensure your Cloudflare Worker is:
-- Passing the full URL path to Prerender.io (not just the domain)
-- Using correct pattern matching for all routes
-
----
-
-## Implementation Details
-
-### Updated index.html
-
-The index.html will be cleaned to only contain non-SEO essential tags:
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8BL4D2235"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M8BL4D2235');
-    </script>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Senseoza" />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    
-    <!-- Noscript fallback for SEO -->
-    <noscript>
-      <style>
-        [style*="opacity: 0"], [style*="opacity:0"] { opacity: 1 !important; }
-        [style*="transform"] { transform: none !important; }
-      </style>
-    </noscript>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="..." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-```
-
----
-
-### Updated SEOHead Component
-
-Enhance the SEOHead component to include a prerender status signal:
-
-```tsx
-const SEOHead = ({ title, description, canonicalUrl, ogImage, schema }: SEOHeadProps) => {
-  const defaultImage = 'https://lovable.dev/opengraph-image-p98pqg.png';
-  
-  return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="prerender-status-code" content="200" />
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      
-      {/* Open Graph */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage || defaultImage} />
-      <meta property="og:type" content="website" />
-      {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-      
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage || defaultImage} />
-      
-      {/* Schema.org JSON-LD */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      )}
-    </Helmet>
-  );
+export default {
+  async fetch(request, env, ctx) {
+    try {
+      return await handleRequest(request, env);
+    } catch (err) {
+      console.error('Worker error:', err);
+      return new Response(`Worker Error: ${err.message}`, { 
+        status: 500,
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    }
+  },
 };
+
+async function handleRequest(request, env) {
+  const url = new URL(request.url);
+  const userAgent = request.headers.get("User-Agent")?.toLowerCase() || "";
+  const pathName = url.pathname.toLowerCase();
+  
+  // Get file extension
+  const lastDot = pathName.lastIndexOf(".");
+  const extension = lastDot > -1 ? pathName.substring(lastDot).toLowerCase() : "";
+
+  // NEW: Check for _escaped_fragment_ parameter (for testing)
+  const hasEscapedFragment = url.searchParams.has("_escaped_fragment_");
+  
+  // NEW: Check for debug parameter (optional, for browser testing)
+  const forcePrerender = url.searchParams.get("prerender") === "1";
+
+  // Check if it's a bot
+  const isBot = BOT_AGENTS.some(bot => userAgent.includes(bot));
+
+  // NEW: Combined condition - prerender for bots OR escaped_fragment OR debug
+  const shouldPrerender = isBot || hasEscapedFragment || forcePrerender;
+
+  // Log the request
+  console.log('Request:', {
+    url: request.url,
+    userAgent: userAgent.substring(0, 50),
+    isBot: isBot,
+    hasEscapedFragment: hasEscapedFragment,
+    forcePrerender: forcePrerender,
+    shouldPrerender: shouldPrerender,
+    hasToken: !!env.PRERENDER_TOKEN,
+    extension: extension
+  });
+
+  // Skip pre-rendering for file extensions
+  if (extension.length && IGNORE_EXTENSIONS.includes(extension)) {
+    console.log('Skipping: File extension');
+    return fetch(request);
+  }
+
+  // NEW: Use combined condition instead of just isBot
+  if (!shouldPrerender) {
+    console.log('Skipping: Not a bot and no special params');
+    return fetch(request);
+  }
+
+  // Check if token exists
+  if (!env.PRERENDER_TOKEN) {
+    console.error('ERROR: PRERENDER_TOKEN not set!');
+    return new Response('Configuration Error: Prerender token not set', {
+      status: 500,
+      headers: { 'Content-Type': 'text/plain' }
+    });
+  }
+
+  console.log('Prerendering! Reason:', isBot ? 'bot' : hasEscapedFragment ? 'escaped_fragment' : 'debug');
+  
+  // NEW: Clean URL before sending to Prerender (remove test params)
+  const cleanUrl = new URL(url);
+  cleanUrl.searchParams.delete("_escaped_fragment_");
+  cleanUrl.searchParams.delete("prerender");
+  
+  const prerenderUrl = `https://service.prerender.io/${cleanUrl.toString()}`;
+  
+  try {
+    const prerenderResponse = await fetch(prerenderUrl, {
+      headers: {
+        'X-Prerender-Token': env.PRERENDER_TOKEN,
+        'User-Agent': userAgent,
+      },
+    });
+
+    console.log('Prerender response:', prerenderResponse.status);
+
+    const body = await prerenderResponse.text();
+    
+    return new Response(body, {
+      status: prerenderResponse.status,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'X-Prerender-Status': prerenderResponse.status.toString(),
+        'X-Served-By': 'prerender', // NEW: Debug header to confirm it worked
+        'Cache-Control': 'public, max-age=3600',
+      },
+    });
+
+  } catch (error) {
+    console.error('Prerender.io error:', error.message);
+    return fetch(request);
+  }
+}
 ```
 
 ---
 
-## After Implementation Checklist
+### Part 2: Fix Worker Route (Cloudflare Dashboard)
 
-After deploying these changes:
+In Cloudflare Dashboard:
 
-| Step | Action |
-|------|--------|
-| 1 | Deploy the updated code to production |
-| 2 | Log into Prerender.io dashboard |
-| 3 | Clear/recache ALL pages |
-| 4 | Wait 5-10 minutes for recaching |
-| 5 | Test: `https://senseoza.com/about?_escaped_fragment_=` |
-| 6 | Verify title shows "About Senseoza | Leading AI-Powered Marketing Agency in Pune" |
-| 7 | Verify canonical shows "https://senseoza.com/about" |
+1. Go to **Workers Routes**
+2. Delete the existing `*senseoza.com/*` route
+3. Add new routes:
+   - `senseoza.com/*`
+   - `www.senseoza.com/*` (if you use www)
 
 ---
 
-## Files to Modify
+### Part 3: Add Prerender Ready Signal (React App)
 
-| File | Change |
-|------|--------|
-| `index.html` | Remove all hardcoded SEO meta tags (title, description, canonical, OG, Twitter) |
-| `src/components/SEOHead.tsx` | Add `prerender-status-code` meta tag and `og:type` |
+To ensure Prerender.io waits for React Helmet to update metadata:
+
+**File: index.html**
+Add this script in the `<head>` section:
+```html
+<script>window.prerenderReady = false;</script>
+```
+
+**File: src/components/PrerenderReady.tsx** (new file)
+```tsx
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+const PrerenderReady = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Signal that page is loading
+    (window as any).prerenderReady = false;
+    
+    // After a short delay (to allow Helmet to update), signal ready
+    const timer = setTimeout(() => {
+      (window as any).prerenderReady = true;
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  return null;
+};
+
+export default PrerenderReady;
+```
+
+**File: src/App.tsx**
+Add `<PrerenderReady />` inside the Router tree.
+
+---
+
+## Step-by-Step Instructions
+
+| Step | Action | Where |
+|------|--------|-------|
+| 1 | Copy the updated Worker code above | Cloudflare Workers Dashboard |
+| 2 | Click "Save and Deploy" | Cloudflare Workers Dashboard |
+| 3 | Delete route `*senseoza.com/*` | Cloudflare Workers Routes |
+| 4 | Add route `senseoza.com/*` | Cloudflare Workers Routes |
+| 5 | Add route `www.senseoza.com/*` | Cloudflare Workers Routes |
+| 6 | Approve this plan for React changes | Lovable |
+| 7 | Publish the changes | Lovable |
+| 8 | Recache all pages | Prerender.io Dashboard |
+
+---
+
+## Verification Steps
+
+After deploying:
+
+1. **Test with escaped_fragment**:
+   - Visit: `https://senseoza.com/about?_escaped_fragment_=`
+   - Open DevTools > Network tab
+   - Look for `X-Served-By: prerender` header in response
+   - View source should show full HTML with About page metadata
+
+2. **Test with debug parameter**:
+   - Visit: `https://senseoza.com/about?prerender=1`
+   - Same verification as above
+
+3. **Check Worker logs**:
+   - Go to Cloudflare Dashboard > Workers > prerenderio > Logs
+   - You should see log entries showing "Prerendering! Reason: escaped_fragment"
 
 ---
 
 ## Expected Outcome
 
-After these changes and recaching:
+After these changes:
 
-**Homepage** (`/?_escaped_fragment_=`) will show:
-- Title: "Senseoza | AI-Powered Digital Marketing Agency in Pune"
-- Canonical: "https://senseoza.com/"
+| URL | Expected Result |
+|-----|-----------------|
+| `senseoza.com/` | Homepage metadata |
+| `senseoza.com/?_escaped_fragment_=` | Prerendered homepage with correct title |
+| `senseoza.com/about?_escaped_fragment_=` | Prerendered About page with "About Senseoza" title |
+| `senseoza.com/about?prerender=1` | Same as above (debug mode) |
 
-**About page** (`/about?_escaped_fragment_=`) will show:
-- Title: "About Senseoza | Leading AI-Powered Marketing Agency in Pune"
-- Canonical: "https://senseoza.com/about"
-
-Each page will have its own unique, page-specific metadata visible to search engines.
+Each page will have unique, correct metadata visible to search engines.
 
