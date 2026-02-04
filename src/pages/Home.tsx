@@ -20,13 +20,13 @@ import socialMediaImage from '@/assets/social-media.jpg';
 // 3D Hero Assets
 import hero3DCharacter from '@/assets/hero-3d-character.png';
 import hero3DPlanet from '@/assets/hero-3d-planet.png';
-import heroEmojiThumbsup from '@/assets/hero-emoji-thumbsup.png';
-import heroEmojiHeart from '@/assets/hero-emoji-heart.png';
-import heroEmojiBell from '@/assets/hero-emoji-bell.png';
 import hero3DShapes from '@/assets/hero-3d-shapes.png';
-import hero3DMegaphone from '@/assets/hero-3d-megaphone.png';
-import hero3DTarget from '@/assets/hero-3d-target.png';
-import hero3DCoins from '@/assets/hero-3d-coins.png';
+// Social Media 3D Icons
+import hero3DInstagram from '@/assets/hero-3d-instagram.png';
+import hero3DFacebook from '@/assets/hero-3d-facebook.png';
+import hero3DLinkedin from '@/assets/hero-3d-linkedin.png';
+import hero3DGoogle from '@/assets/hero-3d-google.png';
+import hero3DGMB from '@/assets/hero-3d-gmb.png';
 
 const Home = () => {
   const stats = [{
@@ -359,92 +359,76 @@ const Home = () => {
                 />
               </motion.div>
 
-              {/* Floating Emoji - Thumbs Up */}
+              {/* 3D Instagram Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute top-20 left-0 lg:left-10 w-12 sm:w-16 lg:w-20 floating-3d-delayed"
+                className="absolute top-16 left-0 lg:left-5 w-12 sm:w-14 lg:w-16 floating-3d-delayed"
               >
                 <img 
-                  src={heroEmojiThumbsup} 
-                  alt="Thumbs Up" 
+                  src={hero3DInstagram} 
+                  alt="Instagram" 
                   className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* Floating Emoji - Heart */}
+              {/* 3D Facebook Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                className="absolute bottom-32 right-5 lg:right-20 w-10 sm:w-14 lg:w-16 floating-3d"
+                className="absolute bottom-40 right-5 lg:right-16 w-10 sm:w-12 lg:w-14 floating-3d"
               >
                 <img 
-                  src={heroEmojiHeart} 
-                  alt="Heart" 
+                  src={hero3DFacebook} 
+                  alt="Facebook" 
                   className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* Floating Emoji - Bell */}
+              {/* 3D LinkedIn Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute bottom-20 left-10 lg:left-20 w-10 sm:w-12 lg:w-14 floating-3d-delayed"
+                className="absolute bottom-24 left-5 lg:left-16 w-10 sm:w-12 lg:w-14 floating-3d-delayed"
               >
                 <img 
-                  src={heroEmojiBell} 
-                  alt="Notification Bell" 
+                  src={hero3DLinkedin} 
+                  alt="LinkedIn" 
                   className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* 3D Megaphone - Marketing */}
+              {/* 3D Google Icon */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-                className="absolute top-1/2 left-0 w-16 sm:w-20 lg:w-24 floating-3d"
-              >
-                <img 
-                  src={hero3DMegaphone} 
-                  alt="" 
-                  aria-hidden="true"
-                  className="w-full h-auto drop-shadow-lg"
-                />
-              </motion.div>
-
-              {/* 3D Target - Goals */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="absolute bottom-10 right-1/3 w-14 sm:w-18 lg:w-20 floating-3d-slow"
-              >
-                <img 
-                  src={hero3DTarget} 
-                  alt="" 
-                  aria-hidden="true"
-                  className="w-full h-auto drop-shadow-lg"
-                />
-              </motion.div>
-
-              {/* 3D Coins - Growth */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
+                initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-                className="absolute top-1/3 right-0 w-14 sm:w-16 lg:w-20 floating-3d-delayed"
+                transition={{ duration: 0.5, delay: 0.85 }}
+                className="absolute top-1/3 left-5 w-10 sm:w-12 lg:w-14 floating-3d"
               >
                 <img 
-                  src={hero3DCoins} 
-                  alt="" 
-                  aria-hidden="true"
+                  src={hero3DGoogle} 
+                  alt="Google" 
                   className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
+
+              {/* 3D GMB Icon */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className="absolute bottom-10 right-1/4 w-10 sm:w-12 lg:w-14 floating-3d-slow"
+              >
+                <img 
+                  src={hero3DGMB} 
+                  alt="Google My Business" 
+                  className="w-full h-auto drop-shadow-lg"
+                />
+              </motion.div>
+
             </div>
           </div>
         </div>
