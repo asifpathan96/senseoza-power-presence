@@ -449,6 +449,16 @@
     animation-delay: 2s;
   }
 
+  /* Blend mode for 3D icons on dark backgrounds */
+  .blend-3d-icon {
+    mix-blend-mode: screen;
+  }
+
+  /* Alternative: multiply for light backgrounds */
+  .blend-3d-icon-light {
+    mix-blend-mode: multiply;
+  }
+
   @keyframes floating-3d {
     0%, 100% {
       transform: translateY(0) rotate(0deg);
