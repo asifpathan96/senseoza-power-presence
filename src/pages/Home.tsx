@@ -235,8 +235,6 @@ const Home = () => {
           {/* Dark gradient base */}
           <div className="absolute inset-0 hero-gradient-new" />
           
-          {/* White blob shape on right */}
-          <div className="absolute right-0 top-0 w-full lg:w-2/3 h-full hero-blob-shape hidden lg:block" />
           
           {/* Dot pattern overlay */}
           <div className="absolute inset-0 dot-pattern opacity-20" />

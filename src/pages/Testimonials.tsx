@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion, AnimatePresence } from 'framer-motion';
+// 3D Assets
+import testimonials3DTrophy from '@/assets/testimonials-3d-trophy.png';
+import testimonials3DStars from '@/assets/testimonials-3d-stars.png';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -78,6 +81,36 @@ const Testimonials = () => {
         
         <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
+
+        {/* 3D Floating Trophy - Left Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="absolute top-24 left-5 md:left-16 lg:left-24 w-24 md:w-32 lg:w-40 floating-3d z-10 hidden md:block"
+        >
+          <img 
+            src={testimonials3DTrophy} 
+            alt="" 
+            className="w-full h-auto drop-shadow-2xl"
+            aria-hidden="true"
+          />
+        </motion.div>
+
+        {/* 3D Floating Stars - Right Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="absolute top-32 right-5 md:right-16 lg:right-24 w-28 md:w-36 lg:w-44 floating-3d-slow z-10 hidden md:block"
+        >
+          <img 
+            src={testimonials3DStars} 
+            alt="" 
+            className="w-full h-auto drop-shadow-2xl"
+            aria-hidden="true"
+          />
+        </motion.div>
         
         <div className="container mx-auto px-4 z-10 py-32">
           <div className="max-w-4xl mx-auto text-center">
