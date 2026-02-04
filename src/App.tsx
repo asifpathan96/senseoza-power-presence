@@ -7,7 +7,6 @@ import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollToTop from "./components/ScrollToTop";
-import PrerenderReady from "./components/PrerenderReady";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -39,7 +38,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <ScrollToTop />
-      <PrerenderReady />
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

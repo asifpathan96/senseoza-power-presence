@@ -15,11 +15,9 @@ const SEOHead = ({ title, description, canonicalUrl, ogImage, schema }: SEOHeadP
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="prerender-status-code" content="200" />
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage || defaultImage} />
