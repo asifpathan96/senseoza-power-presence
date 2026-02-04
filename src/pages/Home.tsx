@@ -231,185 +231,227 @@ const Home = () => {
         schema={organizationSchema} 
       />
       
-      {/* Hero Section - SocialBubble Style */}
+      {/* Hero Section - Modern Asymmetric Design */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background - Blue gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-primary/90" />
-        
-        {/* Abstract shapes decorations */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary-foreground/10 rounded-full blur-sm" />
-        <div className="absolute top-40 left-20 w-12 h-12 bg-primary-foreground/10 rounded-full" />
-        <div className="absolute bottom-32 left-8 w-16 h-16 bg-primary-foreground/10 rounded-full blur-sm" />
+        {/* Background Layers */}
+        <div className="absolute inset-0">
+          {/* Dark gradient base */}
+          <div className="absolute inset-0 hero-gradient-new" />
+          
+          
+          {/* Dot pattern overlay */}
+          <div className="absolute inset-0 dot-pattern opacity-20" />
+          
+          {/* Particle effects */}
+          <ParticleBackground />
+        </div>
+
+        {/* Corner stripe decorations */}
+        <div className="corner-stripes corner-stripes-top-left" />
+        <div className="corner-stripes corner-stripes-bottom-right" />
+
+        {/* Floating gradient orbs */}
+        <FloatingElement className="absolute top-1/4 left-5 w-48 h-48 bg-accent/30 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
 
         {/* Main Content Grid */}
-        <div className="container mx-auto px-4 z-10 py-20 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-4 items-center">
+        <div className="container mx-auto px-4 z-10 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
             {/* Left: Text Content */}
-            <div className="text-left max-w-xl">
-              {/* Italic Tagline */}
-              <motion.p 
+            <div className="text-left">
+              <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-accent italic text-xl md:text-2xl mb-4 font-medium"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
               >
-                Elevate, Engage, Expand! ...
-              </motion.p>
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
+              </motion.div>
               
-              {/* Main Headline */}
               <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-heading font-bold text-white mb-6 leading-tight uppercase"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-heading font-bold text-white mb-6 leading-tight relative"
               >
-                Your Brand's<br />
-                <span className="text-accent">Growth Engine</span>
+                Transform Your Digital Presence Into{' '}
+                <span className="text-accent relative">
+                  Measurable Growth
+                  {/* Sparkle decorations */}
+                  <Star className="absolute -top-4 -right-6 h-5 w-5 text-accent sparkle" fill="currentColor" />
+                  <Star className="absolute -bottom-2 -right-8 h-3 w-3 text-accent sparkle" style={{ animationDelay: '0.5s' }} fill="currentColor" />
+                </span>
               </motion.h1>
               
-              {/* Description */}
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base md:text-lg text-white/90 mb-8 leading-relaxed capitalize"
+                className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed"
               >
-                Imagine A World Where Your Brand Not Only Exists, But Truly Stands Out. At Senseoza, The Best Digital Marketing Service In Pune, We Don't Just Market; We Make Things Happen.
+                Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
               </motion.p>
               
-              {/* Rating Section */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mb-8"
-              >
-                <p className="text-white/90 text-sm md:text-base mb-2">Rating 4.5/5 By 2,576 Clients</p>
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4].map((star) => (
-                    <Star key={star} className="h-6 w-6 text-accent fill-accent" />
-                  ))}
-                  <Star className="h-6 w-6 text-accent fill-accent/50" />
-                </div>
-              </motion.div>
-              
-              {/* CTA Buttons */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Link to="/contact">
-                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-xl font-semibold">
-                    Contact Now
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
+                    Get Your Free Marketing Audit
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link to="/services">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-2 border-white/30 bg-transparent text-white hover:bg-white/10 rounded-xl font-semibold">
-                    Download Brochure
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-white/30 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
+                    View Our Services
                   </Button>
                 </Link>
               </motion.div>
             </div>
 
-            {/* Right: 3D Character with Social Icons */}
-            <div className="relative h-[450px] sm:h-[550px] lg:h-[600px] hidden md:block">
-              
+            {/* Right: 3D Illustrations */}
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] hidden md:block">
+              {/* 3D Abstract Shapes Background */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0.4, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <img 
+                  src={hero3DShapes} 
+                  alt="" 
+                  className="w-full h-full object-contain opacity-30 blur-sm"
+                  aria-hidden="true"
+                />
+              </motion.div>
+
+              {/* Floating Planet - Top Right */}
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="absolute top-0 right-0 lg:right-10 w-24 sm:w-32 lg:w-40 floating-3d"
+              >
+                <img 
+                  src={hero3DPlanet} 
+                  alt="3D Tech Planet" 
+                  className="w-full h-auto drop-shadow-2xl"
+                />
+              </motion.div>
+
               {/* Main 3D Character - Center */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute inset-0 flex items-end justify-center"
+                className="absolute inset-0 flex items-center justify-center"
               >
                 <img 
                   src={hero3DCharacter} 
                   alt="Digital Marketing Professional" 
-                  className="w-[90%] lg:w-[95%] h-auto drop-shadow-2xl object-contain"
+                  className="w-64 sm:w-80 lg:w-96 h-auto drop-shadow-2xl floating-3d-slow"
                 />
               </motion.div>
 
-              {/* 3D Instagram Icon - Top Left of Character */}
+              {/* 3D Instagram Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute top-[25%] left-[5%] w-14 sm:w-16 lg:w-20 floating-3d"
+                className="absolute top-16 left-0 lg:left-5 w-12 sm:w-14 lg:w-16 floating-3d-delayed"
               >
                 <img 
                   src={hero3DInstagram} 
                   alt="Instagram" 
-                  className="w-full h-auto drop-shadow-xl"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* 3D Facebook Icon - Right Side */}
+              {/* 3D Facebook Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
-                className="absolute top-[20%] right-[5%] w-14 sm:w-16 lg:w-20 floating-3d-delayed"
+                className="absolute bottom-40 right-5 lg:right-16 w-10 sm:w-12 lg:w-14 floating-3d"
               >
                 <img 
                   src={hero3DFacebook} 
                   alt="Facebook" 
-                  className="w-full h-auto drop-shadow-xl"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* 3D LinkedIn Icon - Left Middle */}
+              {/* 3D LinkedIn Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute top-[45%] left-[0%] w-12 sm:w-14 lg:w-16 floating-3d"
+                className="absolute bottom-24 left-5 lg:left-16 w-10 sm:w-12 lg:w-14 floating-3d-delayed"
               >
                 <img 
                   src={hero3DLinkedin} 
                   alt="LinkedIn" 
-                  className="w-full h-auto drop-shadow-xl"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* 3D Google Icon - Top Center Right */}
+              {/* 3D Google Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.85 }}
-                className="absolute top-[8%] right-[25%] w-12 sm:w-14 lg:w-16 floating-3d-delayed"
+                className="absolute top-1/3 left-5 w-10 sm:w-12 lg:w-14 floating-3d"
               >
                 <img 
                   src={hero3DGoogle} 
                   alt="Google" 
-                  className="w-full h-auto drop-shadow-xl"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* 3D GMB Icon - Bottom Right */}
+              {/* 3D GMB Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute top-[55%] right-[0%] w-12 sm:w-14 lg:w-16 floating-3d"
+                className="absolute bottom-10 right-1/4 w-10 sm:w-12 lg:w-14 floating-3d-slow"
               >
                 <img 
                   src={hero3DGMB} 
                   alt="Google My Business" 
-                  className="w-full h-auto drop-shadow-xl"
+                  className="w-full h-auto drop-shadow-lg"
                 />
               </motion.div>
 
-              {/* Decorative circles - Right side */}
-              <div className="absolute top-[15%] right-[-5%] w-24 h-24 border-4 border-white/20 rounded-full" />
-              <div className="absolute top-[35%] right-[-10%] w-16 h-16 bg-white/10 rounded-full" />
             </div>
           </div>
         </div>
 
-        {/* Bottom wave decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+          >
+            <motion.div 
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-2 bg-white rounded-full" 
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* What Makes Us Different */}
