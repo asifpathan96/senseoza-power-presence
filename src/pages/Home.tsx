@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, Target, BarChart, Shield, Lightbulb, Award, Building } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, Target, BarChart, Shield, Lightbulb, Award, Building, Star } from 'lucide-react';
 import { useCountUp } from '@/hooks/use-count-up';
 import ParticleBackground from '@/components/ParticleBackground';
 import SEOHead from '@/components/SEOHead';
@@ -17,6 +17,14 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
+// 3D Hero Assets
+import hero3DCharacter from '@/assets/hero-3d-character.png';
+import hero3DPlanet from '@/assets/hero-3d-planet.png';
+import heroEmojiThumbsup from '@/assets/hero-emoji-thumbsup.png';
+import heroEmojiHeart from '@/assets/hero-emoji-heart.png';
+import heroEmojiBell from '@/assets/hero-emoji-bell.png';
+import hero3DShapes from '@/assets/hero-3d-shapes.png';
+
 const Home = () => {
   const stats = [{
     number: 500,
@@ -220,103 +228,198 @@ const Home = () => {
         schema={organizationSchema} 
       />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Modern Asymmetric Design */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Layers */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 gradient-hero" />
-          <div className="absolute inset-0 dot-pattern opacity-30" />
+          {/* Dark gradient base */}
+          <div className="absolute inset-0 hero-gradient-new" />
+          
+          {/* White blob shape on right */}
+          <div className="absolute right-0 top-0 w-full lg:w-2/3 h-full hero-blob-shape hidden lg:block" />
+          
+          {/* Dot pattern overlay */}
+          <div className="absolute inset-0 dot-pattern opacity-20" />
+          
+          {/* Particle effects */}
           <ParticleBackground />
         </div>
 
-        <FloatingElement className="absolute top-1/4 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
-        <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
-        
-        <div className="container mx-auto px-4 z-10 py-32">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6
-          }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
-            </motion.div>
+        {/* Corner stripe decorations */}
+        <div className="corner-stripes corner-stripes-top-left" />
+        <div className="corner-stripes corner-stripes-bottom-right" />
+
+        {/* Floating gradient orbs */}
+        <FloatingElement className="absolute top-1/4 left-5 w-48 h-48 bg-accent/30 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/3 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+
+        {/* Main Content Grid */}
+        <div className="container mx-auto px-4 z-10 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.1
-          }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
-              Transform Your Digital Presence Into{' '}
-              <span className="text-accent">Measurable Growth</span>
-            </motion.h1>
-            
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
-            </motion.p>
-            
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.3
-          }} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
-                  Get Your Free Marketing Audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-white/30 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
-                  View Our Services
-                </Button>
-              </Link>
-            </motion.div>
+            {/* Left: Text Content */}
+            <div className="text-left">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
+              >
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
+              </motion.div>
+              
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-heading font-bold text-white mb-6 leading-tight relative"
+              >
+                Transform Your Digital Presence Into{' '}
+                <span className="text-accent relative">
+                  Measurable Growth
+                  {/* Sparkle decorations */}
+                  <Star className="absolute -top-4 -right-6 h-5 w-5 text-accent sparkle" fill="currentColor" />
+                  <Star className="absolute -bottom-2 -right-8 h-3 w-3 text-accent sparkle" style={{ animationDelay: '0.5s' }} fill="currentColor" />
+                </span>
+              </motion.h1>
+              
+              <motion.p 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed"
+              >
+                Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
+              </motion.p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <Link to="/contact">
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
+                    Get Your Free Marketing Audit
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/services">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-white/30 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
+                    View Our Services
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right: 3D Illustrations */}
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] hidden md:block">
+              {/* 3D Abstract Shapes Background */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0.4, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <img 
+                  src={hero3DShapes} 
+                  alt="" 
+                  className="w-full h-full object-contain opacity-30 blur-sm"
+                  aria-hidden="true"
+                />
+              </motion.div>
+
+              {/* Floating Planet - Top Right */}
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="absolute top-0 right-0 lg:right-10 w-24 sm:w-32 lg:w-40 floating-3d"
+              >
+                <img 
+                  src={hero3DPlanet} 
+                  alt="3D Tech Planet" 
+                  className="w-full h-auto drop-shadow-2xl"
+                />
+              </motion.div>
+
+              {/* Main 3D Character - Center */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <img 
+                  src={hero3DCharacter} 
+                  alt="Digital Marketing Professional" 
+                  className="w-64 sm:w-80 lg:w-96 h-auto drop-shadow-2xl floating-3d-slow"
+                />
+              </motion.div>
+
+              {/* Floating Emoji - Thumbs Up */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="absolute top-20 left-0 lg:left-10 w-12 sm:w-16 lg:w-20 floating-3d-delayed"
+              >
+                <img 
+                  src={heroEmojiThumbsup} 
+                  alt="Thumbs Up" 
+                  className="w-full h-auto drop-shadow-lg"
+                />
+              </motion.div>
+
+              {/* Floating Emoji - Heart */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="absolute bottom-32 right-5 lg:right-20 w-10 sm:w-14 lg:w-16 floating-3d"
+              >
+                <img 
+                  src={heroEmojiHeart} 
+                  alt="Heart" 
+                  className="w-full h-auto drop-shadow-lg"
+                />
+              </motion.div>
+
+              {/* Floating Emoji - Bell */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="absolute bottom-20 left-10 lg:left-20 w-10 sm:w-12 lg:w-14 floating-3d-delayed"
+              >
+                <img 
+                  src={heroEmojiBell} 
+                  alt="Notification Bell" 
+                  className="w-full h-auto drop-shadow-lg"
+                />
+              </motion.div>
+            </div>
           </div>
         </div>
 
-        <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        delay: 1
-      }} className="absolute bottom-8 left-1/2 -translate-x-1/2">
-          <motion.div animate={{
-          y: [0, 10, 0]
-        }} transition={{
-          duration: 1.5,
-          repeat: Infinity
-        }} className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <motion.div animate={{
-            opacity: [0.5, 1, 0.5]
-          }} transition={{
-            duration: 1.5,
-            repeat: Infinity
-          }} className="w-1 h-2 bg-white rounded-full" />
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2"
+          >
+            <motion.div 
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-2 bg-white rounded-full" 
+            />
           </motion.div>
         </motion.div>
       </section>
