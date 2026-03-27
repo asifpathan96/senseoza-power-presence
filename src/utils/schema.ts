@@ -16,10 +16,9 @@ export const organizationSchema = {
   "areaServed": "Pune",
   "priceRange": "$$",
   "sameAs": [
-    "https://facebook.com/senseoza",
-    "https://twitter.com/senseoza",
-    "https://linkedin.com/company/senseoza",
-    "https://instagram.com/senseoza"
+    "https://www.facebook.com/people/Senseoza-AI-Digital-Solutions/61585933996891/",
+    "https://www.linkedin.com/company/senseoza-ai/",
+    "https://www.instagram.com/senseoza.ai/"
   ]
 };
 
