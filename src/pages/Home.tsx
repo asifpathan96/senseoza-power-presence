@@ -371,15 +371,15 @@ const Home = () => {
                   ].map((client, index) => (
                     <div
                       key={`${setIndex}-${index}`}
-                      className="flex items-center justify-center shrink-0 h-16 min-w-[160px] px-6 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                      className="flex items-center justify-center shrink-0 h-24 min-w-[200px] px-8 hover:scale-110 transition-all duration-300"
                     >
                       <img
                         src={client.logo}
                         alt={`${client.name} logo`}
-                        className="h-12 max-w-[140px] object-contain"
+                        className="h-20 max-w-[180px] object-contain"
                         loading="lazy"
-                        width={140}
-                        height={48}
+                        width={180}
+                        height={80}
                       />
                     </div>
                   ))}
