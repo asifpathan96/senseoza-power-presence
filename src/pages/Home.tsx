@@ -609,26 +609,35 @@ const Home = () => {
             </h2>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whyChooseUs.map((item, index) => {
-            const IconComponent = item.icon;
-            return <StaggerItem key={index}>
-                  <motion.div whileHover={{
-                y: -8
-              }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
-                        <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm">{item.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </StaggerItem>;
-          })}
-          </StaggerContainer>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+            <StaggerContainer className="space-y-5 lg:col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {whyChooseUs.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <StaggerItem key={index}>
+                      <motion.div whileHover={{ y: -6 }} className="group bg-card border border-border/50 rounded-2xl p-5 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                        <div className="flex items-start gap-4">
+                          <div className="w-11 h-11 shrink-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                            <IconComponent className="h-5 w-5 text-primary group-hover:text-white transition-colors" />
+                          </div>
+                          <div>
+                            <h3 className="font-heading font-bold text-base mb-1">{item.title}</h3>
+                            <p className="text-muted-foreground text-sm">{item.description}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </StaggerItem>
+                  );
+                })}
+              </div>
+            </StaggerContainer>
+            <AnimatedSection direction="right" className="hidden lg:flex justify-center">
+              <FloatingElement distance={12} duration={5} delay={1}>
+                <img src={sectionWhyChoose} alt="Award-winning digital marketing agency" className="w-full max-w-xs drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
