@@ -28,6 +28,10 @@ import logoBanesab from '@/assets/clients/banesab.jpg';
 import logoAurum from '@/assets/clients/aurum.png';
 import logoAyodhya from '@/assets/clients/ayodhya.png';
 import logoRadhakirti from '@/assets/clients/radhakirti.jpeg';
+import sectionDifferentiators from '@/assets/section-differentiators.png';
+import sectionProcess from '@/assets/section-process.png';
+import sectionWhyChoose from '@/assets/section-why-choose.png';
+import sectionCta from '@/assets/section-cta.png';
 const Home = () => {
   const stats = [{
     number: 500,
