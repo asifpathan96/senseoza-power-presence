@@ -17,16 +17,17 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
-import logoPantaloons from '@/assets/clients/pantaloons.png';
+import logoPantaloons from '@/assets/clients/pantaloons.webp';
 import logoFastrack from '@/assets/clients/fastrack.png';
-import logoKohler from '@/assets/clients/kohler.png';
-import logoTitan from '@/assets/clients/titan.png';
-import logoSukhwani from '@/assets/clients/sukhwani.png';
-import logoPanchshil from '@/assets/clients/panchshil.png';
-import logoSpotless from '@/assets/clients/spotless.png';
-import logoBanesab from '@/assets/clients/banesab.png';
+import logoKohler from '@/assets/clients/kohler.jpg';
+import logoTitan from '@/assets/clients/titan.jpg';
+import logoSukhwani from '@/assets/clients/sukhwani.jpg';
+import logoPanchshil from '@/assets/clients/panchshil-new.png';
+import logoSpotless from '@/assets/clients/spotless.jpeg';
+import logoBanesab from '@/assets/clients/banesab.jpg';
 import logoAurum from '@/assets/clients/aurum.png';
 import logoAyodhya from '@/assets/clients/ayodhya.png';
+import logoRadhakirti from '@/assets/clients/radhakirti.jpeg';
 const Home = () => {
   const stats = [{
     number: 500,
@@ -332,9 +333,9 @@ const Home = () => {
       </section>
 
       {/* Trusted Clients Section */}
-      <section className="py-16 md:py-20 relative overflow-hidden bg-muted/30">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-background">
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
               <Building className="h-4 w-4" />
               Our Clients
@@ -347,46 +348,33 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          <div className="relative overflow-hidden">
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
-            <motion.div
-              className="flex gap-12 items-center"
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            >
-              {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex gap-12 items-center shrink-0">
-                  {[
-                    { name: 'Pantaloons', logo: logoPantaloons },
-                    { name: 'Fastrack', logo: logoFastrack },
-                    { name: 'Kohler', logo: logoKohler },
-                    { name: 'Titan', logo: logoTitan },
-                    { name: 'Sukhwani Builders', logo: logoSukhwani },
-                    { name: 'Panchshil Builders', logo: logoPanchshil },
-                    { name: 'Spotless Interiors', logo: logoSpotless },
-                    { name: 'Banesab Motors', logo: logoBanesab },
-                    { name: 'Aurum Icecreams', logo: logoAurum },
-                    { name: 'Ayodhya Care Plus Hospital', logo: logoAyodhya },
-                  ].map((client, index) => (
-                    <div
-                      key={`${setIndex}-${index}`}
-                      className="flex items-center justify-center shrink-0 h-24 min-w-[200px] px-8 hover:scale-110 transition-all duration-300"
-                    >
-                      <img
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        className="h-20 max-w-[180px] object-contain"
-                        loading="lazy"
-                        width={180}
-                        height={80}
-                      />
-                    </div>
-                  ))}
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            {[
+              { name: 'Pantaloons', logo: logoPantaloons },
+              { name: 'Kohler', logo: logoKohler },
+              { name: 'Titan', logo: logoTitan },
+              { name: 'Sukhwani Builders', logo: logoSukhwani },
+              { name: 'Panchshil Builders', logo: logoPanchshil },
+              { name: 'Spotless Interiors', logo: logoSpotless },
+              { name: 'Banesab Motors', logo: logoBanesab },
+              { name: 'Fastrack', logo: logoFastrack },
+              { name: 'Aurum Icecreams', logo: logoAurum },
+              { name: 'Radhakirti Construction', logo: logoRadhakirti },
+            ].map((client, index) => (
+              <StaggerItem key={index}>
+                <div className="group flex items-center justify-center h-28 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm px-6 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:scale-105 transition-all duration-300">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="max-h-16 max-w-[140px] object-contain group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                    width={140}
+                    height={64}
+                  />
                 </div>
-              ))}
-            </motion.div>
-          </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
