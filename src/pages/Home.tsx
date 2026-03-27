@@ -518,53 +518,47 @@ const Home = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
-              How We Work
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Process: From Strategy to <span className="text-accent">Success</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A proven methodology that delivers consistent, measurable results
-            </p>
-          </AnimatedSection>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {process.map((step, index) => {
-              const IconComponent = step.icon;
-              return <AnimatedSection key={index} delay={index * 0.1}>
-                    <motion.div whileHover={{
-                  y: -8,
-                  transition: {
-                    duration: 0.3
-                  }
-                }} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="relative bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                        <div className="flex items-start gap-5">
-                          <div className="relative">
-                            <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
-                              <IconComponent className="h-8 w-8 text-white" />
-                            </div>
-                            <span className="absolute -top-2 -right-2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary shadow-lg">
-                              {step.step}
-                            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection direction="left" className="hidden lg:flex justify-center order-1">
+              <FloatingElement distance={12} duration={6}>
+                <img src={sectionProcess} alt="Our proven marketing process" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+            <div className="order-2">
+              <AnimatedSection>
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+                  How We Work
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+                  Our Process: From Strategy to <span className="text-accent">Success</span>
+                </h2>
+                <p className="text-muted-foreground text-lg mb-8">
+                  A proven methodology that delivers consistent, measurable results
+                </p>
+              </AnimatedSection>
+              <div className="space-y-4">
+                {process.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <AnimatedSection key={index} delay={index * 0.1}>
+                      <motion.div whileHover={{ x: 8, transition: { duration: 0.3 } }} className="group flex items-start gap-5 bg-card border border-border/50 rounded-xl p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+                        <div className="relative shrink-0">
+                          <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                            <IconComponent className="h-7 w-7 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                              {step.title}
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
+                          <span className="absolute -top-2 -right-2 w-7 h-7 bg-background border-2 border-primary rounded-full flex items-center justify-center text-xs font-bold text-primary shadow-lg">
+                            {step.step}
+                          </span>
                         </div>
-                      </div>
-                    </motion.div>
-                  </AnimatedSection>;
-            })}
+                        <div>
+                          <h3 className="text-lg font-heading font-bold mb-1 group-hover:text-primary transition-colors">{step.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                        </div>
+                      </motion.div>
+                    </AnimatedSection>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
