@@ -706,15 +706,17 @@ const Home = () => {
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/30 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedSection>
-              <FloatingElement distance={15} duration={4}>
-                <Zap className="h-16 w-16 text-accent mx-auto mb-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="left" className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={sectionCta} alt="Launch your business growth" className="w-full max-w-md drop-shadow-2xl" loading="lazy" width={800} height={600} />
               </FloatingElement>
+            </AnimatedSection>
+            <AnimatedSection className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
                 Ready to Grow Your Business?
               </h2>
-              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
                 Do not let your competitors dominate the digital space. Partner with Senseoza and turn your digital presence into a powerful growth engine.
               </p>
               <Link to="/contact">
