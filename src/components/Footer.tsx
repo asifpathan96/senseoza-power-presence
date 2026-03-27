@@ -27,10 +27,9 @@ export const Footer = () => {
   ];
 
   const socials = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+    { icon: Facebook, href: 'https://www.facebook.com/people/Senseoza-AI-Digital-Solutions/61585933996891/', label: 'Facebook' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/senseoza-ai/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/senseoza.ai/', label: 'Instagram' },
   ];
 
   return (
