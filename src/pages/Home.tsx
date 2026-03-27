@@ -28,6 +28,10 @@ import logoBanesab from '@/assets/clients/banesab.jpg';
 import logoAurum from '@/assets/clients/aurum.png';
 import logoAyodhya from '@/assets/clients/ayodhya.png';
 import logoRadhakirti from '@/assets/clients/radhakirti.jpeg';
+import sectionDifferentiators from '@/assets/section-differentiators.png';
+import sectionProcess from '@/assets/section-process.png';
+import sectionWhyChoose from '@/assets/section-why-choose.png';
+import sectionCta from '@/assets/section-cta.png';
 const Home = () => {
   const stats = [{
     number: 500,
@@ -387,52 +391,39 @@ const Home = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
-              <Sparkles className="h-4 w-4" />
-              Why Choose Us
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              What Makes Senseoza <span className="text-accent">Different</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We combine AI innovation with proven marketing expertise to deliver exceptional results
-            </p>
-          </AnimatedSection>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {differentiators.map((item, index) => {
-            const IconComponent = item.icon;
-            return <StaggerItem key={index}>
-                  <motion.div whileHover={{
-                y: -8,
-                transition: {
-                  duration: 0.3
-                }
-              }} className="group relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative bg-card border border-border/50 rounded-2xl p-8 h-full hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                      <div className="flex items-start gap-5">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-xl blur-lg opacity-40" />
-                          <div className="relative w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                            <IconComponent className="h-7 w-7 text-white" />
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                            {item.title}
-                          </h3>
-                          <p className="text-muted-foreground leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+                <Sparkles className="h-4 w-4" />
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+                What Makes Senseoza <span className="text-accent">Different</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mb-8">
+                We combine AI innovation with proven marketing expertise to deliver exceptional results
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {differentiators.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <motion.div key={index} whileHover={{ y: -4 }} className="group bg-card border border-border/50 rounded-xl p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+                      <div className="w-11 h-11 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-3">
+                        <IconComponent className="h-5 w-5 text-white" />
                       </div>
-                    </div>
-                  </motion.div>
-                </StaggerItem>;
-          })}
-          </StaggerContainer>
+                      <h3 className="font-heading font-bold mb-1.5 group-hover:text-primary transition-colors">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.description}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right" className="hidden lg:flex justify-center">
+              <FloatingElement distance={15} duration={5}>
+                <img src={sectionDifferentiators} alt="AI-driven marketing intelligence" className="w-full max-w-md drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -527,53 +518,47 @@ const Home = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
-              How We Work
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              Our Process: From Strategy to <span className="text-accent">Success</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A proven methodology that delivers consistent, measurable results
-            </p>
-          </AnimatedSection>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {process.map((step, index) => {
-              const IconComponent = step.icon;
-              return <AnimatedSection key={index} delay={index * 0.1}>
-                    <motion.div whileHover={{
-                  y: -8,
-                  transition: {
-                    duration: 0.3
-                  }
-                }} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="relative bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                        <div className="flex items-start gap-5">
-                          <div className="relative">
-                            <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
-                              <IconComponent className="h-8 w-8 text-white" />
-                            </div>
-                            <span className="absolute -top-2 -right-2 w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center text-sm font-bold text-primary shadow-lg">
-                              {step.step}
-                            </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection direction="left" className="hidden lg:flex justify-center order-1">
+              <FloatingElement distance={12} duration={6}>
+                <img src={sectionProcess} alt="Our proven marketing process" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+            <div className="order-2">
+              <AnimatedSection>
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+                  How We Work
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+                  Our Process: From Strategy to <span className="text-accent">Success</span>
+                </h2>
+                <p className="text-muted-foreground text-lg mb-8">
+                  A proven methodology that delivers consistent, measurable results
+                </p>
+              </AnimatedSection>
+              <div className="space-y-4">
+                {process.map((step, index) => {
+                  const IconComponent = step.icon;
+                  return (
+                    <AnimatedSection key={index} delay={index * 0.1}>
+                      <motion.div whileHover={{ x: 8, transition: { duration: 0.3 } }} className="group flex items-start gap-5 bg-card border border-border/50 rounded-xl p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+                        <div className="relative shrink-0">
+                          <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+                            <IconComponent className="h-7 w-7 text-white" />
                           </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                              {step.title}
-                            </h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
+                          <span className="absolute -top-2 -right-2 w-7 h-7 bg-background border-2 border-primary rounded-full flex items-center justify-center text-xs font-bold text-primary shadow-lg">
+                            {step.step}
+                          </span>
                         </div>
-                      </div>
-                    </motion.div>
-                  </AnimatedSection>;
-            })}
+                        <div>
+                          <h3 className="text-lg font-heading font-bold mb-1 group-hover:text-primary transition-colors">{step.title}</h3>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+                        </div>
+                      </motion.div>
+                    </AnimatedSection>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -624,26 +609,35 @@ const Home = () => {
             </h2>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whyChooseUs.map((item, index) => {
-            const IconComponent = item.icon;
-            return <StaggerItem key={index}>
-                  <motion.div whileHover={{
-                y: -8
-              }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
-                        <IconComponent className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm">{item.description}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </StaggerItem>;
-          })}
-          </StaggerContainer>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+            <StaggerContainer className="space-y-5 lg:col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {whyChooseUs.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <StaggerItem key={index}>
+                      <motion.div whileHover={{ y: -6 }} className="group bg-card border border-border/50 rounded-2xl p-5 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                        <div className="flex items-start gap-4">
+                          <div className="w-11 h-11 shrink-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                            <IconComponent className="h-5 w-5 text-primary group-hover:text-white transition-colors" />
+                          </div>
+                          <div>
+                            <h3 className="font-heading font-bold text-base mb-1">{item.title}</h3>
+                            <p className="text-muted-foreground text-sm">{item.description}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </StaggerItem>
+                  );
+                })}
+              </div>
+            </StaggerContainer>
+            <AnimatedSection direction="right" className="hidden lg:flex justify-center">
+              <FloatingElement distance={12} duration={5} delay={1}>
+                <img src={sectionWhyChoose} alt="Award-winning digital marketing agency" className="w-full max-w-xs drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -712,15 +706,17 @@ const Home = () => {
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/30 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedSection>
-              <FloatingElement distance={15} duration={4}>
-                <Zap className="h-16 w-16 text-accent mx-auto mb-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="left" className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={sectionCta} alt="Launch your business growth" className="w-full max-w-md drop-shadow-2xl" loading="lazy" width={800} height={600} />
               </FloatingElement>
+            </AnimatedSection>
+            <AnimatedSection className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
                 Ready to Grow Your Business?
               </h2>
-              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
                 Do not let your competitors dominate the digital space. Partner with Senseoza and turn your digital presence into a powerful growth engine.
               </p>
               <Link to="/contact">
