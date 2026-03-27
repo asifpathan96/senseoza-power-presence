@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import heroServices from '@/assets/hero-services.png';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
 import serviceSocial from '@/assets/service-social-media.png';
@@ -99,35 +100,25 @@ const Services = () => {
         <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Our Services</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">Our Services</span>
+              </motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+                Comprehensive Digital Marketing Services That{' '}
+                <span className="text-accent">Drive Real Results</span>
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-white/80 max-w-3xl">
+                At Senseoza, we offer a full suite of digital marketing services designed to work together seamlessly. Our integrated approach ensures every channel amplifies the others.
+              </motion.p>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={heroServices} alt="Digital marketing services" className="w-full max-w-md drop-shadow-[0_20px_60px_rgba(14,165,233,0.3)]" width={800} height={800} />
+              </FloatingElement>
             </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6"
-            >
-              Comprehensive Digital Marketing Services That{' '}
-              <span className="text-accent">Drive Real Results</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
-            >
-              At Senseoza, we offer a full suite of digital marketing services designed to work together seamlessly. Our integrated approach ensures every channel amplifies the others.
-            </motion.p>
           </div>
         </div>
       </section>

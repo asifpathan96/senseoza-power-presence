@@ -6,6 +6,7 @@ import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 import aboutImage from '@/assets/about-3d.png';
+import heroAbout from '@/assets/hero-about.png';
 
 const About = () => {
   const values = [
@@ -55,53 +56,37 @@ const About = () => {
         <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">About Senseoza</span>
-            </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight"
-            >
-              Transforming Businesses Through{' '}
-              <span className="text-accent">Intelligent Digital Marketing</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto"
-            >
-              We are a team of passionate digital marketers, AI enthusiasts, and creative minds dedicated to helping brands achieve unprecedented growth.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-                <Button size="lg" className="w-full sm:w-auto px-8 py-6 bg-white text-primary hover:bg-white/90 shadow-xl">
-                  Start Your Free Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/case-studies" onClick={() => window.scrollTo(0, 0)}>
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 border-white/30 bg-white/5 text-white hover:bg-white/10">
-                  View Our Work
-                </Button>
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">About Senseoza</span>
+              </motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+                Transforming Businesses Through{' '}
+                <span className="text-accent">Intelligent Digital Marketing</span>
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl">
+                We are a team of passionate digital marketers, AI enthusiasts, and creative minds dedicated to helping brands achieve unprecedented growth.
+              </motion.p>
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 bg-white text-primary hover:bg-white/90 shadow-xl">
+                    Start Your Free Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/case-studies" onClick={() => window.scrollTo(0, 0)}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 border-white/30 bg-white/5 text-white hover:bg-white/10">
+                    View Our Work
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={heroAbout} alt="About Senseoza team" className="w-full max-w-md drop-shadow-[0_20px_60px_rgba(14,165,233,0.3)]" width={800} height={800} />
+              </FloatingElement>
             </motion.div>
           </div>
         </div>
