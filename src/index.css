@@ -401,4 +401,33 @@
       radial-gradient(at 0% 100%, hsl(220 90% 50% / 0.1) 0, transparent 50%),
       hsl(var(--background));
   }
+
+  /* ─── Agency / Dark Futuristic Theme ─── */
+
+  .glass-agency {
+    @apply backdrop-blur-xl border;
+    background: hsl(0 0% 100% / 0.05);
+    border-color: hsl(0 0% 100% / 0.1);
+  }
+
+  .neon-text-glow {
+    background: linear-gradient(135deg, hsl(270 100% 65%), hsl(185 100% 55%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 20px hsl(270 100% 60% / 0.5));
+  }
+
+  .neon-gradient-btn {
+    background: linear-gradient(135deg, hsl(270 100% 55%) 0%, hsl(320 100% 55%) 50%, hsl(270 100% 60%) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .agency-grid-pattern {
+    background-image: 
+      linear-gradient(hsl(270 100% 60% / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(270 100% 60% / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
 }
