@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import { serviceSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import heroServices from '@/assets/hero-services.png';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
 import serviceSocial from '@/assets/service-social-media.png';

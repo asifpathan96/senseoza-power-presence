@@ -6,6 +6,7 @@ import SEOHead from '@/components/SEOHead';
 import { blogSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import heroBlog from '@/assets/hero-blog.png';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import seoImage from '@/assets/seo.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';

@@ -4,6 +4,7 @@ import { TrendingUp, Users, DollarSign, Eye, Search, ArrowRight, Sparkles } from
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import heroCaseStudies from '@/assets/hero-casestudies.png';
 
 const CaseStudies = () => {
   const caseStudies = [

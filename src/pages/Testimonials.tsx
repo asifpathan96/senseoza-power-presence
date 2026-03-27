@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight, Quote, ArrowRight, Sparkles } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion, AnimatePresence } from 'framer-motion';
+import heroTestimonials from '@/assets/hero-testimonials.png';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

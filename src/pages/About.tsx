@@ -6,6 +6,7 @@ import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 import aboutImage from '@/assets/about-3d.png';
+import heroAbout from '@/assets/hero-about.png';
 
 const About = () => {
   const values = [

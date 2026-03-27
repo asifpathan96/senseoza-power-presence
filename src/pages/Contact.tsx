@@ -9,6 +9,7 @@ import SEOHead from '@/components/SEOHead';
 import { contactSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
+import heroContact from '@/assets/hero-contact.png';
 
 const Contact = () => {
   const { toast } = useToast();
