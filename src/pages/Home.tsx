@@ -231,178 +231,149 @@ const Home = () => {
         schema={organizationSchema} 
       />
       
-      {/* Hero Section - Bold & Immersive */}
-      <section className="relative min-h-[100vh] flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 hero-gradient-bold" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/15 rounded-full blur-[160px]" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px]" />
-          <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[hsl(260_70%_50%/0.15)] rounded-full blur-[100px]" />
-          <div className="opacity-30">
-            <ParticleBackground />
-          </div>
+      {/* Hero Section - Clean & Light */}
+      <section className="relative min-h-[100vh] flex items-center overflow-hidden bg-background">
+        {/* Light decorative blobs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-[hsl(25_95%_55%/0.08)] rounded-full blur-[100px]" />
+          <div className="absolute -bottom-32 -left-20 w-[400px] h-[400px] bg-[hsl(25_95%_55%/0.05)] rounded-full blur-[80px]" />
+          <div className="absolute top-1/3 left-1/2 w-[300px] h-[300px] bg-[hsl(185_85%_50%/0.05)] rounded-full blur-[80px]" />
+          {/* Scattered dots */}
+          <div className="absolute top-20 right-[15%] w-2 h-2 rounded-full bg-[hsl(25_95%_55%/0.4)]" />
+          <div className="absolute top-32 right-[25%] w-1.5 h-1.5 rounded-full bg-[hsl(25_95%_55%/0.3)]" />
+          <div className="absolute bottom-40 left-[10%] w-2 h-2 rounded-full bg-[hsl(25_95%_55%/0.3)]" />
+          <div className="absolute top-[60%] right-[8%] w-1.5 h-1.5 rounded-full bg-[hsl(185_85%_50%/0.4)]" />
+          <div className="absolute top-[20%] left-[5%] w-2.5 h-2.5 rounded-full bg-[hsl(25_95%_55%/0.2)]" />
         </div>
 
-        {/* Decorative rings */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/[0.04] rounded-full hidden lg:block" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full hidden lg:block" />
-
-        <div className="container mx-auto px-4 z-10 pt-28 pb-16 lg:pt-32 lg:pb-20">
-          {/* Centered Layout */}
-          <div className="flex flex-col items-center text-center relative">
+        <div className="container mx-auto px-4 z-10 pt-28 pb-16 lg:pt-36 lg:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
-            {/* Tagline */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full mb-6"
-            >
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-accent text-sm font-semibold tracking-wide">Pune's #1 AI-Powered Digital Marketing Agency</span>
-            </motion.div>
+            {/* Left - Text Content */}
+            <div className="flex flex-col items-start text-left">
+              {/* Tagline */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-[hsl(25_95%_55%/0.1)] border border-[hsl(25_95%_55%/0.2)] rounded-full mb-6"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-[hsl(25_95%_55%)]" />
+                <span className="text-[hsl(25_95%_55%)] text-xs font-semibold tracking-wide uppercase">AI-Powered Marketing</span>
+              </motion.div>
 
-            {/* Heading */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-[1.1] max-w-5xl"
-            >
-              Transform Your Digital{' '}
-              <br className="hidden sm:block" />
-              Presence Into{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, hsl(185 85% 55%), hsl(220 90% 70%))' }}>
-                  Measurable Growth
-                </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary rounded-full" />
-              </span>
-            </motion.h1>
+              {/* Heading */}
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-6xl font-heading font-bold text-foreground mb-6 leading-[1.1]"
+              >
+                We create{' '}
+                <br className="hidden sm:block" />
+                <span className="text-[hsl(25_95%_55%)] font-extrabold italic">solutions</span>{' '}
+                <span className="italic font-normal text-foreground/80">for</span>
+                <br />
+                your business
+              </motion.h1>
 
-            {/* Subheading */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/65 mb-8 max-w-2xl leading-relaxed"
-            >
-              Cutting-edge AI technology meets proven marketing strategies — increased revenue, qualified leads, and sustainable growth for your business.
-            </motion.p>
+              {/* Description */}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base md:text-lg text-muted-foreground mb-8 max-w-md leading-relaxed"
+              >
+                Our team keeps a keen eye on emerging trends and technologies to ensure your marketing campaigns remain cutting-edge.
+              </motion.p>
 
-            {/* CTAs */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 mb-10"
-            >
-              <Link to="/contact">
-                <Button size="lg" className="w-full sm:w-auto px-10 py-7 text-base font-bold rounded-full bg-white text-primary hover:bg-white/90 cta-glow transition-all duration-300 group">
-                  Get Free Marketing Audit
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/case-studies">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-10 py-7 text-base rounded-full border-white/20 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
-                  View Our Work
-                </Button>
-              </Link>
-            </motion.div>
+              {/* CTAs */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex items-center gap-6"
+              >
+                <Link to="/contact">
+                  <Button size="lg" className="px-8 py-6 text-sm font-bold rounded-lg bg-[hsl(25_95%_55%)] text-white hover:bg-[hsl(25_95%_48%)] shadow-lg shadow-[hsl(25_95%_55%/0.3)] transition-all duration-300 group">
+                    Get Started
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/case-studies" className="flex items-center gap-2 text-foreground font-medium hover:text-[hsl(25_95%_55%)] transition-colors group">
+                  <span className="w-8 h-8 rounded-full border-2 border-foreground/20 flex items-center justify-center group-hover:border-[hsl(25_95%_55%)] transition-colors">
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                  Explore more
+                </Link>
+              </motion.div>
 
-            {/* Trust Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex items-center gap-6 flex-wrap justify-center"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                  ))}
+              {/* Trust Row */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="flex items-center gap-5 mt-10 flex-wrap"
+              >
+                <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 text-[hsl(40_95%_55%)] fill-[hsl(40_95%_55%)]" />
+                    ))}
+                  </div>
+                  <span className="text-foreground text-sm font-semibold">4.8/5</span>
                 </div>
-                <span className="text-white/80 text-sm font-medium">4.8/5</span>
-              </div>
-              <div className="h-4 w-px bg-white/20 hidden sm:block" />
-              <span className="text-white/50 text-sm">Trusted by 500+ businesses</span>
-              <div className="h-4 w-px bg-white/20 hidden sm:block" />
-              <span className="text-white/50 text-sm">5+ years of excellence</span>
-            </motion.div>
+                <div className="h-4 w-px bg-border hidden sm:block" />
+                <span className="text-muted-foreground text-sm">500+ businesses trust us</span>
+              </motion.div>
+            </div>
 
-            {/* 3D Character & Icons - Floating around the center area */}
-            <div className="relative w-full max-w-4xl mt-12 h-[280px] sm:h-[340px] lg:h-[380px] hidden md:block">
+            {/* Right - 3D Character & Icons */}
+            <div className="relative flex items-center justify-center">
+              {/* Background circle */}
+              <div className="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full bg-[hsl(25_95%_55%/0.06)] border border-[hsl(25_95%_55%/0.1)]" />
+              
               {/* Central character */}
               <motion.div
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 z-10"
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative z-10"
               >
                 <img 
                   src={hero3DCharacter} 
                   alt="Digital Marketing Professional" 
-                  className="w-56 sm:w-72 lg:w-80 h-auto drop-shadow-2xl floating-3d-slow"
+                  className="w-64 sm:w-72 lg:w-80 h-auto drop-shadow-2xl floating-3d-slow"
                 />
               </motion.div>
 
-              {/* Planet - far left */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="absolute left-4 lg:left-12 top-8 w-20 lg:w-24 floating-3d"
-              >
+              {/* Social icons floating around */}
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="absolute -left-4 lg:left-0 top-[15%] w-12 lg:w-14 floating-3d">
+                <img src={hero3DInstagram} alt="Instagram" className="w-full h-auto drop-shadow-md" />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.7 }} className="absolute -right-4 lg:right-0 top-[20%] w-12 lg:w-14 floating-3d-delayed">
+                <img src={hero3DFacebook} alt="Facebook" className="w-full h-auto drop-shadow-md" />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.75 }} className="absolute -left-8 lg:-left-4 bottom-[30%] w-12 lg:w-14 floating-3d-slow">
+                <img src={hero3DLinkedin} alt="LinkedIn" className="w-full h-auto drop-shadow-md" />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="absolute -right-8 lg:-right-4 bottom-[35%] w-12 lg:w-14 floating-3d">
+                <img src={hero3DGoogle} alt="Google" className="w-full h-auto drop-shadow-md" />
+              </motion.div>
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.85 }} className="absolute left-1/2 -translate-x-1/2 -top-4 w-12 lg:w-14 floating-3d-delayed">
+                <img src={hero3DGMB} alt="Google My Business" className="w-full h-auto drop-shadow-md" />
+              </motion.div>
+
+              {/* Planet & Shapes */}
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.9 }} className="absolute -left-12 lg:-left-8 top-[5%] w-16 lg:w-20 floating-3d">
                 <img src={hero3DPlanet} alt="Tech Planet" className="w-full h-auto drop-shadow-lg" />
               </motion.div>
-
-              {/* Shapes - far right */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.75 }}
-                className="absolute right-4 lg:right-12 top-4 w-20 lg:w-24 floating-3d-delayed"
-              >
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.95 }} className="absolute -right-12 lg:-right-8 bottom-[10%] w-16 lg:w-20 floating-3d-delayed">
                 <img src={hero3DShapes} alt="3D Shapes" className="w-full h-auto drop-shadow-lg" />
-              </motion.div>
-
-              {/* Social icons orbiting */}
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 0.8 }} className="absolute left-[12%] bottom-[55%] w-12 lg:w-14 floating-3d">
-                <img src={hero3DInstagram} alt="Instagram" className="w-full h-auto drop-shadow-lg" />
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 0.85 }} className="absolute right-[12%] bottom-[55%] w-12 lg:w-14 floating-3d-delayed">
-                <img src={hero3DFacebook} alt="Facebook" className="w-full h-auto drop-shadow-lg" />
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 0.9 }} className="absolute left-[25%] bottom-[20%] w-12 lg:w-14 floating-3d-slow">
-                <img src={hero3DLinkedin} alt="LinkedIn" className="w-full h-auto drop-shadow-lg" />
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 0.95 }} className="absolute right-[25%] bottom-[20%] w-12 lg:w-14 floating-3d">
-                <img src={hero3DGoogle} alt="Google" className="w-full h-auto drop-shadow-lg" />
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 1.0 }} className="absolute left-1/2 -translate-x-1/2 top-0 w-12 lg:w-14 floating-3d-delayed">
-                <img src={hero3DGMB} alt="Google My Business" className="w-full h-auto drop-shadow-lg" />
               </motion.div>
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-6 left-1/2 -translate-x-1/2"
-        >
-          <motion.div 
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-5 h-8 border-2 border-white/20 rounded-full flex items-start justify-center p-1.5"
-          >
-            <motion.div className="w-1 h-1.5 bg-white/60 rounded-full" />
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* What Makes Us Different */}
