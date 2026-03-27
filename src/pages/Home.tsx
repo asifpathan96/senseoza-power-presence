@@ -391,52 +391,39 @@ const Home = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
-              <Sparkles className="h-4 w-4" />
-              Why Choose Us
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
-              What Makes Senseoza <span className="text-accent">Different</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We combine AI innovation with proven marketing expertise to deliver exceptional results
-            </p>
-          </AnimatedSection>
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {differentiators.map((item, index) => {
-            const IconComponent = item.icon;
-            return <StaggerItem key={index}>
-                  <motion.div whileHover={{
-                y: -8,
-                transition: {
-                  duration: 0.3
-                }
-              }} className="group relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative bg-card border border-border/50 rounded-2xl p-8 h-full hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                      <div className="flex items-start gap-5">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-xl blur-lg opacity-40" />
-                          <div className="relative w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
-                            <IconComponent className="h-7 w-7 text-white" />
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-primary transition-colors">
-                            {item.title}
-                          </h3>
-                          <p className="text-muted-foreground leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+                <Sparkles className="h-4 w-4" />
+                Why Choose Us
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+                What Makes Senseoza <span className="text-accent">Different</span>
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mb-8">
+                We combine AI innovation with proven marketing expertise to deliver exceptional results
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {differentiators.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <motion.div key={index} whileHover={{ y: -4 }} className="group bg-card border border-border/50 rounded-xl p-5 hover:border-primary/30 hover:shadow-lg transition-all duration-300">
+                      <div className="w-11 h-11 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center mb-3">
+                        <IconComponent className="h-5 w-5 text-white" />
                       </div>
-                    </div>
-                  </motion.div>
-                </StaggerItem>;
-          })}
-          </StaggerContainer>
+                      <h3 className="font-heading font-bold mb-1.5 group-hover:text-primary transition-colors">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">{item.description}</p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right" className="hidden lg:flex justify-center">
+              <FloatingElement distance={15} duration={5}>
+                <img src={sectionDifferentiators} alt="AI-driven marketing intelligence" className="w-full max-w-md drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
