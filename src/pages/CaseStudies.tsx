@@ -79,34 +79,24 @@ const CaseStudies = () => {
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 z-10 py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Proven Results</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">Proven Results</span>
+              </motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                Case <span className="text-accent">Studies</span>
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed">
+                We don't just design strategies — we deliver results. Explore how Senseoza has helped brands grow their digital presence, boost ROI, and achieve lasting success.
+              </motion.p>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={heroCaseStudies} alt="Case studies and success stories" className="w-full max-w-md drop-shadow-[0_20px_60px_rgba(14,165,233,0.3)]" width={800} height={800} />
+              </FloatingElement>
             </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight"
-            >
-              Case <span className="text-accent">Studies</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
-            >
-              We don't just design strategies — we deliver results. Explore how Senseoza has helped brands grow their digital presence, boost ROI, and achieve lasting success.
-            </motion.p>
           </div>
         </div>
 

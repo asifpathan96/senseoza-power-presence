@@ -132,35 +132,25 @@ ${formData.message}
         <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Get In Touch</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">Get In Touch</span>
+              </motion.div>
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6">
+                Let's Start Growing Your{' '}
+                <span className="text-accent">Business Together</span>
+              </motion.h1>
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-white/80 max-w-3xl">
+                Ready to transform your digital presence? Whether you need a specific service or a comprehensive marketing strategy, we are here to help.
+              </motion.p>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="hidden lg:flex justify-center">
+              <FloatingElement distance={18} duration={5}>
+                <img src={heroContact} alt="Contact us" className="w-full max-w-sm drop-shadow-[0_20px_60px_rgba(14,165,233,0.3)]" width={800} height={800} />
+              </FloatingElement>
             </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6"
-            >
-              Let's Start Growing Your{' '}
-              <span className="text-accent">Business Together</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto"
-            >
-              Ready to transform your digital presence? Whether you need a specific service or a comprehensive marketing strategy, we are here to help.
-            </motion.p>
           </div>
         </div>
       </section>
