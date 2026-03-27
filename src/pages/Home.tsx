@@ -358,36 +358,29 @@ const Home = () => {
               {[...Array(2)].map((_, setIndex) => (
                 <div key={setIndex} className="flex gap-12 items-center shrink-0">
                   {[
-                    { name: 'Pantaloons', logo: 'https://logo.clearbit.com/pantaloons.com' },
-                    { name: 'Fastrack', logo: 'https://logo.clearbit.com/fastrack.in' },
-                    { name: 'Kohler', logo: 'https://logo.clearbit.com/kohler.com' },
-                    { name: 'Titan', logo: 'https://logo.clearbit.com/titan.co.in' },
-                    { name: 'Sukhwani Builders', logo: null },
-                    { name: 'Panchshil Builders', logo: 'https://logo.clearbit.com/panchshil.com' },
-                    { name: 'Spotless Interiors', logo: null },
-                    { name: 'Banesab Motors', logo: null },
-                    { name: 'Aurum Icecreams', logo: null },
-                    { name: 'Ayodhya Care Plus Hospital', logo: null },
+                    { name: 'Pantaloons', logo: logoPantaloons },
+                    { name: 'Fastrack', logo: logoFastrack },
+                    { name: 'Kohler', logo: logoKohler },
+                    { name: 'Titan', logo: logoTitan },
+                    { name: 'Sukhwani Builders', logo: logoSukhwani },
+                    { name: 'Panchshil Builders', logo: logoPanchshil },
+                    { name: 'Spotless Interiors', logo: logoSpotless },
+                    { name: 'Banesab Motors', logo: logoBanesab },
+                    { name: 'Aurum Icecreams', logo: logoAurum },
+                    { name: 'Ayodhya Care Plus Hospital', logo: logoAyodhya },
                   ].map((client, index) => (
                     <div
                       key={`${setIndex}-${index}`}
                       className="flex items-center justify-center shrink-0 h-16 min-w-[160px] px-6 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
                     >
-                      {client.logo ? (
-                        <img
-                          src={client.logo}
-                          alt={`${client.name} logo`}
-                          className="h-10 max-w-[140px] object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            target.nextElementSibling?.classList.remove('hidden');
-                          }}
-                        />
-                      ) : null}
-                      <span className={`${client.logo ? 'hidden' : ''} text-foreground font-heading font-bold text-lg whitespace-nowrap`}>
-                        {client.name}
-                      </span>
+                      <img
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        className="h-12 max-w-[140px] object-contain"
+                        loading="lazy"
+                        width={140}
+                        height={48}
+                      />
                     </div>
                   ))}
                 </div>
