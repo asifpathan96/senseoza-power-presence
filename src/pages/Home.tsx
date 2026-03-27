@@ -8,6 +8,7 @@ import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-bg.jpg';
+import hero3d from '@/assets/hero-3d.png';
 import serviceAI from '@/assets/service-ai-marketing.png';
 import serviceSEO from '@/assets/service-seo.png';
 import serviceSocial from '@/assets/service-social-media.png';
@@ -247,68 +248,41 @@ const Home = () => {
         <FloatingElement className="absolute bottom-1/4 right-10 w-80 h-80 bg-primary/20 rounded-full blur-3xl" delay={2} />
         
         <div className="container mx-auto px-4 z-10 py-32">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6
-          }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
-            </motion.div>
-            
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.1
-          }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
-              Transform Your Digital Presence Into{' '}
-              <span className="text-accent">Measurable Growth</span>
-            </motion.h1>
-            
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
-            </motion.p>
-            
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.3
-          }} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
-                  Get Your Free Marketing Audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-white/30 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
-                  View Our Services
-                </Button>
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-sm font-medium text-white/90">AI-Powered Digital Marketing</span>
+              </motion.div>
+              
+              <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                Transform Your Digital Presence Into{' '}
+                <span className="text-accent">Measurable Growth</span>
+              </motion.h1>
+              
+              <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="text-lg md:text-xl text-white/80 mb-10 max-w-3xl leading-relaxed">
+                Senseoza combines cutting-edge AI technology with proven marketing strategies to deliver results that matter: increased revenue, qualified leads, and sustainable growth.
+              </motion.p>
+              
+              <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/contact">
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-base bg-white text-primary hover:bg-white/90 shadow-xl shadow-white/20 hover:shadow-2xl transition-all duration-300">
+                    Get Your Free Marketing Audit
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/services">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 py-6 text-base border-white/30 bg-white/5 text-white hover:bg-white/10 backdrop-blur-sm">
+                    View Our Services
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
+
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="hidden lg:flex justify-center">
+              <FloatingElement distance={20} duration={5}>
+                <img src={hero3d} alt="Digital marketing 3D illustration" className="w-full max-w-lg drop-shadow-[0_20px_60px_rgba(14,165,233,0.3)]" width={900} height={900} />
+              </FloatingElement>
             </motion.div>
           </div>
         </div>
