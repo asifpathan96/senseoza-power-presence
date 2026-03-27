@@ -42,6 +42,16 @@
     --accent-light: 185 80% 70%;
     --accent-dark: 185 90% 40%;
 
+    /* Neon palette */
+    --neon-violet: 270 100% 60%;
+    --neon-cyan: 185 100% 55%;
+    --neon-magenta: 320 100% 60%;
+
+    /* Agency dark palette */
+    --agency-dark: 225 30% 6%;
+    --agency-darker: 225 35% 4%;
+    --agency-card: 225 25% 10%;
+
     /* Gradient definitions */
     --gradient-primary: linear-gradient(135deg, hsl(220 95% 35%) 0%, hsl(220 90% 50%) 50%, hsl(185 85% 50%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(220 90% 50%) 0%, hsl(185 85% 50%) 100%);
@@ -50,6 +60,7 @@
     --gradient-glow: linear-gradient(135deg, hsl(185 85% 50% / 0.3) 0%, hsl(220 90% 50% / 0.3) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 25% 98%) 100%);
     --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1) 0%, hsl(0 0% 100% / 0.05) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(270 100% 60%) 0%, hsl(320 100% 60%) 50%, hsl(185 100% 55%) 100%);
 
     /* Shadows */
     --shadow-sm: 0 2px 8px hsl(220 30% 10% / 0.06);
@@ -59,6 +70,7 @@
     --shadow-glow: 0 0 50px hsl(185 85% 50% / 0.4);
     --shadow-primary: 0 8px 32px hsl(220 90% 50% / 0.3);
     --shadow-accent: 0 8px 32px hsl(185 85% 50% / 0.3);
+    --shadow-neon: 0 0 40px hsl(270 100% 60% / 0.4);
 
     /* Animation timing */
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -388,5 +400,34 @@
       radial-gradient(at 80% 50%, hsl(185 80% 45% / 0.15) 0, transparent 50%),
       radial-gradient(at 0% 100%, hsl(220 90% 50% / 0.1) 0, transparent 50%),
       hsl(var(--background));
+  }
+
+  /* ─── Agency / Dark Futuristic Theme ─── */
+
+  .glass-agency {
+    @apply backdrop-blur-xl border;
+    background: hsl(0 0% 100% / 0.05);
+    border-color: hsl(0 0% 100% / 0.1);
+  }
+
+  .neon-text-glow {
+    background: linear-gradient(135deg, hsl(270 100% 65%), hsl(185 100% 55%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 20px hsl(270 100% 60% / 0.5));
+  }
+
+  .neon-gradient-btn {
+    background: linear-gradient(135deg, hsl(270 100% 55%) 0%, hsl(320 100% 55%) 50%, hsl(270 100% 60%) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+  }
+
+  .agency-grid-pattern {
+    background-image: 
+      linear-gradient(hsl(270 100% 60% / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(270 100% 60% / 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
   }
 }
