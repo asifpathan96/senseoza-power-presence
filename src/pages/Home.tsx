@@ -321,6 +321,72 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Trusted Clients Section */}
+      <section className="py-16 md:py-20 relative overflow-hidden bg-muted/30">
+        <div className="container mx-auto px-4 relative z-10">
+          <AnimatedSection className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-4">
+              <Building className="h-4 w-4" />
+              Our Clients
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4">
+              Trusted by <span className="text-accent">Leading Brands</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              We've partnered with industry leaders across fashion, real estate, healthcare, and more
+            </p>
+          </AnimatedSection>
+
+          <div className="relative overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
+            <motion.div
+              className="flex gap-12 items-center"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+            >
+              {[...Array(2)].map((_, setIndex) => (
+                <div key={setIndex} className="flex gap-12 items-center shrink-0">
+                  {[
+                    { name: 'Pantaloons', logo: 'https://logo.clearbit.com/pantaloons.com' },
+                    { name: 'Fastrack', logo: 'https://logo.clearbit.com/fastrack.in' },
+                    { name: 'Kohler', logo: 'https://logo.clearbit.com/kohler.com' },
+                    { name: 'Titan', logo: 'https://logo.clearbit.com/titan.co.in' },
+                    { name: 'Sukhwani Builders', logo: null },
+                    { name: 'Panchshil Builders', logo: 'https://logo.clearbit.com/panchshil.com' },
+                    { name: 'Spotless Interiors', logo: null },
+                    { name: 'Banesab Motors', logo: null },
+                    { name: 'Aurum Icecreams', logo: null },
+                    { name: 'Ayodhya Care Plus Hospital', logo: null },
+                  ].map((client, index) => (
+                    <div
+                      key={`${setIndex}-${index}`}
+                      className="flex items-center justify-center shrink-0 h-16 min-w-[160px] px-6 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                    >
+                      {client.logo ? (
+                        <img
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          className="h-10 max-w-[140px] object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                      ) : null}
+                      <span className={`${client.logo ? 'hidden' : ''} text-foreground font-heading font-bold text-lg whitespace-nowrap`}>
+                        {client.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* What Makes Us Different */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
