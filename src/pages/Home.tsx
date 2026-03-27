@@ -17,16 +17,17 @@ import serviceWeb from '@/assets/service-web-design.png';
 import seoImage from '@/assets/seo.jpg';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
-import logoPantaloons from '@/assets/clients/pantaloons.png';
+import logoPantaloons from '@/assets/clients/pantaloons.webp';
 import logoFastrack from '@/assets/clients/fastrack.png';
-import logoKohler from '@/assets/clients/kohler.png';
-import logoTitan from '@/assets/clients/titan.png';
-import logoSukhwani from '@/assets/clients/sukhwani.png';
-import logoPanchshil from '@/assets/clients/panchshil.png';
-import logoSpotless from '@/assets/clients/spotless.png';
-import logoBanesab from '@/assets/clients/banesab.png';
+import logoKohler from '@/assets/clients/kohler.jpg';
+import logoTitan from '@/assets/clients/titan.jpg';
+import logoSukhwani from '@/assets/clients/sukhwani.jpg';
+import logoPanchshil from '@/assets/clients/panchshil-new.png';
+import logoSpotless from '@/assets/clients/spotless.jpeg';
+import logoBanesab from '@/assets/clients/banesab.jpg';
 import logoAurum from '@/assets/clients/aurum.png';
 import logoAyodhya from '@/assets/clients/ayodhya.png';
+import logoRadhakirti from '@/assets/clients/radhakirti.jpeg';
 const Home = () => {
   const stats = [{
     number: 500,
