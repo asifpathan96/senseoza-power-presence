@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Search, ArrowRight, CheckCircle, Target, TrendingUp, FileSearch, Sparkles, BarChart3, Globe, Building2, Clock } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-seo.png';
+import seoWhyMatters from '@/assets/seo-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
