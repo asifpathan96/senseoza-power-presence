@@ -161,30 +161,40 @@ const EmailAutomation = () => {
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <AnimatedSection direction="left">
+            <AnimatedSection direction="right">
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img src={emailWhyMatters} alt="Email automation workflow visualization" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90" loading="lazy" width={1024} height={1024} />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <Zap className="h-4 w-4" /> Why Automate
+              </span>
               <h2 className="text-4xl font-heading font-bold mb-6">
                 Understanding{' '}
                 <span className="text-accent">Marketing Automation</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Marketing automation uses software platforms and artificial intelligence to automate repetitive marketing tasks and workflows. Instead of manually sending every email, segmenting every audience, or tracking every customer behavior, automation handles these processes based on predefined rules and triggers.
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Marketing automation uses AI to automate repetitive tasks and workflows, handling processes based on predefined rules and triggers.
               </p>
-            </AnimatedSection>
-            <AnimatedSection direction="right">
-              <div className="space-y-3">
-                {benefits.map((benefit, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3 p-3 bg-card rounded-xl border border-border"
-                  >
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground">{benefit}</span>
-                  </motion.div>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">451%</p>
+                  <p className="text-sm text-muted-foreground">Increase in qualified leads</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">80%</p>
+                  <p className="text-sm text-muted-foreground">More leads at lower cost</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">77%</p>
+                  <p className="text-sm text-muted-foreground">Higher conversion rate</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">12x</p>
+                  <p className="text-sm text-muted-foreground">ROI from email automation</p>
+                </div>
               </div>
             </AnimatedSection>
           </div>
