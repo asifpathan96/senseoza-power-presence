@@ -121,8 +121,9 @@ const EmailAutomation = () => {
               >
                 <Mail className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Marketing Automation That Scales Without Adding Headcount
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Marketing Automation That{' '}
+                <span className="text-accent">Scales Without Adding Headcount</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 Imagine your marketing running continuously—nurturing leads, personalizing customer experiences, triggering timely communications, and driving conversions around the clock without manual intervention. That's the power of marketing automation.

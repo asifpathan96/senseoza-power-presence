@@ -345,8 +345,9 @@ const AIAgentsAutomation = () => {
               >
                 <Bot className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                AI Agents & Workflow Automation That Work 24/7 for Your Business
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                AI Agents & Workflow Automation That{' '}
+                <span className="text-accent">Work 24/7 for Your Business</span>
               </h1>
               <p className="text-lg md:text-xl text-white/80 mb-6 max-w-4xl mx-auto">
                 Imagine having a tireless digital workforce that handles repetitive tasks, makes intelligent decisions, and operates around the clock without breaks or errors. AI agents are autonomous software systems capable of perceiving, reasoning, and acting independently to automate business processes—making decisions without human intervention while continuously learning and adapting.

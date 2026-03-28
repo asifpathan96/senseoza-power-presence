@@ -130,8 +130,9 @@ const AIMarketing = () => {
               >
                 <Brain className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                AI-Powered Marketing
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                AI-Powered{' '}
+                <span className="text-accent">Marketing</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 Harness the power of artificial intelligence to transform your marketing from reactive to predictive. Our AI-driven approach delivers personalized experiences at scale, optimizes campaigns in real-time, and uncovers insights that drive exponential growth.

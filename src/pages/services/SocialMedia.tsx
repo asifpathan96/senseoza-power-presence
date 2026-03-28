@@ -90,8 +90,9 @@ const SocialMedia = () => {
               >
                 <Share2 className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Social Media Marketing That Builds Communities and Drives Business
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Social Media Marketing That{' '}
+                <span className="text-accent">Builds Communities and Drives Business</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 With over 4.9 billion people using social platforms worldwide, your customers are already there, engaging with content and making buying decisions. The question isn't whether you should be on social media, but whether you're using it strategically to grow your business.

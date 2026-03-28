@@ -115,8 +115,9 @@ const PPCAds = () => {
               >
                 <MousePointerClick className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Strategic PPC Management That Maximizes Every Advertising Dollar
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Strategic PPC Management That{' '}
+                <span className="text-accent">Maximizes Every Advertising Dollar</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 When you need immediate visibility and qualified traffic, pay-per-click advertising delivers results from day one. The difference between profitable campaigns and wasted budget lies in strategic management and continuous optimization. We don't just run ads—we engineer profitable customer acquisition systems.

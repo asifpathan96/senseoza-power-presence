@@ -128,8 +128,9 @@ const ContentMarketing = () => {
               >
                 <FileText className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Content Marketing That Attracts, Engages, and Converts
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Content Marketing That Attracts, Engages, and{' '}
+                <span className="text-accent">Converts</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 In today's digital landscape, customers conduct extensive research before making purchasing decisions. Content marketing isn't about pushing your message—it's about being discovered when customers actively seek solutions.
