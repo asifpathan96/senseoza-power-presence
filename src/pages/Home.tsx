@@ -34,7 +34,36 @@ import sectionDifferentiators from '@/assets/section-differentiators.png';
 import sectionProcess from '@/assets/section-process.png';
 import sectionWhyChoose from '@/assets/section-why-choose.png';
 import sectionCta from '@/assets/section-cta.png';
+const clientsList = [
+  { name: 'Pantaloons', logo: logoPantaloons },
+  { name: 'Kohler', logo: logoKohler },
+  { name: 'Titan', logo: logoTitan },
+  { name: 'Sukhwani Builders', logo: logoSukhwani },
+  { name: 'Panchshil Builders', logo: logoPanchshil },
+  { name: 'Spotless Interiors', logo: logoSpotless },
+  { name: 'Banesab Motors', logo: logoBanesab },
+  { name: 'Fastrack', logo: logoFastrack },
+  { name: 'Aurum Icecreams', logo: logoAurum },
+  { name: 'Radhakirti Construction', logo: logoRadhakirti },
+  { name: 'Ayodhya Care Plus', logo: logoAyodhya },
+];
+
+const clientSlides: typeof clientsList[] = [];
+for (let i = 0; i < clientsList.length; i += 4) {
+  clientSlides.push(clientsList.slice(i, i + 4));
+}
+
 const Home = () => {
+  const [currentClientSlide, setCurrentClientSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentClientSlide(prev => (prev + 1) % clientSlides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const stats = [{
   const stats = [{
     number: 500,
     suffix: '+',
