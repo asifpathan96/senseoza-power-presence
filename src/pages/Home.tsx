@@ -360,42 +360,14 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          {(() => {
-            const allClients = [
-              { name: 'Pantaloons', logo: logoPantaloons },
-              { name: 'Kohler', logo: logoKohler },
-              { name: 'Titan', logo: logoTitan },
-              { name: 'Sukhwani Builders', logo: logoSukhwani },
-              { name: 'Panchshil Builders', logo: logoPanchshil },
-              { name: 'Spotless Interiors', logo: logoSpotless },
-              { name: 'Banesab Motors', logo: logoBanesab },
-              { name: 'Fastrack', logo: logoFastrack },
-              { name: 'Aurum Icecreams', logo: logoAurum },
-              { name: 'Radhakirti Construction', logo: logoRadhakirti },
-              { name: 'Ayodhya Care Plus', logo: logoAyodhya },
-            ];
-            const slides: typeof allClients[] = [];
-            for (let i = 0; i < allClients.length; i += 4) {
-              slides.push(allClients.slice(i, i + 4));
-            }
-            const [currentSlide, setCurrentSlide] = React.useState(0);
-
-            React.useEffect(() => {
-              const timer = setInterval(() => {
-                setCurrentSlide(prev => (prev + 1) % slides.length);
-              }, 4000);
-              return () => clearInterval(timer);
-            }, [slides.length]);
-
-            return (
-              <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto">
                 <div className="relative overflow-hidden">
                   <motion.div
                     className="flex"
-                    animate={{ x: `-${currentSlide * 100}%` }}
+                    animate={{ x: `-${currentClientSlide * 100}%` }}
                     transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    {slides.map((slide, slideIdx) => (
+                    {clientSlides.map((slide, slideIdx) => (
                       <div key={slideIdx} className="w-full flex-shrink-0 grid grid-cols-2 md:grid-cols-4 gap-5 px-1">
                         {slide.map((client, idx) => (
                           <div
@@ -410,7 +382,7 @@ const Home = () => {
                               width={120}
                               height={48}
                             />
-                            <span className="mt-2 text-xs text-gray-500 font-medium text-center leading-tight">{client.name}</span>
+                            <span className="mt-2 text-xs text-muted-foreground font-medium text-center leading-tight">{client.name}</span>
                           </div>
                         ))}
                       </div>
@@ -419,17 +391,15 @@ const Home = () => {
                 </div>
                 {/* Dots */}
                 <div className="flex justify-center gap-2 mt-8">
-                  {slides.map((_, idx) => (
+                  {clientSlides.map((_, idx) => (
                     <button
                       key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentSlide ? 'bg-accent w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
+                      onClick={() => setCurrentClientSlide(idx)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentClientSlide ? 'bg-accent w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
                     />
                   ))}
                 </div>
               </div>
-            );
-          })()}
         </div>
       </section>
 
