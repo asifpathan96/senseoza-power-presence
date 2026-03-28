@@ -10,12 +10,12 @@
     "preview": "vite preview"
   },
   "reactSnap": {
-  "source": "dist",
-  "minifyHtml": false,
-  "crawl": true,
-  "waitFor": 1500,
-  "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
-},
+    "source": "dist",
+    "minifyHtml": false,
+    "crawl": true,
+    "waitFor": 1500,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
