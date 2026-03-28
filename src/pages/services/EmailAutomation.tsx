@@ -162,7 +162,8 @@ const EmailAutomation = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <AnimatedSection direction="left">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Understanding Marketing Automation
+                Understanding{' '}
+                <span className="text-accent">Marketing Automation</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Marketing automation uses software platforms and artificial intelligence to automate repetitive marketing tasks and workflows. Instead of manually sending every email, segmenting every audience, or tracking every customer behavior, automation handles these processes based on predefined rules and triggers.
@@ -199,7 +200,8 @@ const EmailAutomation = () => {
               Complete Automation Solutions
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Complete Marketing Automation Solutions
+              Complete Marketing{' '}
+              <span className="text-accent">Automation Solutions</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -233,7 +235,8 @@ const EmailAutomation = () => {
               <Zap className="h-4 w-4" /> Platform Expertise
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Expertise Across Leading Platforms
+              Expertise Across{' '}
+              <span className="text-accent">Leading Platforms</span>
             </h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
               We're certified experts in industry-leading automation platforms. We'll recommend the platform that best fits your needs.
@@ -263,7 +266,8 @@ const EmailAutomation = () => {
               <Clock className="h-4 w-4" /> Implementation Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Implementation Methodology
+              Implementation{' '}
+              <span className="text-accent">Methodology</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -299,7 +303,8 @@ const EmailAutomation = () => {
               <TrendingUp className="h-4 w-4" /> Expected Results
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              The Impact of Marketing Automation
+              The Impact of{' '}
+              <span className="text-accent">Marketing Automation</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
@@ -324,7 +329,8 @@ const EmailAutomation = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored to Your Technology Stack
+                Tailored to Your{' '}
+                <span className="text-accent">Technology Stack</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Every business has unique processes, existing technology, and automation needs. A B2B service company requires different workflows than an e-commerce store. We don't force you into predefined packages—instead, we assess your specific situation including current technology stack, existing processes, team capabilities, budget parameters, and growth objectives, then recommend customized solutions.
@@ -342,7 +348,8 @@ const EmailAutomation = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Scale Your Marketing?
+              Ready to Scale{' '}
+              <span className="text-accent">Your Marketing?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop wasting time on repetitive tasks that technology can handle better. Let our automation specialists implement systems that work tirelessly to nurture leads, personalize experiences, and drive conversions 24/7.

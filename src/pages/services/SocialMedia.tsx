@@ -133,7 +133,8 @@ const SocialMedia = () => {
               <Sparkles className="h-4 w-4" /> The Business Case
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              The Business Case for Strategic Social Media
+              The Business Case for{' '}
+              <span className="text-accent">Strategic Social Media</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -162,7 +163,8 @@ const SocialMedia = () => {
               Complete Social Media Management
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Our Social Media Services
+              Our Social Media{' '}
+              <span className="text-accent">Services</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -196,7 +198,8 @@ const SocialMedia = () => {
               <Users className="h-4 w-4" /> Platform Expertise
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Mastery Across Major Platforms
+              Mastery Across{' '}
+              <span className="text-accent">Major Platforms</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -223,7 +226,8 @@ const SocialMedia = () => {
               Our Content Framework
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Proven Content Framework
+              Our Proven{' '}
+              <span className="text-accent">Content Framework</span>
             </h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
               We implement a balanced 40-40-20 content strategy that keeps audiences engaged without being overly promotional.
@@ -255,7 +259,8 @@ const SocialMedia = () => {
               <Clock className="h-4 w-4" /> Growth Timeline
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Social Media Growth Timeline
+              Social Media{' '}
+              <span className="text-accent">Growth Timeline</span>
             </h2>
           </AnimatedSection>
           <div className="max-w-4xl mx-auto">
@@ -285,7 +290,8 @@ const SocialMedia = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored Solutions for Your Brand
+                Tailored Solutions for{' '}
+                <span className="text-accent">Your Brand</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 No two businesses have identical social media needs. A local service business requires a vastly different approach than a national e-commerce brand. B2B companies need different strategies than B2C. That's why we don't offer cookie-cutter packages. Instead, we develop custom strategies based on your specific audience, business goals, competitive landscape, and resources.
@@ -303,7 +309,8 @@ const SocialMedia = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Build Your Social Media Presence?
+              Ready to Build Your{' '}
+              <span className="text-accent">Social Media Presence?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop posting randomly and start implementing a strategic social media approach that drives real business results. Let's discuss how we can transform your social channels into growth engines.

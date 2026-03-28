@@ -542,7 +542,8 @@ const Home = () => {
               Our Expertise
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4">
-              Industries We Serve
+              Industries{' '}
+              <span className="text-accent">We Serve</span>
             </h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
               We have delivered exceptional results for businesses across diverse industries
@@ -681,7 +682,8 @@ const Home = () => {
             </AnimatedSection>
             <AnimatedSection className="text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-                Ready to Grow Your Business?
+                Ready to Grow{' '}
+                <span className="text-accent">Your Business?</span>
               </h2>
               <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
                 Do not let your competitors dominate the digital space. Partner with Senseoza and turn your digital presence into a powerful growth engine.

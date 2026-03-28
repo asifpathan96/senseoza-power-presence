@@ -169,7 +169,8 @@ const AIMarketing = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              Why AI is Revolutionizing Marketing
+              Why AI is{' '}
+              <span className="text-accent">Revolutionizing Marketing</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Traditional marketing relies on intuition and historical analysis. AI marketing anticipates the future, automates the complex, and personalizes at a scale humans simply cannot match. Businesses leveraging AI see 40% higher conversion rates and 30% reduction in customer acquisition costs.
@@ -200,7 +201,8 @@ const AIMarketing = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              What's Included
+              What's{' '}
+              <span className="text-accent">Included</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Our comprehensive AI marketing suite covers every aspect of intelligent, automated marketing.
@@ -230,7 +232,8 @@ const AIMarketing = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              AI Marketing in Action
+              AI Marketing{' '}
+              <span className="text-accent">in Action</span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               See how businesses are leveraging AI to transform their marketing results.
@@ -258,7 +261,8 @@ const AIMarketing = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              Our AI Implementation Process
+              Our AI{' '}
+              <span className="text-accent">Implementation Process</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We follow a systematic approach to integrate AI into your marketing operations.
@@ -294,7 +298,8 @@ const AIMarketing = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Harness the Power of AI?
+              Ready to Harness the{' '}
+              <span className="text-accent">Power of AI?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Transform your marketing with artificial intelligence. Schedule a consultation to discover how AI can revolutionize your customer acquisition and retention strategies.

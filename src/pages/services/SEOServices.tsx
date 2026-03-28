@@ -202,7 +202,8 @@ const SEOServices = () => {
               Our Strategic SEO Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              A Proven Process for Sustainable Rankings
+              A Proven Process for{' '}
+              <span className="text-accent">Sustainable Rankings</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -236,7 +237,8 @@ const SEOServices = () => {
               <Sparkles className="h-4 w-4" /> The Senseoza SEO Advantage
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              What Makes Us Different
+              What Makes Us{' '}
+              <span className="text-accent">Different</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -263,7 +265,8 @@ const SEOServices = () => {
               <Clock className="h-4 w-4" /> What to Expect
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              What to Expect from Your SEO Investment
+              What to Expect from{' '}
+              <span className="text-accent">Your SEO Investment</span>
             </h2>
           </AnimatedSection>
           <div className="max-w-4xl mx-auto">
@@ -296,7 +299,8 @@ const SEOServices = () => {
               <Building2 className="h-4 w-4" /> Industries We Serve
             </span>
             <h2 className="text-4xl font-heading font-bold mb-4">
-              Industries We've Transformed Through SEO
+              Industries We've Transformed{' '}
+              <span className="text-accent">Through SEO</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Each industry requires nuanced understanding of search patterns and customer behavior, which our team brings to every engagement.
@@ -324,7 +328,8 @@ const SEOServices = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored SEO Strategies for Your Business
+                Tailored SEO Strategies for{' '}
+                <span className="text-accent">Your Business</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Every business faces unique challenges and opportunities. That's why we don't offer one-size-fits-all packages. Instead, we develop custom strategies based on your specific goals, competitive landscape, and budget. Whether you're a startup looking to establish initial visibility or an established business aiming to dominate your market, we'll create a roadmap designed specifically for your success.
@@ -342,7 +347,8 @@ const SEOServices = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Dominate Search Rankings?
+              Ready to Dominate{' '}
+              <span className="text-accent">Search Rankings?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let's discuss how our SEO expertise can transform your online visibility and drive qualified traffic to your business. Schedule a free consultation to explore customized strategies for your unique needs.

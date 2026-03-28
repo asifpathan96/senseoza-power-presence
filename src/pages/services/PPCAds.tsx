@@ -155,7 +155,8 @@ const PPCAds = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-heading font-bold text-center mb-8">
-              Understanding Pay-Per-Click Advertising
+              Understanding{' '}
+                <span className="text-accent">Pay-Per-Click Advertising</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Pay-per-click advertising allows you to display your message to potential customers at precisely the moment they're searching for solutions you provide. Unlike traditional advertising where you pay for exposure regardless of results, PPC charges only when someone actively clicks your ad, making it one of the most measurable and controllable marketing channels available. Platforms like Google Ads, Facebook, Instagram, LinkedIn, and others offer sophisticated targeting capabilities that let you reach specific audiences based on demographics, interests, behaviors, and search intent.
@@ -172,7 +173,8 @@ const PPCAds = () => {
               <Sparkles className="h-4 w-4" /> Comprehensive PPC Management
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our PPC Services
+              Our PPC{' '}
+              <span className="text-accent">Services</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -201,7 +203,8 @@ const PPCAds = () => {
               Our PPC Management Approach
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              How We Manage Your Campaigns
+              How We Manage{' '}
+              <span className="text-accent">Your Campaigns</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -235,7 +238,8 @@ const PPCAds = () => {
               Why Choose Senseoza
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Why Choose Senseoza for PPC Management
+              Why Choose Senseoza for{' '}
+              <span className="text-accent">PPC Management</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -262,7 +266,8 @@ const PPCAds = () => {
               <Clock className="h-4 w-4" /> Performance Timeline
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              PPC Performance Timeline
+              PPC Performance{' '}
+              <span className="text-accent">Timeline</span>
             </h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
               Unlike organic strategies that build over months, PPC delivers immediate results. Most businesses achieve positive ROI within the first 60 days.
@@ -292,7 +297,8 @@ const PPCAds = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold mb-4">
-              PPC Expertise Across Sectors
+              PPC Expertise{' '}
+              <span className="text-accent">Across Sectors</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Each sector requires different approaches to targeting, messaging, and conversion optimization, which our team handles expertly.
@@ -320,7 +326,8 @@ const PPCAds = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Flexible Approaches to Meet Your Needs
+                Flexible Approaches to{' '}
+                <span className="text-accent">Meet Your Needs</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 We understand that every business has different goals, budgets, and timelines. Our PPC management services are completely customizable to your specific situation. Whether you're working with a modest testing budget or ready to scale aggressively, we'll develop a strategy that aligns with your objectives. We offer flexible management arrangements from full-service campaign management to strategic consulting.
@@ -338,7 +345,8 @@ const PPCAds = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Generate Immediate Results?
+              Ready to Generate{' '}
+              <span className="text-accent">Immediate Results?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop wasting money on underperforming campaigns. Let our PPC experts develop a customized strategy that turns your ad spend into predictable, profitable growth.

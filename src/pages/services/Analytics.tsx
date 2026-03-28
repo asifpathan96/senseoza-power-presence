@@ -181,7 +181,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              Why Marketing Analytics Matters
+              Why Marketing{' '}
+              <span className="text-accent">Analytics Matters</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Businesses that leverage data-driven marketing are 23 times more likely to acquire customers and 6 times more likely to retain them. Without proper analytics, you're flying blind—making decisions based on assumptions rather than evidence.
@@ -212,7 +213,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              What's Included
+              What's{' '}
+              <span className="text-accent">Included</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive analytics coverage across all your marketing channels and campaigns.
@@ -242,7 +244,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Our Analytics Services
+              Our Analytics{' '}
+              <span className="text-accent">Services</span>
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               From setup to ongoing optimization, we provide end-to-end analytics solutions.
@@ -270,7 +273,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              Metrics That Matter
+              Metrics That{' '}
+              <span className="text-accent">Matter</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               We track the KPIs that directly impact your bottom line, not vanity metrics that look good but don't drive results.
@@ -305,7 +309,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-4xl font-heading font-bold mb-6">
-              Our Analytics Implementation Process
+              Our Analytics{' '}
+              <span className="text-accent">Implementation Process</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A systematic approach to building analytics infrastructure that delivers lasting value.
@@ -341,7 +346,8 @@ const Analytics = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready for Data-Driven Marketing?
+              Ready for{' '}
+              <span className="text-accent">Data-Driven Marketing?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop guessing and start growing. Let us build analytics infrastructure that gives you complete visibility into what's working and why.

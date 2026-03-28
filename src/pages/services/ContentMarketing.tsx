@@ -171,7 +171,8 @@ const ContentMarketing = () => {
               <Sparkles className="h-4 w-4" /> Strategic Value
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              The Strategic Value of Quality Content
+              The Strategic Value of{' '}
+              <span className="text-accent">Quality Content</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -200,7 +201,8 @@ const ContentMarketing = () => {
               Comprehensive Solutions
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Comprehensive Content Marketing Solutions
+              Comprehensive Content{' '}
+              <span className="text-accent">Marketing Solutions</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -234,7 +236,8 @@ const ContentMarketing = () => {
               Our Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Content Development Methodology
+              Our Content Development{' '}
+              <span className="text-accent">Methodology</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -269,7 +272,8 @@ const ContentMarketing = () => {
               <BarChart3 className="h-4 w-4" /> Success Metrics
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              How We Measure Content Marketing Success
+              How We Measure{' '}
+              <span className="text-accent">Content Marketing Success</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -297,7 +301,8 @@ const ContentMarketing = () => {
               <Building2 className="h-4 w-4" /> Industries We Serve
             </span>
             <h2 className="text-4xl font-heading font-bold mb-4">
-              Content Expertise Across Sectors
+              Content Expertise{' '}
+              <span className="text-accent">Across Sectors</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Understanding industry-specific terminology, pain points, and buying processes allows us to create content that truly resonates.
@@ -325,7 +330,8 @@ const ContentMarketing = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Flexible Content Solutions
+                Flexible Content{' '}
+                <span className="text-accent">Solutions</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Content marketing needs vary dramatically by business size, industry, and growth stage. A startup requires different content than an established enterprise. E-commerce businesses need different assets than professional services firms. We develop custom content programs tailored to your specific situation including available budget, business objectives, competitive landscape, and internal resources.
@@ -343,7 +349,8 @@ const ContentMarketing = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Build a Content Marketing Engine?
+              Ready to Build a{' '}
+              <span className="text-accent">Content Marketing Engine?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop struggling with inconsistent content creation. Partner with Senseoza to build a systematic content marketing program that attracts qualified leads, establishes authority, and drives sustainable business growth.

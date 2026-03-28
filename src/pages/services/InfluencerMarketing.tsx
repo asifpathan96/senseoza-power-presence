@@ -160,7 +160,8 @@ const InfluencerMarketing = () => {
               <Sparkles className="h-4 w-4" /> The Power of Influence
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              The Power of Authentic Influence
+              The Power of{' '}
+              <span className="text-accent">Authentic Influence</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -187,7 +188,8 @@ const InfluencerMarketing = () => {
               <Users className="h-4 w-4" /> Influencer Tiers
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Influencer Tiers We Work With
+              Influencer Tiers{' '}
+              <span className="text-accent">We Work With</span>
             </h2>
           </AnimatedSection>
           <div className="space-y-4 max-w-4xl mx-auto">
@@ -221,7 +223,8 @@ const InfluencerMarketing = () => {
               <Star className="h-4 w-4" /> Our Services
             </span>
             <h2 className="text-4xl font-heading font-bold text-white mb-4">
-              End-to-End Influencer Campaign Management
+              End-to-End Influencer{' '}
+              <span className="text-accent">Campaign Management</span>
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               From strategy to execution, we handle every aspect of your influencer marketing journey.
@@ -259,7 +262,8 @@ const InfluencerMarketing = () => {
               <Clock className="h-4 w-4" /> Our Process
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              How We Build Successful Campaigns
+              How We Build{' '}
+              <span className="text-accent">Successful Campaigns</span>
             </h2>
           </AnimatedSection>
           
@@ -349,7 +353,8 @@ const InfluencerMarketing = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 text-white">
-              Ready to Partner with Influencers?
+              Ready to Partner with{' '}
+              <span className="text-accent">Influencers?</span>
             </h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
               Let's create campaigns that resonate with your audience and drive real business results through authentic influencer partnerships.

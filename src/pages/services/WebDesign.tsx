@@ -161,7 +161,8 @@ const WebDesign = () => {
               <Sparkles className="h-4 w-4" /> Business Impact
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              The Business Impact of Website Design
+              The Business Impact of{' '}
+              <span className="text-accent">Website Design</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -187,10 +188,12 @@ const WebDesign = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-6">
-              Comprehensive Web Solutions
+              Comprehensive Web{' '}
+              <span className="text-accent">Solutions</span>
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Comprehensive Web Solutions
+              Comprehensive Web{' '}
+              <span className="text-accent">Solutions</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -224,7 +227,8 @@ const WebDesign = () => {
               <Clock className="h-4 w-4" /> Our Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Design and Development Methodology
+              Our Design and Development{' '}
+              <span className="text-accent">Methodology</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -259,7 +263,8 @@ const WebDesign = () => {
               <Zap className="h-4 w-4" /> Standard Features
             </span>
             <h2 className="text-4xl font-heading font-bold mb-4">
-              What Every Senseoza Website Includes
+              What Every Senseoza{' '}
+              <span className="text-accent">Website Includes</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -285,7 +290,8 @@ const WebDesign = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored to Your Needs
+                Tailored to{' '}
+                <span className="text-accent">Your Needs</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Website requirements vary dramatically by business type, size, and objectives. A local service business needs vastly different features than a national e-commerce brand. B2B companies require different approaches than B2C. That's why we don't force you into predefined packages. Instead, we develop custom solutions based on your specific goals, audience, functionality requirements, budget parameters, and timeline constraints.
@@ -303,7 +309,8 @@ const WebDesign = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Launch a High-Converting Website?
+              Ready to Launch a{' '}
+              <span className="text-accent">High-Converting Website?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop losing customers to outdated, slow, or confusing websites. Partner with Senseoza to build a digital presence optimized for conversions and designed to drive real business growth.
