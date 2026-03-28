@@ -307,37 +307,67 @@ const InfluencerMarketing = () => {
       </section>
 
       {/* Campaign Types & Platforms */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient opacity-50" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl font-heading font-bold mb-4">
+              Campaign Types &{' '}
+              <span className="text-accent">Platforms We Cover</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              From product launches to brand awareness, we execute diverse campaign formats across every major platform.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {/* Campaign Types */}
             <AnimatedSection direction="left">
-              <h3 className="text-2xl font-heading font-bold mb-6">Campaign Types We Execute</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {campaignTypes.map((type, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flex items-center gap-2 p-3 bg-card rounded-lg border border-border"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{type}</span>
-                  </motion.div>
-                ))}
+              <div className="p-8 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 h-full">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 rounded-xl bg-accent/20">
+                    <Target className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-accent">Campaign Types We Execute</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {campaignTypes.map((type, index) => (
+                    <motion.div 
+                      key={index}
+                      className="flex items-center gap-3 p-4 bg-background/60 rounded-xl border border-border/30 hover:border-accent/40 transition-colors"
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                    >
+                      <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                      <span className="text-sm font-medium text-foreground">{type}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
+
+            {/* Platforms */}
             <AnimatedSection direction="right">
-              <h3 className="text-2xl font-heading font-bold mb-6">Platforms We Cover</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {platforms.map((platform, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flex items-center gap-2 p-3 bg-card rounded-lg border border-border"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{platform}</span>
-                  </motion.div>
-                ))}
+              <div className="p-8 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 h-full">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 rounded-xl bg-accent/20">
+                    <Megaphone className="h-6 w-6 text-accent" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-accent">Platforms We Cover</h3>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {platforms.map((platform, index) => (
+                    <motion.div 
+                      key={index}
+                      className="flex items-center gap-3 p-4 bg-background/60 rounded-xl border border-border/30 hover:border-accent/40 transition-colors"
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                    >
+                      <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                      <span className="text-sm font-medium text-foreground">{platform}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
           </div>
