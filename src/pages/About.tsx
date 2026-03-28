@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Award, Brain, Shield, ArrowRight, CheckCircle, Handshake, Rocket, Target, Users, Zap, Star, Globe, Sparkles } from 'lucide-react';
+import { Award, Brain, Shield, ArrowRight, CheckCircle, Handshake, Rocket, Target, Users, Zap, Star, Globe, Sparkles, Eye } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { organizationSchema } from '@/utils/schema';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 import aboutImage from '@/assets/about-3d.png';
 import heroAbout from '@/assets/hero-about.png';
+import missionVisionImage from '@/assets/about-mission-vision.png';
 
 const About = () => {
   const values = [
@@ -151,31 +152,53 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="py-20 relative overflow-hidden">
+      {/* Mission & Vision */}
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 gradient-dark" />
         <div className="absolute inset-0 dot-pattern opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-4xl mx-auto">
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-3xl p-8 md:p-12 bg-gradient-to-br from-primary/20 to-accent/20 border border-white/10 backdrop-blur-lg"
-            >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/20 rounded-full -mr-20 -mt-20 blur-2xl" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full -ml-16 -mb-16 blur-2xl" />
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
-                  <Rocket className="h-10 w-10 text-white" />
-                </div>
-                <div className="text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">Our Mission</h2>
-                  <p className="text-lg text-white/80">
-                    To empower businesses with intelligent, data-driven marketing strategies that deliver measurable growth and sustainable competitive advantage.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          <AnimatedSection className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-4">
+              Mission & Vision
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white">
+              What Drives <span className="text-accent">Senseoza</span>
+            </h2>
           </AnimatedSection>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+            <StaggerContainer className="space-y-6 lg:col-span-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <StaggerItem>
+                  <motion.div whileHover={{ y: -6 }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                      <Rocket className="h-6 w-6 text-accent group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="font-heading font-bold text-xl text-accent mb-3">Our Mission</h3>
+                    <p className="text-muted-foreground">
+                      To empower businesses with intelligent, data-driven marketing strategies that deliver measurable growth and sustainable competitive advantage.
+                    </p>
+                  </motion.div>
+                </StaggerItem>
+                <StaggerItem>
+                  <motion.div whileHover={{ y: -6 }} className="group bg-card border border-border/50 rounded-2xl p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                      <Eye className="h-6 w-6 text-accent group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="font-heading font-bold text-xl text-accent mb-3">Our Vision</h3>
+                    <p className="text-muted-foreground">
+                      To become the most trusted AI-powered marketing partner for businesses worldwide, setting new standards for transparency, innovation, and measurable results.
+                    </p>
+                  </motion.div>
+                </StaggerItem>
+              </div>
+            </StaggerContainer>
+            <AnimatedSection direction="right" className="hidden lg:flex justify-center">
+              <FloatingElement distance={12} duration={5} delay={1}>
+                <img src={missionVisionImage} alt="Senseoza mission and vision" className="w-full max-w-xs drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
