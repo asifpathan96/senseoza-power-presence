@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles, TrendingUp, Users, Zap, Brain, Search, Share2, FileText, MousePointerClick, Globe, Target, BarChart, Shield, Lightbulb, Award, Building } from 'lucide-react';
@@ -33,7 +34,35 @@ import sectionDifferentiators from '@/assets/section-differentiators.png';
 import sectionProcess from '@/assets/section-process.png';
 import sectionWhyChoose from '@/assets/section-why-choose.png';
 import sectionCta from '@/assets/section-cta.png';
+const clientsList = [
+  { name: 'Pantaloons', logo: logoPantaloons },
+  { name: 'Kohler', logo: logoKohler },
+  { name: 'Titan', logo: logoTitan },
+  { name: 'Sukhwani Builders', logo: logoSukhwani },
+  { name: 'Panchshil Builders', logo: logoPanchshil },
+  { name: 'Spotless Interiors', logo: logoSpotless },
+  { name: 'Banesab Motors', logo: logoBanesab },
+  { name: 'Fastrack', logo: logoFastrack },
+  { name: 'Aurum Icecreams', logo: logoAurum },
+  { name: 'Radhakirti Construction', logo: logoRadhakirti },
+  { name: 'Ayodhya Care Plus', logo: logoAyodhya },
+];
+
+const clientSlides: (typeof clientsList)[] = [];
+for (let i = 0; i < clientsList.length; i += 4) {
+  clientSlides.push(clientsList.slice(i, i + 4));
+}
+
 const Home = () => {
+  const [currentClientSlide, setCurrentClientSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentClientSlide(prev => (prev + 1) % clientSlides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const stats = [{
     number: 500,
     suffix: '+',
@@ -331,54 +360,46 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          <div className="max-w-6xl mx-auto relative overflow-hidden">
-            <motion.div
-              className="flex gap-5"
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 20, ease: 'linear' } }}
-            >
-              {[
-                { name: 'Pantaloons', logo: logoPantaloons },
-                { name: 'Kohler', logo: logoKohler },
-                { name: 'Titan', logo: logoTitan },
-                { name: 'Sukhwani Builders', logo: logoSukhwani },
-                { name: 'Panchshil Builders', logo: logoPanchshil },
-                { name: 'Spotless Interiors', logo: logoSpotless },
-                { name: 'Banesab Motors', logo: logoBanesab },
-                { name: 'Fastrack', logo: logoFastrack },
-                { name: 'Aurum Icecreams', logo: logoAurum },
-                { name: 'Radhakirti Construction', logo: logoRadhakirti },
-                { name: 'Pantaloons', logo: logoPantaloons },
-                { name: 'Kohler', logo: logoKohler },
-                { name: 'Titan', logo: logoTitan },
-                { name: 'Sukhwani Builders', logo: logoSukhwani },
-                { name: 'Panchshil Builders', logo: logoPanchshil },
-                { name: 'Spotless Interiors', logo: logoSpotless },
-                { name: 'Banesab Motors', logo: logoBanesab },
-                { name: 'Fastrack', logo: logoFastrack },
-                { name: 'Aurum Icecreams', logo: logoAurum },
-                { name: 'Radhakirti Construction', logo: logoRadhakirti },
-              ].map((client, index) => (
-                <div
-                  key={index}
-                  className="group flex-shrink-0 flex flex-col items-center justify-center w-48 h-32 rounded-2xl bg-white px-6 py-4 shadow-md hover:shadow-xl hover:shadow-primary/10 hover:scale-105 border border-border/20 hover:border-primary/30 transition-all duration-300"
-                >
-                  <img
-                    src={client.logo}
-                    alt={`${client.name} logo`}
-                    className="max-h-12 max-w-[120px] object-contain group-hover:scale-110 transition-transform duration-300"
-                    loading="lazy"
-                    width={120}
-                    height={48}
-                  />
-                  <span className="mt-2 text-xs text-gray-500 font-medium text-center leading-tight">{client.name}</span>
+          <div className="max-w-5xl mx-auto">
+                <div className="relative overflow-hidden">
+                  <motion.div
+                    className="flex"
+                    animate={{ x: `-${currentClientSlide * 100}%` }}
+                    transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    {clientSlides.map((slide, slideIdx) => (
+                      <div key={slideIdx} className="w-full flex-shrink-0 grid grid-cols-2 md:grid-cols-4 gap-5 px-1">
+                        {slide.map((client, idx) => (
+                          <div
+                            key={idx}
+                            className="group flex flex-col items-center justify-center h-32 rounded-2xl bg-white px-6 py-4 shadow-md hover:shadow-xl hover:shadow-primary/10 hover:scale-105 border border-border/20 hover:border-primary/30 transition-all duration-300"
+                          >
+                            <img
+                              src={client.logo}
+                              alt={`${client.name} logo`}
+                              className="max-h-12 max-w-[120px] object-contain group-hover:scale-110 transition-transform duration-300"
+                              loading="lazy"
+                              width={120}
+                              height={48}
+                            />
+                            <span className="mt-2 text-xs text-muted-foreground font-medium text-center leading-tight">{client.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </motion.div>
                 </div>
-              ))}
-            </motion.div>
-            {/* Fade edges */}
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-primary/10 to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-primary/10 to-transparent z-10 pointer-events-none" />
-          </div>
+                {/* Dots */}
+                <div className="flex justify-center gap-2 mt-8">
+                  {clientSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentClientSlide(idx)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentClientSlide ? 'bg-accent w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
+                    />
+                  ))}
+                </div>
+              </div>
         </div>
       </section>
 
