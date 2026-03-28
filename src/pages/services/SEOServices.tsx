@@ -140,14 +140,55 @@ const SEOServices = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold text-center mb-8">
-              Why Search Engine Optimization Matters for Your Business
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Search Engine Optimization represents one of the most valuable investments in digital marketing. When potential customers search for solutions you provide, being visible at the right moment creates opportunities that paid advertising simply cannot match. Our approach focuses on building long-term visibility that compounds over time, creating sustainable traffic sources that continue delivering results months and years after implementation. Unlike temporary marketing tactics, proper SEO creates lasting value by establishing your digital authority and making your business discoverable to customers actively seeking your services.
-            </p>
-          </AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img 
+                  src={seoWhyMatters} 
+                  alt="SEO growth and keyword analysis visualization" 
+                  className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90"
+                  loading="lazy"
+                  width={1024}
+                  height={1024}
+                />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <TrendingUp className="h-4 w-4" /> Why It Matters
+              </span>
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                Why Search Engine Optimization{' '}
+                <span className="text-accent">Matters for Your Business</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Search Engine Optimization represents one of the most valuable investments in digital marketing. When potential customers search for solutions you provide, being visible at the right moment creates opportunities that paid advertising simply cannot match.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">93%</p>
+                  <p className="text-sm text-muted-foreground">Online experiences begin with a search engine</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">75%</p>
+                  <p className="text-sm text-muted-foreground">Users never scroll past the first page</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">14.6%</p>
+                  <p className="text-sm text-muted-foreground">SEO leads close rate vs 1.7% outbound</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">5.3x</p>
+                  <p className="text-sm text-muted-foreground">ROI compared to paid advertising</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
