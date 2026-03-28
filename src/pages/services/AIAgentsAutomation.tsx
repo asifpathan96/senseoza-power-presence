@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import serviceAiAgents from '@/assets/service-ai-agents.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
