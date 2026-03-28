@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { FileText, ArrowRight, CheckCircle, Target, TrendingUp, Sparkles, BarChart3, Clock, Pen, Video, BookOpen, Mail, Award, Building2 } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-content.png';
+import contentWhyMatters from '@/assets/content-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
@@ -166,27 +167,44 @@ const ContentMarketing = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-              <Sparkles className="h-4 w-4" /> Strategic Value
-            </span>
-            <h2 className="text-4xl font-heading font-bold">
-              The Strategic Value of Quality Content
-            </h2>
-          </AnimatedSection>
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whyContentMarketing.map((item, index) => (
-              <StaggerItem key={index}>
-                <motion.div 
-                  className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <h3 className="text-lg font-heading font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img src={contentWhyMatters} alt="Content marketing creation visualization" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90" loading="lazy" width={1024} height={1024} />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <Sparkles className="h-4 w-4" /> Strategic Value
+              </span>
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                The Strategic Value of{' '}
+                <span className="text-accent">Quality Content</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Search engines reward fresh, relevant content. Every piece creates another opportunity to rank for keywords your customers search.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">3x</p>
+                  <p className="text-sm text-muted-foreground">More leads than traditional marketing</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">62%</p>
+                  <p className="text-sm text-muted-foreground">Less cost than outbound marketing</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">6x</p>
+                  <p className="text-sm text-muted-foreground">Higher conversion for content adopters</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">434%</p>
+                  <p className="text-sm text-muted-foreground">More indexed pages boost SEO</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -200,7 +218,8 @@ const ContentMarketing = () => {
               Comprehensive Solutions
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Comprehensive Content Marketing Solutions
+              Comprehensive Content{' '}
+              <span className="text-accent">Marketing Solutions</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -234,7 +253,8 @@ const ContentMarketing = () => {
               Our Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Content Development Methodology
+              Our Content Development{' '}
+              <span className="text-accent">Methodology</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -269,7 +289,8 @@ const ContentMarketing = () => {
               <BarChart3 className="h-4 w-4" /> Success Metrics
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              How We Measure Content Marketing Success
+              How We Measure{' '}
+              <span className="text-accent">Content Marketing Success</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -297,7 +318,8 @@ const ContentMarketing = () => {
               <Building2 className="h-4 w-4" /> Industries We Serve
             </span>
             <h2 className="text-4xl font-heading font-bold mb-4">
-              Content Expertise Across Sectors
+              Content Expertise{' '}
+              <span className="text-accent">Across Sectors</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Understanding industry-specific terminology, pain points, and buying processes allows us to create content that truly resonates.
@@ -325,7 +347,8 @@ const ContentMarketing = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Flexible Content Solutions
+                Flexible Content{' '}
+                <span className="text-accent">Solutions</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Content marketing needs vary dramatically by business size, industry, and growth stage. A startup requires different content than an established enterprise. E-commerce businesses need different assets than professional services firms. We develop custom content programs tailored to your specific situation including available budget, business objectives, competitive landscape, and internal resources.
@@ -343,7 +366,8 @@ const ContentMarketing = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Build a Content Marketing Engine?
+              Ready to Build a{' '}
+              <span className="text-accent">Content Marketing Engine?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop struggling with inconsistent content creation. Partner with Senseoza to build a systematic content marketing program that attracts qualified leads, establishes authority, and drives sustainable business growth.

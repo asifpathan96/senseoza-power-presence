@@ -262,7 +262,8 @@ const About = () => {
               Why Senseoza Exists
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-              Democratizing Advanced Marketing
+              Democratizing{' '}
+              <span className="text-accent">Advanced Marketing</span>
             </h2>
             <p className="text-lg text-white/80 leading-relaxed">
               We believe small and medium-sized businesses deserve access to enterprise-level marketing expertise. That is why we have made it our mission to democratize advanced marketing strategies through AI and automation. Whether you are a startup looking to make your mark or an established business ready to scale, Senseoza provides the tools, expertise, and dedication you need to compete—and win—in today's digital marketplace.

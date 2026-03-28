@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, CheckCircle, TrendingUp, Target, Heart, Sparkles, Star, BarChart3, Megaphone, Clock, Building2, Search, Shield } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import influencerWhyMatters from '@/assets/influencer-why-matters.png';
 import { motion } from 'framer-motion';
 
 const InfluencerMarketing = () => {
@@ -155,26 +156,43 @@ const InfluencerMarketing = () => {
       <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-              <Sparkles className="h-4 w-4" /> The Power of Influence
-            </span>
-            <h2 className="text-4xl font-heading font-bold">
-              The Power of Authentic Influence
-            </h2>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whyInfluencerMarketing.map((item, index) => (
-              <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
-                <motion.div 
-                  className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <h3 className="text-lg font-heading font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img src={influencerWhyMatters} alt="Influencer marketing network visualization" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90" loading="lazy" width={1024} height={1024} />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <Sparkles className="h-4 w-4" /> The Power of Influence
+              </span>
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                The Power of{' '}
+                <span className="text-accent">Authentic Influence</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                Influencers have invested years building loyal communities who trust their judgment. When they endorse your brand, that trust transfers to you.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">92%</p>
+                  <p className="text-sm text-muted-foreground">Trust influencer recommendations</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">11x</p>
+                  <p className="text-sm text-muted-foreground">ROI vs traditional advertising</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">49%</p>
+                  <p className="text-sm text-muted-foreground">Consumers rely on influencer advice</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">5.2x</p>
+                  <p className="text-sm text-muted-foreground">Higher engagement than brand posts</p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -187,7 +205,8 @@ const InfluencerMarketing = () => {
               <Users className="h-4 w-4" /> Influencer Tiers
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Influencer Tiers We Work With
+              Influencer Tiers{' '}
+              <span className="text-accent">We Work With</span>
             </h2>
           </AnimatedSection>
           <div className="space-y-4 max-w-4xl mx-auto">
@@ -221,7 +240,8 @@ const InfluencerMarketing = () => {
               <Star className="h-4 w-4" /> Our Services
             </span>
             <h2 className="text-4xl font-heading font-bold text-white mb-4">
-              End-to-End Influencer Campaign Management
+              End-to-End Influencer{' '}
+              <span className="text-accent">Campaign Management</span>
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               From strategy to execution, we handle every aspect of your influencer marketing journey.
@@ -259,7 +279,8 @@ const InfluencerMarketing = () => {
               <Clock className="h-4 w-4" /> Our Process
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              How We Build Successful Campaigns
+              How We Build{' '}
+              <span className="text-accent">Successful Campaigns</span>
             </h2>
           </AnimatedSection>
           
@@ -349,7 +370,8 @@ const InfluencerMarketing = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 text-white">
-              Ready to Partner with Influencers?
+              Ready to Partner with{' '}
+              <span className="text-accent">Influencers?</span>
             </h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
               Let's create campaigns that resonate with your audience and drive real business results through authentic influencer partnerships.

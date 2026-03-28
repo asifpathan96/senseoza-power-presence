@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Globe, ArrowRight, CheckCircle, Target, Sparkles, BarChart3, Clock, Smartphone, ShoppingCart, Code, Palette, Wrench, Shield, Zap, Building2 } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-web-design.png';
+import webWhyMatters from '@/assets/webdesign-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
@@ -156,26 +157,43 @@ const WebDesign = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-              <Sparkles className="h-4 w-4" /> Business Impact
-            </span>
-            <h2 className="text-4xl font-heading font-bold">
-              The Business Impact of Website Design
-            </h2>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whyDesignMatters.map((item, index) => (
-              <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
-                <motion.div 
-                  className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <h3 className="text-lg font-heading font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img src={webWhyMatters} alt="Web design and development visualization" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90" loading="lazy" width={1024} height={1024} />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <Sparkles className="h-4 w-4" /> Business Impact
+              </span>
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                The Business Impact of{' '}
+                <span className="text-accent">Website Design</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                You have just 0.05 seconds to make a positive first impression. 94% of first impressions relate specifically to design.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">94%</p>
+                  <p className="text-sm text-muted-foreground">First impressions are design-related</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">60%</p>
+                  <p className="text-sm text-muted-foreground">Traffic comes from mobile devices</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">53%</p>
+                  <p className="text-sm text-muted-foreground">Abandon sites loading over 3 seconds</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">200%</p>
+                  <p className="text-sm text-muted-foreground">Conversion boost from great UX</p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -187,10 +205,12 @@ const WebDesign = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-6">
-              Comprehensive Web Solutions
+              Comprehensive Web{' '}
+              <span className="text-accent">Solutions</span>
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Comprehensive Web Solutions
+              Comprehensive Web{' '}
+              <span className="text-accent">Solutions</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -224,7 +244,8 @@ const WebDesign = () => {
               <Clock className="h-4 w-4" /> Our Methodology
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Design and Development Methodology
+              Our Design and Development{' '}
+              <span className="text-accent">Methodology</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -259,7 +280,8 @@ const WebDesign = () => {
               <Zap className="h-4 w-4" /> Standard Features
             </span>
             <h2 className="text-4xl font-heading font-bold mb-4">
-              What Every Senseoza Website Includes
+              What Every Senseoza{' '}
+              <span className="text-accent">Website Includes</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -285,7 +307,8 @@ const WebDesign = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored to Your Needs
+                Tailored to{' '}
+                <span className="text-accent">Your Needs</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Website requirements vary dramatically by business type, size, and objectives. A local service business needs vastly different features than a national e-commerce brand. B2B companies require different approaches than B2C. That's why we don't force you into predefined packages. Instead, we develop custom solutions based on your specific goals, audience, functionality requirements, budget parameters, and timeline constraints.
@@ -303,7 +326,8 @@ const WebDesign = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Launch a High-Converting Website?
+              Ready to Launch a{' '}
+              <span className="text-accent">High-Converting Website?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop losing customers to outdated, slow, or confusing websites. Partner with Senseoza to build a digital presence optimized for conversions and designed to drive real business growth.

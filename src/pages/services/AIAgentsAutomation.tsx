@@ -365,7 +365,8 @@ const AIAgentsAutomation = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-heading font-bold mb-6 text-center">
-              Understanding AI Agents and Intelligent Automation
+              Understanding AI Agents and{' '}
+              <span className="text-accent">Intelligent Automation</span>
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>

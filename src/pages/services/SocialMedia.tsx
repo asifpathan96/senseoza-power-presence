@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Share2, ArrowRight, CheckCircle, Target, TrendingUp, Sparkles, BarChart3, Clock, Users, MessageSquare, Camera, Megaphone } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-social-media.png';
+import socialWhyMatters from '@/assets/social-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
@@ -128,26 +129,43 @@ const SocialMedia = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-6">
-              <Sparkles className="h-4 w-4" /> The Business Case
-            </span>
-            <h2 className="text-4xl font-heading font-bold">
-              The Business Case for Strategic Social Media
-            </h2>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {whySocialMedia.map((item, index) => (
-              <AnimatedSection key={index} direction={index % 2 === 0 ? 'left' : 'right'}>
-                <motion.div 
-                  className="h-full p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
-                >
-                  <h3 className="text-lg font-heading font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </motion.div>
-              </AnimatedSection>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-2xl opacity-60" />
+                <img src={socialWhyMatters} alt="Social media engagement visualization" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 brightness-90" loading="lazy" width={1024} height={1024} />
+              </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-accent text-sm font-semibold mb-6">
+                <Sparkles className="h-4 w-4" /> The Business Case
+              </span>
+              <h2 className="text-4xl font-heading font-bold mb-6">
+                The Business Case for{' '}
+                <span className="text-accent">Strategic Social Media</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                78% of consumers discover new brands through social media. Your potential customers are actively looking for solutions on the platforms they use daily.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">78%</p>
+                  <p className="text-sm text-muted-foreground">Consumers discover brands via social</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">4.9B</p>
+                  <p className="text-sm text-muted-foreground">Active social media users worldwide</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">71%</p>
+                  <p className="text-sm text-muted-foreground">More likely to buy after positive interaction</p>
+                </div>
+                <div className="p-4 bg-card rounded-xl border border-border">
+                  <p className="text-3xl font-bold text-accent mb-1">2.5hr</p>
+                  <p className="text-sm text-muted-foreground">Average daily social media time</p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -162,7 +180,8 @@ const SocialMedia = () => {
               Complete Social Media Management
             </span>
             <h2 className="text-4xl font-heading font-bold text-white">
-              Our Social Media Services
+              Our Social Media{' '}
+              <span className="text-accent">Services</span>
             </h2>
           </AnimatedSection>
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -196,7 +215,8 @@ const SocialMedia = () => {
               <Users className="h-4 w-4" /> Platform Expertise
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Mastery Across Major Platforms
+              Mastery Across{' '}
+              <span className="text-accent">Major Platforms</span>
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -223,7 +243,8 @@ const SocialMedia = () => {
               Our Content Framework
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Our Proven Content Framework
+              Our Proven{' '}
+              <span className="text-accent">Content Framework</span>
             </h2>
             <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
               We implement a balanced 40-40-20 content strategy that keeps audiences engaged without being overly promotional.
@@ -255,7 +276,8 @@ const SocialMedia = () => {
               <Clock className="h-4 w-4" /> Growth Timeline
             </span>
             <h2 className="text-4xl font-heading font-bold">
-              Social Media Growth Timeline
+              Social Media{' '}
+              <span className="text-accent">Growth Timeline</span>
             </h2>
           </AnimatedSection>
           <div className="max-w-4xl mx-auto">
@@ -285,7 +307,8 @@ const SocialMedia = () => {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection className="text-center">
               <h2 className="text-4xl font-heading font-bold mb-6">
-                Tailored Solutions for Your Brand
+                Tailored Solutions for{' '}
+                <span className="text-accent">Your Brand</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 No two businesses have identical social media needs. A local service business requires a vastly different approach than a national e-commerce brand. B2B companies need different strategies than B2C. That's why we don't offer cookie-cutter packages. Instead, we develop custom strategies based on your specific audience, business goals, competitive landscape, and resources.
@@ -303,7 +326,8 @@ const SocialMedia = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <AnimatedSection>
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
-              Ready to Build Your Social Media Presence?
+              Ready to Build Your{' '}
+              <span className="text-accent">Social Media Presence?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop posting randomly and start implementing a strategic social media approach that drives real business results. Let's discuss how we can transform your social channels into growth engines.
