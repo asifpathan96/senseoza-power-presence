@@ -121,10 +121,10 @@ const WebDesign = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Web Design That Converts Visitors Into Customers
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 Your website serves as your digital storefront, 24/7 salesperson, and often the first impression potential customers form of your business. At Senseoza, we design and develop websites with singular focus on results. Beautiful design matters, but we prioritize performance, user experience, and conversion optimization above all else.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Custom Design | E-commerce | WordPress | Landing Pages
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -304,7 +304,7 @@ const WebDesign = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Launch a High-Converting Website?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop losing customers to outdated, slow, or confusing websites. Partner with Senseoza to build a digital presence optimized for conversions and designed to drive real business growth.
             </p>
             <Link to="/contact">

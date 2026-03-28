@@ -93,10 +93,10 @@ const SocialMedia = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Social Media Marketing That Builds Communities and Drives Business
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 With over 4.9 billion people using social platforms worldwide, your customers are already there, engaging with content and making buying decisions. The question isn't whether you should be on social media, but whether you're using it strategically to grow your business.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Instagram | Facebook | LinkedIn | TikTok | Twitter
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -304,7 +304,7 @@ const SocialMedia = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Build Your Social Media Presence?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop posting randomly and start implementing a strategic social media approach that drives real business results. Let's discuss how we can transform your social channels into growth engines.
             </p>
             <Link to="/contact">

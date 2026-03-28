@@ -124,10 +124,10 @@ const EmailAutomation = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Marketing Automation That Scales Without Adding Headcount
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 Imagine your marketing running continuously—nurturing leads, personalizing customer experiences, triggering timely communications, and driving conversions around the clock without manual intervention. That's the power of marketing automation.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Email Automation | CRM Integration | Lead Nurturing | AI Insights
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -343,7 +343,7 @@ const EmailAutomation = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Scale Your Marketing?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop wasting time on repetitive tasks that technology can handle better. Let our automation specialists implement systems that work tirelessly to nurture leads, personalize experiences, and drive conversions 24/7.
             </p>
             <Link to="/contact">

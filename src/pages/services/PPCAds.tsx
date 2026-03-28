@@ -118,10 +118,10 @@ const PPCAds = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Strategic PPC Management That Maximizes Every Advertising Dollar
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 When you need immediate visibility and qualified traffic, pay-per-click advertising delivers results from day one. The difference between profitable campaigns and wasted budget lies in strategic management and continuous optimization. We don't just run ads—we engineer profitable customer acquisition systems.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Google Ads | Meta Ads | LinkedIn Ads | Retargeting
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -339,7 +339,7 @@ const PPCAds = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Generate Immediate Results?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop wasting money on underperforming campaigns. Let our PPC experts develop a customized strategy that turns your ad spend into predictable, profitable growth.
             </p>
             <Link to="/contact">

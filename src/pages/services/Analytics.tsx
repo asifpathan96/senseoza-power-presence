@@ -145,10 +145,10 @@ const Analytics = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Analytics & Reporting
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 In marketing, what gets measured gets improved. Our analytics and reporting services transform raw data into clear, actionable insights that drive smarter decisions and better results. Stop guessing about what works—start knowing.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Real-time Dashboards | ROI Tracking | Performance Reports
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -243,7 +243,7 @@ const Analytics = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Our Analytics Services
             </h2>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
               From setup to ongoing optimization, we provide end-to-end analytics solutions.
             </p>
           </AnimatedSection>
@@ -256,7 +256,7 @@ const Analytics = () => {
                   whileHover={{ scale: 1.02, y: -4 }}
                 >
                   <h3 className="text-xl font-heading font-bold text-accent mb-3">{service.title}</h3>
-                  <p className="text-primary-foreground/80">{service.description}</p>
+                  <p className="text-white/80">{service.description}</p>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -342,7 +342,7 @@ const Analytics = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready for Data-Driven Marketing?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop guessing and start growing. Let us build analytics infrastructure that gives you complete visibility into what's working and why.
             </p>
             <Link to="/contact">
