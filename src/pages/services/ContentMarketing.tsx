@@ -131,10 +131,10 @@ const ContentMarketing = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Content Marketing That Attracts, Engages, and Converts
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 In today's digital landscape, customers conduct extensive research before making purchasing decisions. Content marketing isn't about pushing your message—it's about being discovered when customers actively seek solutions.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Blog Writing | Video Content | Ebooks | Infographics
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -344,7 +344,7 @@ const ContentMarketing = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Build a Content Marketing Engine?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop struggling with inconsistent content creation. Partner with Senseoza to build a systematic content marketing program that attracts qualified leads, establishes authority, and drives sustainable business growth.
             </p>
             <Link to="/contact">

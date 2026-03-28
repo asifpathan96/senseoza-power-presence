@@ -133,10 +133,10 @@ const AIMarketing = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 AI-Powered Marketing
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 Harness the power of artificial intelligence to transform your marketing from reactive to predictive. Our AI-driven approach delivers personalized experiences at scale, optimizes campaigns in real-time, and uncovers insights that drive exponential growth.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Predictive Analytics | AI Automation | Smart Segmentation
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -231,7 +231,7 @@ const AIMarketing = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               AI Marketing in Action
             </h2>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
               See how businesses are leveraging AI to transform their marketing results.
             </p>
           </AnimatedSection>
@@ -244,7 +244,7 @@ const AIMarketing = () => {
                   whileHover={{ scale: 1.02, y: -4 }}
                 >
                   <h3 className="text-xl font-heading font-bold text-accent mb-3">{useCase.title}</h3>
-                  <p className="text-primary-foreground/80">{useCase.description}</p>
+                  <p className="text-white/80">{useCase.description}</p>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -295,7 +295,7 @@ const AIMarketing = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Harness the Power of AI?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Transform your marketing with artificial intelligence. Schedule a consultation to discover how AI can revolutionize your customer acquisition and retention strategies.
             </p>
             <Link to="/contact">

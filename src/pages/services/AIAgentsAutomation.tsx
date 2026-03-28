@@ -348,10 +348,10 @@ const AIAgentsAutomation = () => {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 AI Agents & Workflow Automation That Work 24/7 for Your Business
               </h1>
-              <p className="text-lg md:text-xl text-primary-foreground/80 mb-6 max-w-4xl mx-auto">
+              <p className="text-lg md:text-xl text-white/80 mb-6 max-w-4xl mx-auto">
                 Imagine having a tireless digital workforce that handles repetitive tasks, makes intelligent decisions, and operates around the clock without breaks or errors. AI agents are autonomous software systems capable of perceiving, reasoning, and acting independently to automate business processes—making decisions without human intervention while continuously learning and adapting.
               </p>
-              <p className="font-semibold text-primary-foreground">
+              <p className="font-semibold text-white">
                 24/7 Operations | 70% Task Reduction | ROI in Months
               </p>
             </AnimatedSection>
@@ -449,7 +449,7 @@ const AIAgentsAutomation = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Custom AI Agents Tailored to Your Business
             </h2>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
               We build intelligent automation solutions for every aspect of your operations.
             </p>
           </AnimatedSection>
@@ -465,7 +465,7 @@ const AIAgentsAutomation = () => {
                     <service.icon className="h-8 w-8 text-accent" />
                   </div>
                   <h3 className="text-xl font-heading font-bold text-accent mb-3">{service.title}</h3>
-                  <p className="text-primary-foreground/80 text-sm">{service.description}</p>
+                  <p className="text-white/80 text-sm">{service.description}</p>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -806,7 +806,7 @@ const AIAgentsAutomation = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Automate Your Business Processes?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Stop wasting valuable time on repetitive tasks that AI agents can handle better, faster, and more accurately. Let Senseoza build intelligent automation solutions that transform how your business operates.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -104,10 +104,10 @@ const SEOServices = () => {
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
                 Professional SEO Services That Drive Organic Growth
               </h1>
-              <p className="text-xl text-primary-foreground/80 mb-6">
+              <p className="text-xl text-white/80 mb-6">
                 Achieving top rankings on search engines isn't just about keywords—it's about creating a comprehensive strategy that combines technical excellence, compelling content, and authoritative signals. We don't just aim for rankings; we focus on attracting qualified visitors who convert into paying customers.
               </p>
-              <p className="font-semibold text-primary-foreground mb-8">
+              <p className="font-semibold text-white mb-8">
                 Technical SEO | Keyword Research | Link Building | Local SEO
               </p>
               <Link to="/contact" className="inline-block mb-12">
@@ -301,7 +301,7 @@ const SEOServices = () => {
             <h2 className="text-4xl font-heading font-bold text-accent mb-6">
               Ready to Dominate Search Rankings?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let's discuss how our SEO expertise can transform your online visibility and drive qualified traffic to your business. Schedule a free consultation to explore customized strategies for your unique needs.
             </p>
             <Link to="/contact">
