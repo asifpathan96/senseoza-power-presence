@@ -389,6 +389,17 @@ const Home = () => {
                             <span className="mt-2 text-xs text-muted-foreground font-medium text-center leading-tight">{client.name}</span>
                           </div>
                         ))}
+                        {/* Add CTA card on the last slide to fill remaining slots */}
+                        {slideIdx === clientSlides.length - 1 && slide.length < 4 && (
+                          <Link
+                            to="/contact"
+                            className="group flex flex-col items-center justify-center h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 px-6 py-4 shadow-md hover:shadow-xl hover:shadow-accent/20 hover:scale-105 border-2 border-dashed border-accent/40 hover:border-accent transition-all duration-300 cursor-pointer"
+                          >
+                            <Sparkles className="h-8 w-8 text-accent mb-1 group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-sm font-bold text-foreground text-center">Your Brand Here?</span>
+                            <span className="text-[10px] text-muted-foreground mt-1">Ready to Grow →</span>
+                          </Link>
+                        )}
                       </div>
                     ))}
                   </motion.div>
