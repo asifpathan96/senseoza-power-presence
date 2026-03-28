@@ -118,8 +118,9 @@ const WebDesign = () => {
               >
                 <Globe className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Web Design That Converts Visitors Into Customers
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Web Design That Converts{' '}
+                <span className="text-accent">Visitors Into Customers</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 Your website serves as your digital storefront, 24/7 salesperson, and often the first impression potential customers form of your business. At Senseoza, we design and develop websites with singular focus on results. Beautiful design matters, but we prioritize performance, user experience, and conversion optimization above all else.

@@ -142,8 +142,9 @@ const Analytics = () => {
               >
                 <BarChart className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Analytics & Reporting
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Analytics &{' '}
+                <span className="text-accent">Reporting</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 In marketing, what gets measured gets improved. Our analytics and reporting services transform raw data into clear, actionable insights that drive smarter decisions and better results. Stop guessing about what works—start knowing.

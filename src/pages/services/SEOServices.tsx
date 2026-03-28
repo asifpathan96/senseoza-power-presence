@@ -101,8 +101,9 @@ const SEOServices = () => {
               >
                 <Search className="h-12 w-12 text-accent icon-3d" />
               </motion.div>
-              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-accent">
-                Professional SEO Services That Drive Organic Growth
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Professional SEO Services That{' '}
+                <span className="text-accent">Drive Organic Growth</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
                 Achieving top rankings on search engines isn't just about keywords—it's about creating a comprehensive strategy that combines technical excellence, compelling content, and authoritative signals. We don't just aim for rankings; we focus on attracting qualified visitors who convert into paying customers.
