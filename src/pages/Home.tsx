@@ -59,7 +59,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentClientSlide(prev => (prev + 1) % clientSlides.length);
-    }, 4000);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 
