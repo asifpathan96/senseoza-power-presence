@@ -30,6 +30,8 @@ import logoBanesab from '@/assets/clients/banesab.jpg';
 import logoAurum from '@/assets/aurum_icecream_logo.jpeg';
 import logoAyodhya from '@/assets/ayodhya_care_plus_hospital_logo.png';
 import logoRadhakirti from '@/assets/clients/radhakirti.jpeg';
+import logoMiaTanishq from '@/assets/mia_by_tanishq_logo.png';
+import logoJeepMeridian from '@/assets/jeep_meridian_logo.png';
 import sectionDifferentiators from '@/assets/section-differentiators.png';
 import sectionProcess from '@/assets/section-process.png';
 import sectionWhyChoose from '@/assets/section-why-choose.png';
