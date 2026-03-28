@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import aboutImage from '@/assets/about-3d.png';
 import heroAbout from '@/assets/hero-about.png';
 import missionVisionImage from '@/assets/about-mission-vision.png';
+import democratizeImage from '@/assets/about-democratize.png';
 
 const About = () => {
   const values = [
@@ -280,18 +281,25 @@ const About = () => {
         <div className="absolute inset-0 gradient-hero" />
         <div className="absolute inset-0 dot-pattern opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-4">
-              Why Senseoza Exists
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-              Democratizing{' '}
-              <span className="text-accent">Advanced Marketing</span>
-            </h2>
-            <p className="text-lg text-white/80 leading-relaxed">
-              We believe small and medium-sized businesses deserve access to enterprise-level marketing expertise. That is why we have made it our mission to democratize advanced marketing strategies through AI and automation. Whether you are a startup looking to make your mark or an established business ready to scale, Senseoza provides the tools, expertise, and dedication you need to compete—and win—in today's digital marketplace.
-            </p>
-          </AnimatedSection>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection direction="right">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-semibold mb-4">
+                Why Senseoza Exists
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+                Democratizing{' '}
+                <span className="text-accent">Advanced Marketing</span>
+              </h2>
+              <p className="text-lg text-white/80 leading-relaxed">
+                We believe small and medium-sized businesses deserve access to enterprise-level marketing expertise. That is why we have made it our mission to democratize advanced marketing strategies through AI and automation. Whether you are a startup looking to make your mark or an established business ready to scale, Senseoza provides the tools, expertise, and dedication you need to compete—and win—in today's digital marketplace.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection direction="left" className="hidden lg:flex justify-center">
+              <FloatingElement distance={14} duration={5} delay={1}>
+                <img src={democratizeImage} alt="Democratizing advanced marketing" className="w-full max-w-sm drop-shadow-2xl" loading="lazy" width={800} height={800} />
+              </FloatingElement>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
