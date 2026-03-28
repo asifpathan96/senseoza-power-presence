@@ -331,7 +331,7 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
             {[
               { name: 'Pantaloons', logo: logoPantaloons },
               { name: 'Kohler', logo: logoKohler },
@@ -345,15 +345,16 @@ const Home = () => {
               { name: 'Radhakirti Construction', logo: logoRadhakirti },
             ].map((client, index) => (
               <StaggerItem key={index}>
-                <div className="group flex items-center justify-center h-28 rounded-2xl border border-primary/10 bg-card/80 backdrop-blur-md px-6 shadow-sm hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:scale-105 hover:bg-card transition-all duration-300">
+                <div className="group flex flex-col items-center justify-center h-32 rounded-2xl bg-white px-6 py-4 shadow-md hover:shadow-xl hover:shadow-primary/10 hover:scale-105 border border-border/20 hover:border-primary/30 transition-all duration-300">
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
-                    className="max-h-16 max-w-[140px] object-contain group-hover:scale-110 transition-transform duration-300"
+                    className="max-h-12 max-w-[120px] object-contain group-hover:scale-110 transition-transform duration-300"
                     loading="lazy"
-                    width={140}
-                    height={64}
+                    width={120}
+                    height={48}
                   />
+                  <span className="mt-2 text-xs text-gray-500 font-medium text-center leading-tight">{client.name}</span>
                 </div>
               </StaggerItem>
             ))}
