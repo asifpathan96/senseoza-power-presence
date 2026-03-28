@@ -257,10 +257,10 @@ const InfluencerMarketing = () => {
                     whileHover={{ y: -5, scale: 1.02 }}
                     className="h-full p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300"
                   >
-                    <div className="p-3 bg-white/20 rounded-xl w-fit mb-4">
-                      <IconComponent className="h-6 w-6 text-white" />
+                    <div className="p-3 bg-accent/20 rounded-xl w-fit mb-4">
+                      <IconComponent className="h-6 w-6 text-accent" />
                     </div>
-                    <h3 className="text-xl font-heading font-bold text-white mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-heading font-bold text-accent mb-3">{service.title}</h3>
                     <p className="text-white/70">{service.description}</p>
                   </motion.div>
                 </StaggerItem>
