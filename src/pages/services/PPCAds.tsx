@@ -279,7 +279,7 @@ const PPCAds = () => {
                   className="p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <h3 className="text-xl font-heading font-bold mb-3">{advantage.title}</h3>
+                  <h3 className="text-xl font-heading font-bold mb-3 text-accent">{advantage.title}</h3>
                   <p className="text-muted-foreground">{advantage.description}</p>
                 </motion.div>
               </AnimatedSection>

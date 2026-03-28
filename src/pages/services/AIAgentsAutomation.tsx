@@ -593,7 +593,7 @@ const AIAgentsAutomation = () => {
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
                   <div className="text-2xl font-bold text-primary mb-2">{benefit.stat}</div>
-                  <h3 className="text-lg font-heading font-bold mb-2">{benefit.title}</h3>
+                  <h3 className="text-lg font-heading font-bold mb-2 text-accent">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.description}</p>
                 </motion.div>
               </StaggerItem>
