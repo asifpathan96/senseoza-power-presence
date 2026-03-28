@@ -48,7 +48,7 @@ const clientsList = [
   { name: 'Ayodhya Care Plus', logo: logoAyodhya },
 ];
 
-const clientSlides: typeof clientsList[] = [];
+const clientSlides: (typeof clientsList)[] = [];
 for (let i = 0; i < clientsList.length; i += 4) {
   clientSlides.push(clientsList.slice(i, i + 4));
 }
@@ -63,7 +63,6 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const stats = [{
   const stats = [{
     number: 500,
     suffix: '+',
