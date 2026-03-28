@@ -331,21 +331,38 @@ const Home = () => {
             </p>
           </AnimatedSection>
 
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
-            {[
-              { name: 'Pantaloons', logo: logoPantaloons },
-              { name: 'Kohler', logo: logoKohler },
-              { name: 'Titan', logo: logoTitan },
-              { name: 'Sukhwani Builders', logo: logoSukhwani },
-              { name: 'Panchshil Builders', logo: logoPanchshil },
-              { name: 'Spotless Interiors', logo: logoSpotless },
-              { name: 'Banesab Motors', logo: logoBanesab },
-              { name: 'Fastrack', logo: logoFastrack },
-              { name: 'Aurum Icecreams', logo: logoAurum },
-              { name: 'Radhakirti Construction', logo: logoRadhakirti },
-            ].map((client, index) => (
-              <StaggerItem key={index}>
-                <div className="group flex flex-col items-center justify-center h-32 rounded-2xl bg-white px-6 py-4 shadow-md hover:shadow-xl hover:shadow-primary/10 hover:scale-105 border border-border/20 hover:border-primary/30 transition-all duration-300">
+          <div className="max-w-6xl mx-auto relative overflow-hidden">
+            <motion.div
+              className="flex gap-5"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 20, ease: 'linear' } }}
+            >
+              {[
+                { name: 'Pantaloons', logo: logoPantaloons },
+                { name: 'Kohler', logo: logoKohler },
+                { name: 'Titan', logo: logoTitan },
+                { name: 'Sukhwani Builders', logo: logoSukhwani },
+                { name: 'Panchshil Builders', logo: logoPanchshil },
+                { name: 'Spotless Interiors', logo: logoSpotless },
+                { name: 'Banesab Motors', logo: logoBanesab },
+                { name: 'Fastrack', logo: logoFastrack },
+                { name: 'Aurum Icecreams', logo: logoAurum },
+                { name: 'Radhakirti Construction', logo: logoRadhakirti },
+                { name: 'Pantaloons', logo: logoPantaloons },
+                { name: 'Kohler', logo: logoKohler },
+                { name: 'Titan', logo: logoTitan },
+                { name: 'Sukhwani Builders', logo: logoSukhwani },
+                { name: 'Panchshil Builders', logo: logoPanchshil },
+                { name: 'Spotless Interiors', logo: logoSpotless },
+                { name: 'Banesab Motors', logo: logoBanesab },
+                { name: 'Fastrack', logo: logoFastrack },
+                { name: 'Aurum Icecreams', logo: logoAurum },
+                { name: 'Radhakirti Construction', logo: logoRadhakirti },
+              ].map((client, index) => (
+                <div
+                  key={index}
+                  className="group flex-shrink-0 flex flex-col items-center justify-center w-48 h-32 rounded-2xl bg-white px-6 py-4 shadow-md hover:shadow-xl hover:shadow-primary/10 hover:scale-105 border border-border/20 hover:border-primary/30 transition-all duration-300"
+                >
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
@@ -356,9 +373,12 @@ const Home = () => {
                   />
                   <span className="mt-2 text-xs text-gray-500 font-medium text-center leading-tight">{client.name}</span>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+              ))}
+            </motion.div>
+            {/* Fade edges */}
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-primary/10 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-primary/10 to-transparent z-10 pointer-events-none" />
+          </div>
         </div>
       </section>
 
