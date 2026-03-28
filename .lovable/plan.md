@@ -1,34 +1,37 @@
 
 
-## Remove Hero Icon from All Service Pages
+## Redesign "Trusted by Leading Brands" Section
 
-Each service page has a `motion.div` block containing an icon (with class `icon-3d`) just before the `<h1>` title in the hero section. This block needs to be removed from all 10 service pages.
+### Problem
+- Some logos (Fastrack, Aurum Icecreams) aren't visible — likely dark logos on dark backgrounds
+- Logo sizes appear inconsistent
+- Cards need uniform styling
 
-### Files to Edit (10 files)
-Remove the `motion.div` icon container (the ~6 line block with `whileHover`, `p-4 bg-gradient-to-br`, and the icon) from:
+### Solution
+Redesign the client logo grid with consistent white/light background cards so all logos are visible regardless of their original colors.
 
-1. `src/pages/services/SEOServices.tsx`
-2. `src/pages/services/PPCAds.tsx`
-3. `src/pages/services/SocialMedia.tsx`
-4. `src/pages/services/ContentMarketing.tsx`
-5. `src/pages/services/AIMarketing.tsx`
-6. `src/pages/services/WebDesign.tsx`
-7. `src/pages/services/Analytics.tsx`
-8. `src/pages/services/EmailAutomation.tsx`
-9. `src/pages/services/InfluencerMarketing.tsx`
-10. `src/pages/services/AIAgentsAutomation.tsx`
+### Changes to `src/pages/Home.tsx` (lines 334-360)
 
-### What Gets Removed
-The block that looks like this on each page:
-```jsx
-<motion.div 
-  className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6 border border-white/10"
-  whileHover={{ scale: 1.05, rotate: 5 }}
-  transition={{ type: 'spring', stiffness: 300 }}
->
-  <IconName className="h-12 w-12 text-accent icon-3d" />
-</motion.div>
+1. **Uniform card styling**: Give each logo card a solid white/light background (`bg-white`) so dark logos like Fastrack and Aurum are always visible against it
+2. **Consistent sizing**: Fixed dimensions for all cards (e.g., `h-32 w-full`) with uniform padding
+3. **Grid layout**: Clean 5-column grid on desktop, 3 on tablet, 2 on mobile — evenly spaced
+4. **Hover effect**: Subtle border glow on hover with scale effect
+5. **Image sizing**: All logos constrained to same `max-h-12` and `max-w-[120px]` with `object-contain` for uniform appearance
+
+### Card design
+```
+┌─────────────────────┐
+│                     │
+│    [LOGO IMAGE]     │  ← white bg, centered
+│     Brand Name      │  ← small text below
+│                     │
+└─────────────────────┘
 ```
 
-Also clean up any now-unused icon imports (e.g., `Search`, `Brain`, `Mail`, etc.) if they are only used in that hero block.
+Each card: `bg-white rounded-2xl border border-white/10 shadow-md` with the brand name in small muted text below the logo. This ensures dark logos (Fastrack, Aurum) are fully visible.
+
+### Technical Details
+- Edit only `src/pages/Home.tsx` lines ~334-360
+- No new files or dependencies needed
+- Add brand name label under each logo for better identification
 
