@@ -46,6 +46,8 @@ const clientsList = [
   { name: 'Aurum Icecreams', logo: logoAurum },
   { name: 'Radhakirti Construction', logo: logoRadhakirti },
   { name: 'Ayodhya Care Plus', logo: logoAyodhya },
+  { name: 'Jeep Meridian', logo: logoJeepMeridian },
+  { name: 'Mia by Tanishq', logo: logoMiaTanishq },
 ];
 
 const clientSlides: (typeof clientsList)[] = [];
