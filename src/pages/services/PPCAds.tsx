@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { MousePointerClick, ArrowRight, CheckCircle, Target, TrendingUp, Sparkles, BarChart3, Clock, Zap, RefreshCw, Eye } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-ppc.png';
+import ppcWhyMatters from '@/assets/ppc-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, ArrowRight, CheckCircle, Target, TrendingUp, Sparkles, BarChart3, Clock, Bot, Workflow, Zap, Brain, Settings, MessageSquare } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-email.png';
+import emailWhyMatters from '@/assets/email-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 

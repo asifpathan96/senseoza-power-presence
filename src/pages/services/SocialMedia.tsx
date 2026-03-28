@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Share2, ArrowRight, CheckCircle, Target, TrendingUp, Sparkles, BarChart3, Clock, Users, MessageSquare, Camera, Megaphone } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-social-media.png';
+import socialWhyMatters from '@/assets/social-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 

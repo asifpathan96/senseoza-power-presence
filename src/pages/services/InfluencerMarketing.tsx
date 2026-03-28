@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, CheckCircle, TrendingUp, Target, Heart, Sparkles, Star, BarChart3, Megaphone, Clock, Building2, Search, Shield } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
+import influencerWhyMatters from '@/assets/influencer-why-matters.png';
 import { motion } from 'framer-motion';
 
 const InfluencerMarketing = () => {

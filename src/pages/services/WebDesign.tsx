@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Globe, ArrowRight, CheckCircle, Target, Sparkles, BarChart3, Clock, Smartphone, ShoppingCart, Code, Palette, Wrench, Shield, Zap, Building2 } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-web-design.png';
+import webWhyMatters from '@/assets/webdesign-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Brain, ArrowRight, CheckCircle, Zap, Target, TrendingUp, Users, BarChart3, Lightbulb } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-ai-marketing.png';
+import aiWhyMatters from '@/assets/ai-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { BarChart, ArrowRight, CheckCircle, LineChart, PieChart, TrendingUp, Target, Eye, Zap } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import serviceImage from '@/assets/service-analytics.png';
+import analyticsWhyMatters from '@/assets/analytics-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 
