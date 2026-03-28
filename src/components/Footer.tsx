@@ -60,7 +60,7 @@ export const Footer = () => {
                 </p>
               </div>
               <Link to="/contact" onClick={scrollToTop}>
-                <button className="group px-8 py-4 bg-white text-foreground font-semibold rounded-xl hover:shadow-xl hover:shadow-white/20 transition-all duration-300 flex items-center gap-2">
+                <button className="group px-8 py-4 bg-white text-black font-semibold rounded-xl hover:shadow-xl hover:shadow-white/20 transition-all duration-300 flex items-center gap-2">
                   Schedule Free Consultation
                   <ArrowUpRight className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
