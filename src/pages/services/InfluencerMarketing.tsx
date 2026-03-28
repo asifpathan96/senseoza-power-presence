@@ -4,6 +4,7 @@ import { ArrowRight, Users, CheckCircle, TrendingUp, Target, Heart, Sparkles, St
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import influencerWhyMatters from '@/assets/influencer-why-matters.png';
+import serviceInfluencer from '@/assets/service-influencer.png';
 import { motion } from 'framer-motion';
 
 const InfluencerMarketing = () => {
@@ -101,53 +102,53 @@ const InfluencerMarketing = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
-        <div className="absolute inset-0 dot-pattern opacity-20" />
-        <FloatingElement className="absolute top-1/4 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl" delay={0} />
-        <FloatingElement className="absolute bottom-1/4 left-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={2} />
+      <section className="relative min-h-[90vh] flex items-center gradient-hero overflow-hidden pt-32 md:pt-36">
+        <FloatingElement className="absolute top-20 left-10 w-72 h-72 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-accent/20 to-primary/20 blur-3xl" delay={2} />
+        <FloatingElement className="absolute top-1/2 left-1/3 w-64 h-64 rounded-full bg-primary/10 blur-3xl" delay={4} />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-8"
-            >
-              <Users className="h-4 w-4 text-accent" />
-              <span className="text-sm font-medium text-white/90">Influencer Marketing</span>
-            </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-white mb-6"
-            >
-              Influencer Marketing That Builds Authentic Connections and Drives Sales
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10"
-            >
-              92% of consumers trust recommendations from individuals over brands, and influencer marketing delivers average returns of $5.78 for every dollar invested. We build strategic influencer partnerships that align with your brand values and deliver measurable business results.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Link to="/contact" className="mb-12 inline-block">
-                <Button size="lg" className="px-8 py-6 bg-white text-primary hover:bg-white/90 shadow-xl group">
-                  Start Your Campaign <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection direction="right">
+              <motion.div 
+                className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6 border border-white/10"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <Users className="h-12 w-12 text-accent icon-3d" />
+              </motion.div>
+              <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+                Influencer Marketing That{' '}
+                <span className="text-accent">Builds Authentic Connections</span>
+              </h1>
+              <p className="text-xl text-white/80 mb-6">
+                92% of consumers trust recommendations from individuals over brands, and influencer marketing delivers average returns of $5.78 for every dollar invested. We build strategic influencer partnerships that align with your brand values and deliver measurable business results.
+              </p>
+              <p className="font-semibold text-white mb-8">
+                Creator Partnerships | Campaign Management | Performance Tracking | ROI Optimization
+              </p>
+              <Link to="/contact" className="inline-block mb-12">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Start Your Campaign <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-            </motion.div>
+            </AnimatedSection>
+            <AnimatedSection direction="left" delay={0.2}>
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-accent/30 rounded-3xl blur-2xl opacity-60" />
+                <img 
+                  src={serviceInfluencer} 
+                  alt="Influencer Marketing Services illustration" 
+                  className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10"
+                  width={1024}
+                  height={1024}
+                />
+              </motion.div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
