@@ -112,13 +112,6 @@ const WebDesign = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection direction="right">
-              <motion.div 
-                className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl w-fit mb-6 border border-white/10"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <Globe className="h-12 w-12 text-accent icon-3d" />
-              </motion.div>
               <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
                 Web Design That Converts{' '}
                 <span className="text-accent">Visitors Into Customers</span>
