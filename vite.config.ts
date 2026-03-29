@@ -2,7 +2,8 @@ import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { pluginExposeRenderer } from "lovable-tagger";
-import Prerender from "vite-plugin-prerender";
+import VitePluginPrerender from "@prerenderer/plugin-vite";
+import { JSDOMRenderer } from "@prerenderer/renderer-jsdom";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -13,8 +14,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && pluginExposeRenderer(),
     mode === "production" &&
-      Prerender({
-        staticDir: path.join(__dirname, "dist"),
+      VitePluginPrerender({
         routes: [
           "/",
           "/about",
@@ -34,9 +34,7 @@ export default defineConfig(({ mode }) => ({
           "/blog",
           "/contact",
         ],
-        renderer: new Prerender.PuppeteerRenderer({
-          headless: true,
-          args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        renderer: new JSDOMRenderer({
           renderAfterTime: 2000,
         }),
       }),
