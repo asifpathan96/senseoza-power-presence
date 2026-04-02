@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    prerender({
+      routes: ["/", "/about", "/services", "/contact"],
+    }),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
