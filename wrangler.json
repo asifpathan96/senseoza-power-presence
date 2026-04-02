@@ -1,7 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "senseoza-ssr",
-  "account_id": "51a01f8e40ebd7454a387ed0957d678f",
   "compatibility_date": "2025-04-01",
   "pages_build_output_dir": "./dist"
 }
