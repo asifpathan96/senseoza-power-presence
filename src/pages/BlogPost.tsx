@@ -21,8 +21,8 @@ const BlogPost = () => {
     category: string;
     image: string;
   }> = {
-    'ai-revolutionizing-digital-marketing-2024': {
-      title: 'How AI is Revolutionizing Digital Marketing in 2024',
+    'ai-revolutionizing-digital-marketing-2026': {
+      title: 'How AI is Revolutionizing Digital Marketing in 2026',
       excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
       content: [
         'Artificial Intelligence has become the cornerstone of modern digital marketing strategies. From predictive analytics to personalized content creation, AI is fundamentally changing how businesses connect with their target audiences.',
@@ -33,24 +33,24 @@ const BlogPost = () => {
         'Looking ahead, we expect to see even greater integration of AI in marketing strategies. From voice search optimization to augmented reality experiences, the possibilities are endless for businesses willing to embrace these technologies.',
       ],
       author: 'Senseoza Team',
-      date: 'Dec 10, 2024',
+      date: 'March 10, 2026',
       readTime: '5 min read',
       category: 'AI Marketing',
       image: aiMarketingImage,
     },
-    'seo-trends-2024': {
+    'seo-trends-2026': {
       title: 'SEO Trends You Can\'t Ignore This Year',
       excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.',
       content: [
         'Search Engine Optimization continues to evolve at a rapid pace. What worked last year may not be as effective today, making it crucial for businesses to stay updated on the latest trends and best practices.',
         'Core Web Vitals have become more important than ever. Google\'s emphasis on user experience means that page speed, interactivity, and visual stability directly impact your rankings.',
         'Voice search optimization is no longer optional. With the proliferation of smart speakers and voice assistants, optimizing for conversational queries has become essential for maintaining visibility.',
-        'E-A-T (Expertise, Authoritativeness, Trustworthiness) continues to be a critical ranking factor. Building your brand\'s credibility through high-quality content, authoritative backlinks, and transparent business practices is more important than ever.',
+        'E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) continues to be a critical ranking factor. Building your brand\'s credibility through high-quality content, authoritative backlinks, and transparent business practices is more important than ever.',
         'Video content is taking center stage. YouTube is the second-largest search engine, and Google increasingly features video content in search results. Integrating video into your SEO strategy can significantly boost visibility.',
-        'Local SEO has evolved beyond just Google My Business optimization. With the rise of "near me" searches and local intent, businesses need comprehensive local SEO strategies that include reviews, local content, and community engagement.',
+        'Local SEO has evolved beyond just Google Business Profile optimization. With the rise of "near me" searches and local intent, businesses need comprehensive local SEO strategies that include reviews, local content, and community engagement.',
       ],
       author: 'Senseoza Team',
-      date: 'Dec 8, 2024',
+      date: 'March 8, 2026',
       readTime: '4 min read',
       category: 'SEO',
       image: seoImage,
@@ -67,16 +67,16 @@ const BlogPost = () => {
         'Analytics should guide your strategy. Regularly review your performance metrics to understand what\'s working and what isn\'t. Use these insights to refine your approach and continuously improve your social media presence.',
       ],
       author: 'Senseoza Team',
-      date: 'Dec 5, 2024',
+      date: 'March 5, 2026',
       readTime: '6 min read',
       category: 'Social Media',
       image: socialMediaImage,
     },
-    'ai-marketing-strategies-2025': {
-      title: '10 AI-Powered Marketing Strategies That Will Dominate 2025',
+    'ai-marketing-strategies-2027': {
+      title: '10 AI-Powered Marketing Strategies That Will Dominate 2027',
       excerpt: 'Discover how artificial intelligence is revolutionizing digital marketing and learn the top strategies to implement in your business for maximum ROI.',
       content: [
-        'As we approach 2025, AI-powered marketing strategies are becoming essential for businesses looking to stay competitive. Here are the top 10 strategies that will dominate the landscape.',
+        'In 2027, AI-powered marketing strategies are becoming essential for businesses looking to stay competitive. Here are the top 10 strategies that will dominate the landscape.',
         'Hyper-personalization at scale is becoming possible with AI. Beyond simple name insertion, AI can analyze behavior patterns to deliver truly personalized experiences across every touchpoint.',
         'Predictive customer journey mapping uses AI to anticipate customer needs before they even express them, allowing for proactive engagement and improved conversion rates.',
         'AI-driven content optimization goes beyond keywords. Modern AI can analyze top-performing content and provide recommendations for structure, tone, and topics that resonate with your audience.',
@@ -84,16 +84,16 @@ const BlogPost = () => {
         'Conversational AI has evolved to handle complex sales conversations, qualify leads, and even negotiate deals—all while providing a human-like experience.',
       ],
       author: 'Sarah Johnson',
-      date: 'March 15, 2024',
+      date: 'Feb 15, 2026',
       readTime: '8 min read',
       category: 'AI Marketing',
       image: aiMarketingImage,
     },
-    'ultimate-seo-guide-2024': {
-      title: 'The Ultimate Guide to SEO in 2024: What Actually Works',
+    'ultimate-seo-guide-2026': {
+      title: 'The Ultimate Guide to SEO in 2026: What Actually Works',
       excerpt: 'Cut through the noise and learn the SEO tactics that are proven to drive organic traffic and improve rankings in the current search landscape.',
       content: [
-        'SEO in 2024 has evolved significantly from keyword stuffing and link farms. Today\'s successful SEO strategies focus on user intent, content quality, and technical excellence.',
+        'SEO in 2026 has evolved significantly from keyword stuffing and link farms. Today\'s successful SEO strategies focus on user intent, content quality, and technical excellence.',
         'Understanding search intent is paramount. Google\'s algorithms have become incredibly sophisticated at understanding what users actually want when they search.',
         'Technical SEO forms the foundation. Site speed, mobile-friendliness, and proper indexing are non-negotiable elements of any successful SEO strategy.',
         'Content depth and expertise matter more than ever. Comprehensive, well-researched content that demonstrates genuine expertise consistently outranks thin, keyword-focused pages.',
@@ -101,7 +101,7 @@ const BlogPost = () => {
         'Regular content updates and freshness signals show search engines that your site is actively maintained and provides current, relevant information.',
       ],
       author: 'Michael Chen',
-      date: 'March 12, 2024',
+      date: 'Feb 12, 2026',
       readTime: '12 min read',
       category: 'SEO',
       image: seoImage,

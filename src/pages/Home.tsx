@@ -237,26 +237,26 @@ const Home = () => {
     description: "Your success is our priority—we're always here to help"
   }];
   const blogPosts = [{
-    title: 'How AI is Revolutionizing Digital Marketing in 2024',
+    title: 'How AI is Revolutionizing Digital Marketing in 2026',
     excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
     category: 'AI Marketing',
-    date: 'Dec 10, 2024',
+    date: 'March 10, 2026',
     readTime: '5 min read',
     image: aiMarketingImage,
-    slug: 'ai-revolutionizing-digital-marketing-2024'
+    slug: 'ai-revolutionizing-digital-marketing-2026'
   }, {
     title: "SEO Trends You Can't Ignore This Year",
     excerpt: 'Stay ahead of algorithm updates with these proven SEO strategies for better rankings.',
     category: 'SEO',
-    date: 'Dec 8, 2024',
+    date: 'March 8, 2026',
     readTime: '4 min read',
     image: seoImage,
-    slug: 'seo-trends-2024'
+    slug: 'seo-trends-2026'
   }, {
     title: 'Building Brand Authority on Social Media',
     excerpt: 'Learn how to create authentic connections and grow your brand presence online.',
     category: 'Social Media',
-    date: 'Dec 5, 2024',
+    date: 'March 5, 2026',
     readTime: '6 min read',
     image: socialMediaImage,
     slug: 'building-brand-authority-social-media'
