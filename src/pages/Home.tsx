@@ -237,6 +237,14 @@ const Home = () => {
     description: "Your success is our priority—we're always here to help"
   }];
   const blogPosts = [{
+    title: 'AI-Driven Personalization: How Pune Businesses Are Boosting Conversions in 2026',
+    excerpt: 'AI tools for content, chatbots, and customer analysis are exploding across Pune\'s IT hubs—boosting conversions.',
+    category: 'AI Marketing',
+    date: 'April 20, 2026',
+    readTime: '8 min read',
+    image: aiMarketingImage,
+    slug: 'ai-driven-personalization-pune-2026'
+  }, {
     title: 'How AI is Revolutionizing Digital Marketing in 2026',
     excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
     category: 'AI Marketing',
@@ -252,14 +260,6 @@ const Home = () => {
     readTime: '4 min read',
     image: seoImage,
     slug: 'seo-trends-2026'
-  }, {
-    title: 'Building Brand Authority on Social Media',
-    excerpt: 'Learn how to create authentic connections and grow your brand presence online.',
-    category: 'Social Media',
-    date: 'March 5, 2026',
-    readTime: '6 min read',
-    image: socialMediaImage,
-    slug: 'building-brand-authority-social-media'
   }];
   return <div className="min-h-screen bg-background">
       <SEOHead 

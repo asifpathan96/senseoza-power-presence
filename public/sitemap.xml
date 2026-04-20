@@ -139,5 +139,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Blog Post: AI-Driven Personalization in Pune -->
+  <url>
+    <loc>https://senseoza.com/blog/ai-driven-personalization-pune-2026</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   
 </urlset>
