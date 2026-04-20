@@ -147,5 +147,77 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
+  <!-- Blog Post: How AI is Revolutionizing Digital Marketing in 2026 -->
+  <url>
+    <loc>https://senseoza.com/blog/ai-revolutionizing-digital-marketing-2026</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: SEO Trends 2026 -->
+  <url>
+    <loc>https://senseoza.com/blog/seo-trends-2026</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Building Brand Authority on Social Media -->
+  <url>
+    <loc>https://senseoza.com/blog/building-brand-authority-social-media</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: 10 AI-Powered Marketing Strategies 2027 -->
+  <url>
+    <loc>https://senseoza.com/blog/ai-marketing-strategies-2027</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Ultimate SEO Guide 2026 -->
+  <url>
+    <loc>https://senseoza.com/blog/ultimate-seo-guide-2026</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Social Media ROI Measurement -->
+  <url>
+    <loc>https://senseoza.com/blog/social-media-roi-measurement</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Content Marketing Trends -->
+  <url>
+    <loc>https://senseoza.com/blog/content-marketing-trends</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: PPC Advanced Strategies -->
+  <url>
+    <loc>https://senseoza.com/blog/ppc-advanced-strategies</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Email Marketing Automation -->
+  <url>
+    <loc>https://senseoza.com/blog/email-marketing-automation</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
