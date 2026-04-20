@@ -1,15 +1,62 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin, Sparkles } from 'lucide-react';
+import {
+  Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin,
+  Sparkles, Quote, Lightbulb, TrendingUp, Target, Flame, Link as LinkIcon,
+  BookOpen, ChevronRight,
+} from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, FloatingElement } from '@/components/AnimatedSection';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { toast } from 'sonner';
+import { useCountUp } from '@/hooks/use-count-up';
 import aiMarketingImage from '@/assets/ai-marketing.jpg';
 import seoImage from '@/assets/seo.jpg';
 import socialMediaImage from '@/assets/social-media.jpg';
+import contentMarketingImage from '@/assets/content-marketing.jpg';
+import analyticsImage from '@/assets/analytics.jpg';
+import ppcImage from '@/assets/ppc-why-matters.png';
+import emailImage from '@/assets/email-why-matters.png';
+import aiWhyImage from '@/assets/ai-why-matters.png';
+import seoWhyImage from '@/assets/seo-why-matters.png';
+import socialWhyImage from '@/assets/social-why-matters.png';
+import contentWhyImage from '@/assets/content-why-matters.png';
+
+// Pool of section images for magazine breaks
+const sectionImagePool = [
+  { src: aiWhyImage, caption: 'AI is reshaping how brands engage with customers.' },
+  { src: contentMarketingImage, caption: 'Strong content remains the backbone of conversion.' },
+  { src: analyticsImage, caption: 'Data-driven decisions outperform intuition every time.' },
+  { src: socialWhyImage, caption: 'Authentic storytelling builds lasting brand authority.' },
+  { src: seoWhyImage, caption: 'Modern SEO rewards genuine expertise and depth.' },
+  { src: ppcImage, caption: 'Smart targeting and creative variety drive ROAS.' },
+  { src: emailImage, caption: 'Lifecycle automation turns inboxes into revenue engines.' },
+  { src: contentWhyImage, caption: 'Distribution matters as much as creation in 2026.' },
+];
+
+const calloutIcons = [Lightbulb, TrendingUp, Target, Sparkles];
+
+// Animated stat
+const StatCard = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
+  const { count, ref } = useCountUp(value, 1800);
+  return (
+    <div ref={ref} className="glass rounded-2xl p-6 text-center border border-primary/20">
+      <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">
+        {count}{suffix}
+      </div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+};
 
 const BlogPost = () => {
   const { slug } = useParams();
+  const [readProgress, setReadProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, 120]);
+  const heroScale = useTransform(scrollY, [0, 500], [1, 1.1]);
 
   const blogPosts: Record<string, {
     title: string;
@@ -20,6 +67,7 @@ const BlogPost = () => {
     readTime: string;
     category: string;
     image: string;
+    stats?: { value: number; suffix: string; label: string }[];
   }> = {
     'ai-revolutionizing-digital-marketing-2026': {
       title: 'How AI is Revolutionizing Digital Marketing in 2026',
@@ -37,6 +85,11 @@ const BlogPost = () => {
       readTime: '5 min read',
       category: 'AI Marketing',
       image: aiMarketingImage,
+      stats: [
+        { value: 73, suffix: '%', label: 'Marketers using AI daily' },
+        { value: 40, suffix: '%', label: 'Avg. productivity lift' },
+        { value: 5, suffix: 'x', label: 'Faster content production' },
+      ],
     },
     'seo-trends-2026': {
       title: 'SEO Trends You Can\'t Ignore This Year',
@@ -177,6 +230,11 @@ const BlogPost = () => {
       readTime: '7 min read',
       category: 'Email Marketing',
       image: aiMarketingImage,
+      stats: [
+        { value: 40, suffix: 'x', label: 'Avg. ROI per $1 spent' },
+        { value: 35, suffix: '%', label: 'CTR lift with AI' },
+        { value: 25, suffix: '%', label: 'Revenue per email lift' },
+      ],
     },
     'ai-driven-personalization-pune-2026': {
       title: 'AI-Driven Personalization: How Pune Businesses Are Boosting Conversions in 2026',
@@ -196,10 +254,56 @@ const BlogPost = () => {
       readTime: '8 min read',
       category: 'AI Marketing',
       image: aiMarketingImage,
+      stats: [
+        { value: 62, suffix: '%', label: 'Lift in qualified visits' },
+        { value: 41, suffix: '%', label: 'Repeat purchase growth' },
+        { value: 50, suffix: '%', label: 'Higher email revenue' },
+      ],
     },
   };
 
   const post = blogPosts[slug || ''];
+
+  // Reading progress
+  useEffect(() => {
+    const onScroll = () => {
+      const article = document.getElementById('article-body');
+      if (!article) return;
+      const rect = article.getBoundingClientRect();
+      const total = article.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      const pct = Math.max(0, Math.min(100, (scrolled / total) * 100));
+      setReadProgress(pct);
+
+      // Active TOC section
+      const sections = article.querySelectorAll('[data-section-idx]');
+      let current = 0;
+      sections.forEach((el) => {
+        const r = (el as HTMLElement).getBoundingClientRect();
+        if (r.top < window.innerHeight / 2) {
+          current = parseInt((el as HTMLElement).dataset.sectionIdx || '0');
+        }
+      });
+      setActiveSection(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [slug]);
+
+  // Scroll to top on slug change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  // Related posts
+  const relatedPosts = useMemo(() => {
+    if (!post) return [];
+    const all = Object.entries(blogPosts).filter(([s]) => s !== slug);
+    const sameCat = all.filter(([, p]) => p.category === post.category);
+    const others = all.filter(([, p]) => p.category !== post.category);
+    return [...sameCat, ...others].slice(0, 3).map(([s, p]) => ({ slug: s, ...p }));
+  }, [slug, post]);
 
   if (!post) {
     return (
@@ -217,6 +321,24 @@ const BlogPost = () => {
     );
   }
 
+  const initials = post.author.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const isFresh = post.date.includes('April 20, 2026');
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    toast.success('Link copied to clipboard!');
+  };
+
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+  };
+
+  // Decide where to inject stats (after paragraph 2)
+  const statsInjectIndex = post.stats ? 2 : -1;
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -224,64 +346,89 @@ const BlogPost = () => {
         description={post.excerpt}
         canonicalUrl={`https://senseoza.com/blog/${slug}`}
       />
-      
-      {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
+
+      {/* Reading progress bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-transparent z-50">
+        <motion.div
+          className="h-full bg-gradient-to-r from-primary via-primary/80 to-accent"
+          style={{ width: `${readProgress}%` }}
+        />
+      </div>
+
+      {/* Hero with parallax */}
+      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
         <motion.img
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
+          style={{ y: heroY, scale: heroScale }}
           src={post.image}
           alt={post.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-[120%] object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-transparent" />
-        
-        <FloatingElement className="absolute top-1/4 right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl" delay={0} />
-        
-        <div className="relative z-10 container mx-auto px-4 pb-12 pt-32">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20" />
+        <FloatingElement className="absolute top-1/4 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" delay={0} />
+        <FloatingElement className="absolute bottom-1/4 left-10 w-48 h-48 bg-accent/20 rounded-full blur-3xl" delay={1} />
+
+        <div className="relative z-10 container mx-auto px-4 pb-16 pt-32">
           <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Link 
-                to="/blog" 
-                className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors group"
-                onClick={() => window.scrollTo(0, 0)}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <Link
+                to="/blog"
+                className="inline-flex items-center text-foreground/80 hover:text-primary mb-6 transition-colors group"
               >
                 <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Blog
               </Link>
             </motion.div>
-            
-            <motion.span
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-block px-4 py-2 bg-primary text-white rounded-full text-sm font-semibold mb-6"
+              className="flex flex-wrap items-center gap-3 mb-6"
             >
-              {post.category}
-            </motion.span>
-            
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
+                <BookOpen className="h-4 w-4" />
+                {post.category}
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 glass border border-primary/30 rounded-full text-sm font-semibold text-primary">
+                <Sparkles className="h-4 w-4" />
+                Featured Insight
+              </span>
+              {isFresh && (
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 border border-accent/40 rounded-full text-sm font-semibold text-accent">
+                  <Flame className="h-4 w-4" />
+                  Trending
+                </span>
+              )}
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6"
+              className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight"
             >
               {post.title}
             </motion.h1>
-            
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-8 leading-relaxed"
+            >
+              {post.excerpt}
+            </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-6 text-white/80"
+              className="flex flex-wrap items-center gap-6 text-muted-foreground"
             >
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span>{post.author}</span>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg">
+                  {initials}
+                </div>
+                <span className="font-medium text-foreground">{post.author}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
@@ -296,86 +443,295 @@ const BlogPost = () => {
         </div>
       </section>
 
-      {/* Content */}
-      <article className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-30" />
+      {/* Content with TOC + Share + Article */}
+      <article className="py-16 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient opacity-20" />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <AnimatedSection>
-              <div className="prose prose-lg max-w-none">
-                {post.content.map((paragraph, index) => (
-                  <motion.p 
-                    key={index} 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="text-lg text-muted-foreground mb-6 leading-relaxed"
-                  >
-                    {paragraph}
-                  </motion.p>
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_60px] lg:gap-8 max-w-7xl mx-auto">
+            {/* TOC sidebar (desktop) */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4 font-semibold">
+                  In this article
+                </div>
+                <nav className="space-y-2 border-l-2 border-border pl-4">
+                  {post.content.map((_, i) => (
+                    <a
+                      key={i}
+                      href={`#section-${i}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById(`section-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      className={`block text-sm transition-all ${
+                        activeSection === i
+                          ? 'text-primary font-semibold translate-x-1'
+                          : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      Section {i + 1}
+                    </a>
+                  ))}
+                </nav>
               </div>
-            </AnimatedSection>
+            </aside>
 
-            {/* Share */}
-            <AnimatedSection delay={0.3}>
-              <div className="mt-12 pt-8 border-t border-border">
+            {/* Main article body */}
+            <div id="article-body" className="max-w-3xl mx-auto w-full">
+              <div className="prose prose-lg max-w-none">
+                {post.content.map((paragraph, index) => {
+                  const isLead = index === 0;
+                  const isPullQuote = index > 0 && index % 3 === 0;
+                  const isCallout = index > 0 && index % 4 === 0 && !isPullQuote;
+                  const showImageAfter = index > 0 && (index + 1) % 3 === 0 && index < post.content.length - 1;
+                  const sectionImage = sectionImagePool[index % sectionImagePool.length];
+                  const CalloutIcon = calloutIcons[index % calloutIcons.length];
+
+                  return (
+                    <div key={index} id={`section-${index}`} data-section-idx={index} className="scroll-mt-24">
+                      {isLead ? (
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed font-medium first-letter:text-6xl first-letter:font-heading first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none"
+                        >
+                          {paragraph}
+                        </motion.p>
+                      ) : isPullQuote ? (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          className="my-10 relative"
+                        >
+                          <div className="glass border-l-4 border-primary rounded-r-2xl p-6 md:p-8 relative overflow-hidden">
+                            <Quote className="absolute top-4 right-4 h-12 w-12 text-primary/20" />
+                            <p className="text-xl md:text-2xl font-heading text-foreground italic leading-snug relative z-10">
+                              "{paragraph}"
+                            </p>
+                          </div>
+                        </motion.div>
+                      ) : isCallout ? (
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          className="my-8 glass border-l-4 border-primary rounded-r-2xl p-6 flex gap-4 items-start"
+                        >
+                          <div className="shrink-0 w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center">
+                            <CalloutIcon className="h-6 w-6 text-primary" />
+                          </div>
+                          <p className="text-base md:text-lg text-foreground leading-relaxed m-0">
+                            {paragraph}
+                          </p>
+                        </motion.div>
+                      ) : (
+                        <motion.p
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="text-lg text-muted-foreground mb-6 leading-relaxed"
+                        >
+                          {paragraph}
+                        </motion.p>
+                      )}
+
+                      {/* Stats strip after paragraph 2 */}
+                      {index === statsInjectIndex && post.stats && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="my-10 grid grid-cols-1 sm:grid-cols-3 gap-4"
+                        >
+                          {post.stats.map((s, i) => (
+                            <StatCard key={i} {...s} />
+                          ))}
+                        </motion.div>
+                      )}
+
+                      {/* Section image */}
+                      {showImageAfter && (
+                        <motion.figure
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="my-10"
+                        >
+                          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-primary/20 group">
+                            <img
+                              src={sectionImage.src}
+                              alt={sectionImage.caption}
+                              className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+                          </div>
+                          <figcaption className="text-sm italic text-muted-foreground text-center mt-3">
+                            {sectionImage.caption}
+                          </figcaption>
+                        </motion.figure>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Mobile share */}
+              <div className="mt-12 pt-8 border-t border-border lg:hidden">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-2">
                     <Share2 className="h-5 w-5 text-muted-foreground" />
                     <span className="font-semibold">Share this article</span>
                   </div>
                   <div className="flex gap-3">
-                    <motion.div whileHover={{ scale: 1.1 }}>
-                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                    <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary">
                         <Facebook className="h-4 w-4" />
                       </Button>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }}>
-                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                    </a>
+                    <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary">
                         <Twitter className="h-4 w-4" />
                       </Button>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }}>
-                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-white hover:border-primary">
+                    </a>
+                    <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary">
                         <Linkedin className="h-4 w-4" />
                       </Button>
-                    </motion.div>
+                    </a>
+                    <Button variant="outline" size="icon" onClick={handleCopyLink} className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary">
+                      <LinkIcon className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
 
-            {/* CTA */}
-            <AnimatedSection delay={0.4}>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                className="mt-12 p-8 md:p-10 rounded-3xl gradient-hero text-center relative overflow-hidden"
-              >
-                <FloatingElement className="absolute top-0 right-0 w-48 h-48 bg-accent/30 rounded-full blur-3xl" />
-                <div className="relative z-10">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
-                    <Sparkles className="h-4 w-4" />
-                    Ready to Grow?
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
-                    Want to implement these strategies?
-                  </h3>
-                  <p className="text-white/80 mb-6 max-w-lg mx-auto">
-                    Let our experts help you achieve your digital marketing goals.
-                  </p>
-                  <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
-                    <Button className="bg-white text-primary hover:bg-white/90 shadow-lg">
-                      Get Started Today
-                    </Button>
-                  </Link>
+              {/* CTA */}
+              <AnimatedSection delay={0.2}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="mt-16 p-8 md:p-10 rounded-3xl gradient-hero text-center relative overflow-hidden border-2 border-primary/30"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 animate-pulse" />
+                  <FloatingElement className="absolute top-0 right-0 w-48 h-48 bg-accent/30 rounded-full blur-3xl" />
+                  <div className="relative z-10">
+                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
+                      <Sparkles className="h-4 w-4" />
+                      Ready to Grow?
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
+                      Want to implement these strategies?
+                    </h3>
+                    <p className="text-white/80 mb-6 max-w-lg mx-auto">
+                      Let our experts help you achieve your digital marketing goals.
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <Link to="/contact">
+                        <Button className="bg-white text-primary hover:bg-white/90 shadow-lg">
+                          Get Started Today
+                        </Button>
+                      </Link>
+                      <Link to="/blog">
+                        <Button variant="outline" className="border-white/40 text-white hover:bg-white/10 hover:text-white">
+                          Read More Articles
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatedSection>
+            </div>
+
+            {/* Floating share bar (desktop) */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-24 flex flex-col gap-3 items-center">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground writing-mode-vertical mb-2 font-semibold rotate-180" style={{ writingMode: 'vertical-rl' }}>
+                  Share
                 </div>
-              </motion.div>
-            </AnimatedSection>
+                <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-110 transition-all">
+                    <Facebook className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-110 transition-all">
+                    <Twitter className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-110 transition-all">
+                    <Linkedin className="h-4 w-4" />
+                  </Button>
+                </a>
+                <Button variant="outline" size="icon" onClick={handleCopyLink} className="rounded-full hover:bg-primary hover:text-primary-foreground hover:border-primary hover:scale-110 transition-all">
+                  <LinkIcon className="h-4 w-4" />
+                </Button>
+              </div>
+            </aside>
           </div>
         </div>
       </article>
+
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="py-16 md:py-20 bg-card/30 border-t border-border">
+          <div className="container mx-auto px-4">
+            <AnimatedSection>
+              <div className="max-w-6xl mx-auto">
+                <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+                  <div>
+                    <span className="text-sm uppercase tracking-widest text-primary font-semibold">Keep reading</span>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">Related Articles</h2>
+                  </div>
+                  <Link to="/blog" className="text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1 group">
+                    View all <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {relatedPosts.map((rp, i) => (
+                    <motion.div
+                      key={rp.slug}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <Link to={`/blog/${rp.slug}`} className="group block h-full">
+                        <article className="bg-card border border-border rounded-2xl overflow-hidden h-full flex flex-col hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
+                          <div className="relative h-48 overflow-hidden">
+                            <img
+                              src={rp.image}
+                              alt={rp.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute top-3 left-3">
+                              <span className="px-3 py-1 bg-primary/90 backdrop-blur-sm text-primary-foreground text-xs font-semibold rounded-full">
+                                {rp.category}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="p-5 flex-1 flex flex-col">
+                            <h3 className="text-lg font-heading font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                              {rp.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-4 line-clamp-2 flex-1">{rp.excerpt}</p>
+                            <div className="flex items-center justify-between text-xs text-muted-foreground pt-3 border-t border-border">
+                              <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {rp.date}</span>
+                              <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {rp.readTime}</span>
+                            </div>
+                          </div>
+                        </article>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
     </div>
   );
 };
