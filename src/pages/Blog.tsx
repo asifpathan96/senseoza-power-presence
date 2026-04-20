@@ -14,8 +14,18 @@ import socialMediaImage from '@/assets/social-media.jpg';
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   
-  // Latest 3 blogs (same as homepage)
+  // Latest blogs (same as homepage)
   const latestPosts = [
+    {
+      title: 'AI-Driven Personalization: How Pune Businesses Are Boosting Conversions in 2026',
+      excerpt: 'AI tools for content creation, chatbots, and customer analysis are exploding across Pune\'s IT hubs—helping businesses cut errors and boost conversions.',
+      author: 'Senseoza Team',
+      category: 'AI Marketing',
+      date: 'April 20, 2026',
+      readTime: '8 min read',
+      image: aiMarketingImage,
+      slug: 'ai-driven-personalization-pune-2026',
+    },
     {
       title: 'How AI is Revolutionizing Digital Marketing in 2026',
       excerpt: 'Discover the latest AI tools and strategies transforming how brands connect with audiences.',
