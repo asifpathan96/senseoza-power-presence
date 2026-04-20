@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -23,18 +24,60 @@ const Contact = () => {
     message: '',
     services: [] as string[],
   });
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
+
+  const contactValidationSchema = z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, { message: 'Name must be at least 2 characters' })
+      .max(100, { message: 'Name must be less than 100 characters' })
+      .regex(/^[a-zA-Z0-9\s.'-]+$/, { message: 'Name can only contain letters, numbers and spaces' }),
+    email: z
+      .string()
+      .trim()
+      .email({ message: 'Please enter a valid email address' })
+      .max(255, { message: 'Email must be less than 255 characters' }),
+    phone: z
+      .string()
+      .trim()
+      .regex(/^(\+91[\s-]?)?[6-9]\d{9}$/, {
+        message: 'Enter a valid 10-digit Indian phone number (optionally prefixed with +91)',
+      }),
+    company: z.string().trim().max(150).optional().or(z.literal('')),
+    website: z
+      .string()
+      .trim()
+      .max(255)
+      .refine((val) => !val || /^https?:\/\/.+\..+/.test(val), {
+        message: 'Website must start with http:// or https://',
+      })
+      .optional()
+      .or(z.literal('')),
+    message: z.string().trim().max(2000, { message: 'Message must be less than 2000 characters' }).optional().or(z.literal('')),
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+
+    const result = contactValidationSchema.safeParse(formData);
+
+    if (!result.success) {
+      const fieldErrors: Record<string, boolean> = {};
+      const firstIssue = result.error.issues[0];
+      result.error.issues.forEach((issue) => {
+        if (issue.path[0]) fieldErrors[issue.path[0] as string] = true;
+      });
+      setErrors(fieldErrors);
       toast({
-        title: 'Missing Information',
-        description: 'Please fill in all required fields.',
+        title: 'Please check the form',
+        description: firstIssue.message,
         variant: 'destructive',
       });
       return;
     }
+
+    setErrors({});
 
     const whatsappMessage = `
 *New Contact Form Submission*
@@ -48,7 +91,7 @@ const Contact = () => {
 *Services Interested In:* ${formData.services.length > 0 ? formData.services.join(', ') : 'Not specified'}
 
 *Message:*
-${formData.message}
+${formData.message || 'Not provided'}
     `.trim();
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -182,7 +225,9 @@ ${formData.message}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="h-12 bg-background border-border/50 focus:border-primary"
+                      maxLength={100}
+                      aria-invalid={!!errors.name}
+                      className={`h-12 bg-background focus:border-primary ${errors.name ? 'border-destructive' : 'border-border/50'}`}
                       required
                     />
                   </div>
@@ -199,7 +244,9 @@ ${formData.message}
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@company.com"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={255}
+                        aria-invalid={!!errors.email}
+                        className={`h-12 bg-background focus:border-primary ${errors.email ? 'border-destructive' : 'border-border/50'}`}
                         required
                       />
                     </div>
@@ -215,7 +262,9 @@ ${formData.message}
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91 9168411743"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={20}
+                        aria-invalid={!!errors.phone}
+                        className={`h-12 bg-background focus:border-primary ${errors.phone ? 'border-destructive' : 'border-border/50'}`}
                         required
                       />
                     </div>
@@ -232,7 +281,9 @@ ${formData.message}
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={150}
+                        aria-invalid={!!errors.company}
+                        className={`h-12 bg-background focus:border-primary ${errors.company ? 'border-destructive' : 'border-border/50'}`}
                       />
                     </div>
 
@@ -246,7 +297,9 @@ ${formData.message}
                         value={formData.website}
                         onChange={handleChange}
                         placeholder="https://yourwebsite.com"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={255}
+                        aria-invalid={!!errors.website}
+                        className={`h-12 bg-background focus:border-primary ${errors.website ? 'border-destructive' : 'border-border/50'}`}
                       />
                     </div>
                   </div>
@@ -278,7 +331,7 @@ ${formData.message}
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                      Tell us about your business and goals <span className="text-destructive">*</span>
+                      Tell us about your business and goals
                     </label>
                     <Textarea
                       id="message"
@@ -287,8 +340,9 @@ ${formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your business, your marketing goals, and any challenges you are facing..."
                       rows={5}
-                      className="bg-background border-border/50 focus:border-primary"
-                      required
+                      maxLength={2000}
+                      aria-invalid={!!errors.message}
+                      className={`bg-background focus:border-primary ${errors.message ? 'border-destructive' : 'border-border/50'}`}
                     />
                   </div>
 
