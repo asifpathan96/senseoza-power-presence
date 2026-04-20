@@ -225,7 +225,9 @@ ${formData.message || 'Not provided'}
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="h-12 bg-background border-border/50 focus:border-primary"
+                      maxLength={100}
+                      aria-invalid={!!errors.name}
+                      className={`h-12 bg-background focus:border-primary ${errors.name ? 'border-destructive' : 'border-border/50'}`}
                       required
                     />
                   </div>
@@ -242,7 +244,9 @@ ${formData.message || 'Not provided'}
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@company.com"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={255}
+                        aria-invalid={!!errors.email}
+                        className={`h-12 bg-background focus:border-primary ${errors.email ? 'border-destructive' : 'border-border/50'}`}
                         required
                       />
                     </div>
@@ -258,7 +262,9 @@ ${formData.message || 'Not provided'}
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+91 9168411743"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={20}
+                        aria-invalid={!!errors.phone}
+                        className={`h-12 bg-background focus:border-primary ${errors.phone ? 'border-destructive' : 'border-border/50'}`}
                         required
                       />
                     </div>
@@ -275,7 +281,9 @@ ${formData.message || 'Not provided'}
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your Company"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={150}
+                        aria-invalid={!!errors.company}
+                        className={`h-12 bg-background focus:border-primary ${errors.company ? 'border-destructive' : 'border-border/50'}`}
                       />
                     </div>
 
@@ -289,7 +297,9 @@ ${formData.message || 'Not provided'}
                         value={formData.website}
                         onChange={handleChange}
                         placeholder="https://yourwebsite.com"
-                        className="h-12 bg-background border-border/50 focus:border-primary"
+                        maxLength={255}
+                        aria-invalid={!!errors.website}
+                        className={`h-12 bg-background focus:border-primary ${errors.website ? 'border-destructive' : 'border-border/50'}`}
                       />
                     </div>
                   </div>
@@ -321,7 +331,7 @@ ${formData.message || 'Not provided'}
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                      Tell us about your business and goals <span className="text-destructive">*</span>
+                      Tell us about your business and goals
                     </label>
                     <Textarea
                       id="message"
@@ -330,8 +340,9 @@ ${formData.message || 'Not provided'}
                       onChange={handleChange}
                       placeholder="Tell us about your business, your marketing goals, and any challenges you are facing..."
                       rows={5}
-                      className="bg-background border-border/50 focus:border-primary"
-                      required
+                      maxLength={2000}
+                      aria-invalid={!!errors.message}
+                      className={`bg-background focus:border-primary ${errors.message ? 'border-destructive' : 'border-border/50'}`}
                     />
                   </div>
 
