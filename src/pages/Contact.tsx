@@ -24,18 +24,60 @@ const Contact = () => {
     message: '',
     services: [] as string[],
   });
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
+
+  const contactValidationSchema = z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, { message: 'Name must be at least 2 characters' })
+      .max(100, { message: 'Name must be less than 100 characters' })
+      .regex(/^[a-zA-Z0-9\s.'-]+$/, { message: 'Name can only contain letters, numbers and spaces' }),
+    email: z
+      .string()
+      .trim()
+      .email({ message: 'Please enter a valid email address' })
+      .max(255, { message: 'Email must be less than 255 characters' }),
+    phone: z
+      .string()
+      .trim()
+      .regex(/^(\+91[\s-]?)?[6-9]\d{9}$/, {
+        message: 'Enter a valid 10-digit Indian phone number (optionally prefixed with +91)',
+      }),
+    company: z.string().trim().max(150).optional().or(z.literal('')),
+    website: z
+      .string()
+      .trim()
+      .max(255)
+      .refine((val) => !val || /^https?:\/\/.+\..+/.test(val), {
+        message: 'Website must start with http:// or https://',
+      })
+      .optional()
+      .or(z.literal('')),
+    message: z.string().trim().max(2000, { message: 'Message must be less than 2000 characters' }).optional().or(z.literal('')),
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+
+    const result = contactValidationSchema.safeParse(formData);
+
+    if (!result.success) {
+      const fieldErrors: Record<string, boolean> = {};
+      const firstIssue = result.error.issues[0];
+      result.error.issues.forEach((issue) => {
+        if (issue.path[0]) fieldErrors[issue.path[0] as string] = true;
+      });
+      setErrors(fieldErrors);
       toast({
-        title: 'Missing Information',
-        description: 'Please fill in all required fields.',
+        title: 'Please check the form',
+        description: firstIssue.message,
         variant: 'destructive',
       });
       return;
     }
+
+    setErrors({});
 
     const whatsappMessage = `
 *New Contact Form Submission*
@@ -49,7 +91,7 @@ const Contact = () => {
 *Services Interested In:* ${formData.services.length > 0 ? formData.services.join(', ') : 'Not specified'}
 
 *Message:*
-${formData.message}
+${formData.message || 'Not provided'}
     `.trim();
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
