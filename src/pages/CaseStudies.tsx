@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
 import heroCaseStudies from '@/assets/hero-casestudies.png';
+import realEstateImg from '@/assets/case-study-real-estate.jpg';
 
 const CaseStudies = () => {
   const caseStudies = [
@@ -19,7 +20,7 @@ const CaseStudies = () => {
         { icon: DollarSign, metric: '65%', label: 'Lower CPL' },
         { icon: TrendingUp, metric: '3.2x', label: 'Site Visits' },
       ],
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=500&fit=crop',
+      image: realEstateImg,
     },
     {
       title: 'E-Commerce Brand Achieves 350% ROI Growth',
