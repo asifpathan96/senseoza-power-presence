@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, DollarSign, Eye, Search, ArrowRight, Sparkles } from 'lucide-react';
+import { TrendingUp, Users, IndianRupee, Eye, Search, ArrowRight, Sparkles } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
 import { motion } from 'framer-motion';
@@ -17,7 +17,7 @@ const CaseStudies = () => {
       solution: 'Launched hyper-local SEO targeting Pune micro-markets, AI-driven Meta & Google Ads with intent-based audiences, virtual property tour landing pages, and WhatsApp automation for instant lead nurturing',
       results: [
         { icon: Users, metric: '420%', label: 'Qualified Leads' },
-        { icon: DollarSign, metric: '65%', label: 'Lower CPL' },
+        { icon: IndianRupee, metric: '65%', label: 'Lower CPL' },
         { icon: TrendingUp, metric: '3.2x', label: 'Site Visits' },
       ],
       image: realEstateImg,
@@ -31,7 +31,7 @@ const CaseStudies = () => {
       results: [
         { icon: TrendingUp, metric: '350%', label: 'ROI Increase' },
         { icon: Users, metric: '180%', label: 'Traffic Growth' },
-        { icon: DollarSign, metric: '$2.5M', label: 'Revenue Generated' },
+        { icon: IndianRupee, metric: '₹20Cr+', label: 'Revenue Generated' },
       ],
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
     },
@@ -70,7 +70,7 @@ const CaseStudies = () => {
       results: [
         { icon: Users, metric: '800K', label: 'New Followers' },
         { icon: TrendingUp, metric: '650%', label: 'Engagement Rate' },
-        { icon: DollarSign, metric: '220%', label: 'Sales Uplift' },
+        { icon: IndianRupee, metric: '220%', label: 'Sales Uplift' },
       ],
       image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=500&fit=crop',
     },

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
   Bot, ArrowRight, CheckCircle, Zap, Target, TrendingUp, Users, BarChart3, 
-  Clock, Shield, Cog, FileText, Mail, DollarSign, UserCheck, Share2, Bell,
+  Clock, Shield, Cog, FileText, Mail, IndianRupee, UserCheck, Share2, Bell,
   MessageSquare, Workflow, BrainCircuit, Eye, Lightbulb, Database, 
   ShoppingCart, Briefcase, Heart, Building2, Megaphone, Scale, Factory, 
   GraduationCap, Plane, Code, HandHeart, ChevronDown, Lock, RefreshCw,
