@@ -83,8 +83,9 @@ const Home = () => {
     label: 'Years Experience',
     icon: Users
   }, {
-    number: 10,
-    suffix: 'M+',
+    number: 80,
+    suffix: 'Cr+',
+    prefix: '₹',
     label: 'Revenue Generated',
     icon: Zap
   }];
@@ -126,7 +127,7 @@ const Home = () => {
               <IconComponent className="h-6 md:h-7 w-6 md:w-7 text-white" />
             </div>
             <div className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-2">
-              {count}{stat.suffix}
+              {('prefix' in stat && (stat as any).prefix) || ''}{count}{stat.suffix}
             </div>
             <div className="text-sm font-medium text-white/80 uppercase tracking-wider">
               {stat.label}

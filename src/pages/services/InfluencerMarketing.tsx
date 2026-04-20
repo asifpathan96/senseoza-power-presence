@@ -115,7 +115,7 @@ const InfluencerMarketing = () => {
                 <span className="text-accent">Builds Authentic Connections</span>
               </h1>
               <p className="text-xl text-white/80 mb-6">
-                92% of consumers trust recommendations from individuals over brands, and influencer marketing delivers average returns of $5.78 for every dollar invested. We build strategic influencer partnerships that align with your brand values and deliver measurable business results.
+                92% of consumers trust recommendations from individuals over brands, and influencer marketing delivers average returns of ₹5.78 for every rupee invested. We build strategic influencer partnerships that align with your brand values and deliver measurable business results.
               </p>
               <p className="font-semibold text-white mb-8">
                 Creator Partnerships | Campaign Management | Performance Tracking | ROI Optimization

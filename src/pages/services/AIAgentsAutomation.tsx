@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { 
   Bot, ArrowRight, CheckCircle, Zap, Target, TrendingUp, Users, BarChart3, 
-  Clock, Shield, Cog, FileText, Mail, DollarSign, UserCheck, Share2, Bell,
+  Clock, Shield, Cog, FileText, Mail, IndianRupee, UserCheck, Share2, Bell,
   MessageSquare, Workflow, BrainCircuit, Eye, Lightbulb, Database, 
   ShoppingCart, Briefcase, Heart, Building2, Megaphone, Scale, Factory, 
   GraduationCap, Plane, Code, HandHeart, ChevronDown, Lock, RefreshCw,
@@ -72,7 +72,7 @@ const AIAgentsAutomation = () => {
       description: 'Accelerate your sales process with AI agents that qualify leads automatically, enrich data, score leads, schedule calls, and send personalized follow-up sequences.',
     },
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       title: 'Financial Process Automation',
       description: 'Improve accuracy in financial operations with AI agents that process invoices, reconcile transactions, generate reports, flag anomalies, and manage payment workflows.',
     },
@@ -182,7 +182,7 @@ const AIAgentsAutomation = () => {
       description: 'Digital marketing teams use AI agents to generate client reports, monitor campaigns, respond to inquiries, schedule content, and compile analytics—freeing strategists for creative work.',
     },
     {
-      icon: DollarSign,
+      icon: IndianRupee,
       title: 'Financial Services',
       description: 'Insurance companies achieved an 80% reduction in claims processing time, cutting claims handling from days to hours using AI agents for verification, risk assessment, and fraud detection.',
     },
@@ -258,7 +258,7 @@ const AIAgentsAutomation = () => {
     { icon: Briefcase, name: 'Professional Services' },
     { icon: Heart, name: 'Healthcare & Medical' },
     { icon: Building2, name: 'Real Estate & Property' },
-    { icon: DollarSign, name: 'Financial Services' },
+    { icon: IndianRupee, name: 'Financial Services' },
     { icon: Megaphone, name: 'Marketing Agencies' },
     { icon: Scale, name: 'Legal Firms' },
     { icon: Factory, name: 'Manufacturing' },
@@ -437,7 +437,7 @@ const AIAgentsAutomation = () => {
               { icon: CheckCircle, title: 'Improve Accuracy', description: 'AI agents maintain consistent accuracy rates above 99%, eliminating costly errors in data processing, customer communications, and financial operations.' },
               { icon: Clock, title: '24/7 Operations', description: 'AI agents never sleep, take breaks, or call in sick. They work continuously, processing requests and handling tasks around the clock.' },
               { icon: Lightbulb, title: 'Faster Decision-Making', description: 'AI agents analyze situations and make decisions in seconds that might take humans hours or days, accessing and analyzing data in real-time.' },
-              { icon: DollarSign, title: 'Cost Reduction', description: 'Beyond labor savings, AI agents reduce costs by optimizing processes, preventing errors, improving resource allocation, and identifying inefficiencies.' },
+              { icon: IndianRupee, title: 'Cost Reduction', description: 'Beyond labor savings, AI agents reduce costs by optimizing processes, preventing errors, improving resource allocation, and identifying inefficiencies.' },
             ].map((item, index) => (
               <StaggerItem key={index}>
                 <motion.div 

@@ -217,7 +217,7 @@ const BlogPost = () => {
       title: 'Email Marketing in 2026: Automation and Personalization',
       excerpt: 'Discover how to leverage marketing automation and personalization to create email campaigns that drive results.',
       content: [
-        'Despite predictions of its demise every year for the last two decades, email marketing in 2026 is stronger than ever. With the average ROI still hovering around $40 for every $1 spent, email remains the highest-leverage channel in the digital marketing stack—if you do it right.',
+        'Despite predictions of its demise every year for the last two decades, email marketing in 2026 is stronger than ever. With the average ROI still hovering around ₹40 for every ₹1 spent, email remains the highest-leverage channel in the digital marketing stack—if you do it right.',
         'Automation has moved far beyond basic welcome series. Modern lifecycle programs include behavior-triggered flows for onboarding, activation, upsell, win-back, churn prevention, and re-engagement—each personalized by segment, lifecycle stage, and predicted intent.',
         'Hyper-personalization powered by AI is the single biggest unlock. Subject lines, hero images, product recommendations, send times, and even body copy can now be tailored per recipient. Brands using AI personalization typically see 25–40% lifts in click-through and 15–30% lifts in revenue per email.',
         'Deliverability has become a serious technical discipline. With Gmail and Yahoo enforcing strict authentication (SPF, DKIM, DMARC) and one-click unsubscribe requirements, sloppy senders are seeing inbox placement collapse. Regular list hygiene, engagement-based segmentation, and warm-up protocols are non-negotiable in 2026.',
@@ -231,7 +231,7 @@ const BlogPost = () => {
       category: 'Email Marketing',
       image: aiMarketingImage,
       stats: [
-        { value: 40, suffix: 'x', label: 'Avg. ROI per $1 spent' },
+        { value: 40, suffix: 'x', label: 'Avg. ROI per ₹1 spent' },
         { value: 35, suffix: '%', label: 'CTR lift with AI' },
         { value: 25, suffix: '%', label: 'Revenue per email lift' },
       ],
