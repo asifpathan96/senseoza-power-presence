@@ -9,6 +9,19 @@ import heroCaseStudies from '@/assets/hero-casestudies.png';
 const CaseStudies = () => {
   const caseStudies = [
     {
+      title: 'Real Estate Developer Drives 420% Lead Surge in Pune',
+      client: 'Premium Real Estate Developer',
+      industry: 'Real Estate',
+      challenge: 'Struggling to generate qualified leads for luxury residential projects in Hinjewadi & Baner with high CPL and low site visit conversions',
+      solution: 'Launched hyper-local SEO targeting Pune micro-markets, AI-driven Meta & Google Ads with intent-based audiences, virtual property tour landing pages, and WhatsApp automation for instant lead nurturing',
+      results: [
+        { icon: Users, metric: '420%', label: 'Qualified Leads' },
+        { icon: DollarSign, metric: '65%', label: 'Lower CPL' },
+        { icon: TrendingUp, metric: '3.2x', label: 'Site Visits' },
+      ],
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=500&fit=crop',
+    },
+    {
       title: 'E-Commerce Brand Achieves 350% ROI Growth',
       client: 'Fashion Retailer',
       industry: 'E-Commerce',
