@@ -342,8 +342,8 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={post.title.length > 55 ? post.title.slice(0, 55).trim() + '…' : post.title}
-        description={post.excerpt.length > 158 ? post.excerpt.slice(0, 155).trim() + '…' : post.excerpt}
+        title={post.title}
+        description={post.excerpt}
         canonicalUrl={`https://senseoza.com/blog/${slug}`}
         ogImage={post.image}
         schema={{
