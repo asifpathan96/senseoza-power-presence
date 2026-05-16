@@ -134,9 +134,9 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Digital Marketing Blog | SEO, AI, Social Media Tips | Senseoza"
-        description="Stay updated with the latest digital marketing trends, SEO tips, AI in marketing & social media strategies. Expert insights from Senseoza's marketing team in Pune."
-        canonicalUrl="https://senseoza.com/blog"
+        title="Digital Marketing Blog | Senseoza"
+        description="SEO tips, AI marketing trends, social media & content strategies from Senseoza's expert team in Pune."
+        canonicalUrl="https://senseoza-ai.lovable.app/blog"
         schema={blogSchema}
       />
       
@@ -261,9 +261,13 @@ const Blog = () => {
                       <span>{filteredPosts[0].readTime}</span>
                     </div>
                   </div>
-                  <Link to={`/blog/${filteredPosts[0].slug}`} onClick={() => window.scrollTo(0, 0)}>
+                  <Link
+                    to={`/blog/${filteredPosts[0].slug}`}
+                    onClick={() => window.scrollTo(0, 0)}
+                    aria-label={`Read full article: ${filteredPosts[0].title}`}
+                  >
                     <Button className="gradient-primary shadow-primary w-fit">
-                      Read More <ArrowRight className="ml-2 h-4 w-4" />
+                      Read the full article <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </div>
@@ -315,8 +319,12 @@ const Blog = () => {
                           <span>{post.readTime}</span>
                         </div>
                       </div>
-                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
-                        Read Article <ArrowRight className="ml-2 h-4 w-4" />
+                      <Button
+                        variant="outline"
+                        aria-label={`Read article: ${post.title}`}
+                        className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
+                      >
+                        Read “{post.title}” <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
                   </motion.div>

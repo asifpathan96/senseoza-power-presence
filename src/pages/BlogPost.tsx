@@ -342,9 +342,25 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${post.title} | Senseoza Blog`}
-        description={post.excerpt}
-        canonicalUrl={`https://senseoza.com/blog/${slug}`}
+        title={post.title.length > 55 ? post.title.slice(0, 55).trim() + '…' : post.title}
+        description={post.excerpt.length > 158 ? post.excerpt.slice(0, 155).trim() + '…' : post.excerpt}
+        canonicalUrl={`https://senseoza-ai.lovable.app/blog/${slug}`}
+        ogImage={post.image}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt,
+          "image": post.image,
+          "author": { "@type": "Person", "name": post.author },
+          "datePublished": post.date,
+          "publisher": {
+            "@type": "Organization",
+            "name": "Senseoza",
+            "url": "https://senseoza-ai.lovable.app"
+          },
+          "mainEntityOfPage": `https://senseoza-ai.lovable.app/blog/${slug}`
+        }}
       />
 
       {/* Reading progress bar */}

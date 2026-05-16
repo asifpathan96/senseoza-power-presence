@@ -127,6 +127,7 @@ const Testimonials = () => {
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection className="max-w-5xl mx-auto">
+            <h2 className="sr-only">Featured Client Review</h2>
             <motion.div 
               className="relative bg-card p-8 md:p-12 rounded-3xl border border-border/50 shadow-xl overflow-hidden"
               whileHover={{ y: -4 }}

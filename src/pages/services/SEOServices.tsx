@@ -81,9 +81,18 @@ const SEOServices = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="SEO Services in Pune | Rank #1 on Google | Senseoza Digital"
-        description="Dominate Google search results with Senseoza's expert SEO services in Pune. AI-driven strategies, local SEO, technical SEO & link building. Call 9168411743 for a free SEO audit."
-        canonicalUrl="https://senseoza.com/services/seo"
+        title="SEO Services in Pune | Senseoza"
+        description="Expert SEO in Pune: technical SEO, local SEO, link building & AI-driven strategy. Free audit at 9168411743."
+        canonicalUrl="https://senseoza-ai.lovable.app/services/seo"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "SEO Services",
+          "description": "Technical SEO, local SEO, keyword research, and link building services.",
+          "provider": { "@type": "Organization", "name": "Senseoza", "url": "https://senseoza-ai.lovable.app" },
+          "areaServed": "Pune",
+          "url": "https://senseoza-ai.lovable.app/services/seo"
+        }}
       />
       
       {/* Hero Section */}

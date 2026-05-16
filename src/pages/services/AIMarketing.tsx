@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Brain, ArrowRight, CheckCircle, Zap, Target, TrendingUp, Users, BarChart3, Lightbulb } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
+import { serviceSchema } from '@/utils/schema';
 import serviceImage from '@/assets/service-ai-marketing.png';
 import aiWhyMatters from '@/assets/ai-why-matters.png';
 import { AnimatedSection, StaggerContainer, StaggerItem, FloatingElement } from '@/components/AnimatedSection';
@@ -110,9 +111,18 @@ const AIMarketing = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="AI-Powered Marketing Services | Leverage Artificial Intelligence | Senseoza"
-        description="Transform your marketing with AI-powered automation, predictive analytics, and machine learning optimization. Deliver personalized experiences at scale."
-        canonicalUrl="https://senseoza.com/services/ai-marketing"
+        title="AI Marketing Services in Pune | Senseoza"
+        description="AI-powered marketing automation, predictive analytics & ML optimization. Personalized campaigns at scale by Senseoza Pune."
+        canonicalUrl="https://senseoza-ai.lovable.app/services/ai-marketing"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "AI-Powered Marketing",
+          "description": "AI-driven marketing automation, predictive analytics, and machine learning optimization.",
+          "provider": { "@type": "Organization", "name": "Senseoza", "url": "https://senseoza-ai.lovable.app" },
+          "areaServed": "Pune",
+          "url": "https://senseoza-ai.lovable.app/services/ai-marketing"
+        }}
       />
       
       {/* Hero Section */}

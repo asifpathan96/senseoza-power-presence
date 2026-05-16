@@ -410,6 +410,8 @@ const Home = () => {
                     <button
                       key={idx}
                       onClick={() => setCurrentClientSlide(idx)}
+                      aria-label={`Go to client slide ${idx + 1}`}
+                      aria-current={idx === currentClientSlide ? 'true' : undefined}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentClientSlide ? 'bg-accent w-8' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`}
                     />
                   ))}
