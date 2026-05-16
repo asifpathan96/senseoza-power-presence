@@ -1,5 +1,5 @@
 # Senseoza - AI-Powered Digital Marketing Agency
-# https://senseoza-ai.lovable.app
+# https://senseoza.com
 # Optimized for Google, Bing, AI tools (ChatGPT, Perplexity, Gemini, Claude)
 
 # Allow all search engines and AI crawlers
@@ -103,4 +103,4 @@ Allow: /*.webp
 Allow: /*.pdf
 
 # Sitemap
-Sitemap: https://senseoza-ai.lovable.app/sitemap.xml
+Sitemap: https://senseoza.com/sitemap.xml
