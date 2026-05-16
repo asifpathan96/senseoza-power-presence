@@ -86,9 +86,9 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Digital Marketing Services in Pune | SEO, PPC, Social Media | Senseoza"
-        description="Complete digital marketing solutions in Pune: SEO, PPC, social media management, content marketing, web design & AI-powered analytics. Get a free quote today!"
-        canonicalUrl="https://senseoza.com/services"
+        title="Digital Marketing Services in Pune | Senseoza"
+        description="SEO, PPC, social media, content, web design & AI marketing services in Pune. Get a free quote from Senseoza today."
+        canonicalUrl="https://senseoza-ai.lovable.app/services"
         schema={serviceSchema}
       />
       
@@ -175,9 +175,13 @@ const Services = () => {
                         ))}
                       </div>
                       
-                      <Link to={service.link} onClick={() => window.scrollTo(0, 0)}>
+                      <Link
+                        to={service.link}
+                        onClick={() => window.scrollTo(0, 0)}
+                        aria-label={`Learn more about ${service.title}`}
+                      >
                         <Button className="gradient-primary shadow-primary hover:shadow-lg transition-all group">
-                          Learn More 
+                          Learn more about {service.title}
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>

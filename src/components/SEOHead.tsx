@@ -9,7 +9,7 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ title, description, canonicalUrl, ogImage, schema }: SEOHeadProps) => {
-  const defaultImage = 'https://lovable.dev/opengraph-image-p98pqg.png';
+  const defaultImage = 'https://storage.googleapis.com/gpt-engineer-file-uploads/l1e3nD6f7jSJ9VcEkXI9h8xYDd43/uploads/1767898704397-fav-icon-senseoza-ai.png';
   
   return (
     <Helmet>

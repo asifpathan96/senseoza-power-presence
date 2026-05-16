@@ -1,0 +1,47 @@
+# Senseoza
+
+> AI-powered digital marketing agency in Pune, India. We help brands grow through SEO, PPC, social media, content marketing, web design, and AI-driven automation.
+
+Senseoza is a Pune-based digital marketing agency that combines artificial intelligence with proven marketing strategies to deliver measurable business growth. We work with brands across real estate, e-commerce, healthcare, SaaS, hospitality, and more.
+
+## Pages
+
+- [Home](/): Overview of Senseoza, our services, results, and clients
+- [About](/about): Our mission, vision, team, and approach to AI-driven marketing
+- [Services](/services): Full list of digital marketing services we offer
+- [Case Studies](/case-studies): Real results from client campaigns
+- [Testimonials](/testimonials): Client reviews and feedback
+- [Blog](/blog): Insights on SEO, AI marketing, social media, and content strategy
+- [Contact](/contact): Get in touch for a free consultation
+
+## Services
+
+- [AI Marketing](/services/ai-marketing): AI-powered automation, predictive analytics, and personalization
+- [SEO Services](/services/seo): Technical SEO, local SEO, content, and link building in Pune
+- [Social Media Marketing](/services/social-media): Strategy and management across Instagram, Facebook, LinkedIn
+- [Content Marketing](/services/content-marketing): Blog, video, and SEO content creation
+- [PPC Advertising](/services/ppc-ads): Google Ads, Meta Ads, and retargeting campaigns
+- [Web Design](/services/web-design): High-converting, responsive websites
+- [Email Automation](/services/email-automation): Lifecycle and drip email campaigns
+- [Analytics & Reporting](/services/analytics): Data dashboards and performance reporting
+- [Influencer Marketing](/services/influencer-marketing): Creator partnerships and UGC campaigns
+- [AI Agents & Automation](/services/ai-agents-automation): Custom AI agents and workflow automation
+
+## Blog
+
+- [AI-Driven Personalization in Pune 2026](/blog/ai-driven-personalization-pune-2026)
+- [How AI is Revolutionizing Digital Marketing in 2026](/blog/ai-revolutionizing-digital-marketing-2026)
+- [SEO Trends 2026](/blog/seo-trends-2026)
+- [Building Brand Authority on Social Media](/blog/building-brand-authority-social-media)
+- [10 AI-Powered Marketing Strategies for 2027](/blog/ai-marketing-strategies-2027)
+- [Ultimate SEO Guide 2026](/blog/ultimate-seo-guide-2026)
+- [Social Media ROI Measurement](/blog/social-media-roi-measurement)
+- [Content Marketing Trends](/blog/content-marketing-trends)
+- [PPC Advanced Strategies](/blog/ppc-advanced-strategies)
+- [Email Marketing Automation](/blog/email-marketing-automation)
+
+## Contact
+
+- Phone: +91 9168411743
+- Email: hello@senseoza.com
+- Location: Pune, Maharashtra, India
