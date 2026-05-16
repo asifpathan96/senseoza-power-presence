@@ -113,15 +113,15 @@ const AIMarketing = () => {
       <SEOHead
         title="AI Marketing Services in Pune | Senseoza"
         description="AI-powered marketing automation, predictive analytics & ML optimization. Personalized campaigns at scale by Senseoza Pune."
-        canonicalUrl="https://senseoza-ai.lovable.app/services/ai-marketing"
+        canonicalUrl="https://senseoza.com/services/ai-marketing"
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
           "name": "AI-Powered Marketing",
           "description": "AI-driven marketing automation, predictive analytics, and machine learning optimization.",
-          "provider": { "@type": "Organization", "name": "Senseoza", "url": "https://senseoza-ai.lovable.app" },
+          "provider": { "@type": "Organization", "name": "Senseoza", "url": "https://senseoza.com" },
           "areaServed": "Pune",
-          "url": "https://senseoza-ai.lovable.app/services/ai-marketing"
+          "url": "https://senseoza.com/services/ai-marketing"
         }}
       />
       
