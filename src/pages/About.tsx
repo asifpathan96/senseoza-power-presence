@@ -46,7 +46,7 @@ const About = () => {
       <SEOHead
         title="About Senseoza | AI Marketing Agency in Pune"
         description="Senseoza is a Pune-based AI marketing agency delivering measurable results through smart, data-driven strategies."
-        canonicalUrl="https://senseoza-ai.lovable.app/about"
+        canonicalUrl="https://senseoza.com/about"
         schema={organizationSchema}
       />
 
