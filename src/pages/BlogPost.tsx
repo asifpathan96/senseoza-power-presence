@@ -344,7 +344,7 @@ const BlogPost = () => {
       <SEOHead
         title={post.title.length > 55 ? post.title.slice(0, 55).trim() + '…' : post.title}
         description={post.excerpt.length > 158 ? post.excerpt.slice(0, 155).trim() + '…' : post.excerpt}
-        canonicalUrl={`https://senseoza.com/blog/${slug}`}
+        canonicalUrl={`https://senseoza-ai.lovable.app/blog/${slug}`}
         ogImage={post.image}
         schema={{
           "@context": "https://schema.org",
@@ -357,9 +357,9 @@ const BlogPost = () => {
           "publisher": {
             "@type": "Organization",
             "name": "Senseoza",
-            "url": "https://senseoza.com"
+            "url": "https://senseoza-ai.lovable.app"
           },
-          "mainEntityOfPage": `https://senseoza.com/blog/${slug}`
+          "mainEntityOfPage": `https://senseoza-ai.lovable.app/blog/${slug}`
         }}
       />
 

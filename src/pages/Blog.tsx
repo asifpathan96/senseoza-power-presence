@@ -136,7 +136,7 @@ const Blog = () => {
       <SEOHead
         title="Digital Marketing Blog | Senseoza"
         description="SEO tips, AI marketing trends, social media & content strategies from Senseoza's expert team in Pune."
-        canonicalUrl="https://senseoza.com/blog"
+        canonicalUrl="https://senseoza-ai.lovable.app/blog"
         schema={blogSchema}
       />
       
